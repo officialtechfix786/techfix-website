@@ -121,4 +121,55 @@ background:#2196F3;
 .btn:hover{
 transform:translateY(-5px);
 box-shadow:0 0 20px cyan;
+}/* ===== Premium Brand Cards ===== */
+
+.brands-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:50px;
 }
+
+.brand-card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
+padding:35px;
+text-align:center;
+transition:.4s;
+cursor:pointer;
+}
+
+.brand-card:hover{
+transform:translateY(-12px) scale(1.03);
+box-shadow:0 0 30px cyan;
+}
+
+.brand-card i{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.brand-card h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.brand-card p{
+color:#ddd;
+line-height:1.7;
+}
+
+.apple i{color:#ffffff;}
+.samsung i{color:#00a2ff;}
+.xiaomi i{color:#ff7b00;}
+.oppo i{color:#00ff66;}
+.vivo i{color:#00b7ff;}
+.huawei i{color:#ff3b3b;}
+.oneplus i{color:#ff0000;}
+.realme i{color:#ffd400;}
+.honor i{color:#00ffe5;}
+.nokia i{color:#4da3ff;}
+.infinix i{color:#00ff99;}
+.tecno i{color:#00d9ff;}
