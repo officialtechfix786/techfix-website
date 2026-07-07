@@ -1,0 +1,124 @@
+/* ===========================
+   TECHFIX SOFTWARE EXP
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0b1220;
+color:#fff;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:white;
+}
+
+ul{
+list-style:none;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(15px);
+z-index:999;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00e5ff;
+font-family:'Orbitron',sans-serif;
+}
+
+.navbar ul{
+display:flex;
+gap:25px;
+}
+
+.navbar ul li a{
+transition:.3s;
+font-weight:500;
+}
+
+.navbar ul li a:hover{
+color:#00e5ff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+background:linear-gradient(135deg,#07111f,#10213f,#081629);
+}
+
+.hero h1{
+font-size:60px;
+font-family:'Orbitron',sans-serif;
+color:#00ffff;
+margin-bottom:20px;
+}
+
+.hero h2{
+font-size:30px;
+color:#ff9800;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+color:#ddd;
+}
+
+.hero-buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 35px;
+border-radius:50px;
+font-weight:bold;
+transition:.4s;
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.email{
+background:#2196F3;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px cyan;
+}
