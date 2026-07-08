@@ -511,3 +511,83 @@ line-height:1.7;
 .infinix i{color:#00ff99;}
 
 .tecno i{color:#00e1ff;}
+/* ===== Buttons Inside Brand Cards ===== */
+
+.brand-card .btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 28px;
+border-radius:40px;
+font-size:16px;
+font-weight:600;
+transition:.4s;
+}
+
+.brand-card .btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px cyan;
+}
+
+.whatsapp{
+background:#25D366;
+color:#fff;
+}
+
+.email{
+background:#0A84FF;
+color:#fff;
+}
+
+/* ===== Footer ===== */
+
+footer{
+background:#081629;
+padding:40px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer h3{
+font-family:'Orbitron',sans-serif;
+color:#00f7ff;
+margin-bottom:15px;
+}
+
+footer p{
+color:#ccc;
+line-height:1.8;
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+padding:15px;
+}
+
+.navbar ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title h2{
+font-size:32px;
+}
+
+}
