@@ -1,15 +1,17 @@
-// ================================
-// TECHFIX SOFTWARE EXP
-// ================================
-
-// Typing Effect
-
 const text = [
-    "Professional Mobile Software Solutions",
-    "Apple iCloud Solutions",
-    "Android FRP & Flashing",
-    "Cyber Security Services",
-    "Data Recovery Experts"
+
+"Android Flashing Expert",
+
+"Apple iCloud Specialist",
+
+"FRP Unlock Professional",
+
+"Mobile Software Engineer",
+
+"Cyber Security Expert",
+
+"Data Recovery Specialist"
+
 ];
 
 let count = 0;
@@ -17,47 +19,93 @@ let index = 0;
 let currentText = "";
 let letter = "";
 
-(function type() {
+(function type(){
 
-    if (count === text.length) {
-        count = 0;
-    }
+if(count === text.length){
+count = 0;
+}
 
-    currentText = text[count];
-    letter = currentText.slice(0, ++index);
+currentText = text[count];
 
-    document.getElementById("typing").textContent = letter;
+letter = currentText.slice(0, ++index);
 
-    if (letter.length === currentText.length) {
+document.getElementById("typing").textContent = letter;
 
-        count++;
-        index = 0;
+if(letter.length === currentText.length){
 
-        setTimeout(type, 1500);
+count++;
 
-    } else {
+index = 0;
 
-        setTimeout(type, 80);
+setTimeout(type,1800);
 
-    }
+}else{
+
+setTimeout(type,90);
+
+}
 
 })();
+// ===== Smooth Reveal Animation =====
 
+const observer = new IntersectionObserver((entries)=>{
 
-// Navbar Shadow
+entries.forEach(entry=>{
 
-window.addEventListener("scroll", () => {
+if(entry.isIntersecting){
 
-    const nav = document.querySelector(".navbar");
+entry.target.style.opacity="1";
 
-    if (window.scrollY > 40) {
+entry.target.style.transform="translateY(0)";
 
-        nav.style.boxShadow = "0 0 20px cyan";
+}
 
-    } else {
+});
 
-        nav.style.boxShadow = "none";
+});
 
-    }
+document.querySelectorAll("section,.card,.brand-card").forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(50px)";
+
+el.style.transition="all .8s ease";
+
+observer.observe(el);
+
+});
+// ===== Active Navbar =====
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const sectionTop=section.offsetTop-120;
+
+if(pageYOffset>=sectionTop){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
 
 });
