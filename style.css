@@ -550,3 +550,38 @@ transform:translateY(-6px);
 }
 
 }
+/*================ STATS SECTION ================*/
+
+#stats{
+    padding:80px 8%;
+    background:#081320;
+}
+
+#stats .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+#stats .card{
+    text-align:center;
+}
+
+#stats .card i{
+    font-size:45px;
+    color:#00ffe7;
+    margin-bottom:15px;
+}
+
+#stats .card h3{
+    font-size:38px;
+    color:#00ffe7;
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:10px;
+}
+
+#stats .card p{
+    color:#ddd;
+    font-size:17px;
+}
