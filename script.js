@@ -268,3 +268,34 @@ setTimeout(typeLine,300);
 typeLine();
 
 }
+/* ==========================
+   MOBILE DATABASE
+========================== */
+
+function showBrand(brand){
+
+const sections=document.querySelectorAll(".brand-models");
+
+sections.forEach(section=>{
+
+section.style.display="none";
+
+});
+
+const active=document.getElementById(brand);
+
+if(active){
+
+active.style.display="block";
+
+active.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+}
+
+}
