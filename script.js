@@ -1,54 +1,158 @@
-const text = [
+/* ==========================================
+   TECHFIX SOFTWARE EXP V3
+   CEO : MIAN AHMAD
+========================================== */
 
-"Android Flashing Expert",
+/* ==========================
+   LOADER
+========================== */
 
-"Apple iCloud Specialist",
+window.addEventListener("load", () => {
 
-"FRP Unlock Professional",
+const loader = document.getElementById("loader");
 
-"Mobile Software Engineer",
+setTimeout(() => {
 
-"Cyber Security Expert",
+loader.style.opacity = "0";
 
-"Data Recovery Specialist"
+loader.style.visibility = "hidden";
 
-];
+},1800);
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+});
 
-(function type(){
+/* ==========================
+   MATRIX RAIN
+========================== */
 
-if(count === text.length){
-count = 0;
+const canvas = document.getElementById("matrix");
+
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+
+canvas.height = window.innerHeight;
+
+const letters = "01TECHFIXSOFTWAREEXPANDROIDAPPLECYBER";
+
+const chars = letters.split("");
+
+const fontSize = 16;
+
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let x=0;x<columns;x++){
+
+drops[x]=1;
+
 }
 
-currentText = text[count];
+function drawMatrix(){
 
-letter = currentText.slice(0, ++index);
+ctx.fillStyle="rgba(5,8,15,.08)";
 
-document.getElementById("typing").textContent = letter;
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-if(letter.length === currentText.length){
+ctx.fillStyle="#00FF88";
 
-count++;
+ctx.font=fontSize+"px monospace";
 
-index = 0;
+for(let i=0;i<drops.length;i++){
 
-setTimeout(type,1800);
+const text=chars[Math.floor(Math.random()*chars.length)];
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
+
+drops[i]=0;
+
+}
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(drawMatrix,35);
+
+/* ==========================
+   RESIZE
+========================== */
+
+window.addEventListener("resize",()=>{
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+});
+/* ==========================
+   COUNTER ANIMATION
+========================== */
+
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver((entries) => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+const counter = entry.target;
+
+const target = +counter.dataset.target;
+
+let count = 0;
+
+const speed = target / 120;
+
+const update = () => {
+
+count += speed;
+
+if(count < target){
+
+counter.innerText = Math.floor(count);
+
+requestAnimationFrame(update);
 
 }else{
 
-setTimeout(type,90);
+counter.innerText = target + "+";
 
 }
 
-})();
-// ===== Smooth Reveal Animation =====
+};
 
-const observer = new IntersectionObserver((entries)=>{
+update();
+
+counterObserver.unobserve(counter);
+
+}
+
+});
+
+});
+
+counters.forEach(counter => {
+
+counterObserver.observe(counter);
+
+});
+
+/* ==========================
+   SCROLL REVEAL
+========================== */
+
+const revealItems = document.querySelectorAll(
+".hero-left,.hero-right,.stat-box,.service-card"
+);
+
+const revealObserver = new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
@@ -62,138 +166,105 @@ entry.target.style.transform="translateY(0)";
 
 });
 
+},{
+threshold:.2
 });
 
-document.querySelectorAll("section,.card,.brand-card").forEach(el=>{
+revealItems.forEach(item=>{
 
-el.style.opacity="0";
+item.style.opacity="0";
 
-el.style.transform="translateY(50px)";
+item.style.transform="translateY(50px)";
 
-el.style.transition="all .8s ease";
+item.style.transition=".8s ease";
 
-observer.observe(el);
+revealObserver.observe(item);
 
 });
-// ===== Active Navbar =====
 
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll(".nav-links a");
+/* ==========================
+   NAVBAR SCROLL EFFECT
+========================== */
 
 window.addEventListener("scroll",()=>{
 
-let current="";
+const header=document.querySelector("header");
 
-sections.forEach(section=>{
+if(window.scrollY>50){
 
-const sectionTop=section.offsetTop-120;
+header.style.background="rgba(5,8,15,.92)";
 
-if(pageYOffset>=sectionTop){
-
-current=section.getAttribute("id");
-
-}
-
-});
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-// ===== Animated Counter =====
-
-const counters = document.querySelectorAll("#stats h3");
-
-const speed = 80;
-
-counters.forEach(counter => {
-
-const update = () => {
-
-const target = +counter.innerText.replace("+","");
-
-const count = +counter.getAttribute("data-count") || 0;
-
-const inc = Math.ceil(target / speed);
-
-if(count < target){
-
-counter.setAttribute("data-count", count + inc);
-
-counter.innerText = (count + inc) + "+";
-
-setTimeout(update,20);
+header.style.boxShadow="0 0 25px rgba(0,255,136,.20)";
 
 }else{
 
-counter.innerText = target + "+";
+header.style.background="rgba(5,8,15,.75)";
+
+header.style.boxShadow="none";
 
 }
 
-};
-
-update();
-
 });
-// ================= SCROLL REVEAL =================
+/* ==========================
+   HACKER TERMINAL
+========================== */
 
-const revealItems = document.querySelectorAll(
-  ".card, .brand-card, .about-box, .section-title"
-);
+const terminalText = [
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, {
-  threshold: 0.15
-});
+"> Booting TechFix Software Exp...",
 
-revealItems.forEach((item) => {
-  item.style.opacity = "0";
-  item.style.transform = "translateY(40px)";
-  item.style.transition = "all 0.8s ease";
-  revealObserver.observe(item);
-});
-// ================= ACTIVE NAV LINK =================
+"> Initializing Android Module...",
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+"> Loading Apple Services...",
 
-window.addEventListener("scroll", () => {
+"> Connecting Pixel Database...",
 
-  let current = "";
+"> Connecting Samsung Server...",
 
-  sections.forEach((section) => {
+"> Loading Xiaomi Module...",
 
-    const top = section.offsetTop - 120;
+"> Loading Mobile Tools...",
 
-    if (window.scrollY >= top) {
-      current = section.getAttribute("id");
-    }
+"> Security Check Passed ✔",
 
-  });
+"> Access Granted..."
 
-  navLinks.forEach((link) => {
+];
 
-    link.classList.remove("active");
+const terminal = document.getElementById("terminal");
 
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
+if(terminal){
 
-  });
+let line = 0;
 
-});
+let char = 0;
+
+function typeLine(){
+
+if(line >= terminalText.length) return;
+
+if(char < terminalText[line].length){
+
+terminal.innerHTML += terminalText[line].charAt(char);
+
+char++;
+
+setTimeout(typeLine,40);
+
+}else{
+
+terminal.innerHTML += "<br>";
+
+line++;
+
+char=0;
+
+setTimeout(typeLine,300);
+
+}
+
+}
+
+typeLine();
+
+}
