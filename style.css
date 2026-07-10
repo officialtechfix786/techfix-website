@@ -1138,19 +1138,28 @@ font-weight:700;
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
+justify-content:center;
+gap:15px;
 }
 
 .logo-img{
-width:50px;
-height:50px;
+width:55px;
+height:55px;
+object-fit:contain;
 border-radius:50%;
 box-shadow:0 0 15px cyan;
+transition:.3s;
+}
+
+.logo-img:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #00ffff;
 }
 
 .logo span{
 font-family:'Orbitron',sans-serif;
 font-size:24px;
-color:#00f7ff;
 font-weight:700;
+color:#00f7ff;
+white-space:nowrap;
 }
