@@ -4,44 +4,59 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Supported Mobile Brands | TechFix Software Exp</title>
+<title>Supported Mobiles | TechFix Software Exp</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/logo-left.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<div id="loader">
+
+<h1>TECHFIX SOFTWARE EXP</h1>
+
+<p>Loading Mobile Database...</p>
+
+<div class="loader-bar">
+<div class="loader-fill"></div>
+</div>
+
+</div>
+
+<canvas id="matrix"></canvas>
+
+<header>
+
 <nav class="navbar">
 
 <div class="logo">
 
-<i class="fa-solid fa-microchip"></i>
+<img src="images/logo-left.png" class="logo-img">
 
-TechFix Software Exp
+<span>TECHFIX SOFTWARE EXP</span>
+
+<img src="images/logo-right.png" class="logo-img">
 
 </div>
 
-<ul>
+<ul class="nav-links">
 
 <li><a href="index.html">Home</a></li>
 
-<li><a href="mobiles.html">Mobiles</a></li>
-
-<li><a href="icloud.html">iCloud</a></li>
+<li><a href="mobiles.html" class="active">Mobiles</a></li>
 
 <li><a href="android.html">Android</a></li>
 
-<li><a href="cyber.html">Cyber Security</a></li>
-
-<li><a href="recovery.html">Data Recovery</a></li>
+<li><a href="downloads.html">Downloads</a></li>
 
 <li><a href="contact.html">Contact</a></li>
 
@@ -49,465 +64,224 @@ TechFix Software Exp
 
 </nav>
 
+</header>
+
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-left">
 
-<h1>SUPPORTED MOBILE BRANDS</h1>
+<h4>SUPPORTED</h4>
 
-<h2>All Major Smartphone Brands</h2>
+<h1>MOBILE DATABASE</h1>
+
+<h2 class="glow-text">All Major Brands</h2>
 
 <p>
 
-Professional Mobile Software Solutions, Flashing, Unlocking, Repair, iCloud, Android, Data Recovery & Technical Support.
+Browse supported mobile brands and quickly access available device models.
 
 </p>
 
 </div>
 
 </section>
+<!-- ================= MOBILE BRANDS ================= -->
 
-<section id="brands">
+<section id="mobile-brands">
 
 <div class="section-title">
 
-<h2>Choose Your Mobile Brand</h2>
+<h2>Supported Mobile Brands</h2>
 
-<p>Select Your Brand To View Supported Models</p>
-
-</div>
-
-<div class="brands-grid">
-
-<div class="brand-card apple">
-<div class="brand-card apple">
-
-<img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=500&q=80"
-alt="Apple iPhone"
-style="width:100%;height:220px;object-fit:cover;border-radius:15px;margin-bottom:20px;">
-
-<h3>Apple iPhone</h3>
-
-<p>
-iPhone 6 • 6s • 7 • 8 • X • XR • XS •
-11 • 12 • 13 • 14 • 15 • 16 • 17 Series
-</p>
-
-<a href="#apple-models" class="btn email">
-
-View Models
-
-</a>
+<p>Select Your Brand</p>
 
 </div>
-<img src="images/apple.png" alt="Apple iPhone" class="phone-img">
 
+<div class="services-grid">
+
+<div class="service-card">
+<img src="images/apple.png" class="brand-img" alt="Apple">
 <h3>Apple</h3>
-
-<p>iPhone 6 → iPhone 17 Pro Max</p>
-
-<a href="icloud.html" class="btn email">View Models</a>
-
+<p>iPhone & iPad Models</p>
 </div>
 
-<div class="brand-card samsung">
-
-<img src="images/samsung.png" alt="Samsung" class="phone-img">
-
+<div class="service-card">
+<img src="images/samsung.png" class="brand-img" alt="Samsung">
 <h3>Samsung</h3>
-
-<p>Galaxy S • Note • A • M • Z Series</p>
-
-<a href="#samsung-models" class="btn whatsapp">View Models</a>
-
+<p>Galaxy Series</p>
 </div>
 
-<div class="brand-card xiaomi">
+<div class="service-card">
+<img src="images/pixel.png" class="brand-img" alt="Google Pixel">
+<h3>Google Pixel</h3>
+<p>Pixel Series</p>
+</div>
 
-<img src="images/xiaomi.png" alt="Xiaomi" class="phone-img">
-
+<div class="service-card">
+<img src="images/xiaomi.png" class="brand-img" alt="Xiaomi">
 <h3>Xiaomi</h3>
-
-<p>Mi • Redmi • POCO</p>
-
-<a href="#xiaomi-models" class="btn whatsapp">View Models</a>
-
+<p>Mi / Redmi / POCO</p>
 </div>
 
-<div class="brand-card oppo">
-
-<img src="images/oppo.png" alt="OPPO" class="phone-img">
-
-<h3>OPPO</h3>
-
-<p>All Latest Models</p>
-
-<a href="#oppo-models" class="btn whatsapp">View Models</a>
-
-</div>
-<div class="brand-card vivo">
-
-<img src="images/vivo.png" alt="Vivo" class="phone-img">
-
+<div class="service-card">
+<img src="images/vivo.png" class="brand-img" alt="Vivo">
 <h3>Vivo</h3>
-
-<p>Y • V • X Series</p>
-
-<a href="#vivo-models" class="btn whatsapp">View Models</a>
-
+<p>Y / V / X Series</p>
 </div>
 
-<div class="brand-card huawei">
-
-<img src="images/huawei.png" alt="Huawei" class="phone-img">
-
-<h3>Huawei</h3>
-
-<p>P • Mate • Nova Series</p>
-
-<a href="#huawei-models" class="btn whatsapp">View Models</a>
-
+<div class="service-card">
+<img src="images/oppo.png" class="brand-img" alt="Oppo">
+<h3>Oppo</h3>
+<p>A / Reno / Find</p>
 </div>
 
-<div class="brand-card oneplus">
-
-<img src="images/oneplus.png" alt="OnePlus" class="phone-img">
-
-<h3>OnePlus</h3>
-
-<p>Nord • Number Series</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
-</div>
-
-<div class="brand-card realme">
-
-<img src="images/realme.png" alt="Realme" class="phone-img">
-
+<div class="service-card">
+<img src="images/realme.png" class="brand-img" alt="Realme">
 <h3>Realme</h3>
-
-<p>C • Narzo • GT Series</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
+<p>Number / GT / C Series</p>
 </div>
 
-<div class="brand-card honor">
-
-<img src="images/honor.png" alt="Honor" class="phone-img">
-
-<h3>Honor</h3>
-
-<p>Magic • X Series</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
+<div class="service-card">
+<img src="images/oneplus.png" class="brand-img" alt="OnePlus">
+<h3>OnePlus</h3>
+<p>Nord & Flagship</p>
 </div>
 
-<div class="brand-card nokia">
-
-<img src="images/nokia.png" alt="Nokia" class="phone-img">
-
-<h3>Nokia</h3>
-
-<p>All Android Models</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
+<div class="service-card">
+<img src="images/tecno.png" class="brand-img" alt="Tecno">
+<h3>Tecno</h3>
+<p>Spark / Camon / Phantom</p>
 </div>
 
-<div class="brand-card infinix">
-
-<img src="images/infinix.png" alt="Infinix" class="phone-img">
-
+<div class="service-card">
+<img src="images/infinix.png" class="brand-img" alt="Infinix">
 <h3>Infinix</h3>
-
-<p>Hot • Note • Zero Series</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
+<p>Hot / Note / Zero</p>
 </div>
 
-<div class="brand-card tecno">
-
-<img src="images/tecno.png" alt="TECNO" class="phone-img">
-
-<h3>TECNO</h3>
-
-<p>Spark • Camon • Phantom</p>
-
-<a href="android.html" class="btn whatsapp">View Models</a>
-
+<div class="service-card">
+<img src="images/motorola.png" class="brand-img" alt="Motorola">
+<h3>Motorola</h3>
+<p>Moto G / Edge / Razr</p>
 </div>
+
+<div class="service-card">
+<img src="images/nokia.png" class="brand-img" alt="Nokia">
+<h3>Nokia</h3>
+<p>Classic & Android</p>
+</div>
+
 </div>
 
 </section>
-<section id="apple-models">
+<!-- ================= MODEL DATABASE ================= -->
+
+<section id="models">
 
 <div class="section-title">
 
-<h2>Apple Supported Models</h2>
+<h2>Google Pixel Models</h2>
 
-<p>Professional Apple Software Support</p>
-
-</div>
-
-<div class="about-box">
-
-<h3>Supported iPhone Models</h3>
-
-<p>
-
-• iPhone 6<br>
-• iPhone 6 Plus<br>
-• iPhone 6s<br>
-• iPhone 6s Plus<br>
-• iPhone 7<br>
-• iPhone 7 Plus<br>
-• iPhone 8<br>
-• iPhone 8 Plus<br>
-• iPhone X<br>
-• iPhone XR<br>
-• iPhone XS<br>
-• iPhone XS Max<br>
-• iPhone 11<br>
-• iPhone 11 Pro<br>
-• iPhone 11 Pro Max<br>
-• iPhone 12 Mini<br>
-• iPhone 12<br>
-• iPhone 12 Pro<br>
-• iPhone 12 Pro Max<br>
-• iPhone 13 Mini<br>
-• iPhone 13<br>
-• iPhone 13 Pro<br>
-• iPhone 13 Pro Max<br>
-• iPhone 14 Series<br>
-• iPhone 15 Series<br>
-• iPhone 16 Series<br>
-• iPhone 17 Series
-
-</p>
+<p>Supported Devices</p>
 
 </div>
 
-</section>
-  <section id="samsung-models">
+<div class="services-grid">
 
-<div class="section-title">
+<div class="service-card">
+<h3>Pixel Series</h3>
 
-<h2>Samsung Supported Models</h2>
+<ul class="model-list">
 
-<p>Professional Samsung Software Support</p>
+<li>Pixel 3</li>
+<li>Pixel 3 XL</li>
+<li>Pixel 3a</li>
+<li>Pixel 3a XL</li>
+
+<li>Pixel 4</li>
+<li>Pixel 4 XL</li>
+<li>Pixel 4a</li>
+<li>Pixel 4a 5G</li>
+
+<li>Pixel 5</li>
+<li>Pixel 5a</li>
+
+<li>Pixel 6</li>
+<li>Pixel 6 Pro</li>
+<li>Pixel 6a</li>
+
+<li>Pixel 7</li>
+<li>Pixel 7 Pro</li>
+<li>Pixel 7a</li>
+
+<li>Pixel Fold</li>
+
+<li>Pixel 8</li>
+<li>Pixel 8 Pro</li>
+<li>Pixel 8a</li>
+
+<li>Pixel 9</li>
+<li>Pixel 9 Pro</li>
+<li>Pixel 9 Pro XL</li>
+<li>Pixel 9 Pro Fold</li>
+
+</ul>
 
 </div>
-
-<div class="about-box">
-
-<h3>Supported Samsung Devices</h3>
-
-<p>
-
-<b>Galaxy S Series</b><br>
-
-S20 • S20+ • S20 Ultra<br>
-
-S21 • S21+ • S21 Ultra<br>
-
-S22 • S22+ • S22 Ultra<br>
-
-S23 • S23+ • S23 Ultra<br>
-
-S24 • S24+ • S24 Ultra<br>
-
-S25 • S25+ • S25 Ultra<br><br>
-
-<b>Galaxy Note Series</b><br>
-
-Note 10 • Note 10+<br>
-
-Note 20 • Note 20 Ultra<br><br>
-
-<b>Galaxy A Series</b><br>
-
-A14 • A15 • A16<br>
-
-A24 • A25 • A34 • A35<br>
-
-A54 • A55 • A56<br><br>
-
-<b>Galaxy M Series</b><br>
-
-M14 • M15 • M34 • M35 • M54 • M55<br><br>
-
-<b>Galaxy Z Series</b><br>
-
-Z Flip • Z Fold Models
-
-</p>
 
 </div>
 
 </section>
-  <section id="xiaomi-models">
+<!-- ================= FOOTER ================= -->
 
-<div class="section-title">
-<h2>Xiaomi Supported Models</h2>
-<p>Mi • Redmi • POCO</p>
-</div>
+<footer>
 
-<div class="about-box">
+<div class="footer-container">
 
-<h3>Supported Xiaomi Devices</h3>
+<div class="footer-box">
 
-<p>
-
-<b>Mi Series</b><br>
-Mi 10 • Mi 11 • Mi 12 • Mi 13 • Mi 14 • Mi 15<br><br>
-
-<b>Redmi Series</b><br>
-Redmi 10 • Redmi 11 • Redmi 12 • Redmi 13 • Redmi 14<br><br>
-
-<b>Redmi Note Series</b><br>
-Note 10 • Note 11 • Note 12 • Note 13 • Note 14<br><br>
-
-<b>POCO Series</b><br>
-POCO X • F • M • C Series
-
-</p>
-
-</div>
-
-</section>
-
-<section id="oppo-models">
-
-<div class="section-title">
-<h2>OPPO Supported Models</h2>
-<p>All Latest OPPO Models</p>
-</div>
-
-<div class="about-box">
-
-<h3>Supported OPPO Devices</h3>
+<h3>TechFix Software Exp</h3>
 
 <p>
-
-Find X Series<br>
-
-Reno Series<br>
-
-A Series<br>
-
-F Series<br>
-
-K Series
-
+Professional Mobile Software Database
 </p>
 
 </div>
 
-</section>
+<div class="footer-box">
 
-<section id="vivo-models">
-
-<div class="section-title">
-<h2>Vivo Supported Models</h2>
-<p>All Latest Vivo Models</p>
-</div>
-
-<div class="about-box">
-
-<h3>Supported Vivo Devices</h3>
+<h3>Supported Brands</h3>
 
 <p>
-
-X Series<br>
-
-V Series<br>
-
-Y Series<br>
-
-T Series<br>
-
-iQOO Series
-
+Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • OnePlus • Tecno • Infinix
 </p>
 
 </div>
 
-</section>
+<div class="footer-box">
 
-<section id="huawei-models">
+<h3>Quick Links</h3>
 
-<div class="section-title">
-<h2>Huawei Supported Models</h2>
-<p>Huawei Smartphones</p>
+<a href="index.html">Home</a><br>
+<a href="android.html">Android</a><br>
+<a href="downloads.html">Downloads</a><br>
+<a href="contact.html">Contact</a>
+
 </div>
 
-<div class="about-box">
+</div>
 
-<h3>Supported Huawei Devices</h3>
+<div class="footer-bottom">
 
 <p>
-
-P Series<br>
-
-Mate Series<br>
-
-Nova Series<br>
-
-Y Series<br>
-
-Enjoy Series
-
+© 2026 TechFix Software Exp | All Rights Reserved
 </p>
 
 </div>
-
-</section>
-<footer style="text-align:center;padding:40px 20px;background:#081629;">
-
-<h3 style="color:#00f7ff;font-family:'Orbitron',sans-serif;">
-
-TechFix Software Exp
-
-</h3>
-
-<p style="margin:15px 0;">
-
-Professional Mobile Software • iCloud Solutions • Android Repair • Cyber Security • Data Recovery
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-whatsapp"></i>
-
-+92 XXX XXXXXXX
-
-&nbsp;&nbsp;|
-
-&nbsp;&nbsp;
-
-<i class="fa-solid fa-envelope"></i>
-
-your@email.com
-
-</p>
-
-<br>
-
-<p style="color:#888;">
-
-© 2026 TechFix Software Exp. All Rights Reserved.
-
-</p>
 
 </footer>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
