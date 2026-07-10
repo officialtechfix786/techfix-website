@@ -1107,3 +1107,38 @@ margin-bottom:50px;
 .hidden{
 display:none;
 }
+/* ===========================
+   TERMINAL
+=========================== */
+
+#terminal-section{
+
+padding:80px 8%;
+
+}
+
+#terminal{
+
+background:#000;
+
+border:1px solid rgba(0,255,136,.3);
+
+border-radius:15px;
+
+padding:30px;
+
+font-family:monospace;
+
+font-size:17px;
+
+color:#00FF88;
+
+line-height:2;
+
+min-height:260px;
+
+box-shadow:0 0 25px rgba(0,255,136,.2);
+
+overflow:auto;
+
+}
