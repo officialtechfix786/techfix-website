@@ -1,33 +1,31 @@
 /*==================================================
-        TECHFIX SOFTWARE EXP V5
-        CEO : MIAN AHMAD
+TECHFIX SOFTWARE EXP V6
+CEO : MIAN AHMAD
 ==================================================*/
 
-/*=========================
+/*============================
 LOADER
-=========================*/
+============================*/
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-const loader=document.getElementById("loader");
+const loader = document.getElementById("loader");
 
-if(loader){
+setTimeout(() => {
 
-setTimeout(()=>{
+loader.style.opacity = "0";
 
-loader.style.opacity="0";
+loader.style.visibility = "hidden";
 
-loader.style.visibility="hidden";
+loader.style.transition = ".6s";
 
-},1500);
-
-}
+},1800);
 
 });
 
-/*=========================
+/*============================
 MATRIX BACKGROUND
-=========================*/
+============================*/
 
 const canvas=document.getElementById("matrix");
 
@@ -39,13 +37,13 @@ canvas.width=window.innerWidth;
 
 canvas.height=window.innerHeight;
 
-const letters="01TECHFIXSOFTWAREEXPANDROIDAPPLECYBER";
+const letters="TECHFIXSOFTWAREEXPANDROIDAPPLECYBER0123456789";
 
 const chars=letters.split("");
 
-const fontSize=16;
+const size=18;
 
-const columns=Math.floor(canvas.width/fontSize);
+const columns=Math.floor(canvas.width/size);
 
 const drops=[];
 
@@ -57,21 +55,21 @@ drops[i]=1;
 
 function drawMatrix(){
 
-ctx.fillStyle="rgba(5,7,13,.08)";
+ctx.fillStyle="rgba(7,11,20,.08)";
 
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="#00ff88";
+ctx.fillStyle="#00D9FF";
 
-ctx.font=fontSize+"px monospace";
+ctx.font=size+"px monospace";
 
 for(let i=0;i<drops.length;i++){
 
 const text=chars[Math.floor(Math.random()*chars.length)];
 
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+ctx.fillText(text,i*size,drops[i]*size);
 
-if(drops[i]*fontSize>canvas.height&&Math.random()>.975){
+if(drops[i]*size>canvas.height&&Math.random()>.98){
 
 drops[i]=0;
 
@@ -94,15 +92,31 @@ canvas.height=window.innerHeight;
 });
 
 }
-/*==================================================
-        COUNTER ANIMATION
-==================================================*/
+
+/*============================
+MOBILE MENU
+============================*/
+
+const menuBtn=document.getElementById("menuToggle");
+
+const sidebar=document.getElementById("sidebar");
+
+if(menuBtn&&sidebar){
+
+menuBtn.onclick=()=>{
+
+sidebar.classList.toggle("show");
+
+};
+
+}
+/*============================
+COUNTER ANIMATION
+============================*/
 
 const counters=document.querySelectorAll(".counter");
 
-if(counters.length){
-
-const observer=new IntersectionObserver((entries)=>{
+const counterObserver=new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
@@ -110,21 +124,21 @@ if(entry.isIntersecting){
 
 const counter=entry.target;
 
-const target=Number(counter.dataset.target);
+const target=+counter.dataset.target;
 
 let current=0;
 
-const speed=Math.max(1,target/120);
+const increment=target/120;
 
-function update(){
+function updateCounter(){
 
-current+=speed;
+current+=increment;
 
 if(current<target){
 
 counter.innerText=Math.floor(current);
 
-requestAnimationFrame(update);
+requestAnimationFrame(updateCounter);
 
 }else{
 
@@ -134,31 +148,31 @@ counter.innerText=target+"+";
 
 }
 
-update();
+updateCounter();
 
-observer.unobserve(counter);
+counterObserver.unobserve(counter);
 
 }
 
 });
 
-},{threshold:.3});
+},{threshold:.4});
 
-counters.forEach(counter=>observer.observe(counter));
+counters.forEach(counter=>{
 
-}
+counterObserver.observe(counter);
 
-/*==================================================
-        SCROLL REVEAL
-==================================================*/
+});
+
+/*============================
+SCROLL REVEAL
+============================*/
 
 const revealItems=document.querySelectorAll(
 
-".hero,.stat-card,.service-card,.why-card,.about-box,.about-left"
+".hero-left,.hero-right,.stat-card,.service-card,.why-card,.about-card,.terminal-window"
 
 );
-
-if(revealItems.length){
 
 const revealObserver=new IntersectionObserver((entries)=>{
 
@@ -180,7 +194,7 @@ revealItems.forEach(item=>{
 
 item.style.opacity="0";
 
-item.style.transform="translateY(40px)";
+item.style.transform="translateY(50px)";
 
 item.style.transition=".8s ease";
 
@@ -188,112 +202,117 @@ revealObserver.observe(item);
 
 });
 
-}
+/*============================
+SIDEBAR ACTIVE LINK
+============================*/
 
-/*==================================================
-        ACTIVE SIDEBAR
-==================================================*/
+const links=document.querySelectorAll(".sidebar nav a");
 
-const currentPage=window.location.pathname.split("/").pop();
+links.forEach(link=>{
 
-document.querySelectorAll(".sidebar nav a").forEach(link=>{
+link.addEventListener("click",()=>{
 
-const href=link.getAttribute("href");
-
-if(href===currentPage||(!currentPage&&href==="index.html")){
+links.forEach(item=>item.classList.remove("active"));
 
 link.classList.add("active");
 
+});
+
+});
+
+/*============================
+HEADER SHADOW
+============================*/
+
+window.addEventListener("scroll",()=>{
+
+const mobileHeader=document.querySelector(".mobile-header");
+
+if(!mobileHeader) return;
+
+if(window.scrollY>30){
+
+mobileHeader.style.boxShadow="0 10px 30px rgba(0,0,0,.35)";
+
 }else{
 
-link.classList.remove("active");
+mobileHeader.style.boxShadow="none";
 
 }
 
 });
-/*==================================================
-            HERO TYPING EFFECT
-==================================================*/
+/*============================
+TERMINAL ANIMATION
+============================*/
 
-const heroTitle=document.querySelector(".hero h2");
+const terminal=document.getElementById("terminal");
 
-if(heroTitle){
+if(terminal){
 
-const text=heroTitle.innerText;
+const lines=[
 
-heroTitle.innerText="";
+"> Booting TechFix Software EXP...",
 
-let i=0;
+"> Loading Mobile Database...",
 
-function typing(){
+"> Android Module Loaded ✔",
 
-if(i<text.length){
+"> Apple Services Loaded ✔",
 
-heroTitle.innerHTML+=text.charAt(i);
+"> Samsung Database Connected ✔",
 
-i++;
+"> Google Pixel Database Connected ✔",
 
-setTimeout(typing,45);
+"> Xiaomi Module Loaded ✔",
+
+"> Cyber Security Initialized ✔",
+
+"> Platform Ready..."
+
+];
+
+let line=0;
+let character=0;
+
+function typeTerminal(){
+
+if(line>=lines.length) return;
+
+if(character<lines[line].length){
+
+terminal.innerHTML+=lines[line].charAt(character);
+
+character++;
+
+setTimeout(typeTerminal,35);
+
+}else{
+
+terminal.innerHTML+="<br>";
+
+line++;
+
+character=0;
+
+setTimeout(typeTerminal,250);
 
 }
 
 }
 
-setTimeout(typing,600);
+typeTerminal();
 
 }
 
-/*==================================================
-            CARD HOVER EFFECT
-==================================================*/
-
-const cards=document.querySelectorAll(
-
-".service-card,.stat-card,.why-card,.about-box"
-
-);
-
-cards.forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-const rect=card.getBoundingClientRect();
-
-const x=e.clientX-rect.left;
-
-const y=e.clientY-rect.top;
-
-card.style.background=
-
-`radial-gradient(circle at ${x}px ${y}px,
-
-rgba(0,255,136,.18),
-
-rgba(255,255,255,.04) 45%,
-
-rgba(0,0,0,.15) 100%)`;
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.background=
-
-"linear-gradient(145deg,rgba(255,255,255,.04),rgba(0,255,136,.05))";
-
-});
-
-});
-
-/*==================================================
-            BUTTON ANIMATION
-==================================================*/
+/*============================
+BUTTON RIPPLE
+============================*/
 
 document.querySelectorAll(".btn").forEach(btn=>{
 
 btn.addEventListener("mouseenter",()=>{
 
-btn.style.transform="translateY(-6px) scale(1.04)";
+btn.style.transform="translateY(-5px) scale(1.03)";
 
 });
 
@@ -304,73 +323,123 @@ btn.style.transform="translateY(0) scale(1)";
 });
 
 });
-/*==================================================
-        FLOATING EFFECT
-==================================================*/
 
-const floatingCards=document.querySelectorAll(
+/*============================
+CARD HOVER EFFECT
+============================*/
 
-".stat-card,.service-card,.why-card,.about-box"
+document.querySelectorAll(
 
-);
+".service-card,.stat-card,.why-card,.about-card"
 
-floatingCards.forEach((card,index)=>{
+).forEach(card=>{
 
-card.style.animation=
+card.addEventListener("mouseenter",()=>{
 
-`floatAnimation ${3+(index*0.2)}s ease-in-out infinite`;
-
-});
-
-/*==================================================
-        PAGE FADE IN
-==================================================*/
-
-document.body.style.opacity="0";
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document.body.style.transition="opacity .8s ease";
-
-document.body.style.opacity="1";
-
-},200);
+card.style.transform="translateY(-10px)";
 
 });
 
-/*==================================================
-        SCROLL TO TOP
-==================================================*/
+card.addEventListener("mouseleave",()=>{
 
-const scrollBtn=document.createElement("div");
+card.style.transform="translateY(0)";
 
-scrollBtn.innerHTML='<i class="fas fa-arrow-up"></i>';
+});
 
-scrollBtn.id="scrollTop";
+});
 
-document.body.appendChild(scrollBtn);
+/*============================
+SMOOTH SCROLL
+============================*/
 
-window.addEventListener("scroll",()=>{
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-if(window.scrollY>400){
+anchor.addEventListener("click",function(e){
 
-scrollBtn.style.opacity="1";
+const target=document.querySelector(this.getAttribute("href"));
 
-scrollBtn.style.visibility="visible";
+if(target){
 
-}else{
+e.preventDefault();
 
-scrollBtn.style.opacity="0";
+target.scrollIntoView({
 
-scrollBtn.style.visibility="hidden";
+behavior:"smooth"
+
+});
 
 }
 
 });
 
-scrollBtn.onclick=()=>{
+});
+/*============================
+SEARCH READY (Future Mobiles)
+============================*/
+
+window.TechFix = window.TechFix || {};
+
+TechFix.search = function(keyword){
+
+keyword = keyword.toLowerCase();
+
+if(typeof mobileDatabase === "undefined") return [];
+
+return mobileDatabase.filter(device =>
+
+device.name.toLowerCase().includes(keyword)
+
+);
+
+};
+
+/*============================
+BACK TO TOP BUTTON
+============================*/
+
+const topBtn=document.createElement("button");
+
+topBtn.innerHTML='<i class="fas fa-arrow-up"></i>';
+
+topBtn.id="backToTop";
+
+document.body.appendChild(topBtn);
+
+topBtn.style.cssText=`
+
+position:fixed;
+right:25px;
+bottom:25px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#00D9FF;
+color:#07111b;
+font-size:20px;
+cursor:pointer;
+display:none;
+z-index:9999;
+box-shadow:0 0 20px rgba(0,217,255,.35);
+transition:.3s;
+
+`;
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+topBtn.onclick=()=>{
 
 window.scrollTo({
 
@@ -381,46 +450,35 @@ behavior:"smooth"
 });
 
 };
-/*==================================================
-        TECHFIX V5 FINAL INITIALIZATION
-==================================================*/
+
+/*============================
+CURRENT YEAR
+============================*/
+
+document.querySelectorAll(".year").forEach(el=>{
+
+el.textContent=new Date().getFullYear();
+
+});
+
+/*============================
+CONSOLE MESSAGE
+============================*/
+
+console.log(
+
+"%cTechFix Software EXP V6 Loaded Successfully",
+
+"color:#00D9FF;font-size:18px;font-weight:bold;"
+
+);
+
+/*============================
+INITIALIZATION
+============================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-console.log("TechFix Software EXP V5 Loaded Successfully");
-
-if(typeof searchModels==="function"){
-
-const search=document.getElementById("searchInput");
-
-if(search){
-
-search.addEventListener("keyup",searchModels);
-
-}
-
-}
+console.log("Platform Ready.");
 
 });
-
-/*==================================================
-        SAFE ERROR HANDLER
-==================================================*/
-
-window.addEventListener("error",(e)=>{
-
-console.warn("TechFix Warning:",e.message);
-
-});
-
-/*==================================================
-        PERFORMANCE
-==================================================*/
-
-window.addEventListener("pageshow",()=>{
-
-document.body.classList.add("loaded");
-
-});
-
-console.log("TechFix V5 Ready");
