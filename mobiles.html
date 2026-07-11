@@ -4,20 +4,16 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Supported Mobiles | TechFix Software EXP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<meta name="description" content="Professional Mobile Database by TechFix Software EXP">
-
-<meta name="theme-color" content="#00ff88">
+<title>Mobile Database | TechFix Software EXP</title>
 
 <link rel="icon" href="images/logo-left.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
@@ -25,9 +21,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <body>
 
-<!--================ LOADER ================-->
-
 <div id="loader">
+
+<div class="loader-content">
+
+<img src="images/logo-left.png">
 
 <h1>TECHFIX SOFTWARE EXP</h1>
 
@@ -41,299 +39,176 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </div>
 
-<!--================ MATRIX ================-->
+</div>
 
 <canvas id="matrix"></canvas>
 
-<!--================ HEADER ================-->
+<header class="mobile-header">
 
-<header>
+<div class="mobile-logo">
 
-<nav class="navbar">
+<img src="images/logo-left.png">
 
-<div class="logo">
-
-<img src="images/logo-left.png" class="logo-img">
-
-<span>TECHFIX SOFTWARE EXP</span>
-
-<img src="images/logo-right.png" class="logo-img">
+<span>TechFix</span>
 
 </div>
 
-<ul class="nav-links">
+<button id="menuToggle">
 
-<li><a href="index.html">Home</a></li>
+<i class="fas fa-bars"></i>
 
-<li><a href="mobiles.html" class="active">Mobiles</a></li>
-
-<li><a href="android.html">Android</a></li>
-
-<li><a href="icloud.html">iCloud</a></li>
-
-<li><a href="downloads.html">Downloads</a></li>
-
-<li><a href="cyber.html">Cyber</a></li>
-
-<li><a href="recovery.html">Recovery</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
-</nav>
+</button>
 
 </header>
 
-<!--================ HERO ================-->
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-top">
+
+<div class="sidebar-logo">
+
+<img src="images/logo-left.png">
+
+<h2>TECHFIX</h2>
+
+<p>Software EXP</p>
+
+</div>
+
+<nav>
+
+<a href="index.html">
+
+<i class="fas fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="mobiles.html" class="active">
+
+<i class="fas fa-mobile-screen"></i>
+
+<span>Mobiles</span>
+
+</a>
+
+<a href="android.html">
+
+<i class="fab fa-android"></i>
+
+<span>Android</span>
+
+</a>
+
+<a href="icloud.html">
+
+<i class="fab fa-apple"></i>
+
+<span>Apple</span>
+
+</a>
+
+<a href="cyber.html">
+
+<i class="fas fa-shield-halved"></i>
+
+<span>Cyber Security</span>
+
+</a>
+
+<a href="downloads.html">
+
+<i class="fas fa-download"></i>
+
+<span>Downloads</span>
+
+</a>
+
+<a href="contact.html">
+
+<i class="fas fa-envelope"></i>
+
+<span>Contact</span>
+
+</a>
+
+</nav>
+
+</div>
+
+<div class="sidebar-bottom">
+
+<p>Powered By</p>
+
+<h4>MIAN AHMAD</h4>
+
+</div>
+
+</aside>
+
+<main class="main-content">
 
 <section class="hero">
 
 <div class="hero-left">
 
-<h4>WELCOME TO</h4>
+<h5>MOBILE DATABASE</h5>
 
-<h1>MOBILE DATABASE</h1>
+<h1>
 
-<h2 class="glow-text">
+Supported Mobile Models
 
-TECHFIX SOFTWARE EXP
-
-</h2>
-
-<p>
-
-Browse thousands of supported mobile devices.
-
-Search your model instantly.
-
-</p>
-
-</div>
-
-</section>
-
-<!--================ SEARCH ================-->
-
-<section class="database-search">
-
-<div class="search-box">
-
-<i class="fas fa-search"></i>
-
-<input
-
-type="text"
-
-id="searchInput"
-
-placeholder="Search Mobile Model..."
-
-onkeyup="searchModels()">
-
-</div>
-
-</section>
-
-<!--================ BRANDS ================-->
-
-<section id="mobile-brands">
-
-<div class="section-title">
+</h1>
 
 <h2>
 
-Supported Mobile Brands
+All Major Brands In One Place
 
 </h2>
 
 <p>
 
-Click Any Brand
+Browse supported mobile brands and quickly access available models for Android and Apple devices.
 
 </p>
 
-</div>
+<div class="hero-buttons">
 
-<div class="brand-grid">
-  <div class="brand-card" onclick="showBrand('apple')">
-<img src="images/apple.png">
-<h3>Apple</h3>
-<span id="appleCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('samsung')">
-<img src="images/samsung.png">
-<h3>Samsung</h3>
-<span id="samsungCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('pixel')">
-<img src="images/pixel.png">
-<h3>Google Pixel</h3>
-<span id="pixelCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('xiaomi')">
-<img src="images/xiaomi.png">
-<h3>Xiaomi</h3>
-<span id="xiaomiCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('vivo')">
-<img src="images/vivo.png">
-<h3>Vivo</h3>
-<span id="vivoCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('oppo')">
-<img src="images/oppo.png">
-<h3>OPPO</h3>
-<span id="oppoCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('realme')">
-<img src="images/realme.png">
-<h3>Realme</h3>
-<span id="realmeCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('tecno')">
-<img src="images/tecno.png">
-<h3>Tecno</h3>
-<span id="tecnoCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('infinix')">
-<img src="images/infinix.png">
-<h3>Infinix</h3>
-<span id="infinixCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('oneplus')">
-<img src="images/oneplus.png">
-<h3>OnePlus</h3>
-<span id="oneplusCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('motorola')">
-<img src="images/motorola.png">
-<h3>Motorola</h3>
-<span id="motorolaCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('nokia')">
-<img src="images/nokia.png">
-<h3>Nokia</h3>
-<span id="nokiaCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('huawei')">
-<img src="images/huawei.png">
-<h3>Huawei</h3>
-<span id="huaweiCount">0 Models</span>
-</div>
-
-<div class="brand-card" onclick="showBrand('honor')">
-<img src="images/honor.png">
-<h3>Honor</h3>
-<span id="honorCount">0 Models</span>
-</div>
-
-</div>
-
-</section>
-<!--================ MODELS =================-->
-
-<section id="modelsSection">
-
-<div class="section-title">
-
-<h2 id="brandTitle">
-
-Select Any Brand
-
-</h2>
-
-<p id="brandSubtitle">
-
-Choose a mobile brand above to view all supported models.
-
-</p>
-
-</div>
-
-<div class="database-info">
-
-<div class="info-card">
-
-<h3>Total Brands</h3>
-
-<span>14</span>
-
-</div>
-
-<div class="info-card">
-
-<h3>Total Models</h3>
-
-<span id="totalModels">0</span>
-
-</div>
-
-<div class="info-card">
-
-<h3>Selected Brand</h3>
-
-<span id="selectedBrand">
-
-None
-
-</span>
-
-</div>
-
-</div>
-
-<div id="modelsContainer">
-
-<div class="welcome-box">
+<a href="#brands" class="btn">
 
 <i class="fas fa-mobile-screen-button"></i>
 
-<h2>
+Browse Brands
 
-Welcome To TechFix Mobile Database
-
-</h2>
-
-<p>
-
-Select any mobile brand above to instantly load all supported models.
-
-</p>
+</a>
 
 </div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="images/mobile-hero.png" alt="Mobile Database">
 
 </div>
 
 </section>
+<!--==================================
+        BRANDS
+===================================-->
 
-<!--================ FEATURES =================-->
+<section id="brands">
 
-<section class="database-features">
+<div class="section-header">
 
-<div class="section-title">
+<h5>SUPPORTED BRANDS</h5>
 
-<h2>
-
-Database Features
-
-</h2>
+<h2>Choose Your Mobile Brand</h2>
 
 <p>
 
-Professional Mobile Software Database
+Select any brand below to view supported models.
 
 </p>
 
@@ -341,15 +216,202 @@ Professional Mobile Software Database
 
 <div class="services-grid">
 
-<div class="service-card">
+<div class="service-card brand-card" onclick="showBrand('apple')">
 
-<i class="fas fa-bolt"></i>
+<img src="images/apple.png" class="brand-img">
 
-<h3>Fast Search</h3>
+<h3>Apple</h3>
+
+<p>130+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('samsung')">
+
+<img src="images/samsung.png" class="brand-img">
+
+<h3>Samsung</h3>
+
+<p>300+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('pixel')">
+
+<img src="images/pixel.png" class="brand-img">
+
+<h3>Google Pixel</h3>
+
+<p>24 Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('xiaomi')">
+
+<img src="images/xiaomi.png" class="brand-img">
+
+<h3>Xiaomi</h3>
+
+<p>250+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('vivo')">
+
+<img src="images/vivo.png" class="brand-img">
+
+<h3>Vivo</h3>
+
+<p>150+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('oppo')">
+
+<img src="images/oppo.png" class="brand-img">
+
+<h3>Oppo</h3>
+
+<p>180+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('realme')">
+
+<img src="images/realme.png" class="brand-img">
+
+<h3>Realme</h3>
+
+<p>170+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('tecno')">
+
+<img src="images/tecno.png" class="brand-img">
+
+<h3>Tecno</h3>
+
+<p>120+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('infinix')">
+
+<img src="images/infinix.png" class="brand-img">
+
+<h3>Infinix</h3>
+
+<p>110+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('oneplus')">
+
+<img src="images/oneplus.png" class="brand-img">
+
+<h3>OnePlus</h3>
+
+<p>60+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('motorola')">
+
+<img src="images/motorola.png" class="brand-img">
+
+<h3>Motorola</h3>
+
+<p>140+ Models</p>
+
+</div>
+
+<div class="service-card brand-card" onclick="showBrand('huawei')">
+
+<img src="images/huawei.png" class="brand-img">
+
+<h3>Huawei</h3>
+
+<p>170+ Models</p>
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+        MODELS DATABASE
+===================================-->
+
+<section id="models">
+
+<div class="section-header">
+
+<h5>DEVICE MODELS</h5>
+
+<h2>Supported Models</h2>
 
 <p>
 
-Instant mobile model searching.
+Select any brand above to display available models.
+
+</p>
+
+</div>
+
+<!-- Default Message -->
+
+<div id="defaultMessage" class="about-card">
+
+<h2 style="color:#00D9FF;">📱 Mobile Database</h2>
+
+<p style="margin-top:15px;line-height:1.8;color:#94A3B8;">
+
+Choose a brand above to view supported mobile models.
+
+</p>
+
+</div>
+
+<!-- Dynamic Models -->
+
+<div id="brandModels" class="services-grid" style="display:none;">
+
+<div class="service-card">
+
+<h3 id="brandTitle">
+
+Brand Name
+
+</h3>
+
+<ul id="modelList" class="model-list">
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==================================
+        QUICK INFO
+===================================-->
+
+<section>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<i class="fas fa-mobile-screen-button"></i>
+
+<h3>3500+ Models</h3>
+
+<p>
+
+Huge mobile database updated regularly.
 
 </p>
 
@@ -359,11 +421,11 @@ Instant mobile model searching.
 
 <i class="fas fa-database"></i>
 
-<h3>Huge Database</h3>
+<h3>Latest Devices</h3>
 
 <p>
 
-Thousands of supported devices.
+Newest flagship and budget devices included.
 
 </p>
 
@@ -371,27 +433,13 @@ Thousands of supported devices.
 
 <div class="service-card">
 
-<i class="fas fa-mobile-screen"></i>
+<i class="fas fa-sync-alt"></i>
 
-<h3>Latest Models</h3>
-
-<p>
-
-Updated flagship & budget devices.
-
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-shield-halved"></i>
-
-<h3>Professional</h3>
+<h3>Regular Updates</h3>
 
 <p>
 
-Built for mobile technicians.
+Database keeps growing with every update.
 
 </p>
 
@@ -400,24 +448,24 @@ Built for mobile technicians.
 </div>
 
 </section>
+<!--==================================
+        FOOTER
+===================================-->
 
-<!--================ FOOTER =================-->
+<footer class="footer">
 
-<footer>
-
-<div class="footer-container">
+<div class="footer-grid">
 
 <div class="footer-box">
 
-<h3>
+<img src="images/logo-left.png" class="footer-logo" alt="TechFix Logo">
 
-TechFix Software EXP
-
-</h3>
+<h3>TechFix Software EXP</h3>
 
 <p>
 
-Professional Mobile Software Database
+Professional Mobile Software Platform for Android,
+Apple, Mobile Database and Downloads.
 
 </p>
 
@@ -425,37 +473,35 @@ Professional Mobile Software Database
 
 <div class="footer-box">
 
-<h3>
+<h3>Quick Links</h3>
 
-Supported Brands
+<ul>
 
-</h3>
+<li><a href="index.html">Home</a></li>
+<li><a href="android.html">Android</a></li>
+<li><a href="icloud.html">Apple</a></li>
+<li><a href="downloads.html">Downloads</a></li>
+<li><a href="contact.html">Contact</a></li>
 
-<p>
-
-Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • Realme • Tecno • Infinix • OnePlus • Motorola • Nokia • Huawei • Honor
-
-</p>
+</ul>
 
 </div>
 
 <div class="footer-box">
 
-<h3>
+<h3>Follow Us</h3>
 
-Quick Links
+<div class="social-links">
 
-</h3>
+<a href="#"><i class="fab fa-youtube"></i></a>
 
-<a href="index.html">Home</a><br>
+<a href="#"><i class="fab fa-facebook"></i></a>
 
-<a href="android.html">Android</a><br>
+<a href="#"><i class="fab fa-telegram"></i></a>
 
-<a href="icloud.html">iCloud</a><br>
+<a href="#"><i class="fab fa-github"></i></a>
 
-<a href="downloads.html">Downloads</a><br>
-
-<a href="contact.html">Contact</a>
+</div>
 
 </div>
 
@@ -465,14 +511,18 @@ Quick Links
 
 <p>
 
-© 2026 TechFix Software EXP | All Rights Reserved
+© 2026 TechFix Software EXP — Designed By
+<strong>MIAN AHMAD</strong>
 
 </p>
 
 </div>
 
 </footer>
-<!--================ DATABASE FILES ================-->
+
+</main>
+
+<script src="script.js"></script>
 
 <script src="data/apple.js"></script>
 <script src="data/samsung.js"></script>
@@ -485,13 +535,41 @@ Quick Links
 <script src="data/infinix.js"></script>
 <script src="data/oneplus.js"></script>
 <script src="data/motorola.js"></script>
-<script src="data/nokia.js"></script>
 <script src="data/huawei.js"></script>
 <script src="data/honor.js"></script>
 
-<!--================ MAIN SCRIPT ================-->
+<script>
 
-<script src="script.js"></script>
+function showBrand(brand){
+
+if(typeof window[brand] === "undefined"){
+
+return;
+
+}
+
+document.getElementById("defaultMessage").style.display="none";
+
+document.getElementById("brandModels").style.display="grid";
+
+document.getElementById("brandTitle").innerText=
+
+brand.charAt(0).toUpperCase()+brand.slice(1);
+
+const list=document.getElementById("modelList");
+
+list.innerHTML="";
+
+window[brand].forEach(model=>{
+
+list.innerHTML+=`<li>${model}</li>`;
+
+});
+
+}
+
+</script>
 
 </body>
+
 </html>
