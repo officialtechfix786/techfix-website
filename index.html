@@ -4,43 +4,42 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TechFix Software EXP</title>
 
-<meta name="description"
-content="Professional Mobile Software Solutions">
+<meta name="description" content="Professional Mobile Software Platform">
 
-<link rel="icon"
-href="images/logo-left.png">
+<link rel="icon" href="images/logo-left.png">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!--================ LOADER ================-->
+<!--============================
+LOADER
+=============================-->
 
 <div id="loader">
 
+<div class="loader-content">
+
+<img src="images/logo-left.png" alt="Logo">
+
 <h1>TECHFIX SOFTWARE EXP</h1>
 
-<p>Loading System...</p>
+<p>Initializing Professional Platform...</p>
 
 <div class="loader-bar">
 
@@ -50,17 +49,47 @@ href="style.css">
 
 </div>
 
-<!--================ MATRIX ================-->
+</div>
+
+<!--============================
+BACKGROUND MATRIX
+=============================-->
 
 <canvas id="matrix"></canvas>
 
-<!--================ SIDEBAR ================-->
+<!--============================
+MOBILE HEADER
+=============================-->
 
-<aside class="sidebar">
+<header class="mobile-header">
+
+<div class="mobile-logo">
+
+<img src="images/logo-left.png" alt="Logo">
+
+<span>TechFix</span>
+
+</div>
+
+<button id="menuToggle">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+</header>
+
+<!--============================
+SIDEBAR
+=============================-->
+
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-top">
 
 <div class="sidebar-logo">
 
-<img src="images/logo-left.png" alt="Logo">
+<img src="images/logo-left.png">
 
 <h2>TECHFIX</h2>
 
@@ -70,7 +99,7 @@ href="style.css">
 
 <nav>
 
-<a class="active" href="index.html">
+<a href="index.html" class="active">
 
 <i class="fas fa-house"></i>
 
@@ -106,7 +135,7 @@ href="style.css">
 
 <i class="fas fa-shield-halved"></i>
 
-<span>Cyber</span>
+<span>Cyber Security</span>
 
 </a>
 
@@ -128,9 +157,11 @@ href="style.css">
 
 </nav>
 
-<div class="sidebar-footer">
+</div>
 
-<p>CEO</p>
+<div class="sidebar-bottom">
+
+<p>Powered By</p>
 
 <h4>MIAN AHMAD</h4>
 
@@ -138,15 +169,17 @@ href="style.css">
 
 </aside>
 
-<!--================ MAIN =================-->
+<!--============================
+MAIN CONTENT
+=============================-->
 
 <main class="main-content">
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-left">
 
-<h4>WELCOME TO</h4>
+<h5>WELCOME TO</h5>
 
 <h1>
 
@@ -156,13 +189,15 @@ TECHFIX SOFTWARE EXP
 
 <h2>
 
-Professional Mobile Software Solutions
+Professional Mobile Software Platform
 
 </h2>
 
 <p>
 
-Android Repair • Apple Solutions • FRP • Flashing • Mobile Database • Cyber Security
+A complete platform for Android Tools, Apple Services,
+Mobile Database, Cyber Security, Professional Downloads
+and Technical Learning.
 
 </p>
 
@@ -170,43 +205,44 @@ Android Repair • Apple Solutions • FRP • Flashing • Mobile Database • 
 
 <a href="mobiles.html" class="btn">
 
-Mobile Database
+<i class="fas fa-mobile-alt"></i>
+
+Explore Database
 
 </a>
 
-<a href="downloads.html"
-class="btn btn-outline">
+<a href="downloads.html" class="btn outline">
 
-Downloads
+<i class="fas fa-download"></i>
+
+Download Tools
 
 </a>
 
 </div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="images/hero-laptop.png" alt="TechFix">
 
 </div>
 
 </section>
-<!--================ STATS =================-->
+<!--==================================
+        LIVE STATS
+===================================-->
 
-<section class="stats">
+<section class="stats-section">
 
 <div class="stat-card">
 
 <i class="fas fa-mobile-screen-button"></i>
 
-<h2 class="counter" data-target="15">0</h2>
+<h2 class="counter" data-target="3500">0</h2>
 
-<p>Supported Brands</p>
-
-</div>
-
-<div class="stat-card">
-
-<i class="fas fa-database"></i>
-
-<h2 class="counter" data-target="3000">0</h2>
-
-<p>Mobile Models</p>
+<p>Supported Models</p>
 
 </div>
 
@@ -214,7 +250,7 @@ Downloads
 
 <i class="fas fa-download"></i>
 
-<h2 class="counter" data-target="100">0</h2>
+<h2 class="counter" data-target="120">0</h2>
 
 <p>Software Tools</p>
 
@@ -224,23 +260,41 @@ Downloads
 
 <i class="fas fa-users"></i>
 
-<h2 class="counter" data-target="5000">0</h2>
+<h2 class="counter" data-target="25000">0</h2>
 
-<p>Happy Users</p>
+<p>Monthly Visitors</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fas fa-shield-halved"></i>
+
+<h2 class="counter" data-target="99">0</h2>
+
+<p>Success Rate</p>
 
 </div>
 
 </section>
 
-<!--================ SERVICES =================-->
+<!--==================================
+        SERVICES
+===================================-->
 
 <section class="services">
 
-<div class="section-title">
+<div class="section-header">
 
-<h2>Our Services</h2>
+<h5>OUR SERVICES</h5>
 
-<p>Professional Mobile Software Solutions</p>
+<h2>Professional Mobile Software Solutions</h2>
+
+<p>
+
+Everything you need for Android, Apple and Mobile Software.
+
+</p>
 
 </div>
 
@@ -250,11 +304,12 @@ Downloads
 
 <i class="fab fa-android"></i>
 
-<h3>Android</h3>
+<h3>Android Solutions</h3>
 
 <p>
 
-FRP • Flash • Unlock • Repair • IMEI Solutions
+FRP, Flashing, Unlocking,
+IMEI, Firmware and Drivers.
 
 </p>
 
@@ -264,11 +319,14 @@ FRP • Flash • Unlock • Repair • IMEI Solutions
 
 <i class="fab fa-apple"></i>
 
-<h3>Apple</h3>
+<h3>Apple Services</h3>
 
 <p>
 
-iCloud • Hello Screen • Restore • Activation
+Activation,
+Restore,
+iCloud Information,
+Hello Screen Resources.
 
 </p>
 
@@ -282,21 +340,8 @@ iCloud • Hello Screen • Restore • Activation
 
 <p>
 
-3000+ Supported Models with Live Search
-
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-shield-halved"></i>
-
-<h3>Cyber Security</h3>
-
-<p>
-
-Security Tools • Protection • Digital Solutions
+Search thousands of supported
+mobile models instantly.
 
 </p>
 
@@ -310,7 +355,9 @@ Security Tools • Protection • Digital Solutions
 
 <p>
 
-Latest Mobile Software & Useful Tools
+Latest mobile software,
+drivers,
+utilities and firmware.
 
 </p>
 
@@ -318,13 +365,31 @@ Latest Mobile Software & Useful Tools
 
 <div class="service-card">
 
-<i class="fas fa-screwdriver-wrench"></i>
+<i class="fas fa-user-secret"></i>
 
-<h3>Repair Tools</h3>
+<h3>Cyber Security</h3>
 
 <p>
 
-Professional Mobile Repair Resources
+Ethical Hacking,
+OSINT,
+Network Security
+and Learning.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-headset"></i>
+
+<h3>Support</h3>
+
+<p>
+
+Professional technical
+guides and future updates.
 
 </p>
 
@@ -333,15 +398,51 @@ Professional Mobile Repair Resources
 </div>
 
 </section>
-<!--================ WHY CHOOSE US ================-->
+
+<!--==================================
+        TERMINAL
+===================================-->
+
+<section class="terminal-section">
+
+<div class="terminal-window">
+
+<div class="terminal-top">
+
+<span class="dot red"></span>
+
+<span class="dot yellow"></span>
+
+<span class="dot green"></span>
+
+<p>terminal</p>
+
+</div>
+
+<div id="terminal">
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+        WHY CHOOSE US
+===================================-->
 
 <section class="why-us">
 
-<div class="section-title">
+<div class="section-header">
 
-<h2>Why Choose TechFix?</h2>
+<h5>WHY TECHFIX</h5>
 
-<p>Professional Mobile Software Platform</p>
+<h2>Why Choose TechFix Software EXP?</h2>
+
+<p>
+
+Professional tools, trusted resources and a modern platform for mobile technicians.
+
+</p>
 
 </div>
 
@@ -354,51 +455,43 @@ Professional Mobile Repair Resources
 <h3>Fast Performance</h3>
 
 <p>
-
-Optimized tools and fast mobile database for technicians.
-
+Optimized website with smooth navigation and fast loading experience.
 </p>
 
 </div>
 
 <div class="why-card">
 
-<i class="fas fa-shield-halved"></i>
+<i class="fas fa-lock"></i>
 
 <h3>Secure Platform</h3>
 
 <p>
-
-Safe resources and organized software collection.
-
+Cyber security focused design with trusted technical resources.
 </p>
 
 </div>
 
 <div class="why-card">
 
-<i class="fas fa-cloud-arrow-down"></i>
+<i class="fas fa-database"></i>
 
-<h3>Latest Updates</h3>
+<h3>Huge Database</h3>
 
 <p>
-
-Regularly updated device information and downloads.
-
+Thousands of supported mobile models from all major brands.
 </p>
 
 </div>
 
 <div class="why-card">
 
-<i class="fas fa-headset"></i>
+<i class="fas fa-sync-alt"></i>
 
-<h3>Support</h3>
+<h3>Regular Updates</h3>
 
 <p>
-
-Easy navigation and technician-friendly interface.
-
+New tools, firmware and supported devices added regularly.
 </p>
 
 </div>
@@ -407,53 +500,57 @@ Easy navigation and technician-friendly interface.
 
 </section>
 
-<!--================ ABOUT =================-->
+<!--==================================
+        ABOUT
+===================================-->
 
-<section class="about-techfix">
+<section class="about-section">
 
 <div class="about-left">
 
-<h2>TechFix Software EXP</h2>
+<h5>ABOUT TECHFIX</h5>
+
+<h2>Professional Mobile Software Platform</h2>
 
 <p>
 
-TechFix Software EXP is a professional mobile software platform designed for technicians. Our goal is to provide a clean interface, organized mobile database, Android tools, Apple solutions, downloads, and cybersecurity resources in one place.
+TechFix Software EXP is designed for mobile technicians,
+software engineers and learners.
+
+Our mission is to provide a professional platform for Android,
+Apple, Cyber Security and Mobile Software resources.
 
 </p>
+
+<ul class="about-list">
+
+<li><i class="fas fa-check-circle"></i> Android Solutions</li>
+
+<li><i class="fas fa-check-circle"></i> Apple Services</li>
+
+<li><i class="fas fa-check-circle"></i> Mobile Database</li>
+
+<li><i class="fas fa-check-circle"></i> Cyber Security</li>
+
+<li><i class="fas fa-check-circle"></i> Software Downloads</li>
+
+</ul>
 
 </div>
 
 <div class="about-right">
 
-<div class="about-box">
+<div class="about-card">
 
-<h3>15+</h3>
+<h3>CEO</h3>
 
-<p>Brands</p>
+<h2>MIAN AHMAD</h2>
 
-</div>
+<p>
 
-<div class="about-box">
+Founder of TechFix Software EXP
 
-<h3>3000+</h3>
-
-<p>Models</p>
-
-</div>
-
-<div class="about-box">
-
-<h3>100+</h3>
-
-<p>Tools</p>
-
-</div>
-
-<div class="about-box">
-
-<h3>24/7</h3>
-
-<p>Support</p>
+</p>
 
 </div>
 
@@ -461,55 +558,130 @@ TechFix Software EXP is a professional mobile software platform designed for tec
 
 </section>
 
-<!--================ FOOTER =================-->
+<!--==================================
+        CALL TO ACTION
+===================================-->
 
-<footer>
+<section class="cta-section">
 
-<div class="footer-container">
+<h2>Ready To Explore Our Platform?</h2>
 
-<div>
+<p>
+
+Browse thousands of supported devices,
+download useful software and improve your technical skills.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="mobiles.html" class="btn">
+
+<i class="fas fa-mobile-screen-button"></i>
+
+Explore Mobiles
+
+</a>
+
+<a href="downloads.html" class="btn outline">
+
+<i class="fas fa-download"></i>
+
+Downloads
+
+</a>
+
+</div>
+
+</section>
+<!--==================================
+        FOOTER
+===================================-->
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div class="footer-box">
+
+<img src="images/logo-left.png" class="footer-logo" alt="TechFix Logo">
 
 <h3>TechFix Software EXP</h3>
 
 <p>
 
-Professional Mobile Software Solutions.
+Professional Mobile Software Platform providing Android, Apple,
+Cyber Security, Downloads and Mobile Database solutions.
 
 </p>
 
 </div>
 
-<div>
+<div class="footer-box">
 
 <h3>Quick Links</h3>
 
-<p>
+<ul>
 
-Home<br>
+<li><a href="index.html">Home</a></li>
 
-Mobiles<br>
+<li><a href="mobiles.html">Mobiles</a></li>
 
-Android<br>
+<li><a href="android.html">Android</a></li>
 
-Apple<br>
+<li><a href="icloud.html">Apple</a></li>
 
-Cyber<br>
+<li><a href="cyber.html">Cyber Security</a></li>
 
-Downloads
+<li><a href="downloads.html">Downloads</a></li>
 
-</p>
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
 
 </div>
 
-<div>
+<div class="footer-box">
 
-<h3>Developer</h3>
+<h3>Services</h3>
 
-<p>
+<ul>
 
-CEO<br>
+<li>Android Solutions</li>
 
-<b>MIAN AHMAD</b>
+<li>Apple Services</li>
+
+<li>Mobile Database</li>
+
+<li>Software Downloads</li>
+
+<li>Cyber Security</li>
+
+<li>Technical Support</li>
+
+</ul>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Follow Us</h3>
+
+<div class="social-links">
+
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-telegram"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+</div>
+
+<p class="footer-note">
+
+Building the future of Mobile Software.
 
 </p>
 
@@ -519,17 +691,40 @@ CEO<br>
 
 <div class="footer-bottom">
 
-© 2026 TechFix Software EXP | All Rights Reserved
+<p>
+
+© 2026 TechFix Software EXP — All Rights Reserved.
+
+</p>
+
+<p>
+
+Designed & Developed by <strong>MIAN AHMAD</strong>
+
+</p>
 
 </div>
 
 </footer>
-<!--================ SCRIPTS ================-->
-
-<script src="script.js"></script>
 
 </main>
 
-</body>
+<script src="script.js"></script>
 
+<script src="data/apple.js"></script>
+<script src="data/samsung.js"></script>
+<script src="data/pixel.js"></script>
+<script src="data/xiaomi.js"></script>
+<script src="data/vivo.js"></script>
+<script src="data/oppo.js"></script>
+<script src="data/realme.js"></script>
+<script src="data/tecno.js"></script>
+<script src="data/infinix.js"></script>
+<script src="data/oneplus.js"></script>
+<script src="data/motorola.js"></script>
+<script src="data/nokia.js"></script>
+<script src="data/huawei.js"></script>
+<script src="data/honor.js"></script>
+
+</body>
 </html>
