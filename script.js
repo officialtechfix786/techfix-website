@@ -482,3 +482,78 @@ document.addEventListener("DOMContentLoaded",()=>{
 console.log("Platform Ready.");
 
 });
+/*=========================================
+UNIVERSAL SEARCH
+=========================================*/
+
+const searchInput = document.getElementById("globalSearch");
+const searchBtn = document.getElementById("searchBtn");
+const resultsBox = document.getElementById("searchResults");
+
+if (searchInput && resultsBox) {
+
+function performSearch() {
+
+const keyword = searchInput.value.trim().toLowerCase();
+
+resultsBox.innerHTML = "";
+
+if (keyword.length < 2) {
+
+resultsBox.style.display = "none";
+
+return;
+
+}
+
+let found = 0;
+
+for (const brand in mobileDatabase) {
+
+mobileDatabase[brand].forEach(model => {
+
+if (model.toLowerCase().includes(keyword)) {
+
+found++;
+
+resultsBox.innerHTML += `
+
+<div class="search-item">
+
+<strong>${model}</strong><br>
+
+<small>${brand.toUpperCase()}</small>
+
+</div>
+
+`;
+
+}
+
+});
+
+}
+
+if (found === 0) {
+
+resultsBox.innerHTML = `
+
+<div class="search-item">
+
+No Results Found
+
+</div>
+
+`;
+
+}
+
+resultsBox.style.display = "block";
+
+}
+
+searchInput.addEventListener("keyup", performSearch);
+
+searchBtn.addEventListener("click", performSearch);
+
+}
