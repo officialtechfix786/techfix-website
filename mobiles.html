@@ -6,19 +6,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Supported Mobiles | TechFix Software Exp</title>
+<title>Supported Mobiles | TechFix Software EXP</title>
+
+<meta name="description" content="Professional Mobile Database by TechFix Software EXP">
+
+<meta name="theme-color" content="#00ff88">
 
 <link rel="icon" href="images/logo-left.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
+<!--================ LOADER ================-->
 
 <div id="loader">
 
@@ -27,12 +34,18 @@
 <p>Loading Mobile Database...</p>
 
 <div class="loader-bar">
+
 <div class="loader-fill"></div>
+
 </div>
 
 </div>
+
+<!--================ MATRIX ================-->
 
 <canvas id="matrix"></canvas>
+
+<!--================ HEADER ================-->
 
 <header>
 
@@ -56,7 +69,13 @@
 
 <li><a href="android.html">Android</a></li>
 
+<li><a href="icloud.html">iCloud</a></li>
+
 <li><a href="downloads.html">Downloads</a></li>
+
+<li><a href="cyber.html">Cyber</a></li>
+
+<li><a href="recovery.html">Recovery</a></li>
 
 <li><a href="contact.html">Contact</a></li>
 
@@ -66,137 +85,323 @@
 
 </header>
 
+<!--================ HERO ================-->
+
 <section class="hero">
 
 <div class="hero-left">
 
-<h4>SUPPORTED</h4>
+<h4>WELCOME TO</h4>
 
 <h1>MOBILE DATABASE</h1>
 
-<h2 class="glow-text">All Major Brands</h2>
+<h2 class="glow-text">
+
+TECHFIX SOFTWARE EXP
+
+</h2>
 
 <p>
 
-Browse supported mobile brands and quickly access available device models.
+Browse thousands of supported mobile devices.
+
+Search your model instantly.
 
 </p>
 
 </div>
 
 </section>
-<!-- ================= MOBILE BRANDS ================= -->
+
+<!--================ SEARCH ================-->
+
+<section class="database-search">
+
+<div class="search-box">
+
+<i class="fas fa-search"></i>
+
+<input
+
+type="text"
+
+id="searchInput"
+
+placeholder="Search Mobile Model..."
+
+onkeyup="searchModels()">
+
+</div>
+
+</section>
+
+<!--================ BRANDS ================-->
 
 <section id="mobile-brands">
 
 <div class="section-title">
 
-<h2>Supported Mobile Brands</h2>
+<h2>
 
-<p>Click Any Brand To View Models</p>
+Supported Mobile Brands
+
+</h2>
+
+<p>
+
+Click Any Brand
+
+</p>
 
 </div>
 
-<div class="services-grid">
-
-<div class="service-card brand-card" onclick="showBrand('apple')">
-<img src="images/apple.png" class="brand-img" alt="Apple">
+<div class="brand-grid">
+  <div class="brand-card" onclick="showBrand('apple')">
+<img src="images/apple.png">
 <h3>Apple</h3>
-<p>130+ Models</p>
+<span id="appleCount">0 Models</span>
 </div>
 
-<div class="service-card brand-card" onclick="showBrand('samsung')">
-<img src="images/samsung.png" class="brand-img" alt="Samsung">
+<div class="brand-card" onclick="showBrand('samsung')">
+<img src="images/samsung.png">
 <h3>Samsung</h3>
-<p>300+ Models</p>
+<span id="samsungCount">0 Models</span>
 </div>
 
-<div class="service-card brand-card" onclick="showBrand('pixel')">
-<img src="images/pixel.png" class="brand-img" alt="Pixel">
+<div class="brand-card" onclick="showBrand('pixel')">
+<img src="images/pixel.png">
 <h3>Google Pixel</h3>
-<p>24 Models</p>
+<span id="pixelCount">0 Models</span>
 </div>
 
-<div class="service-card brand-card" onclick="showBrand('xiaomi')">
-<img src="images/xiaomi.png" class="brand-img" alt="Xiaomi">
+<div class="brand-card" onclick="showBrand('xiaomi')">
+<img src="images/xiaomi.png">
 <h3>Xiaomi</h3>
-<p>250+ Models</p>
+<span id="xiaomiCount">0 Models</span>
 </div>
 
-<div class="service-card brand-card" onclick="showBrand('vivo')">
-<img src="images/vivo.png" class="brand-img" alt="Vivo">
+<div class="brand-card" onclick="showBrand('vivo')">
+<img src="images/vivo.png">
 <h3>Vivo</h3>
-<p>150+ Models</p>
+<span id="vivoCount">0 Models</span>
 </div>
 
-<div class="service-card brand-card" onclick="showBrand('oppo')">
-<img src="images/oppo.png" class="brand-img" alt="Oppo">
-<h3>Oppo</h3>
-<p>180+ Models</p>
+<div class="brand-card" onclick="showBrand('oppo')">
+<img src="images/oppo.png">
+<h3>OPPO</h3>
+<span id="oppoCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('realme')">
+<img src="images/realme.png">
+<h3>Realme</h3>
+<span id="realmeCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('tecno')">
+<img src="images/tecno.png">
+<h3>Tecno</h3>
+<span id="tecnoCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('infinix')">
+<img src="images/infinix.png">
+<h3>Infinix</h3>
+<span id="infinixCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('oneplus')">
+<img src="images/oneplus.png">
+<h3>OnePlus</h3>
+<span id="oneplusCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('motorola')">
+<img src="images/motorola.png">
+<h3>Motorola</h3>
+<span id="motorolaCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('nokia')">
+<img src="images/nokia.png">
+<h3>Nokia</h3>
+<span id="nokiaCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('huawei')">
+<img src="images/huawei.png">
+<h3>Huawei</h3>
+<span id="huaweiCount">0 Models</span>
+</div>
+
+<div class="brand-card" onclick="showBrand('honor')">
+<img src="images/honor.png">
+<h3>Honor</h3>
+<span id="honorCount">0 Models</span>
 </div>
 
 </div>
 
 </section>
-<!-- ================= MODEL DATABASE ================= -->
+<!--================ MODELS =================-->
 
-<section id="models">
+<section id="modelsSection">
 
 <div class="section-title">
 
-<h2>Google Pixel Models</h2>
+<h2 id="brandTitle">
 
-<p>Supported Devices</p>
+Select Any Brand
+
+</h2>
+
+<p id="brandSubtitle">
+
+Choose a mobile brand above to view all supported models.
+
+</p>
+
+</div>
+
+<div class="database-info">
+
+<div class="info-card">
+
+<h3>Total Brands</h3>
+
+<span>14</span>
+
+</div>
+
+<div class="info-card">
+
+<h3>Total Models</h3>
+
+<span id="totalModels">0</span>
+
+</div>
+
+<div class="info-card">
+
+<h3>Selected Brand</h3>
+
+<span id="selectedBrand">
+
+None
+
+</span>
+
+</div>
+
+</div>
+
+<div id="modelsContainer">
+
+<div class="welcome-box">
+
+<i class="fas fa-mobile-screen-button"></i>
+
+<h2>
+
+Welcome To TechFix Mobile Database
+
+</h2>
+
+<p>
+
+Select any mobile brand above to instantly load all supported models.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ FEATURES =================-->
+
+<section class="database-features">
+
+<div class="section-title">
+
+<h2>
+
+Database Features
+
+</h2>
+
+<p>
+
+Professional Mobile Software Database
+
+</p>
 
 </div>
 
 <div class="services-grid">
 
 <div class="service-card">
-<h3>Pixel Series</h3>
 
-<ul class="model-list">
+<i class="fas fa-bolt"></i>
 
-<li>Pixel 3</li>
-<li>Pixel 3 XL</li>
-<li>Pixel 3a</li>
-<li>Pixel 3a XL</li>
+<h3>Fast Search</h3>
 
-<li>Pixel 4</li>
-<li>Pixel 4 XL</li>
-<li>Pixel 4a</li>
-<li>Pixel 4a 5G</li>
+<p>
 
-<li>Pixel 5</li>
-<li>Pixel 5a</li>
+Instant mobile model searching.
 
-<li>Pixel 6</li>
-<li>Pixel 6 Pro</li>
-<li>Pixel 6a</li>
+</p>
 
-<li>Pixel 7</li>
-<li>Pixel 7 Pro</li>
-<li>Pixel 7a</li>
+</div>
 
-<li>Pixel Fold</li>
+<div class="service-card">
 
-<li>Pixel 8</li>
-<li>Pixel 8 Pro</li>
-<li>Pixel 8a</li>
+<i class="fas fa-database"></i>
 
-<li>Pixel 9</li>
-<li>Pixel 9 Pro</li>
-<li>Pixel 9 Pro XL</li>
-<li>Pixel 9 Pro Fold</li>
+<h3>Huge Database</h3>
 
-</ul>
+<p>
+
+Thousands of supported devices.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-mobile-screen"></i>
+
+<h3>Latest Models</h3>
+
+<p>
+
+Updated flagship & budget devices.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-shield-halved"></i>
+
+<h3>Professional</h3>
+
+<p>
+
+Built for mobile technicians.
+
+</p>
 
 </div>
 
 </div>
 
 </section>
-<!-- ================= FOOTER ================= -->
+
+<!--================ FOOTER =================-->
 
 <footer>
 
@@ -204,31 +409,52 @@ Browse supported mobile brands and quickly access available device models.
 
 <div class="footer-box">
 
-<h3>TechFix Software Exp</h3>
+<h3>
+
+TechFix Software EXP
+
+</h3>
 
 <p>
+
 Professional Mobile Software Database
+
 </p>
 
 </div>
 
 <div class="footer-box">
 
-<h3>Supported Brands</h3>
+<h3>
+
+Supported Brands
+
+</h3>
 
 <p>
-Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • OnePlus • Tecno • Infinix
+
+Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • Realme • Tecno • Infinix • OnePlus • Motorola • Nokia • Huawei • Honor
+
 </p>
 
 </div>
 
 <div class="footer-box">
 
-<h3>Quick Links</h3>
+<h3>
+
+Quick Links
+
+</h3>
 
 <a href="index.html">Home</a><br>
+
 <a href="android.html">Android</a><br>
+
+<a href="icloud.html">iCloud</a><br>
+
 <a href="downloads.html">Downloads</a><br>
+
 <a href="contact.html">Contact</a>
 
 </div>
@@ -238,17 +464,19 @@ Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • OnePlus • Tecno �
 <div class="footer-bottom">
 
 <p>
-© 2026 TechFix Software Exp | All Rights Reserved
+
+© 2026 TechFix Software EXP | All Rights Reserved
+
 </p>
 
 </div>
 
 </footer>
+<!--================ DATABASE FILES ================-->
 
-<script src="script.js"></script>
-<script src="data/pixel.js"></script>
 <script src="data/apple.js"></script>
 <script src="data/samsung.js"></script>
+<script src="data/pixel.js"></script>
 <script src="data/xiaomi.js"></script>
 <script src="data/vivo.js"></script>
 <script src="data/oppo.js"></script>
@@ -261,6 +489,9 @@ Apple • Samsung • Pixel • Xiaomi • Vivo • Oppo • OnePlus • Tecno �
 <script src="data/huawei.js"></script>
 <script src="data/honor.js"></script>
 
+<!--================ MAIN SCRIPT ================-->
+
 <script src="script.js"></script>
+
 </body>
 </html>
