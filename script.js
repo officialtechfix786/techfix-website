@@ -1,301 +1,248 @@
-/* ==========================================
-   TECHFIX SOFTWARE EXP V3
-   CEO : MIAN AHMAD
-========================================== */
+/*==================================================
+        TECHFIX V4 DATABASE ENGINE
+==================================================*/
 
-/* ==========================
-   LOADER
-========================== */
+const mobileDatabase = {
 
-window.addEventListener("load", () => {
+apple: appleModels,
 
-const loader = document.getElementById("loader");
+samsung: samsungModels,
 
-setTimeout(() => {
+pixel: pixelModels,
 
-loader.style.opacity = "0";
+xiaomi: xiaomiModels,
 
-loader.style.visibility = "hidden";
+vivo: vivoModels,
 
-},1800);
+oppo: oppoModels,
 
-});
+realme: realmeModels,
 
-/* ==========================
-   MATRIX RAIN
-========================== */
+tecno: tecnoModels,
 
-const canvas = document.getElementById("matrix");
+infinix: infinixModels,
 
-const ctx = canvas.getContext("2d");
+oneplus: oneplusModels,
 
-canvas.width = window.innerWidth;
+motorola: motorolaModels,
 
-canvas.height = window.innerHeight;
+nokia: nokiaModels,
 
-const letters = "01TECHFIXSOFTWAREEXPANDROIDAPPLECYBER";
+huawei: huaweiModels,
 
-const chars = letters.split("");
-
-const fontSize = 16;
-
-const columns = canvas.width / fontSize;
-
-const drops = [];
-
-for(let x=0;x<columns;x++){
-
-drops[x]=1;
-
-}
-
-function drawMatrix(){
-
-ctx.fillStyle="rgba(5,8,15,.08)";
-
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#00FF88";
-
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-
-const text=chars[Math.floor(Math.random()*chars.length)];
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
-
-drops[i]=0;
-
-}
-
-drops[i]++;
-
-}
-
-}
-
-setInterval(drawMatrix,35);
-
-/* ==========================
-   RESIZE
-========================== */
-
-window.addEventListener("resize",()=>{
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-});
-/* ==========================
-   COUNTER ANIMATION
-========================== */
-
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver((entries) => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-const counter = entry.target;
-
-const target = +counter.dataset.target;
-
-let count = 0;
-
-const speed = target / 120;
-
-const update = () => {
-
-count += speed;
-
-if(count < target){
-
-counter.innerText = Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText = target + "+";
-
-}
+honor: honorModels
 
 };
 
-update();
+/*=========================
+CURRENT BRAND
+=========================*/
 
-counterObserver.unobserve(counter);
+let currentBrand = "";
 
-}
+let currentModels = [];
 
-});
+/*=========================
+ELEMENTS
+=========================*/
 
-});
+const modelsContainer =
+document.getElementById("modelsContainer");
 
-counters.forEach(counter => {
+const brandTitle =
+document.getElementById("brandTitle");
 
-counterObserver.observe(counter);
+const brandSubtitle =
+document.getElementById("brandSubtitle");
 
-});
+const selectedBrand =
+document.getElementById("selectedBrand");
 
-/* ==========================
-   SCROLL REVEAL
-========================== */
+const totalModels =
+document.getElementById("totalModels");
 
-const revealItems = document.querySelectorAll(
-".hero-left,.hero-right,.stat-box,.service-card"
-);
-
-const revealObserver = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
-
-});
-
-},{
-threshold:.2
-});
-
-revealItems.forEach(item=>{
-
-item.style.opacity="0";
-
-item.style.transform="translateY(50px)";
-
-item.style.transition=".8s ease";
-
-revealObserver.observe(item);
-
-});
-
-/* ==========================
-   NAVBAR SCROLL EFFECT
-========================== */
-
-window.addEventListener("scroll",()=>{
-
-const header=document.querySelector("header");
-
-if(window.scrollY>50){
-
-header.style.background="rgba(5,8,15,.92)";
-
-header.style.boxShadow="0 0 25px rgba(0,255,136,.20)";
-
-}else{
-
-header.style.background="rgba(5,8,15,.75)";
-
-header.style.boxShadow="none";
-
-}
-
-});
-/* ==========================
-   HACKER TERMINAL
-========================== */
-
-const terminalText = [
-
-"> Booting TechFix Software Exp...",
-
-"> Initializing Android Module...",
-
-"> Loading Apple Services...",
-
-"> Connecting Pixel Database...",
-
-"> Connecting Samsung Server...",
-
-"> Loading Xiaomi Module...",
-
-"> Loading Mobile Tools...",
-
-"> Security Check Passed ✔",
-
-"> Access Granted..."
-
-];
-
-const terminal = document.getElementById("terminal");
-
-if(terminal){
-
-let line = 0;
-
-let char = 0;
-
-function typeLine(){
-
-if(line >= terminalText.length) return;
-
-if(char < terminalText[line].length){
-
-terminal.innerHTML += terminalText[line].charAt(char);
-
-char++;
-
-setTimeout(typeLine,40);
-
-}else{
-
-terminal.innerHTML += "<br>";
-
-line++;
-
-char=0;
-
-setTimeout(typeLine,300);
-
-}
-
-}
-
-typeLine();
-
-}
-/* ==========================
-   MOBILE DATABASE
-========================== */
+const searchInput =
+document.getElementById("searchInput");
+/*=========================
+SHOW BRAND
+=========================*/
 
 function showBrand(brand){
 
-const sections=document.querySelectorAll(".brand-models");
+if(!mobileDatabase[brand]) return;
 
-sections.forEach(section=>{
+currentBrand = brand;
 
-section.style.display="none";
+currentModels = mobileDatabase[brand];
 
-});
+const title =
+brand.charAt(0).toUpperCase() +
+brand.slice(1);
 
-const active=document.getElementById(brand);
+brandTitle.innerText = title;
 
-if(active){
+brandSubtitle.innerText =
+"Supported Mobile Models";
 
-active.style.display="block";
+selectedBrand.innerText = title;
 
-active.scrollIntoView({
+totalModels.innerText =
+currentModels.length;
 
-behavior:"smooth",
+if(searchInput){
 
-block:"start"
+searchInput.value = "";
+
+}
+
+renderModels(currentModels);
+
+document.getElementById("modelsSection")
+.scrollIntoView({
+
+behavior:"smooth"
 
 });
 
 }
+/*=========================
+RENDER MODELS
+=========================*/
+
+function renderModels(models){
+
+modelsContainer.innerHTML = "";
+
+if(models.length===0){
+
+modelsContainer.innerHTML=`
+
+<div class="welcome-box">
+
+<i class="fas fa-circle-exclamation"></i>
+
+<h2>No Models Found</h2>
+
+<p>
+
+Try another keyword.
+
+</p>
+
+</div>
+
+`;
+
+return;
 
 }
+
+models.forEach(model=>{
+
+const card=document.createElement("div");
+
+card.className="model-card";
+
+card.innerHTML=`
+
+<h3>${model}</h3>
+
+<p>
+
+Supported Device
+
+</p>
+
+`;
+
+modelsContainer.appendChild(card);
+
+});
+
+}
+/*=========================
+LIVE SEARCH
+=========================*/
+
+function searchModels(){
+
+if(currentBrand==="") return;
+
+const keyword=searchInput.value
+.toLowerCase()
+.trim();
+
+const filtered=currentModels.filter(model=>
+
+model.toLowerCase().includes(keyword)
+
+);
+
+totalModels.innerText=filtered.length;
+
+renderModels(filtered);
+
+}
+/*=========================
+AUTO BRAND COUNTERS
+=========================*/
+
+function loadCounters(){
+
+Object.keys(mobileDatabase).forEach(brand=>{
+
+const element=document.getElementById(
+
+brand+"Count"
+
+);
+
+if(element){
+
+element.innerText=
+
+mobileDatabase[brand].length+
+
+" Models";
+
+}
+
+});
+
+}
+/*=========================
+INITIALIZE
+=========================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+loadCounters();
+
+if(searchInput){
+
+searchInput.addEventListener(
+
+"keyup",
+
+searchModels
+
+);
+
+}
+
+});
+
+/*=========================
+REMOVE OLD SHOWBRAND
+=========================*/
+
+// IMPORTANT:
+// Ab script ke upar jo purana function tha:
+//
+// function showBrand(brand){
+//   const sections=document.querySelectorAll(".brand-models");
+//   ...
+// }
+//
+// Us poore function ko DELETE kar dena.
+// Sirf naya showBrand() hi rehna chahiye.
