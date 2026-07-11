@@ -1040,3 +1040,66 @@ text-align:center;
 }
 
 }
+/*==================================================
+        FLOAT ANIMATION
+==================================================*/
+
+@keyframes floatAnimation{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-8px);}
+
+100%{transform:translateY(0);}
+
+}
+
+/*==================================================
+        SCROLL TO TOP
+==================================================*/
+
+#scrollTop{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:50px;
+
+height:50px;
+
+background:#00ff88;
+
+color:#000;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+cursor:pointer;
+
+font-size:20px;
+
+box-shadow:0 0 20px rgba(0,255,136,.4);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+z-index:9999;
+
+}
+
+#scrollTop:hover{
+
+transform:translateY(-5px);
+
+}
