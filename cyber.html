@@ -4,126 +4,314 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cyber Security | TechFix Software Exp</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>Cyber Security | TechFix Software EXP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="images/logo-left.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<nav class="navbar">
+<div id="loader">
 
-<div class="logo">
-<i class="fa-solid fa-shield-halved"></i>
-TechFix Software Exp
+<div class="loader-content">
+
+<img src="images/logo-left.png">
+
+<h1>TECHFIX SOFTWARE EXP</h1>
+
+<p>Loading Cyber Security Center...</p>
+
+<div class="loader-bar">
+
+<div class="loader-fill"></div>
+
 </div>
 
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="mobiles.html">Mobiles</a></li>
-<li><a href="icloud.html">iCloud</a></li>
-<li><a href="android.html">Android</a></li>
-<li><a href="cyber.html">Cyber Security</a></li>
-<li><a href="recovery.html">Data Recovery</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
+</div>
+
+</div>
+
+<canvas id="matrix"></canvas>
+
+<header class="mobile-header">
+
+<div class="mobile-logo">
+
+<img src="images/logo-left.png">
+
+<span>TechFix</span>
+
+</div>
+
+<button id="menuToggle">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+</header>
+
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-top">
+
+<div class="sidebar-logo">
+
+<img src="images/logo-left.png">
+
+<h2>TECHFIX</h2>
+
+<p>Software EXP</p>
+
+</div>
+
+<nav>
+
+<a href="index.html"><i class="fas fa-house"></i><span>Home</span></a>
+
+<a href="mobiles.html"><i class="fas fa-mobile-screen"></i><span>Mobiles</span></a>
+
+<a href="android.html"><i class="fab fa-android"></i><span>Android</span></a>
+
+<a href="icloud.html"><i class="fab fa-apple"></i><span>Apple</span></a>
+
+<a href="cyber.html" class="active"><i class="fas fa-shield-halved"></i><span>Cyber Security</span></a>
+
+<a href="downloads.html"><i class="fas fa-download"></i><span>Downloads</span></a>
+
+<a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
 
 </nav>
 
+</div>
+
+<div class="sidebar-bottom">
+
+<p>Powered By</p>
+
+<h4>MIAN AHMAD</h4>
+
+</div>
+
+</aside>
+
+<main class="main-content">
+
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-left">
 
-<h1>CYBER SECURITY</h1>
+<h5>CYBER SECURITY</h5>
 
-<h2>Protect • Detect • Secure</h2>
+<h1>
+
+Cyber Security Learning Center
+
+</h1>
+
+<h2>
+
+Security • Privacy • Awareness
+
+</h2>
 
 <p>
 
-Professional Cyber Security Services including Website Security, Malware Protection, Network Security, Digital Safety and Security Consultation.
+Learn about cyber security concepts, online safety,
+network protection and security best practices through
+professional educational resources.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="#" class="btn whatsapp">
+<a href="#cyber-topics" class="btn">
 
-<i class="fa-brands fa-whatsapp"></i>
+<i class="fas fa-shield-halved"></i>
 
-WhatsApp
-
-</a>
-
-<a href="#" class="btn email">
-
-<i class="fa-solid fa-envelope"></i>
-
-Email
+Explore Topics
 
 </a>
 
 </div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="images/cyber-hero.png" alt="Cyber Security">
 
 </div>
 
 </section>
+<!--==================================
+        CYBER TOPICS
+===================================-->
 
-<section>
+<section id="cyber-topics">
 
-<div class="section-title">
+<div class="section-header">
 
-<h2>Why Choose TechFix</h2>
+<h5>CYBER SECURITY</h5>
 
-<p>Professional Cyber Security Solutions</p>
+<h2>Learning Categories</h2>
 
-</div>
+<p>
 
-<div class="cards">
+Explore important cyber security concepts and best practices.
 
-<div class="card">
-
-<i class="fa-solid fa-user-shield"></i>
-
-<h3>Data Protection</h3>
-
-<p>Keep your important business and personal information protected.</p>
+</p>
 
 </div>
 
-<div class="card">
+<div class="services-grid">
 
-<i class="fa-solid fa-lock"></i>
+<div class="service-card">
 
-<h3>Website Security</h3>
+<i class="fas fa-shield-halved"></i>
 
-<p>Improve website protection against common online threats.</p>
+<h3>Cyber Security Basics</h3>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-bug-slash"></i>
-
-<h3>Malware Protection</h3>
-
-<p>Professional malware detection and cleanup assistance.</p>
+<p>Fundamental concepts of digital security and protection.</p>
 
 </div>
 
-<div class="card">
+<div class="service-card">
 
-<i class="fa-solid fa-network-wired"></i>
+<i class="fas fa-network-wired"></i>
 
 <h3>Network Security</h3>
 
-<p>Reliable solutions for secure and stable networks.</p>
+<p>Secure network concepts, firewalls and traffic protection.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-globe"></i>
+
+<h3>Web Security</h3>
+
+<p>Website security awareness and safe browsing practices.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-bug"></i>
+
+<h3>Malware Awareness</h3>
+
+<p>Understand common malware types and how to avoid them.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-user-secret"></i>
+
+<h3>OSINT</h3>
+
+<p>Learn about Open Source Intelligence concepts.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-user-shield"></i>
+
+<h3>Privacy</h3>
+
+<p>Protect your online accounts and personal information.</p>
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+        LEARNING CENTER
+===================================-->
+
+<section>
+
+<div class="section-header">
+
+<h5>LEARNING CENTER</h5>
+
+<h2>Topics You Can Learn</h2>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<i class="fas fa-key"></i>
+
+<h3>Password Security</h3>
+
+<p>Create strong passwords and use multi-factor authentication.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-envelope-open-text"></i>
+
+<h3>Phishing Awareness</h3>
+
+<p>Recognize fake emails, websites and online scams.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-lock"></i>
+
+<h3>Data Protection</h3>
+
+<p>Learn safe backup and secure data handling practices.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-wifi"></i>
+
+<h3>Wi-Fi Security</h3>
+
+<p>Secure your wireless network and connected devices.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-cloud"></i>
+
+<h3>Cloud Security</h3>
+
+<p>Understand cloud storage security and account protection.</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fas fa-graduation-cap"></i>
+
+<h3>Cyber Learning</h3>
+
+<p>Educational resources for continuous learning.</p>
 
 </div>
 
@@ -131,153 +319,134 @@ Email
 
 </section>
 
-<section>
-
-<div class="section-title">
-
-<h2>Cyber Security Services</h2>
-
-<p>Professional Digital Protection</p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-shield-virus"></i>
-
-<h3>Security Assessment</h3>
-
-<p>Identify security risks and improve protection.</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-globe"></i>
-
-<h3>Website Protection</h3>
-
-<p>Secure your website with modern security practices.</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-user-secret"></i>
-
-<h3>Privacy Protection</h3>
-
-<p>Protect sensitive information with trusted security methods.</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-laptop-code"></i>
-
-<h3>System Security</h3>
-
-<p>Keep your devices secure and updated.</p>
-
-</div>
-
-</div>
-
-</section>
-<section>
-
-<div class="section-title">
-
-<h2>Our Performance</h2>
-
-<p>Trusted Cyber Security Services</p>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-box">
-<h2>500+</h2>
-<p>Security Projects</p>
-</div>
-
-<div class="stat-box">
-<h2>99%</h2>
-<p>Customer Satisfaction</p>
-</div>
-
-<div class="stat-box">
-<h2>24/7</h2>
-<p>Technical Support</p>
-</div>
-
-<div class="stat-box">
-<h2>100%</h2>
-<p>Professional Service</p>
-</div>
-
-</div>
-
-</section>
+<!--==================================
+        INFORMATION
+===================================-->
 
 <section>
 
-<div class="section-title">
+<div class="about-card">
 
-<h2>Why Trust TechFix</h2>
+<h2 style="color:#00D9FF;">
 
-<p>Your Trusted Cyber Security Partner</p>
+Cyber Security Resource Center
 
-</div>
+</h2>
 
-<div class="about-box">
+<p style="margin-top:20px;line-height:1.9;color:#94A3B8;">
 
-<h3>Professional Digital Protection</h3>
-
-<p>
-
-TechFix Software Exp provides professional cyber security services,
-website protection, malware removal assistance, network security,
-system optimization and digital protection for individuals and businesses.
+This section provides educational information about cyber
+security, online privacy, digital safety and security
+awareness. It is intended as a learning resource for users
+who want to improve their understanding of cybersecurity.
 
 </p>
 
 </div>
 
 </section>
+<!--==================================
+        FOOTER
+===================================-->
 
-<footer style="text-align:center;padding:40px 20px;background:#081629;">
+<footer class="footer">
 
-<h3 style="font-family:'Orbitron',sans-serif;color:#00ff66;">
+<div class="footer-grid">
 
-🛡️ TechFix Software Exp
+<div class="footer-box">
 
-</h3>
+<img src="images/logo-left.png" class="footer-logo" alt="TechFix Logo">
 
-<p style="margin:15px 0;">
-
-Cyber Security • Website Protection • Malware Assistance • Network Security
-
-</p>
+<h3>TechFix Software EXP</h3>
 
 <p>
 
-<i class="fa-solid fa-user"></i>
+Professional learning platform for Mobile Software,
+Cyber Security, Android, Apple and Technical Resources.
 
-Founder & CEO :
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="mobiles.html">Mobiles</a></li>
+
+<li><a href="android.html">Android</a></li>
+
+<li><a href="icloud.html">Apple</a></li>
+
+<li><a href="downloads.html">Downloads</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Cyber Topics</h3>
+
+<ul>
+
+<li>Cyber Security</li>
+
+<li>Network Security</li>
+
+<li>Web Security</li>
+
+<li>OSINT</li>
+
+<li>Privacy</li>
+
+<li>Learning Center</li>
+
+</ul>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Follow Us</h3>
+
+<div class="social-links">
+
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-telegram"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+
+© 2026 TechFix Software EXP | Designed & Developed By
+
 <strong>MIAN AHMAD</strong>
 
 </p>
 
-<p style="margin-top:15px;color:#999;">
-
-© 2026 TechFix Software Exp. All Rights Reserved.
-
-</p>
+</div>
 
 </footer>
+
+</main>
 
 <script src="script.js"></script>
 
