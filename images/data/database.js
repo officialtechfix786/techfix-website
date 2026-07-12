@@ -3,7 +3,7 @@
  Universal Mobile Database V1
 ==================================================*/
 
-const mobileDatabase = {
+window.mobileDatabase = {
 
 apple: [
 
