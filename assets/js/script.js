@@ -1,14 +1,5 @@
 /*==================================================
         TECHFIX SOFTWARE EXP v3.0
-====================================================
-
-Project : TechFix Software EXP
-File    : script.js
-Version : 3.0
-
-Founder : MIAN AHMAD
-Developer : ChatGPT
-
 ==================================================*/
 
 "use strict";
@@ -20,166 +11,509 @@ Developer : ChatGPT
 const loader = document.getElementById("loader");
 const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.querySelector(".sidebar");
+
 const topButton = document.getElementById("topButton");
+
+const brandGrid = document.getElementById("brandGrid");
 
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const searchResults = document.getElementById("searchResults");
 
-const brandGrid = document.getElementById("brandGrid");
-const counters = document.querySelectorAll(".counter");
-
 /*==================================================
-                WEBSITE START
+                START WEBSITE
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initWebsite();
+loadBrands();
+
+loadSocialLinks();
+
+setupSidebar();
+
+setupSearch();
+
+setupBackToTop();
+
+scrollReveal();
 
 });
 
 /*==================================================
-                INITIALIZER
+                LOADER
 ==================================================*/
 
-function initWebsite(){
+window.addEventListener("load",()=>{
 
-    loaderEngine();
+if(loader){
 
-    sidebarEngine();
+loader.style.opacity="0";
 
-    backToTopEngine();
+setTimeout(()=>{
 
-    socialEngine();
+loader.style.display="none";
 
-    brandEngine();
-
-    counterEngine();
-
-    searchEngine();
-
-    revealEngine();
-
-    heroEngine();
-
-    uiEngine();
+},500);
 
 }
-/*==================================================
-                    LOADER
-==================================================*/
 
-function loaderEngine(){
+});
 
-    window.addEventListener("load",()=>{
-
-        if(!loader) return;
-
-        loader.classList.add("hide");
-
-        setTimeout(()=>{
-
-            loader.remove();
-
-        },500);
-
-    });
-
-}
 /*==================================================
                 SIDEBAR
 ==================================================*/
 
-function sidebarEngine(){
+function setupSidebar(){
 
-    if(!menuBtn || !sidebar) return;
+if(!menuBtn || !sidebar) return;
 
-    menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener("click",()=>{
 
-        sidebar.classList.toggle("active");
+sidebar.classList.toggle("show");
 
-    });
+});
 
-    document.addEventListener("click",(e)=>{
+document.addEventListener("click",(e)=>{
 
-        if(
-            !sidebar.contains(e.target) &&
-            e.target!==menuBtn &&
-            !menuBtn.contains(e.target)
-        ){
-            sidebar.classList.remove("active");
-        }
+if(
 
-    });
+!sidebar.contains(e.target)
+
+&&
+
+e.target!==menuBtn
+
+){
+
+sidebar.classList.remove("show");
+
+}
+
+});
 
 }
 
 /*==================================================
-                SOCIAL LINKS
+            SOCIAL LINKS
 ==================================================*/
 
-function socialEngine(){
+function loadSocialLinks(){
 
-    if(typeof SOCIAL==="undefined") return;
+if(typeof SOCIAL==="undefined") return;
 
-    const links={
+const links={
 
-        youtubeLink:SOCIAL.youtube,
-        facebookLink:SOCIAL.facebook,
-        tiktokLink:SOCIAL.tiktok,
-        whatsappLink:SOCIAL.whatsapp,
+youtubeLink:SOCIAL.youtube,
 
-        footerYoutube:SOCIAL.youtube,
-        footerFacebook:SOCIAL.facebook,
-        footerTiktok:SOCIAL.tiktok,
-        footerWhatsapp:SOCIAL.whatsapp,
-        footerEmail:SOCIAL.email
+facebookLink:SOCIAL.facebook,
 
-    };
+tiktokLink:SOCIAL.tiktok,
 
-    Object.keys(links).forEach(id=>{
+whatsappLink:SOCIAL.whatsapp,
 
-        const el=document.getElementById(id);
+footerYoutube:SOCIAL.youtube,
 
-        if(el){
+footerFacebook:SOCIAL.facebook,
 
-            el.href=links[id];
+footerTiktok:SOCIAL.tiktok,
 
-            el.target="_blank";
+footerWhatsapp:SOCIAL.whatsapp
 
-        }
+};
 
-    });
+Object.keys(links).forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el){
+
+el.href=links[id];
+
+el.target="_blank";
+
+}
+
+});
+
+}
+/*==================================================
+                BRAND LOADER
+==================================================*/
+
+function loadBrands(){
+
+if(!brandGrid) return;
+
+if(typeof BRANDS==="undefined") return;
+
+brandGrid.innerHTML="";
+
+BRANDS.forEach(brand=>{
+
+brandGrid.innerHTML+=`
+
+<a href="${brand.page}" class="brand-card">
+
+<img src="${brand.logo}" alt="${brand.name}">
+
+<h3>${brand.name}</h3>
+
+</a>
+
+`;
+
+});
 
 }
 
 /*==================================================
-                SUPPORTED BRANDS
+                SEARCH ENGINE
 ==================================================*/
 
-function brandEngine(){
+function setupSearch(){
 
-    if(!brandGrid) return;
+if(!searchInput || !searchResults) return;
 
-    if(typeof BRANDS==="undefined") return;
+searchInput.addEventListener("input",searchDatabase);
 
-    brandGrid.innerHTML="";
-
-    BRANDS.forEach(brand=>{
-
-        brandGrid.innerHTML+=`
-
-        <a href="${brand.page}" class="brand-card">
-
-            <img src="${brand.logo}" alt="${brand.name}">
-
-            <h3>${brand.name}</h3>
-
-        </a>
-
-        `;
-
-    });
+searchBtn?.addEventListener("click",searchDatabase);
 
 }
+
+function searchDatabase(){
+
+const keyword=searchInput.value.trim().toLowerCase();
+
+searchResults.innerHTML="";
+
+if(keyword.length<2){
+
+searchResults.style.display="none";
+
+return;
+
+}
+
+let results=[];
+
+/* Mobile Models */
+
+if(typeof MOBILE_MODELS!=="undefined"){
+
+MOBILE_MODELS.forEach(brand=>{
+
+brand.models.forEach(model=>{
+
+if(model.toLowerCase().includes(keyword)){
+
+results.push({
+
+icon:"📱",
+
+title:model,
+
+subtitle:brand.brand,
+
+page:"mobiles.html"
+
+});
+
+}
+
+});
+
+});
+
+}
+
+/* Brands */
+
+if(typeof BRANDS!=="undefined"){
+
+BRANDS.forEach(item=>{
+
+if(item.name.toLowerCase().includes(keyword)){
+
+results.push({
+
+icon:"🏷️",
+
+title:item.name,
+
+subtitle:"Brand",
+
+page:item.page
+
+});
+
+}
+
+});
+
+}
+
+/* Tools */
+
+if(typeof TOOLS!=="undefined"){
+
+TOOLS.forEach(tool=>{
+
+if(tool.name.toLowerCase().includes(keyword)){
+
+results.push({
+
+icon:"🛠",
+
+title:tool.name,
+
+subtitle:tool.category,
+
+page:tool.page
+
+});
+
+}
+
+});
+
+}
+
+renderResults(results);
+
+}
+
+/*==================================================
+            SEARCH RESULTS
+==================================================*/
+
+function renderResults(results){
+
+searchResults.innerHTML="";
+
+if(results.length===0){
+
+searchResults.innerHTML=`
+
+<div class="search-empty">
+
+No Results Found
+
+</div>
+
+`;
+
+searchResults.style.display="block";
+
+return;
+
+}
+
+results.slice(0,10).forEach(item=>{
+
+searchResults.innerHTML+=`
+
+<a href="${item.page}" class="search-item">
+
+<span>${item.icon}</span>
+
+<div>
+
+<strong>${item.title}</strong>
+
+<small>${item.subtitle}</small>
+
+</div>
+
+</a>
+
+`;
+
+});
+
+searchResults.style.display="block";
+
+}
+
+/* Hide Search */
+
+document.addEventListener("click",(e)=>{
+
+if(
+
+!searchResults.contains(e.target)
+
+&&
+
+e.target!==searchInput
+
+){
+
+searchResults.style.display="none";
+
+}
+
+});
+/*==================================================
+                BACK TO TOP
+==================================================*/
+
+function setupBackToTop(){
+
+if(!topButton) return;
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+
+topButton.classList.add("active");
+
+}else{
+
+topButton.classList.remove("active");
+
+}
+
+});
+
+topButton.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+}
+
+/*==================================================
+            SCROLL REVEAL
+==================================================*/
+
+function scrollReveal(){
+
+const items=document.querySelectorAll(
+
+".service-card,.brand-card,.stat-box,.contact-card,.feature-card"
+
+);
+
+if(!items.length) return;
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{
+
+threshold:.15
+
+});
+
+items.forEach(item=>{
+
+item.classList.add("hidden");
+
+observer.observe(item);
+
+});
+
+}
+
+/*==================================================
+            HERO FLOATING
+==================================================*/
+
+const heroImage=document.querySelector(".hero-image img");
+
+if(heroImage){
+
+let direction=1;
+
+let position=0;
+
+setInterval(()=>{
+
+position+=direction;
+
+heroImage.style.transform=`translateY(${position}px)`;
+
+if(position>=12) direction=-1;
+
+if(position<=-12) direction=1;
+
+},60);
+
+}
+
+/*==================================================
+            IMAGE OPTIMIZATION
+==================================================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.loading="lazy";
+
+img.draggable=false;
+
+});
+
+/*==================================================
+            ACTIVE PAGE
+==================================================*/
+
+const currentPage=location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar-nav a").forEach(link=>{
+
+if(link.getAttribute("href")===currentPage){
+
+link.classList.add("active");
+
+}
+
+});
+
+/*==================================================
+            ESC CLOSE SIDEBAR
+==================================================*/
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Escape"){
+
+sidebar?.classList.remove("show");
+
+}
+
+});
+
+/*==================================================
+            AUTO CLOSE SIDEBAR
+==================================================*/
+
+document.querySelectorAll(".sidebar-nav a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+sidebar?.classList.remove("show");
+
+});
+
+});
+
+/*==================================================
+            END OF FILE
+==================================================*/
