@@ -1,25 +1,27 @@
 /*==================================================
-            TECHFIX SOFTWARE EXP v2.0
-==================================================
+            TECHFIX SOFTWARE EXP v3.0
+====================================================
 
-Project  : TechFix Software EXP
-File     : database.js
-Version  : 2.0.0
+Project   : TechFix Software EXP
+File      : database.js
+Version   : 3.0.0
 
-Developer:
-ChatGPT (Lead Developer)
-MIAN AHMAD (Founder & CEO)
+Lead Developer : ChatGPT
+Founder & CEO  : MIAN AHMAD
 
 ==================================================*/
 
+"use strict";
 
 /*==================================================
-                COMPANY INFO
+                COMPANY INFORMATION
 ==================================================*/
 
 const COMPANY = {
 
     name: "TechFix Software EXP",
+
+    shortName: "TECHFIX",
 
     slogan: "Professional Mobile Software Solutions",
 
@@ -29,7 +31,9 @@ const COMPANY = {
 
     phone: "+966568152404",
 
-    website: "https://officialtechfix786.github.io/techfix-website/"
+    website: "https://officialtechfix786.github.io/techfix-website/",
+
+    copyright: "© 2026 TechFix Software EXP"
 
 };
 
@@ -56,135 +60,160 @@ const SOCIAL = {
 
 
 /*==================================================
+                WEBSITE SETTINGS
+==================================================*/
+
+const WEBSITE = {
+
+    version: "3.0.0",
+
+    language: "en",
+
+    theme: "Cyber Dark",
+
+    searchLimit: 10,
+
+    enableSearch: true,
+
+    enableAnimations: true,
+
+    enableCounters: true,
+
+    enableLazyLoading: true
+
+};
+/*==================================================
                 MOBILE BRANDS
 ==================================================*/
 
 const BRANDS = [
 
-{
-    id:1,
-    name:"Apple",
-    logo:"assets/images/apple.png",
-    page:"apple.html"
-},
+    {
+        id: 1,
+        name: "Apple",
+        logo: "assets/images/brands/apple.png",
+        page: "apple.html"
+    },
 
-{
-    id:2,
-    name:"Samsung",
-    logo:"assets/images/samsung.png",
-    page:"mobiles.html"
-},
+    {
+        id: 2,
+        name: "Samsung",
+        logo: "assets/images/brands/samsung.png",
+        page: "android.html"
+    },
 
-{
-    id:3,
-    name:"Google Pixel",
-    logo:"assets/images/google.png",
-    page:"mobiles.html"
-},
+    {
+        id: 3,
+        name: "Google Pixel",
+        logo: "assets/images/brands/pixel.png",
+        page: "android.html"
+    },
 
-{
-    id:4,
-    name:"Xiaomi",
-    logo:"assets/images/xiaomi.png",
-    page:"mobiles.html"
-},
+    {
+        id: 4,
+        name: "Xiaomi",
+        logo: "assets/images/brands/xiaomi.png",
+        page: "android.html"
+    },
 
-{
-    id:5,
-    name:"Redmi",
-    logo:"assets/images/redmi.png",
-    page:"mobiles.html"
-},
+    {
+        id: 5,
+        name: "Redmi",
+        logo: "assets/images/brands/redmi.png",
+        page: "android.html"
+    },
 
-{
-    id:6,
-    name:"POCO",
-    logo:"assets/images/poco.png",
-    page:"mobiles.html"
-},
+    {
+        id: 6,
+        name: "POCO",
+        logo: "assets/images/brands/poco.png",
+        page: "android.html"
+    },
 
-{
-    id:7,
-    name:"OnePlus",
-    logo:"assets/images/oneplus.png",
-    page:"mobiles.html"
-},
+    {
+        id: 7,
+        name: "OnePlus",
+        logo: "assets/images/brands/oneplus.png",
+        page: "android.html"
+    },
 
-{
-    id:8,
-    name:"Vivo",
-    logo:"assets/images/vivo.png",
-    page:"mobiles.html"
-},
+    {
+        id: 8,
+        name: "Vivo",
+        logo: "assets/images/brands/vivo.png",
+        page: "android.html"
+    },
 
-{
-    id:9,
-    name:"Oppo",
-    logo:"assets/images/oppo.png",
-    page:"mobiles.html"
-},
+    {
+        id: 9,
+        name: "Oppo",
+        logo: "assets/images/brands/oppo.png",
+        page: "android.html"
+    },
 
-{
-    id:10,
-    name:"Realme",
-    logo:"assets/images/realme.png",
-    page:"mobiles.html"
-},
+    {
+        id: 10,
+        name: "Realme",
+        logo: "assets/images/brands/realme.png",
+        page: "android.html"
+    },
 
-{
-    id:11,
-    name:"Tecno",
-    logo:"assets/images/tecno.png",
-    page:"mobiles.html"
-},
+    {
+        id: 11,
+        name: "Tecno",
+        logo: "assets/images/brands/tecno.png",
+        page: "android.html"
+    },
 
-{
-    id:12,
-    name:"Infinix",
-    logo:"assets/images/infinix.png",
-    page:"mobiles.html"
-},
+    {
+        id: 12,
+        name: "Infinix",
+        logo: "assets/images/brands/infinix.png",
+        page: "android.html"
+    },
 
-{
-    id:13,
-    name:"Motorola",
-    logo:"assets/images/motorola.png",
-    page:"mobiles.html"
-},
+    {
+        id: 13,
+        name: "Motorola",
+        logo: "assets/images/brands/motorola.png",
+        page: "android.html"
+    },
 
-{
-    id:14,
-    name:"Huawei",
-    logo:"assets/images/huawei.png",
-    page:"mobiles.html"
-},
+    {
+        id: 14,
+        name: "Huawei",
+        logo: "assets/images/brands/huawei.png",
+        page: "android.html"
+    },
 
-{
-    id:15,
-    name:"Honor",
-    logo:"assets/images/honor.png",
-    page:"mobiles.html"
-},
+    {
+        id: 15,
+        name: "Honor",
+        logo: "assets/images/brands/honor.png",
+        page: "android.html"
+    },
 
-{
-    id:16,
-    name:"Nokia",
-    logo:"assets/images/nokia.png",
-    page:"mobiles.html"
-},
+    {
+        id: 16,
+        name: "Nokia",
+        logo: "assets/images/brands/nokia.png",
+        page: "android.html"
+    },
 
-{
-    id:17,
-    name:"Nothing",
-    logo:"assets/images/nothing.png",
-    page:"mobiles.html"
-},
+    {
+        id: 17,
+        name: "Nothing",
+        logo: "assets/images/brands/nothing.png",
+        page: "android.html"
+    },
 
-{
-    id:18,
-    name:"LG",
-    logo:"assets/images/lg.png",
-    page:"mobiles.html"
+    {
+        id: 18,
+        name: "LG",
+        logo: "assets/images/brands/lg.png",
+        page: "android.html"
+    }
+
 ];
 /*==================================================
                 MOBILE MODELS
@@ -234,7 +263,6 @@ const MOBILE_MODELS = [
 {
     brand: "Samsung",
     models: [
-
         "Galaxy A04",
         "Galaxy A05",
         "Galaxy A05s",
@@ -256,7 +284,6 @@ const MOBILE_MODELS = [
         "Galaxy A53",
         "Galaxy A54",
         "Galaxy A55",
-
         "Galaxy S21",
         "Galaxy S22",
         "Galaxy S23",
@@ -264,12 +291,10 @@ const MOBILE_MODELS = [
         "Galaxy S24 Ultra",
         "Galaxy S25",
         "Galaxy S25 Ultra",
-
         "Galaxy Z Flip 5",
         "Galaxy Z Flip 6",
         "Galaxy Z Fold 5",
         "Galaxy Z Fold 6"
-
     ]
 },
 
@@ -278,7 +303,6 @@ const MOBILE_MODELS = [
 {
     brand: "Xiaomi",
     models: [
-
         "Xiaomi 11T",
         "Xiaomi 11T Pro",
         "Xiaomi 12",
@@ -288,7 +312,6 @@ const MOBILE_MODELS = [
         "Xiaomi 14",
         "Xiaomi 14 Ultra",
         "Xiaomi 15"
-
     ]
 },
 
@@ -297,18 +320,15 @@ const MOBILE_MODELS = [
 {
     brand: "Redmi",
     models: [
-
         "Redmi Note 10",
         "Redmi Note 11",
         "Redmi Note 12",
         "Redmi Note 13",
         "Redmi Note 14",
-
         "Redmi 10",
         "Redmi 12",
         "Redmi 13",
         "Redmi 14C"
-
     ]
 },
 
@@ -317,21 +337,15 @@ const MOBILE_MODELS = [
 {
     brand: "POCO",
     models: [
-
         "POCO M4",
         "POCO M5",
         "POCO M6",
-
         "POCO X5",
         "POCO X6",
-
         "POCO F5",
         "POCO F6"
-
     ]
 },
-
-];
 /*================ VIVO ================*/
 
 {
@@ -440,6 +454,7 @@ const MOBILE_MODELS = [
         "Infinix Zero 30"
     ]
 },
+
 /*================ HUAWEI ================*/
 
 {
@@ -577,243 +592,45 @@ const MOBILE_MODELS = [
 
 const TOOLS = [
 
-    /* Android Tools */
+    { name: "UnlockTool", category: "Android", page: "downloads.html" },
+    { name: "Hydra Tool", category: "Android", page: "downloads.html" },
+    { name: "Chimera Tool", category: "Android", page: "downloads.html" },
+    { name: "Pandora Box", category: "Android", page: "downloads.html" },
+    { name: "EFT Pro", category: "Android", page: "downloads.html" },
+    { name: "UMT Pro", category: "Android", page: "downloads.html" },
+    { name: "CM2 Dongle", category: "Android", page: "downloads.html" },
+    { name: "DFT Pro", category: "Android", page: "downloads.html" },
+    { name: "TFM Tool Pro", category: "Android", page: "downloads.html" },
 
-    {
-        name: "UnlockTool",
-        category: "Android",
-        page: "downloads.html"
-    },
+    { name: "SP Flash Tool", category: "Flash Tool", page: "downloads.html" },
+    { name: "Odin Flash Tool", category: "Flash Tool", page: "downloads.html" },
+    { name: "Mi Flash Tool", category: "Flash Tool", page: "downloads.html" },
 
-    {
-        name: "Hydra Tool",
-        category: "Android",
-        page: "downloads.html"
-    },
+    { name: "QFIL", category: "Qualcomm", page: "downloads.html" },
+    { name: "QPST", category: "Qualcomm", page: "downloads.html" },
 
-    {
-        name: "Chimera Tool",
-        category: "Android",
-        page: "downloads.html"
-    },
+    { name: "ADB Platform Tools", category: "Android", page: "android.html" },
+    { name: "Fastboot", category: "Android", page: "android.html" },
 
-    {
-        name: "Pandora Box",
-        category: "Android",
-        page: "downloads.html"
-    },
+    { name: "3uTools", category: "Apple", page: "apple.html" },
+    { name: "iTunes", category: "Apple", page: "apple.html" },
+    { name: "Apple Configurator", category: "Apple", page: "apple.html" },
 
-    {
-        name: "EFT Pro",
-        category: "Android",
-        page: "downloads.html"
-    },
-
-    {
-        name: "UMT Pro",
-        category: "Android",
-        page: "downloads.html"
-    },
-
-    {
-        name: "CM2 Dongle",
-        category: "Android",
-        page: "downloads.html"
-    },
-
-    {
-        name: "DFT Pro",
-        category: "Android",
-        page: "downloads.html"
-    },
-
-    {
-        name: "TFM Tool Pro",
-        category: "Android",
-        page: "downloads.html"
-    },
-
-    /* Flash Tools */
-
-    {
-        name: "SP Flash Tool",
-        category: "Flash Tool",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Odin Flash Tool",
-        category: "Flash Tool",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Mi Flash Tool",
-        category: "Flash Tool",
-        page: "downloads.html"
-    },
-
-    {
-        name: "QFIL",
-        category: "Qualcomm",
-        page: "downloads.html"
-    },
-
-    {
-        name: "QPST",
-        category: "Qualcomm",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Fastboot",
-        category: "Android",
-        page: "android.html"
-    },
-
-    {
-        name: "ADB Platform Tools",
-        category: "Android",
-        page: "android.html"
-    },
-
-    /* Apple */
-
-    {
-        name: "3uTools",
-        category: "Apple",
-        page: "apple.html"
-    },
-
-    {
-        name: "iTunes",
-        category: "Apple",
-        page: "apple.html"
-    },
-
-    {
-        name: "Apple Configurator",
-        category: "Apple",
-        page: "apple.html"
-    },
-
-    /* Drivers */
-
-    {
-        name: "Samsung USB Driver",
-        category: "Driver",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Qualcomm USB Driver",
-        category: "Driver",
-        page: "downloads.html"
-    },
-
-    {
-        name: "MTK USB Driver",
-        category: "Driver",
-        page: "downloads.html"
-    },
-
-    {
-        name: "SPD USB Driver",
-        category: "Driver",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Huawei USB Driver",
-        category: "Driver",
-        page: "downloads.html"
-    }
+    { name: "Samsung USB Driver", category: "Driver", page: "downloads.html" },
+    { name: "Qualcomm USB Driver", category: "Driver", page: "downloads.html" },
+    { name: "MTK USB Driver", category: "Driver", page: "downloads.html" },
+    { name: "SPD USB Driver", category: "Driver", page: "downloads.html" },
+    { name: "Huawei USB Driver", category: "Driver", page: "downloads.html" }
 
 ];
+
+
 /*==================================================
                     DOWNLOADS
 ==================================================*/
 
-const DOWNLOADS = [
+const DOWNLOADS = TOOLS;
 
-    {
-        name: "UnlockTool",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Hydra Tool",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Chimera Tool",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "Pandora Box",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "EFT Pro",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "UMT Pro",
-        category: "Android",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "3uTools",
-        category: "Apple",
-        version: "Latest",
-        page: "apple.html"
-    },
-
-    {
-        name: "iTunes",
-        category: "Apple",
-        version: "Latest",
-        page: "apple.html"
-    },
-
-    {
-        name: "Odin Flash Tool",
-        category: "Samsung",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "SP Flash Tool",
-        category: "MediaTek",
-        version: "Latest",
-        page: "downloads.html"
-    },
-
-    {
-        name: "QFIL",
-        category: "Qualcomm",
-        version: "Latest",
-        page: "downloads.html"
-    }
-
-];
 
 /*==================================================
                     WEBSITE PAGES
@@ -821,47 +638,17 @@ const DOWNLOADS = [
 
 const PAGES = [
 
-    {
-        title: "Home",
-        page: "index.html"
-    },
-
-    {
-        title: "Mobiles",
-        page: "mobiles.html"
-    },
-
-    {
-        title: "Android",
-        page: "android.html"
-    },
-
-    {
-        title: "Apple",
-        page: "apple.html"
-    },
-
-    {
-        title: "Downloads",
-        page: "downloads.html"
-    },
-
-    {
-        title: "Cyber Security",
-        page: "cyber.html"
-    },
-
-    {
-        title: "Laptop",
-        page: "laptop.html"
-    },
-
-    {
-        title: "Contact",
-        page: "contact.html"
-    }
+    { title: "Home", page: "index.html" },
+    { title: "Mobiles", page: "mobiles.html" },
+    { title: "Android", page: "android.html" },
+    { title: "Apple", page: "apple.html" },
+    { title: "Downloads", page: "downloads.html" },
+    { title: "Cyber Security", page: "cyber.html" },
+    { title: "Laptop", page: "laptop.html" },
+    { title: "Contact", page: "contact.html" }
 
 ];
+
 
 /*==================================================
                 MASTER DATABASE
@@ -872,6 +659,8 @@ const DATABASE = {
     company: COMPANY,
 
     social: SOCIAL,
+
+    website: WEBSITE,
 
     brands: BRANDS,
 
@@ -885,23 +674,18 @@ const DATABASE = {
 
 };
 
+
 /*==================================================
                 END OF FILE
 ==================================================*/
 
 /*
+Project   : TechFix Software EXP v3.0
+File      : database.js
 
-    Project   : TechFix Software EXP v2.0
-    File      : database.js
-    Version   : 2.0.0
+Lead Developer : ChatGPT
+Founder & CEO  : MIAN AHMAD
 
-    Developer : ChatGPT
-    Founder & CEO : MIAN AHMAD
-
-    Website :
-    https://officialtechfix786.github.io/techfix-website/
-
-    © 2026 TechFix Software EXP
-    All Rights Reserved.
-
+© 2026 TechFix Software EXP
+All Rights Reserved.
 */
