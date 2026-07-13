@@ -1,50 +1,15 @@
 /*==================================================
-        TECHFIX SOFTWARE EXP v3.0
+    TechFix Software EXP v4
+    script.js
 ==================================================*/
 
 "use strict";
 
-/*==================================================
-                DOM ELEMENTS
-==================================================*/
+/*================ Loader ================*/
+
+window.addEventListener("load", () => {
 
 const loader = document.getElementById("loader");
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.querySelector(".sidebar");
-
-const topButton = document.getElementById("topButton");
-
-const brandGrid = document.getElementById("brandGrid");
-
-const searchInput = document.getElementById("searchInput");
-const searchBtn = document.getElementById("searchBtn");
-const searchResults = document.getElementById("searchResults");
-
-/*==================================================
-                START WEBSITE
-==================================================*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-loadBrands();
-
-loadSocialLinks();
-
-setupSidebar();
-
-setupSearch();
-
-setupBackToTop();
-
-scrollReveal();
-
-});
-
-/*==================================================
-                LOADER
-==================================================*/
-
-window.addEventListener("load",()=>{
 
 if(loader){
 
@@ -60,323 +25,61 @@ loader.style.display="none";
 
 });
 
-/*==================================================
-                SIDEBAR
-==================================================*/
+/*================ Sidebar ================*/
 
-function setupSidebar(){
+const menuBtn=document.getElementById("menuBtn");
 
-if(!menuBtn || !sidebar) return;
+const sidebar=document.querySelector(".sidebar");
 
-menuBtn.addEventListener("click",()=>{
+if(menuBtn && sidebar){
 
-sidebar.classList.toggle("show");
+menuBtn.onclick=()=>{
 
-});
-
-document.addEventListener("click",(e)=>{
-
-if(
-
-!sidebar.contains(e.target)
-
-&&
-
-e.target!==menuBtn
-
-){
-
-sidebar.classList.remove("show");
-
-}
-
-});
-
-}
-
-/*==================================================
-            SOCIAL LINKS
-==================================================*/
-
-function loadSocialLinks(){
-
-if(typeof SOCIAL==="undefined") return;
-
-const links={
-
-youtubeLink:SOCIAL.youtube,
-
-facebookLink:SOCIAL.facebook,
-
-tiktokLink:SOCIAL.tiktok,
-
-whatsappLink:SOCIAL.whatsapp,
-
-footerYoutube:SOCIAL.youtube,
-
-footerFacebook:SOCIAL.facebook,
-
-footerTiktok:SOCIAL.tiktok,
-
-footerWhatsapp:SOCIAL.whatsapp
+sidebar.classList.toggle("active");
 
 };
 
-Object.keys(links).forEach(id=>{
-
-const el=document.getElementById(id);
-
-if(el){
-
-el.href=links[id];
-
-el.target="_blank";
-
 }
+
+/*================ Active Menu ================*/
+
+document.querySelectorAll(".sidebar-nav a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+document.querySelectorAll(".sidebar-nav a").forEach(a=>{
+
+a.classList.remove("active");
 
 });
 
-}
-/*==================================================
-                BRAND LOADER
-==================================================*/
-
-function loadBrands(){
-
-if(!brandGrid) return;
-
-if(typeof BRANDS==="undefined") return;
-
-brandGrid.innerHTML="";
-
-BRANDS.forEach(brand=>{
-
-brandGrid.innerHTML+=`
-
-<a href="${brand.page}" class="brand-card">
-
-<img src="${brand.logo}" alt="${brand.name}">
-
-<h3>${brand.name}</h3>
-
-</a>
-
-`;
-
-});
-
-}
-
-/*==================================================
-                SEARCH ENGINE
-==================================================*/
-
-function setupSearch(){
-
-if(!searchInput || !searchResults) return;
-
-searchInput.addEventListener("input",searchDatabase);
-
-searchBtn?.addEventListener("click",searchDatabase);
-
-}
-
-function searchDatabase(){
-
-const keyword=searchInput.value.trim().toLowerCase();
-
-searchResults.innerHTML="";
-
-if(keyword.length<2){
-
-searchResults.style.display="none";
-
-return;
-
-}
-
-let results=[];
-
-/* Mobile Models */
-
-if(typeof MOBILE_MODELS!=="undefined"){
-
-MOBILE_MODELS.forEach(brand=>{
-
-brand.models.forEach(model=>{
-
-if(model.toLowerCase().includes(keyword)){
-
-results.push({
-
-icon:"📱",
-
-title:model,
-
-subtitle:brand.brand,
-
-page:"mobiles.html"
-
-});
-
-}
+link.classList.add("active");
 
 });
 
 });
 
-}
+/*================ Back To Top ================*/
 
-/* Brands */
-
-if(typeof BRANDS!=="undefined"){
-
-BRANDS.forEach(item=>{
-
-if(item.name.toLowerCase().includes(keyword)){
-
-results.push({
-
-icon:"🏷️",
-
-title:item.name,
-
-subtitle:"Brand",
-
-page:item.page
-
-});
-
-}
-
-});
-
-}
-
-/* Tools */
-
-if(typeof TOOLS!=="undefined"){
-
-TOOLS.forEach(tool=>{
-
-if(tool.name.toLowerCase().includes(keyword)){
-
-results.push({
-
-icon:"🛠",
-
-title:tool.name,
-
-subtitle:tool.category,
-
-page:tool.page
-
-});
-
-}
-
-});
-
-}
-
-renderResults(results);
-
-}
-
-/*==================================================
-            SEARCH RESULTS
-==================================================*/
-
-function renderResults(results){
-
-searchResults.innerHTML="";
-
-if(results.length===0){
-
-searchResults.innerHTML=`
-
-<div class="search-empty">
-
-No Results Found
-
-</div>
-
-`;
-
-searchResults.style.display="block";
-
-return;
-
-}
-
-results.slice(0,10).forEach(item=>{
-
-searchResults.innerHTML+=`
-
-<a href="${item.page}" class="search-item">
-
-<span>${item.icon}</span>
-
-<div>
-
-<strong>${item.title}</strong>
-
-<small>${item.subtitle}</small>
-
-</div>
-
-</a>
-
-`;
-
-});
-
-searchResults.style.display="block";
-
-}
-
-/* Hide Search */
-
-document.addEventListener("click",(e)=>{
-
-if(
-
-!searchResults.contains(e.target)
-
-&&
-
-e.target!==searchInput
-
-){
-
-searchResults.style.display="none";
-
-}
-
-});
-/*==================================================
-                BACK TO TOP
-==================================================*/
-
-function setupBackToTop(){
-
-if(!topButton) return;
+const topButton=document.getElementById("topButton");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>300){
+if(window.scrollY>400){
 
-topButton.classList.add("active");
+topButton.classList.add("show");
 
 }else{
 
-topButton.classList.remove("active");
+topButton.classList.remove("show");
 
 }
 
 });
 
-topButton.addEventListener("click",()=>{
+if(topButton){
+
+topButton.onclick=()=>{
 
 window.scrollTo({
 
@@ -386,23 +89,183 @@ behavior:"smooth"
 
 });
 
+};
+
+}
+/*==================================================
+            LIVE SEARCH
+==================================================*/
+
+const searchInput=document.getElementById("searchInput");
+
+const searchResults=document.getElementById("searchResults");
+
+if(searchInput && searchResults){
+
+searchInput.addEventListener("keyup",()=>{
+
+const keyword=searchInput.value.trim().toLowerCase();
+
+searchResults.innerHTML="";
+
+if(keyword===""){
+
+searchResults.style.display="none";
+
+return;
+
+}
+
+const results=[];
+
+/* Search Brands */
+
+if(typeof brands!=="undefined"){
+
+brands.forEach(item=>{
+
+if(
+
+item.name.toLowerCase().includes(keyword)
+
+){
+
+results.push({
+
+title:item.name,
+
+desc:"Supported Brand"
+
+});
+
+}
+
+});
+
+}
+
+/* Search Pages */
+
+if(typeof pages!=="undefined"){
+
+pages.forEach(item=>{
+
+if(
+
+item.title.toLowerCase().includes(keyword)
+
+){
+
+results.push({
+
+title:item.title,
+
+desc:item.category
+
+});
+
+}
+
+});
+
+}
+
+if(results.length===0){
+
+searchResults.innerHTML=`
+
+<div class="search-item">
+
+<i class="fas fa-circle-info"></i>
+
+<div>
+
+<strong>No Result Found</strong>
+
+<span>Try another keyword</span>
+
+</div>
+
+</div>
+
+`;
+
+searchResults.style.display="block";
+
+return;
+
+}
+
+results.slice(0,8).forEach(item=>{
+
+searchResults.innerHTML+=`
+
+<div class="search-item">
+
+<i class="fas fa-magnifying-glass"></i>
+
+<div>
+
+<strong>${item.title}</strong>
+
+<span>${item.desc}</span>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+searchResults.style.display="block";
+
+});
+
+document.addEventListener("click",(e)=>{
+
+if(!searchInput.contains(e.target) && !searchResults.contains(e.target)){
+
+searchResults.style.display="none";
+
+}
+
 });
 
 }
 
 /*==================================================
-            SCROLL REVEAL
+            BRAND LOADER
 ==================================================*/
 
-function scrollReveal(){
+const brandGrid=document.getElementById("brandGrid");
 
-const items=document.querySelectorAll(
+if(brandGrid && typeof brands!=="undefined"){
 
-".service-card,.brand-card,.stat-box,.contact-card,.feature-card"
+brandGrid.innerHTML="";
 
-);
+brands.forEach(item=>{
 
-if(!items.length) return;
+brandGrid.innerHTML+=`
+
+<div class="brand-card">
+
+<img src="${item.logo}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>${item.models}+ Models</p>
+
+</div>
+
+`;
+
+});
+
+}
+/*==================================================
+            SCROLL REVEAL
+==================================================*/
 
 const observer=new IntersectionObserver((entries)=>{
 
@@ -422,98 +285,124 @@ threshold:.15
 
 });
 
-items.forEach(item=>{
+document.querySelectorAll(
 
-item.classList.add("hidden");
+".service-card,.brand-card,.contact-cta,.section-heading"
 
-observer.observe(item);
+).forEach(el=>{
+
+el.classList.add("fade-up");
+
+observer.observe(el);
+
+});
+
+/*==================================================
+            COUNTER
+==================================================*/
+
+document.querySelectorAll("[data-count]").forEach(counter=>{
+
+const target=parseInt(counter.dataset.count);
+
+let value=0;
+
+const speed=Math.max(1,Math.ceil(target/120));
+
+const update=()=>{
+
+value+=speed;
+
+if(value>=target){
+
+counter.innerText=target;
+
+}else{
+
+counter.innerText=value;
+
+requestAnimationFrame(update);
+
+}
+
+};
+
+update();
+
+});
+
+/*==================================================
+            CURSOR GLOW
+==================================================*/
+
+const glow=document.createElement("div");
+
+glow.className="cursor-glow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+/*==================================================
+            FOOTER LINKS
+==================================================*/
+
+if(typeof socialLinks!=="undefined"){
+
+const map={
+
+footerYoutube:"youtube",
+
+footerFacebook:"facebook",
+
+footerWhatsapp:"whatsapp",
+
+footerTiktok:"tiktok",
+
+whatsappLink:"whatsapp"
+
+};
+
+Object.keys(map).forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el && socialLinks[map[id]]){
+
+el.href=socialLinks[map[id]];
+
+el.target="_blank";
+
+}
 
 });
 
 }
 
 /*==================================================
-            HERO FLOATING
+            SEARCH BUTTON
 ==================================================*/
 
-const heroImage=document.querySelector(".hero-image img");
+const searchBtn=document.getElementById("searchBtn");
 
-if(heroImage){
+if(searchBtn && searchInput){
 
-let direction=1;
+searchBtn.addEventListener("click",()=>{
 
-let position=0;
+searchInput.focus();
 
-setInterval(()=>{
-
-position+=direction;
-
-heroImage.style.transform=`translateY(${position}px)`;
-
-if(position>=12) direction=-1;
-
-if(position<=-12) direction=1;
-
-},60);
+});
 
 }
 
 /*==================================================
-            IMAGE OPTIMIZATION
+            END
 ==================================================*/
 
-document.querySelectorAll("img").forEach(img=>{
-
-img.loading="lazy";
-
-img.draggable=false;
-
-});
-
-/*==================================================
-            ACTIVE PAGE
-==================================================*/
-
-const currentPage=location.pathname.split("/").pop();
-
-document.querySelectorAll(".sidebar-nav a").forEach(link=>{
-
-if(link.getAttribute("href")===currentPage){
-
-link.classList.add("active");
-
-}
-
-});
-
-/*==================================================
-            ESC CLOSE SIDEBAR
-==================================================*/
-
-document.addEventListener("keydown",(e)=>{
-
-if(e.key==="Escape"){
-
-sidebar?.classList.remove("show");
-
-}
-
-});
-
-/*==================================================
-            AUTO CLOSE SIDEBAR
-==================================================*/
-
-document.querySelectorAll(".sidebar-nav a").forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-sidebar?.classList.remove("show");
-
-});
-
-});
-
-/*==================================================
-            END OF FILE
-==================================================*/
+console.log("✅ TechFix Software EXP v4 Loaded");
