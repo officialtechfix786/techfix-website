@@ -674,6 +674,28 @@ const DATABASE = {
 
 };
 
+/*==================================================
+        COMPATIBILITY VARIABLES
+==================================================*/
+
+const brands = BRANDS.map(item => ({
+    name: item.name,
+    logo: item.logo,
+    models: 100
+}));
+
+const pages = PAGES.map(item => ({
+    title: item.title,
+    category: "Page",
+    page: item.page
+}));
+
+const socialLinks = {
+    youtube: SOCIAL.youtube,
+    facebook: SOCIAL.facebook,
+    whatsapp: SOCIAL.whatsapp,
+    tiktok: SOCIAL.tiktok
+};
 
 /*==================================================
                 END OF FILE
