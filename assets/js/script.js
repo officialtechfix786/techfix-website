@@ -1,6 +1,6 @@
 /*═══════════════════════════════════════════════════════
-                TECHFIX SOFTWARE EXP v7
-              Premium JavaScript Edition
+                TECHFIX SOFTWARE EXP v8
+             Premium JavaScript Framework
                 Founder : MIAN AHMAD
 ═══════════════════════════════════════════════════════*/
 
@@ -10,59 +10,64 @@
                     SELECTORS
 ═══════════════════════════════════════════════════════*/
 
-const header = document.querySelector(".header");
-const menu = document.querySelector(".nav-menu");
-const menuBtn = document.querySelector(".menu-toggle");
-const backTop = document.getElementById("backToTop");
-const preloader = document.getElementById("preloader");
+const $ = selector => document.querySelector(selector);
+const $$ = selector => document.querySelectorAll(selector);
+
+const header = $(".header");
+const menu = $(".nav-menu");
+const menuBtn = $(".menu-toggle");
+const backTop = $("#backToTop");
+const preloader = $("#preloader");
 
 /*═══════════════════════════════════════════════════════
-                    RGB ENGINE
+                RGB THEME ENGINE
 ═══════════════════════════════════════════════════════*/
 
-const accentColors = [
+const themes = [
 
-"#ff7a00", // Orange
+{primary:"#ff7a00",secondary:"#ffb347"}, // Orange
 
-"#00c8ff", // Cyan
+{primary:"#00c8ff",secondary:"#5de3ff"}, // Cyan
 
-"#8b5cf6", // Purple
+{primary:"#8b5cf6",secondary:"#c4a5ff"}, // Purple
 
-"#00d084", // Green
+{primary:"#00d084",secondary:"#59f2bf"}, // Green
 
-"#ff3b30", // Red
+{primary:"#ff3b30",secondary:"#ff8a80"}, // Red
 
-"#c0c0c0", // Silver
+{primary:"#c0c0c0",secondary:"#ffffff"}, // Silver
 
-"#ffd700"  // Gold
+{primary:"#ffd700",secondary:"#fff3a0"}  // Gold
 
 ];
 
-let colorIndex = 0;
+let currentTheme = 0;
 
-function changeAccentColor(){
+function applyTheme(){
 
 document.documentElement.style.setProperty(
-
 "--primary",
-
-accentColors[colorIndex]
-
+themes[currentTheme].primary
 );
 
-colorIndex++;
+document.documentElement.style.setProperty(
+"--secondary",
+themes[currentTheme].secondary
+);
 
-if(colorIndex >= accentColors.length){
+currentTheme++;
 
-colorIndex = 0;
+if(currentTheme>=themes.length){
+
+currentTheme=0;
 
 }
 
 }
 
-changeAccentColor();
+applyTheme();
 
-setInterval(changeAccentColor,12000);
+setInterval(applyTheme,10000);
 
 /*═══════════════════════════════════════════════════════
                     PRELOADER
@@ -75,115 +80,66 @@ if(!preloader) return;
 setTimeout(()=>{
 
 preloader.style.opacity="0";
-
 preloader.style.visibility="hidden";
 
 setTimeout(()=>{
 
 preloader.remove();
 
-},600);
+},500);
 
-},800);
+},700);
 
 });
 
 /*═══════════════════════════════════════════════════════
-                    HEADER
+                    STICKY HEADER
 ═══════════════════════════════════════════════════════*/
 
-window.addEventListener("scroll",()=>{
+function updateHeader(){
 
 if(!header) return;
 
-header.classList.toggle(
+if(window.scrollY>80){
 
-"sticky",
+header.classList.add("sticky");
 
-window.scrollY > 80
+}else{
 
-);
-
-});
-/*═══════════════════════════════════════════════════════
-                RGB COLOR ENGINE v2
-═══════════════════════════════════════════════════════*/
-
-const rgbThemes = [
-
-{primary:"#ff7a00",secondary:"#ffb347"}, // Orange
-
-{primary:"#00c8ff",secondary:"#4de1ff"}, // Cyan
-
-{primary:"#8b5cf6",secondary:"#b794ff"}, // Purple
-
-{primary:"#00d084",secondary:"#54f2b5"}, // Green
-
-{primary:"#ff3b30",secondary:"#ff7b72"}, // Red
-
-{primary:"#c0c0c0",secondary:"#ececec"}, // Silver
-
-{primary:"#ffd700",secondary:"#ffe866"}  // Gold
-
-];
-
-let themeIndex = 0;
-
-function updateTheme(){
-
-const theme = rgbThemes[themeIndex];
-
-document.documentElement.style.setProperty(
-"--primary",
-theme.primary
-);
-
-document.documentElement.style.setProperty(
-"--secondary",
-theme.secondary
-);
-
-themeIndex++;
-
-if(themeIndex >= rgbThemes.length){
-
-themeIndex = 0;
+header.classList.remove("sticky");
 
 }
 
 }
 
-updateTheme();
+updateHeader();
 
-setInterval(updateTheme,10000);
-
+window.addEventListener("scroll",updateHeader);
 /*═══════════════════════════════════════════════════════
                 MOBILE MENU
 ═══════════════════════════════════════════════════════*/
 
 if(menuBtn && menu){
 
-menuBtn.addEventListener("click",()=>{
+    menuBtn.addEventListener("click",()=>{
 
-menu.classList.toggle("active");
+        menu.classList.toggle("active");
+        menuBtn.classList.toggle("active");
 
-menuBtn.classList.toggle("active");
+    });
 
-});
+    $$(".nav-menu a").forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            menu.classList.remove("active");
+            menuBtn.classList.remove("active");
+
+        });
+
+    });
 
 }
-
-document.querySelectorAll(".nav-menu a").forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-menu.classList.remove("active");
-
-menuBtn?.classList.remove("active");
-
-});
-
-});
 
 /*═══════════════════════════════════════════════════════
                 BACK TO TOP
@@ -191,29 +147,35 @@ menuBtn?.classList.remove("active");
 
 if(backTop){
 
-window.addEventListener("scroll",()=>{
+    function toggleBackTop(){
 
-backTop.classList.toggle(
+        if(window.scrollY>500){
 
-"show",
+            backTop.classList.add("show");
 
-window.scrollY>500
+        }else{
 
-);
+            backTop.classList.remove("show");
 
-});
+        }
 
-backTop.addEventListener("click",()=>{
+    }
 
-window.scrollTo({
+    toggleBackTop();
 
-top:0,
+    window.addEventListener("scroll",toggleBackTop);
 
-behavior:"smooth"
+    backTop.addEventListener("click",()=>{
 
-});
+        window.scrollTo({
 
-});
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    });
 
 }
 
@@ -221,29 +183,29 @@ behavior:"smooth"
                 SMOOTH SCROLL
 ═══════════════════════════════════════════════════════*/
 
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
+$$('a[href^="#"]').forEach(link=>{
 
-link.addEventListener("click",e=>{
+    link.addEventListener("click",(e)=>{
 
-const target=document.querySelector(
+        const id=link.getAttribute("href");
 
-link.getAttribute("href")
+        if(id==="#") return;
 
-);
+        const target=$(id);
 
-if(!target) return;
+        if(!target) return;
 
-e.preventDefault();
+        e.preventDefault();
 
-target.scrollIntoView({
+        target.scrollIntoView({
 
-behavior:"smooth",
+            behavior:"smooth",
 
-block:"start"
+            block:"start"
 
-});
+        });
 
-});
+    });
 
 });
 
@@ -251,102 +213,109 @@ block:"start"
                 ACTIVE MENU
 ═══════════════════════════════════════════════════════*/
 
-const sections=document.querySelectorAll("section[id]");
+const sections=$$("section[id]");
+const navLinks=$$(".nav-menu a");
 
-const navLinks=document.querySelectorAll(".nav-menu a");
+function updateActiveMenu(){
 
-window.addEventListener("scroll",()=>{
+    let current="";
 
-let current="";
+    sections.forEach(section=>{
 
-sections.forEach(section=>{
+        const top=section.offsetTop-150;
 
-const top=section.offsetTop-140;
+        if(window.scrollY>=top){
 
-const height=section.offsetHeight;
+            current=section.id;
 
-if(window.scrollY>=top){
+        }
 
-current=section.id;
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href")==="#"+current){
+
+            link.classList.add("active");
+
+        }
+
+    });
 
 }
 
-});
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
+window.addEventListener("scroll",updateActiveMenu);
 /*═══════════════════════════════════════════════════════
                 SEARCH MODAL
 ═══════════════════════════════════════════════════════*/
 
-const searchModal=document.getElementById("searchModal");
-const searchBtn=document.querySelector(".search-btn");
-const closeSearch=document.getElementById("closeSearch");
-const searchInput=document.getElementById("liveSearch");
-const searchResults=document.getElementById("searchResults");
+const searchModal=$("#searchModal");
+const searchBtn=$("#searchBtn");
+const closeSearch=$("#closeSearch");
+const searchInput=$("#liveSearch");
+const searchResults=$("#searchResults");
 
 if(searchBtn && searchModal){
 
-searchBtn.addEventListener("click",()=>{
+    searchBtn.addEventListener("click",()=>{
 
-searchModal.classList.add("active");
+        searchModal.classList.add("active");
 
-setTimeout(()=>{
+        if(searchInput){
 
-searchInput?.focus();
+            setTimeout(()=>{
 
-},200);
+                searchInput.focus();
 
-});
+            },150);
+
+        }
+
+    });
 
 }
 
 if(closeSearch){
 
-closeSearch.addEventListener("click",()=>{
-
-searchModal.classList.remove("active");
-
-if(searchInput) searchInput.value="";
-
-if(searchResults) searchResults.innerHTML="";
-
-});
+    closeSearch.addEventListener("click",closeSearchModal);
 
 }
 
-window.addEventListener("keydown",(e)=>{
+function closeSearchModal(){
 
-if(e.key==="Escape"){
+    if(!searchModal) return;
 
-searchModal?.classList.remove("active");
+    searchModal.classList.remove("active");
+
+    if(searchInput) searchInput.value="";
+
+    if(searchResults) searchResults.innerHTML="";
 
 }
+
+window.addEventListener("keydown",e=>{
+
+    if(e.key==="Escape"){
+
+        closeSearchModal();
+
+    }
 
 });
 
 if(searchModal){
 
-searchModal.addEventListener("click",(e)=>{
+    searchModal.addEventListener("click",e=>{
 
-if(e.target===searchModal){
+        if(e.target===searchModal){
 
-searchModal.classList.remove("active");
+            closeSearchModal();
 
-}
+        }
 
-});
+    });
 
 }
 
@@ -356,153 +325,163 @@ searchModal.classList.remove("active");
 
 function getAllModels(){
 
-const models=[];
+    const models=[];
 
-if(typeof mobileDatabase==="undefined") return models;
+    if(typeof mobileDatabase==="undefined"){
 
-Object.keys(mobileDatabase).forEach(brand=>{
+        return models;
 
-mobileDatabase[brand].forEach(model=>{
+    }
 
-models.push({
+    Object.keys(mobileDatabase).forEach(brand=>{
 
-brand,
+        mobileDatabase[brand].forEach(model=>{
 
-name:model
+            models.push({
 
-});
+                brand:brand,
 
-});
+                model:model
 
-});
+            });
 
-return models;
+        });
+
+    });
+
+    return models;
 
 }
 
 const allModels=getAllModels();
 
-if(searchInput){
+if(searchInput && searchResults){
 
-searchInput.addEventListener("input",function(){
+    searchInput.addEventListener("input",function(){
 
-const keyword=this.value.trim().toLowerCase();
+        const keyword=this.value.trim().toLowerCase();
 
-searchResults.innerHTML="";
+        searchResults.innerHTML="";
 
-if(keyword.length===0) return;
+        if(keyword==="") return;
 
-const results=allModels.filter(item=>
+        const found=allModels.filter(item=>
 
-item.name.toLowerCase().includes(keyword) ||
+            item.brand.toLowerCase().includes(keyword) ||
 
-item.brand.toLowerCase().includes(keyword)
+            item.model.toLowerCase().includes(keyword)
 
-);
+        );
 
-if(results.length===0){
+        if(found.length===0){
 
-searchResults.innerHTML=`
-<div class="no-result">
-No Device Found
-</div>
-`;
+            searchResults.innerHTML=`
+                <div class="no-result">
+                    No Device Found
+                </div>
+            `;
 
-return;
+            return;
+
+        }
+
+        found.slice(0,50).forEach(item=>{
+
+            const card=document.createElement("div");
+
+            card.className="search-item";
+
+            card.innerHTML=`
+
+                <strong>${item.model}</strong>
+
+                <small>${item.brand.toUpperCase()}</small>
+
+            `;
+
+            card.addEventListener("click",()=>{
+
+                window.location.href=
+                `mobiles.html?brand=${item.brand}&model=${encodeURIComponent(item.model)}`;
+
+            });
+
+            searchResults.appendChild(card);
+
+        });
+
+    });
 
 }
-
-results.slice(0,50).forEach(item=>{
-
-const card=document.createElement("div");
-
-card.className="search-item";
-
-card.innerHTML=`
-
-<strong>${item.name}</strong>
-
-<br>
-
-<small>${item.brand.toUpperCase()}</small>
-
-`;
-
-card.onclick=()=>{
-
-window.location.href=`mobiles.html?brand=${item.brand}&model=${encodeURIComponent(item.name)}`;
-
-};
-
-searchResults.appendChild(card);
-
-});
-
-});
-
-}
-
 /*═══════════════════════════════════════════════════════
                 COUNTER ANIMATION
 ═══════════════════════════════════════════════════════*/
 
-const counters=document.querySelectorAll("[data-target]");
+const counters = $$("[data-counter]");
 
 function startCounters(){
 
-counters.forEach(counter=>{
+    counters.forEach(counter=>{
 
-const target=parseInt(counter.dataset.target);
+        if(counter.dataset.done==="true") return;
 
-let current=0;
+        counter.dataset.done="true";
 
-const increment=Math.max(1,Math.ceil(target/120));
+        const target=parseInt(counter.dataset.counter)||0;
 
-function update(){
+        let current=0;
 
-current+=increment;
+        const step=Math.max(1,Math.ceil(target/100));
 
-if(current>=target){
+        function update(){
 
-counter.textContent=target+"+";
+            current+=step;
 
-return;
+            if(current>=target){
+
+                counter.textContent=target.toLocaleString()+"+";
+
+                return;
+
+            }
+
+            counter.textContent=current.toLocaleString()+"+";
+
+            requestAnimationFrame(update);
+
+        }
+
+        update();
+
+    });
 
 }
 
-counter.textContent=current+"+";
-
-requestAnimationFrame(update);
-
-}
-
-update();
-
-});
-
-}
-
-const counterSection=document.querySelector(".counter-section");
+const counterSection=$(".counter-section");
 
 if(counterSection){
 
-const observer=new IntersectionObserver(entries=>{
+    const observer=new IntersectionObserver(entries=>{
 
-entries.forEach(entry=>{
+        entries.forEach(entry=>{
 
-if(entry.isIntersecting){
+            if(entry.isIntersecting){
 
-startCounters();
+                startCounters();
 
-observer.disconnect();
+                observer.disconnect();
 
-}
+            }
 
-});
+        });
 
-},{threshold:.35});
+    },{
 
-observer.observe(counterSection);
+        threshold:0.3
+
+    });
+
+    observer.observe(counterSection);
 
 }
 
@@ -510,58 +489,68 @@ observer.observe(counterSection);
                 REVEAL ANIMATION
 ═══════════════════════════════════════════════════════*/
 
-const reveals=document.querySelectorAll(
-
-".service-card,.brand-card,.why-card,.counter-card,.cta-box"
-
-);
+const revealItems=$$(`
+.brand-card,
+.service-card,
+.counter-card,
+.cta-box,
+.footer-grid
+`);
 
 const revealObserver=new IntersectionObserver(entries=>{
 
-entries.forEach(entry=>{
+    entries.forEach(entry=>{
 
-if(entry.isIntersecting){
+        if(entry.isIntersecting){
 
-entry.target.classList.add("fade-up");
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},{
+
+    threshold:0.15
+
+});
+
+revealItems.forEach(item=>{
+
+    revealObserver.observe(item);
+
+});
+
+/*═══════════════════════════════════════════════════════
+                ROBOT EFFECT
+═══════════════════════════════════════════════════════*/
+
+const robot=$(".robot-image");
+
+if(robot){
+
+    window.addEventListener("mousemove",e=>{
+
+        const x=(window.innerWidth/2-e.clientX)/40;
+
+        const y=(window.innerHeight/2-e.clientY)/40;
+
+        robot.style.transform=
+        `translate(${-x}px,${-y}px)`;
+
+    });
 
 }
 
-});
-
-},{threshold:.15});
-
-reveals.forEach(item=>{
-
-revealObserver.observe(item);
-
-});
 /*═══════════════════════════════════════════════════════
-                LAZY IMAGE LOADING
+                LAZY IMAGES
 ═══════════════════════════════════════════════════════*/
 
-document.querySelectorAll("img").forEach(img=>{
+$$("img").forEach(img=>{
 
-img.loading="lazy";
+    img.loading="lazy";
 
-img.draggable=false;
-
-});
-
-/*═══════════════════════════════════════════════════════
-                ROBOT GLOW EFFECT
-═══════════════════════════════════════════════════════*/
-
-const robot=document.querySelector(".robot-image");
-
-window.addEventListener("mousemove",(e)=>{
-
-if(!robot) return;
-
-const x=(window.innerWidth/2-e.clientX)/40;
-
-const y=(window.innerHeight/2-e.clientY)/40;
-
-robot.style.transform=`translate(${-x}px,${-y}px)`;
+    img.draggable=false;
 
 });
 
@@ -569,54 +558,57 @@ robot.style.transform=`translate(${-x}px,${-y}px)`;
                 CURRENT YEAR
 ═══════════════════════════════════════════════════════*/
 
-const year=document.getElementById("year");
+const year=$("#year");
 
 if(year){
 
-year.textContent=new Date().getFullYear();
+    year.textContent=new Date().getFullYear();
 
 }
-
 /*═══════════════════════════════════════════════════════
-                PERFORMANCE
+                PAGE PERFORMANCE
 ═══════════════════════════════════════════════════════*/
 
 window.addEventListener("pageshow",()=>{
 
-document.body.classList.add("loaded");
+    document.body.classList.add("loaded");
 
 });
 
 /*═══════════════════════════════════════════════════════
-                CONSOLE
+                SAFE INITIALIZATION
+═══════════════════════════════════════════════════════*/
+
+window.addEventListener("error",(event)=>{
+
+    console.error(
+        "TechFix Error:",
+        event.message
+    );
+
+});
+
+/*═══════════════════════════════════════════════════════
+                CONSOLE BRANDING
 ═══════════════════════════════════════════════════════*/
 
 console.clear();
 
 console.log(
-
-"%cTECHFIX SOFTWARE EXP v7",
-
-"font-size:20px;font-weight:bold;color:#ff7a00;"
-
+"%cTECHFIX SOFTWARE EXP v8",
+"font-size:22px;font-weight:bold;color:#ff7a00;"
 );
 
 console.log(
-
 "%cFounder : MIAN AHMAD",
-
-"font-size:14px;color:#00c8ff;"
-
+"font-size:15px;color:#00c8ff;"
 );
 
 console.log(
-
-"%cPremium Edition Loaded Successfully",
-
-"font-size:13px;color:#00d084;"
-
+"%cWebsite Loaded Successfully ✔",
+"font-size:14px;color:#00d084;"
 );
 
 /*═══════════════════════════════════════════════════════
-                END
+                END OF FILE
 ═══════════════════════════════════════════════════════*/
