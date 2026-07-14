@@ -1,9 +1,9 @@
 "use strict";
 
-/*=========================================
-        TECHFIX DATABASE v2
+/*=====================================================
+            TECHFIX DATABASE v8
         Founder : MIAN AHMAD
-=========================================*/
+=====================================================*/
 
 const mobileDatabase = {
 
@@ -99,23 +99,11 @@ samsung:[
 "Galaxy A72",
 "Galaxy A73",
 "Galaxy S20",
-"Galaxy S20 FE",
 "Galaxy S21",
-"Galaxy S21 FE",
 "Galaxy S22",
-"Galaxy S22 Ultra",
 "Galaxy S23",
-"Galaxy S23 Ultra",
 "Galaxy S24",
-"Galaxy S24 Ultra",
-"Galaxy S25",
-"Galaxy S25 Ultra",
-"Galaxy Z Fold4",
-"Galaxy Z Fold5",
-"Galaxy Z Fold6",
-"Galaxy Z Flip4",
-"Galaxy Z Flip5",
-"Galaxy Z Flip6"
+"Galaxy S25"
 
 ],
         xiaomi:[
@@ -136,50 +124,32 @@ samsung:[
 "Redmi 13",
 "Redmi 13C",
 "Redmi 14C",
+"Redmi Note 7",
 "Redmi Note 8",
 "Redmi Note 9",
 "Redmi Note 10",
-"Redmi Note 10 Pro",
 "Redmi Note 11",
-"Redmi Note 11 Pro",
 "Redmi Note 12",
-"Redmi Note 12 Pro",
 "Redmi Note 13",
-"Redmi Note 13 Pro",
 "Redmi Note 14",
-"Redmi Note 14 Pro",
-"POCO C51",
+"POCO C31",
+"POCO C40",
+"POCO C50",
 "POCO C55",
-"POCO C61",
-"POCO C65",
-"POCO M3",
-"POCO M4 Pro",
-"POCO M5",
-"POCO M6",
-"POCO M6 Pro",
 "POCO X3",
-"POCO X3 Pro",
 "POCO X4 Pro",
 "POCO X5",
-"POCO X5 Pro",
 "POCO X6",
-"POCO X6 Pro",
+"POCO X7",
 "POCO F3",
 "POCO F4",
 "POCO F5",
-"POCO F5 Pro",
 "POCO F6",
-"POCO F6 Pro",
 "Xiaomi 11",
-"Xiaomi 11T",
 "Xiaomi 12",
-"Xiaomi 12 Pro",
 "Xiaomi 13",
-"Xiaomi 13 Pro",
 "Xiaomi 14",
-"Xiaomi 14 Pro",
-"Xiaomi 15",
-"Xiaomi 15 Pro"
+"Xiaomi 15"
 
 ],
 
@@ -212,7 +182,8 @@ realme:[
 "GT 6"
 
 ],
-        oneplus:[
+
+oneplus:[
 
 "OnePlus 7",
 "OnePlus 7 Pro",
@@ -223,103 +194,12 @@ realme:[
 "OnePlus 10 Pro",
 "OnePlus 11",
 "OnePlus 12",
-"OnePlus 13",
 "OnePlus Nord",
 "OnePlus Nord CE",
 "OnePlus Nord CE 2",
 "OnePlus Nord CE 3",
 "OnePlus Nord 2",
-"OnePlus Nord 3",
-"OnePlus Nord 4"
-
-],
-
-oppo:[
-
-"A15",
-"A16",
-"A17",
-"A18",
-"A31",
-"A38",
-"A53",
-"A54",
-"A55",
-"A57",
-"A58",
-"A59",
-"A60",
-"A74",
-"A76",
-"A77",
-"A78",
-"A79",
-"A94",
-"A95",
-"A96",
-"A98",
-"Reno 5",
-"Reno 6",
-"Reno 7",
-"Reno 8",
-"Reno 8 Pro",
-"Reno 10",
-"Reno 10 Pro",
-"Reno 11",
-"Reno 11 Pro",
-"Reno 12",
-"Reno 12 Pro",
-"Reno 13",
-"Reno 13 Pro",
-"Find X5",
-"Find X6",
-"Find X7",
-"Find X8"
-
-],
-
-vivo:[
-
-"Y01",
-"Y02",
-"Y03",
-"Y11",
-"Y12",
-"Y15",
-"Y16",
-"Y17",
-"Y19",
-"Y20",
-"Y20s",
-"Y21",
-"Y22",
-"Y27",
-"Y28",
-"Y30",
-"Y31",
-"Y33",
-"Y35",
-"Y36",
-"Y38",
-"Y55",
-"Y56",
-"Y73",
-"Y75",
-"Y100",
-"V20",
-"V21",
-"V23",
-"V25",
-"V27",
-"V29",
-"V30",
-"V40",
-"X60",
-"X70",
-"X80",
-"X90",
-"X100",
-"X200"
+"OnePlus Nord 3"
 
 ],
         google:[
@@ -340,7 +220,6 @@ vivo:[
 "Pixel 8a",
 "Pixel 9",
 "Pixel 9 Pro",
-"Pixel 9 Pro XL",
 "Pixel Fold"
 
 ],
@@ -372,7 +251,82 @@ motorola:[
 
 ],
 
-tecno:[
+oppo:[
+
+"A15",
+"A16",
+"A17",
+"A18",
+"A31",
+"A38",
+"A53",
+"A54",
+"A55",
+"A57",
+"A58",
+"A59",
+"A60",
+"A74",
+"A76",
+"A77",
+"A78",
+"A79",
+"Reno 7",
+"Reno 8",
+"Reno 9",
+"Reno 10",
+"Reno 11",
+"Reno 12",
+"Reno 13",
+"Find X5",
+"Find X6",
+"Find X7",
+"Find X8"
+
+],
+
+vivo:[
+
+"Y01",
+"Y02",
+"Y03",
+"Y11",
+"Y12",
+"Y15",
+"Y16",
+"Y17",
+"Y19",
+"Y20",
+"Y21",
+"Y22",
+"Y27",
+"Y28",
+"Y30",
+"Y31",
+"Y33",
+"Y35",
+"Y36",
+"Y38",
+"Y73",
+"Y75",
+"Y100",
+"V20",
+"V21",
+"V23",
+"V25",
+"V27",
+"V29",
+"V30",
+"V40",
+"X60",
+"X70",
+"X80",
+"X90",
+"X100",
+"X200"
+
+],
+        tecno:[
 
 "Spark 8",
 "Spark 8C",
@@ -399,7 +353,8 @@ tecno:[
 "Phantom V Fold"
 
 ],
-        infinix:[
+
+infinix:[
 
 "Hot 10",
 "Hot 11",
@@ -462,8 +417,7 @@ honor:[
 "X9b"
 
 ],
-
-nokia:[
+        nokia:[
 
 "C10",
 "C20",
@@ -481,7 +435,18 @@ nokia:[
 "XR20"
 
 ],
-        sony:[
+
+nothing:[
+
+"Phone (1)",
+"Phone (2)",
+"Phone (2a)",
+"Phone (3)",
+"Phone (3a)"
+
+],
+
+sony:[
 
 "Xperia 1 III",
 "Xperia 1 IV",
@@ -513,16 +478,6 @@ lg:[
 "LG V60",
 "LG Velvet",
 "LG Wing"
-
-],
-
-nothing:[
-
-"Phone (1)",
-"Phone (2)",
-"Phone (2a)",
-"Phone (3)",
-"Phone (3a)"
 
 ],
 
@@ -570,6 +525,14 @@ meizu:[
 "Meizu 20 Pro",
 "Meizu 21"
 
-]
-
 };
+console.log("TechFix Database Loaded");
+console.log("Brands:", Object.keys(mobileDatabase).length);
+
+let totalModels = 0;
+
+Object.values(mobileDatabase).forEach(models => {
+    totalModels += models.length;
+});
+
+console.log("Total Models:", totalModels);
