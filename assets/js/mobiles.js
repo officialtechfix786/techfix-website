@@ -1,81 +1,124 @@
 "use strict";
-console.log("mobileDatabase:", mobileDatabase);
-console.log("solutionsDatabase:", solutionsDatabase);
-const brandGrid=document.getElementById("brandGrid");
-const modelGrid=document.getElementById("modelGrid");
-const solutionGrid=document.getElementById("solutionGrid");
 
-const params=new URLSearchParams(window.location.search);
+/*=========================================
+        TECHFIX MOBILES v1
+=========================================*/
 
-const brand=params.get("brand");
-const model=params.get("model");
-if(brand && brandGrid){
+const mobileGrid = document.getElementById("mobileGrid");
+const brandList = document.getElementById("brandList");
+const brandSearch = document.getElementById("brandSearch");
 
-brandGrid.style.display="none";
+const params = new URLSearchParams(window.location.search);
 
-}
+const selectedBrand = params.get("brand");
+const selectedModel = params.get("model");
 
-if(model && modelGrid){
+/* BRAND LIST */
 
-modelGrid.style.display="none";
+if (brandList) {
 
-}
-if(brand && modelGrid){
+    Object.keys(mobileDatabase).forEach(brand => {
 
-const models=mobileDatabase[brand];
+        const a = document.createElement("a");
 
-if(models){
+        a.href = `mobiles.html?brand=${brand}`;
 
-models.forEach(name=>{
+        a.textContent = brand.charAt(0).toUpperCase() + brand.slice(1);
 
-const card=document.createElement("a");
+        if (brand === selectedBrand) {
+            a.classList.add("active");
+        }
 
-card.className="model-card";
+        brandList.appendChild(a);
 
-card.href=`mobiles.html?brand=${brand}&model=${encodeURIComponent(name)}`;
-
-card.innerHTML=`
-
-<h3>${name}</h3>
-
-<span>View Solutions</span>
-
-`;
-
-modelGrid.appendChild(card);
-
-});
+    });
 
 }
 
+/* PAGE */
+
+if (mobileGrid) {
+
+    mobileGrid.innerHTML = "";
+
+    /* BRANDS */
+
+    if (!selectedBrand && !selectedModel) {
+
+        Object.keys(mobileDatabase).forEach(brand => {
+
+            const card = document.createElement("a");
+
+            card.className = "mobile-card";
+
+            card.href = `mobiles.html?brand=${brand}`;
+
+            card.innerHTML = `
+                <h3>${brand.toUpperCase()}</h3>
+                <p>${mobileDatabase[brand].length} Models</p>
+            `;
+
+            mobileGrid.appendChild(card);
+
+        });
+
+    }
+
+    /* MODELS */
+
+    else if (selectedBrand && !selectedModel) {
+
+        mobileDatabase[selectedBrand].forEach(model => {
+
+            const card = document.createElement("a");
+
+            card.className = "mobile-card";
+
+            card.href = `mobiles.html?brand=${selectedBrand}&model=${encodeURIComponent(model)}`;
+
+            card.innerHTML = `
+                <h3>${model}</h3>
+                <p>View Solutions</p>
+            `;
+
+            mobileGrid.appendChild(card);
+
+        });
+
+    }
+
+    /* SOLUTIONS */
+
+    else if (selectedBrand && selectedModel) {
+
+        const title = document.createElement("div");
+
+        title.className = "glass-card";
+
+        title.innerHTML = `
+            <h2>${selectedModel}</h2>
+            <p>Available Services</p>
+        `;
+
+        mobileGrid.appendChild(title);
+
+        const list = solutionsDatabase[selectedModel] || [];
+
+        list.forEach(item => {
+
+            const card = document.createElement("div");
+
+            card.className = "solution-card";
+
+            card.innerHTML = `
+                <i class="fa-solid fa-circle-check"></i>
+                <span>${item}</span>
+            `;
+
+            mobileGrid.appendChild(card);
+
+        });
+
+    }
+
 }
-if(model && solutionGrid){
-
-const solutions=solutionsDatabase[model];
-
-if(solutions){
-
-solutions.forEach(item=>{
-
-const card=document.createElement("div");
-
-card.className="solution-card";
-
-card.innerHTML=`
-
-<i class="fa-solid fa-circle-check"></i>
-
-<h4>${item}</h4>
-
-`;
-
-solutionGrid.appendChild(card);
-
-});
-
-}
-
-}
-<script src="assets/js/database.js"></script>
-<script src="assets/js/solutionsDatabase.js"></script>
-<script src="assets/js/mobiles.js"></script>
