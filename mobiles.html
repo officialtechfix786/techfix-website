@@ -3,35 +3,59 @@
 
 <head>
 
+<!--=====================================================
+            TECHFIX SOFTWARE EXP
+            Founder : MIAN AHMAD
+======================================================-->
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mobiles | TechFix Software EXP</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="Browse all supported mobile brands and models.">
+<meta http-equiv="X-UA-Compatible"
+content="IE=edge">
 
-<link rel="icon"
+<title>
+
+Mobiles | TechFix Software EXP
+
+</title>
+
+<meta
+name="description"
+content="Browse all supported mobile brands, firmware, FRP unlock, flashing and repair solutions.">
+
+<link
+rel="icon"
 href="assets/images/logo.png">
 
-<link rel="preconnect"
+<link
+rel="preconnect"
 href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
+<link
+rel="preconnect"
 href="https://fonts.gstatic.com"
 crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+<link
+href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet"
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link
+rel="stylesheet"
 href="assets/css/style.css">
 
 </head>
 
 <body>
 
-<!-- PRELOADER -->
+<!--================ PRELOADER ================-->
 
 <div id="preloader">
 
@@ -39,44 +63,464 @@ href="assets/css/style.css">
 
 <img
 src="assets/images/logo.png"
-alt="TechFix Logo">
+alt="TechFix">
 
-<p>Loading...</p>
+<span>
+
+Loading TechFix...
+
+</span>
 
 </div>
 
 </div>
 
-<!-- HEADER -->
+<!--================ PARTICLES ================-->
+
+<div class="particles">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!--================ HEADER ================-->
 
 <header class="header">
 
 <div class="container">
 
-<a href="index.html"
+<nav class="navbar">
+
+<a
+href="index.html"
 class="logo">
 
 <img
 src="assets/images/logo.png"
 alt="TechFix">
 
+<div>
+
+<h2>
+
+TechFix
+
+</h2>
+
+<span>
+
+Software EXP
+
+</span>
+
+</div>
+
+</a>
+
+<ul class="nav-menu">
+
+<li>
+
+<a href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a
+href="mobiles.html"
+class="active">
+
+Mobiles
+
+</a>
+
+</li>
+
+<li>
+
+<a href="android.html">
+
+Android
+
+</a>
+
+</li>
+
+<li>
+
+<a href="apple.html">
+
+Apple
+
+</a>
+
+</li>
+
+<li>
+
+<a href="downloads.html">
+
+Downloads
+
+</a>
+
+</li>
+
+<li>
+
+<a href="cyber.html">
+
+Cyber
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+</ul>
+
+<div class="nav-actions">
+
+<button
+class="search-btn"
+id="searchBtn">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+<a
+href="https://wa.me/966568152404"
+target="_blank"
+class="btn btn-primary">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+<span>
+
+WhatsApp
+
+</span>
+
 </a>
 
 <button
 class="menu-toggle">
 
-<span></span>
-<span></span>
-<span></span>
+<i class="fa-solid fa-bars"></i>
 
 </button>
-<nav class="nav-menu">
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+<!--================ HERO ================-->
+
+<section class="hero page-hero">
+
+<div class="hero-overlay"></div>
+
+<div class="container hero-wrapper">
+
+<div class="hero-content">
+
+<span class="hero-badge">
+
+SUPPORTED DEVICES
+
+</span>
+
+<h1>
+
+Professional
+
+<span>
+
+Mobile Database
+
+</span>
+
+</h1>
+
+<p>
+
+Browse every supported mobile brand, model,
+firmware, flash files, FRP unlock,
+repair guides and software solutions.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#brands"
+class="btn btn-primary">
+
+Browse Brands
+
+</a>
+
+<a
+href="downloads.html"
+class="btn btn-outline">
+
+Download Tools
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="robot-glow"></div>
+
+<img
+src="assets/images/robot.png"
+class="robot-image"
+alt="Robot">
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ MOBILE DATABASE ================-->
+
+<section
+class="mobile-page"
+id="brands">
+
+<div class="container">
+
+<div class="mobile-layout">
+  <!--================ LEFT SIDEBAR ================-->
+
+<aside class="brand-sidebar glass-card">
+
+    <div class="sidebar-head">
+
+        <h2>
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            Brands
+
+        </h2>
+
+        <p>
+
+            Select your mobile brand
+
+        </p>
+
+    </div>
+
+    <div
+    id="brandList"
+    class="brand-list">
+
+    <!-- Dynamic Brand List -->
+
+    </div>
+
+</aside>
+
+<!--================ RIGHT CONTENT ================-->
+
+<div class="mobile-content">
+
+    <!-- Toolbar -->
+
+    <div class="glass-card mobile-toolbar">
+
+        <div class="toolbar-title">
+
+            <h2>
+
+                Supported Devices
+
+            </h2>
+
+            <p>
+
+                Choose a brand to view available models and solutions.
+
+            </p>
+
+        </div>
+
+        <div class="toolbar-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+
+            id="brandSearch"
+
+            type="text"
+
+            placeholder="Search mobile model...">
+
+        </div>
+
+    </div>
+
+    <!-- Mobile Grid -->
+
+    <div
+
+    id="mobileGrid"
+
+    class="mobile-grid">
+
+    <!-- Dynamic Cards -->
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--================ SEARCH MODAL ================-->
+
+<div class="search-modal" id="searchModal">
+
+    <div class="search-box">
+
+        <button id="closeSearch">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h3>
+
+            Search Mobile Model
+
+        </h3>
+
+        <input
+
+        type="text"
+
+        id="liveSearch"
+
+        placeholder="Type mobile model...">
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+<!--================ FLOATING BUTTONS ================-->
+
+<a
+
+href="https://wa.me/966568152404"
+
+target="_blank"
+
+class="floating-whatsapp"
+
+aria-label="WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<button
+
+id="backToTop"
+
+aria-label="Back To Top">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!--================ FOOTER ================-->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-about">
+
+<img
+
+src="assets/images/logo.png"
+
+class="footer-logo"
+
+alt="TechFix">
+
+<h3>
+
+TechFix Software EXP
+
+</h3>
+
+<p>
+
+Professional Mobile Software,
+Firmware,
+FRP Unlock,
+Flash Files,
+Android,
+Apple and Cyber Security Solutions.
+
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h4>
+
+Quick Links
+
+</h4>
 
 <ul>
 
 <li><a href="index.html">Home</a></li>
 
-<li><a href="mobiles.html" class="active">Mobiles</a></li>
+<li><a href="mobiles.html">Mobiles</a></li>
 
 <li><a href="android.html">Android</a></li>
 
@@ -84,30 +528,65 @@ class="menu-toggle">
 
 <li><a href="downloads.html">Downloads</a></li>
 
-<li><a href="cyber.html">Cyber Security</a></li>
+<li><a href="cyber.html">Cyber</a></li>
 
 <li><a href="contact.html">Contact</a></li>
 
 </ul>
 
-</nav>
+</div>
 
-<div class="header-actions">
+<div class="footer-contact">
 
-<button
-class="search-btn"
-type="button">
+<h4>
 
-<i class="fas fa-search"></i>
+Contact
 
-</button>
+</h4>
 
-<a
-href="https://wa.me/966568152404"
-class="btn btn-primary"
-target="_blank">
+<p>
 
-WhatsApp
+<i class="fa-solid fa-envelope"></i>
+
+officialtechfix786@gmail.com
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-whatsapp"></i>
+
++966568152404
+
+</p>
+
+</div>
+
+<div class="footer-social">
+
+<h4>
+
+Follow Us
+
+</h4>
+
+<div class="social-icons">
+
+<a href="https://wa.me/966568152404" target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<a href="https://youtube.com/@techfixsoftwareexp" target="_blank">
+
+<i class="fab fa-youtube"></i>
+
+</a>
+
+<a href="https://github.com/officialtechfix786/techfix-website" target="_blank">
+
+<i class="fab fa-github"></i>
 
 </a>
 
@@ -115,161 +594,9 @@ WhatsApp
 
 </div>
 
-</header>
-
-<!-- PAGE HERO -->
-
-<section class="page-hero">
-
-<div class="container">
-
-<div class="page-hero-content">
-
-<h1>
-
-Supported Mobile Brands
-
-</h1>
-
-<p>
-
-Browse all supported smartphones, firmware and software files.
-
-</p>
-
 </div>
 
-</div>
-
-</section>
-
-<!-- MOBILE SECTION -->
-
-<section class="mobile-page">
-
-<div class="container">
-
-<div class="mobile-layout">
-  <!-- LEFT SIDEBAR -->
-
-<aside class="brand-sidebar glass-card">
-
-<h2>
-
-Brands
-
-</h2>
-
-<div
-class="brand-list"
-id="brandList">
-
-<!-- Dynamic Brand List -->
-
-</div>
-
-</aside>
-
-<!-- RIGHT CONTENT -->
-
-<div class="mobile-content">
-
-<div class="glass-card mobile-toolbar">
-
-<div class="toolbar-title">
-
-<h2>
-
-All Supported Devices
-
-</h2>
-
-<p>
-
-Search by brand or model.
-
-</p>
-
-</div>
-
-<div class="toolbar-search">
-
-<input
-
-type="text"
-
-id="brandSearch"
-
-placeholder="Search mobile model...">
-
-</div>
-
-</div>
-
-<div
-
-id="mobileGrid"
-
-class="mobile-grid">
-
-<!-- Dynamic Cards -->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-</div>
-
-<!-- SEARCH MODAL -->
-
-<div id="searchModal" class="search-modal">
-
-<div class="search-box glass-card">
-
-<button id="closeSearch" class="close-search">
-
-&times;
-
-</button>
-
-<h2>
-
-Search Device
-
-</h2>
-
-<input
-
-type="text"
-
-id="liveSearch"
-
-placeholder="Type model name...">
-
-<div id="searchResults"></div>
-
-</div>
-
-</div>
-
-<!-- BACK TO TOP -->
-
-<button id="backToTop">
-
-↑
-
-</button>
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-<div class="container">
+<div class="footer-bottom">
 
 <p>
 
@@ -279,18 +606,23 @@ TechFix Software EXP
 
 |
 
-Founder : MIAN AHMAD
+Designed & Developed by
+
+<strong>MIAN AHMAD</strong>
 
 </p>
 
 </div>
 
+</div>
+
 </footer>
 
-<script src="assets/js/database.js"></script>
+<!--================ JAVASCRIPT ================-->
 
+<script src="assets/js/database.js"></script>
 <script src="assets/js/script.js"></script>
+<script src="assets/js/mobiles.js"></script>
 
 </body>
-
 </html>
