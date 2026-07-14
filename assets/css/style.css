@@ -2700,7 +2700,136 @@ color:#000;
 }
 
 }
+/*==========================
+RESPONSIVE FIX
+==========================*/
 
+*{
+    box-sizing:border-box;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.container{
+    width:min(100%,1200px);
+    margin:auto;
+    padding-inline:20px;
+}
+
+@media (max-width:991px){
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.nav-menu{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-wrapper{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero-image{
+    width:100%;
+}
+
+.robot-image{
+    width:280px;
+    margin:auto;
+}
+
+.mobile-layout{
+    grid-template-columns:1fr;
+}
+
+.brand-sidebar{
+    width:100%;
+}
+
+.mobile-grid{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.service-grid,
+.footer-grid,
+.counter-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media (max-width:768px){
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.hero-buttons .btn{
+    width:100%;
+}
+
+.nav-actions{
+    width:100%;
+    justify-content:center;
+}
+
+.service-grid,
+.footer-grid,
+.counter-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media (max-width:480px){
+
+.hero h1{
+    font-size:1.8rem;
+}
+
+.hero-image img{
+    width:220px;
+}
+
+.section-heading h2{
+    font-size:1.7rem;
+}
+
+.brand-card,
+.service-card,
+.mobile-card{
+    width:100%;
+}
+
+}
 /*══════════════════════════════════════════════════════════════
                 END OF TECHFIX v10 FINAL
 ══════════════════════════════════════════════════════════════*/
