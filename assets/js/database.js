@@ -524,7 +524,7 @@ meizu:[
 "Meizu 20",
 "Meizu 20 Pro",
 "Meizu 21"
-
+]
 };
 console.log("TechFix Database Loaded");
 console.log("Brands:", Object.keys(mobileDatabase).length);
