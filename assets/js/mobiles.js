@@ -1,7 +1,7 @@
 "use strict";
 
 /*=========================================
-        TECHFIX MOBILES v1
+        TECHFIX MOBILES
 =========================================*/
 
 const mobileGrid = document.getElementById("mobileGrid");
@@ -13,7 +13,7 @@ const params = new URLSearchParams(window.location.search);
 const selectedBrand = params.get("brand");
 const selectedModel = params.get("model");
 
-/* BRAND LIST */
+/* ---------- BRAND LIST ---------- */
 
 if (brandList) {
 
@@ -35,13 +35,13 @@ if (brandList) {
 
 }
 
-/* PAGE */
+/* ---------- PAGE ---------- */
 
 if (mobileGrid) {
 
     mobileGrid.innerHTML = "";
 
-    /* BRANDS */
+    /* SHOW BRANDS */
 
     if (!selectedBrand && !selectedModel) {
 
@@ -64,7 +64,7 @@ if (mobileGrid) {
 
     }
 
-    /* MODELS */
+    /* SHOW MODELS */
 
     else if (selectedBrand && !selectedModel) {
 
@@ -87,7 +87,7 @@ if (mobileGrid) {
 
     }
 
-    /* SOLUTIONS */
+    /* SHOW SOLUTIONS */
 
     else if (selectedBrand && selectedModel) {
 
@@ -106,9 +106,11 @@ if (mobileGrid) {
 
         list.forEach(item => {
 
-            const card = document.createElement("div");
+            const card = document.createElement("a");
 
             card.className = "solution-card";
+
+            card.href = `solution.html?brand=${selectedBrand}&model=${encodeURIComponent(selectedModel)}&service=${encodeURIComponent(item)}`;
 
             card.innerHTML = `
                 <i class="fa-solid fa-circle-check"></i>
@@ -122,3 +124,40 @@ if (mobileGrid) {
     }
 
 }
+
+/* ---------- SEARCH ---------- */
+
+if (brandSearch) {
+
+    brandSearch.addEventListener("input", function () {
+
+        if (!selectedBrand) return;
+
+        const value = this.value.toLowerCase();
+
+        mobileGrid.innerHTML = "";
+
+        mobileDatabase[selectedBrand]
+            .filter(model => model.toLowerCase().includes(value))
+            .forEach(model => {
+
+                const card = document.createElement("a");
+
+                card.className = "mobile-card";
+
+                card.href = `mobiles.html?brand=${selectedBrand}&model=${encodeURIComponent(model)}`;
+
+                card.innerHTML = `
+                    <h3>${model}</h3>
+                    <p>View Solutions</p>
+                `;
+
+                mobileGrid.appendChild(card);
+
+            });
+
+    });
+
+}
+
+console.log("Mobiles Page Loaded");
