@@ -1,107 +1,38 @@
-/*═══════════════════════════════════════
-      TECHFIX SOLUTIONS DATABASE v1
-      Founder : MIAN AHMAD
-═══════════════════════════════════════*/
-
 "use strict";
 
-const defaultAndroidSolutions=[
+/*=========================================
+      TECHFIX SOLUTIONS DATABASE v1
+=========================================*/
 
-"FRP Unlock",
+const defaultSolutions = [
 "Firmware",
 "Flash File",
-"Stock ROM",
+"FRP Unlock",
+"Factory Reset",
 "USB Driver",
 "ADB Enable",
-"Fastboot Guide",
-"Bootloader Unlock",
-"OEM Unlock",
-"Root Guide",
-"Magisk Root",
-"TWRP Recovery",
-"Unlock Tool",
-"IMEI Information",
-"MDM Remove",
-"KG Lock",
-"Test Point",
-"EDL Mode",
-"Emergency Download Mode",
-"Factory Reset",
-"Pattern Unlock",
-"PIN Remove",
-"Password Remove",
-"Dead Boot Repair",
-"Bootloop Fix",
-"QCN Backup",
-"NVRAM Backup",
-"Video Guide",
-"Downloads",
-"FAQ"
-
-];
-
-const defaultAppleSolutions=[
-
-"Passcode",
-"Restore",
+"Fastboot Mode",
 "Recovery Mode",
-"DFU Mode",
-"Activation Lock Information",
-"Hello Screen",
-"iCloud Information",
-"IPSW Firmware",
-"3uTools Guide",
-"iTunes Restore",
-"Battery Health Guide",
-"Jailbreak Information",
-"Backup & Restore",
-"Downloads",
-"FAQ"
-
+"Boot Repair",
+"Dead Boot Repair",
+"EDL Mode",
+"Unlock Bootloader",
+"OEM Unlock",
+"Root",
+"Magisk Root",
+"Combination File",
+"ENG Firmware",
+"IMEI Repair",
+"Network Unlock",
+"MDM Remove"
 ];
 
-const solutionsDatabase={
+const solutionsDatabase = {};
 
-};
-const androidBrands=[
-
-"samsung",
-"xiaomi",
-"realme",
-"oppo",
-"vivo",
-"iqoo",
-"oneplus",
-"google",
-"motorola",
-"tecno",
-"infinix",
-"huawei",
-"honor",
-"nokia",
-"nothing",
-"sony",
-"asus",
-"lg",
-"zte",
-"lenovo",
-"meizu"
-
-];
-
-androidBrands.forEach(brand=>{
-
-if(!mobileDatabase[brand]) return;
-
-mobileDatabase[brand].forEach(model=>{
-
-solutionsDatabase[model]=[...defaultAndroidSolutions];
-
+Object.keys(mobileDatabase).forEach(brand => {
+    mobileDatabase[brand].forEach(model => {
+        solutionsDatabase[model] = [...defaultSolutions];
+    });
 });
 
-});
-mobileDatabase.apple.forEach(model=>{
-
-solutionsDatabase[model]=[...defaultAppleSolutions];
-
-});
+console.log("Solutions Loaded:", Object.keys(solutionsDatabase).length);
