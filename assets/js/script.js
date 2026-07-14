@@ -1,74 +1,167 @@
-/*==================================================
- TechFix Software EXP v5
- Premium JavaScript
- Founder : MIAN AHMAD
-==================================================*/
+/*═══════════════════════════════════════════════════════
+                TECHFIX SOFTWARE EXP v7
+              Premium JavaScript Edition
+                Founder : MIAN AHMAD
+═══════════════════════════════════════════════════════*/
 
 "use strict";
 
-/*==========================
-SELECTORS
-==========================*/
+/*═══════════════════════════════════════════════════════
+                    SELECTORS
+═══════════════════════════════════════════════════════*/
 
-const header=document.querySelector(".header");
-const menu=document.querySelector(".nav-menu");
-const menuBtn=document.querySelector(".menu-toggle");
-const backTop=document.getElementById("backToTop");
-const searchModal=document.getElementById("searchModal");
-const searchBtn=document.querySelector(".search-btn");
-const closeSearch=document.getElementById("closeSearch");
-const searchInput=document.getElementById("liveSearch");
-const searchResults=document.getElementById("searchResults");
+const header = document.querySelector(".header");
+const menu = document.querySelector(".nav-menu");
+const menuBtn = document.querySelector(".menu-toggle");
+const backTop = document.getElementById("backToTop");
+const preloader = document.getElementById("preloader");
 
-/*==========================
-PRELOADER
-==========================*/
+/*═══════════════════════════════════════════════════════
+                    RGB ENGINE
+═══════════════════════════════════════════════════════*/
+
+const accentColors = [
+
+"#ff7a00", // Orange
+
+"#00c8ff", // Cyan
+
+"#8b5cf6", // Purple
+
+"#00d084", // Green
+
+"#ff3b30", // Red
+
+"#c0c0c0", // Silver
+
+"#ffd700"  // Gold
+
+];
+
+let colorIndex = 0;
+
+function changeAccentColor(){
+
+document.documentElement.style.setProperty(
+
+"--primary",
+
+accentColors[colorIndex]
+
+);
+
+colorIndex++;
+
+if(colorIndex >= accentColors.length){
+
+colorIndex = 0;
+
+}
+
+}
+
+changeAccentColor();
+
+setInterval(changeAccentColor,12000);
+
+/*═══════════════════════════════════════════════════════
+                    PRELOADER
+═══════════════════════════════════════════════════════*/
 
 window.addEventListener("load",()=>{
 
-const preloader=document.getElementById("preloader");
-
-if(preloader){
+if(!preloader) return;
 
 setTimeout(()=>{
 
 preloader.style.opacity="0";
 
+preloader.style.visibility="hidden";
+
 setTimeout(()=>{
 
 preloader.remove();
 
-},500);
+},600);
 
-},700);
-
-}
+},800);
 
 });
 
-/*==========================
-HEADER
-==========================*/
+/*═══════════════════════════════════════════════════════
+                    HEADER
+═══════════════════════════════════════════════════════*/
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>80){
+if(!header) return;
 
-header.classList.add("sticky");
+header.classList.toggle(
 
-}else{
+"sticky",
 
-header.classList.remove("sticky");
+window.scrollY > 80
+
+);
+
+});
+/*═══════════════════════════════════════════════════════
+                RGB COLOR ENGINE v2
+═══════════════════════════════════════════════════════*/
+
+const rgbThemes = [
+
+{primary:"#ff7a00",secondary:"#ffb347"}, // Orange
+
+{primary:"#00c8ff",secondary:"#4de1ff"}, // Cyan
+
+{primary:"#8b5cf6",secondary:"#b794ff"}, // Purple
+
+{primary:"#00d084",secondary:"#54f2b5"}, // Green
+
+{primary:"#ff3b30",secondary:"#ff7b72"}, // Red
+
+{primary:"#c0c0c0",secondary:"#ececec"}, // Silver
+
+{primary:"#ffd700",secondary:"#ffe866"}  // Gold
+
+];
+
+let themeIndex = 0;
+
+function updateTheme(){
+
+const theme = rgbThemes[themeIndex];
+
+document.documentElement.style.setProperty(
+"--primary",
+theme.primary
+);
+
+document.documentElement.style.setProperty(
+"--secondary",
+theme.secondary
+);
+
+themeIndex++;
+
+if(themeIndex >= rgbThemes.length){
+
+themeIndex = 0;
 
 }
 
-});
+}
 
-/*==========================
-MOBILE MENU
-==========================*/
+updateTheme();
 
-if(menuBtn){
+setInterval(updateTheme,10000);
+
+/*═══════════════════════════════════════════════════════
+                MOBILE MENU
+═══════════════════════════════════════════════════════*/
+
+if(menuBtn && menu){
 
 menuBtn.addEventListener("click",()=>{
 
@@ -86,31 +179,31 @@ link.addEventListener("click",()=>{
 
 menu.classList.remove("active");
 
-});
+menuBtn?.classList.remove("active");
 
 });
 
-/*==========================
-BACK TO TOP
-==========================*/
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>500){
-
-backTop.classList.add("show");
-
-}else{
-
-backTop.classList.remove("show");
-
-}
-
 });
+
+/*═══════════════════════════════════════════════════════
+                BACK TO TOP
+═══════════════════════════════════════════════════════*/
 
 if(backTop){
 
-backTop.onclick=()=>{
+window.addEventListener("scroll",()=>{
+
+backTop.classList.toggle(
+
+"show",
+
+window.scrollY>500
+
+);
+
+});
+
+backTop.addEventListener("click",()=>{
 
 window.scrollTo({
 
@@ -120,20 +213,100 @@ behavior:"smooth"
 
 });
 
-};
+});
 
 }
-/*==========================
-SEARCH MODAL
-==========================*/
 
-if(searchBtn){
+/*═══════════════════════════════════════════════════════
+                SMOOTH SCROLL
+═══════════════════════════════════════════════════════*/
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+
+link.addEventListener("click",e=>{
+
+const target=document.querySelector(
+
+link.getAttribute("href")
+
+);
+
+if(!target) return;
+
+e.preventDefault();
+
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+});
+
+});
+
+/*═══════════════════════════════════════════════════════
+                ACTIVE MENU
+═══════════════════════════════════════════════════════*/
+
+const sections=document.querySelectorAll("section[id]");
+
+const navLinks=document.querySelectorAll(".nav-menu a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-140;
+
+const height=section.offsetHeight;
+
+if(window.scrollY>=top){
+
+current=section.id;
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+/*═══════════════════════════════════════════════════════
+                SEARCH MODAL
+═══════════════════════════════════════════════════════*/
+
+const searchModal=document.getElementById("searchModal");
+const searchBtn=document.querySelector(".search-btn");
+const closeSearch=document.getElementById("closeSearch");
+const searchInput=document.getElementById("liveSearch");
+const searchResults=document.getElementById("searchResults");
+
+if(searchBtn && searchModal){
 
 searchBtn.addEventListener("click",()=>{
 
 searchModal.classList.add("active");
 
-searchInput.focus();
+setTimeout(()=>{
+
+searchInput?.focus();
+
+},200);
 
 });
 
@@ -145,7 +318,7 @@ closeSearch.addEventListener("click",()=>{
 
 searchModal.classList.remove("active");
 
-searchInput.value="";
+if(searchInput) searchInput.value="";
 
 if(searchResults) searchResults.innerHTML="";
 
@@ -155,9 +328,9 @@ if(searchResults) searchResults.innerHTML="";
 
 window.addEventListener("keydown",(e)=>{
 
-if(e.key==="Escape" && searchModal){
+if(e.key==="Escape"){
 
-searchModal.classList.remove("active");
+searchModal?.classList.remove("active");
 
 }
 
@@ -177,73 +350,9 @@ searchModal.classList.remove("active");
 
 }
 
-/*==========================
-SMOOTH SCROLL
-==========================*/
-
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-
-link.addEventListener("click",(e)=>{
-
-const target=document.querySelector(link.getAttribute("href"));
-
-if(!target) return;
-
-e.preventDefault();
-
-target.scrollIntoView({
-
-behavior:"smooth",
-
-block:"start"
-
-});
-
-});
-
-});
-
-/*==========================
-ACTIVE MENU
-==========================*/
-
-const sections=document.querySelectorAll("section[id]");
-const navLinks=document.querySelectorAll(".nav-menu a");
-
-window.addEventListener("scroll",()=>{
-
-let current="";
-
-sections.forEach(section=>{
-
-const top=section.offsetTop-150;
-
-const height=section.offsetHeight;
-
-if(window.scrollY>=top){
-
-current=section.getAttribute("id");
-
-}
-
-});
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-/*==========================
-LIVE SEARCH DATABASE
-==========================*/
+/*═══════════════════════════════════════════════════════
+                LIVE SEARCH DATABASE
+═══════════════════════════════════════════════════════*/
 
 function getAllModels(){
 
@@ -257,7 +366,7 @@ mobileDatabase[brand].forEach(model=>{
 
 models.push({
 
-brand:brand,
+brand,
 
 name:model
 
@@ -281,9 +390,9 @@ const keyword=this.value.trim().toLowerCase();
 
 searchResults.innerHTML="";
 
-if(keyword.length<1) return;
+if(keyword.length===0) return;
 
-const result=allModels.filter(item=>
+const results=allModels.filter(item=>
 
 item.name.toLowerCase().includes(keyword) ||
 
@@ -291,34 +400,39 @@ item.brand.toLowerCase().includes(keyword)
 
 );
 
-if(result.length===0){
+if(results.length===0){
 
 searchResults.innerHTML=`
 <div class="no-result">
 No Device Found
-</div>`;
+</div>
+`;
 
 return;
 
 }
 
-result.slice(0,50).forEach(item=>{
+results.slice(0,50).forEach(item=>{
 
 const card=document.createElement("div");
 
 card.className="search-item";
 
 card.innerHTML=`
+
 <strong>${item.name}</strong>
+
 <br>
+
 <small>${item.brand.toUpperCase()}</small>
+
 `;
 
-card.addEventListener("click",()=>{
+card.onclick=()=>{
 
 window.location.href=`mobiles.html?brand=${item.brand}&model=${encodeURIComponent(item.name)}`;
 
-});
+};
 
 searchResults.appendChild(card);
 
@@ -327,39 +441,40 @@ searchResults.appendChild(card);
 });
 
 }
-/*==========================
-ANIMATED COUNTERS
-==========================*/
 
-const counters=document.querySelectorAll("[data-counter]");
+/*═══════════════════════════════════════════════════════
+                COUNTER ANIMATION
+═══════════════════════════════════════════════════════*/
+
+const counters=document.querySelectorAll("[data-target]");
 
 function startCounters(){
 
 counters.forEach(counter=>{
 
-const target=parseInt(counter.dataset.counter);
+const target=parseInt(counter.dataset.target);
 
-let count=0;
+let current=0;
 
-const speed=Math.max(10,Math.floor(target/100));
+const increment=Math.max(1,Math.ceil(target/120));
 
-const update=()=>{
+function update(){
 
-count+=speed;
+current+=increment;
 
-if(count>=target){
+if(current>=target){
 
-counter.innerText=target.toLocaleString()+"+";
+counter.textContent=target+"+";
 
-}else{
+return;
 
-counter.innerText=count.toLocaleString()+"+";
+}
+
+counter.textContent=current+"+";
 
 requestAnimationFrame(update);
 
 }
-
-};
 
 update();
 
@@ -385,17 +500,21 @@ observer.disconnect();
 
 });
 
-},{threshold:.4});
+},{threshold:.35});
 
 observer.observe(counterSection);
 
 }
 
-/*==========================
-SCROLL ANIMATION
-==========================*/
+/*═══════════════════════════════════════════════════════
+                REVEAL ANIMATION
+═══════════════════════════════════════════════════════*/
 
-const reveals=document.querySelectorAll(".reveal");
+const reveals=document.querySelectorAll(
+
+".service-card,.brand-card,.why-card,.counter-card,.cta-box"
+
+);
 
 const revealObserver=new IntersectionObserver(entries=>{
 
@@ -403,7 +522,7 @@ entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-entry.target.classList.add("active");
+entry.target.classList.add("fade-up");
 
 }
 
@@ -416,58 +535,9 @@ reveals.forEach(item=>{
 revealObserver.observe(item);
 
 });
-
-/*==========================
-CURRENT YEAR
-==========================*/
-
-const year=document.getElementById("year");
-
-if(year){
-
-year.textContent=new Date().getFullYear();
-
-}
-/*==========================
-BRAND CARDS
-==========================*/
-
-const brandGrid=document.getElementById("brandGrid");
-
-if(brandGrid && typeof mobileDatabase!=="undefined"){
-
-Object.keys(mobileDatabase).forEach(brand=>{
-
-const total=mobileDatabase[brand].length;
-
-const card=document.createElement("a");
-
-card.href=`mobiles.html?brand=${brand}`;
-
-card.className="brand-card reveal";
-
-card.innerHTML=`
-
-<img
-src="assets/images/brands/${brand}.png"
-alt="${brand}"
-loading="lazy">
-
-<h3>${brand.charAt(0).toUpperCase()+brand.slice(1)}</h3>
-
-<p>${total} Models</p>
-
-`;
-
-brandGrid.appendChild(card);
-
-});
-
-}
-
-/*==========================
-LAZY IMAGES
-==========================*/
+/*═══════════════════════════════════════════════════════
+                LAZY IMAGE LOADING
+═══════════════════════════════════════════════════════*/
 
 document.querySelectorAll("img").forEach(img=>{
 
@@ -477,24 +547,76 @@ img.draggable=false;
 
 });
 
-/*==========================
-COPYRIGHT
-==========================*/
+/*═══════════════════════════════════════════════════════
+                ROBOT GLOW EFFECT
+═══════════════════════════════════════════════════════*/
+
+const robot=document.querySelector(".robot-image");
+
+window.addEventListener("mousemove",(e)=>{
+
+if(!robot) return;
+
+const x=(window.innerWidth/2-e.clientX)/40;
+
+const y=(window.innerHeight/2-e.clientY)/40;
+
+robot.style.transform=`translate(${-x}px,${-y}px)`;
+
+});
+
+/*═══════════════════════════════════════════════════════
+                CURRENT YEAR
+═══════════════════════════════════════════════════════*/
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.textContent=new Date().getFullYear();
+
+}
+
+/*═══════════════════════════════════════════════════════
+                PERFORMANCE
+═══════════════════════════════════════════════════════*/
+
+window.addEventListener("pageshow",()=>{
+
+document.body.classList.add("loaded");
+
+});
+
+/*═══════════════════════════════════════════════════════
+                CONSOLE
+═══════════════════════════════════════════════════════*/
+
+console.clear();
 
 console.log(
 
-"%cTechFix Software EXP v5",
+"%cTECHFIX SOFTWARE EXP v7",
 
-"color:#ff7a00;font-size:18px;font-weight:bold;"
+"font-size:20px;font-weight:bold;color:#ff7a00;"
 
 );
 
 console.log(
 
-"Founder : MIAN AHMAD"
+"%cFounder : MIAN AHMAD",
+
+"font-size:14px;color:#00c8ff;"
 
 );
 
-/*==========================
-END
-==========================*/
+console.log(
+
+"%cPremium Edition Loaded Successfully",
+
+"font-size:13px;color:#00d084;"
+
+);
+
+/*═══════════════════════════════════════════════════════
+                END
+═══════════════════════════════════════════════════════*/
