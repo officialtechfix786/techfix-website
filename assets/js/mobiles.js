@@ -1,5 +1,6 @@
 "use strict";
-
+console.log("mobileDatabase:", mobileDatabase);
+console.log("solutionsDatabase:", solutionsDatabase);
 const brandGrid=document.getElementById("brandGrid");
 const modelGrid=document.getElementById("modelGrid");
 const solutionGrid=document.getElementById("solutionGrid");
