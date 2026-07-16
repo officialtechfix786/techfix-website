@@ -3169,6 +3169,34 @@ right:15px;
 
 }
 
+/*================ SEARCH =================*/
+
+.search-item{
+padding:14px 18px;
+cursor:pointer;
+border-bottom:1px solid rgba(255,255,255,.08);
+transition:.25s;
+background:#151515;
+}
+
+.search-item:hover{
+background:#00d084;
+color:#000;
+}
+
+.search-brand{
+font-size:11px;
+font-weight:700;
+opacity:.7;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.search-model{
+font-size:15px;
+font-weight:600;
+margin-top:3px;
+}
 /*======================================================
                 END OF MASTER CSS
 ======================================================*/
