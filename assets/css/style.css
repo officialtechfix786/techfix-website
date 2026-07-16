@@ -3225,6 +3225,28 @@ font-size:15px;
 font-weight:600;
 margin-top:4px;
 }
+.search-box{
+position:relative;
+width:100%;
+max-width:550px;
+margin:auto;
+}
+
+#searchSuggestions{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:10px;
+overflow:hidden;
+display:none;
+z-index:99999;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+max-height:350px;
+overflow-y:auto;
+}
 /*======================================================
                 END OF MASTER CSS
 ======================================================*/
