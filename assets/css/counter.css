@@ -1,12 +1,13 @@
 /*==========================================
-            COUNTER SECTION
+            COUNTER.CSS
+        TechFix Software EXP
 ==========================================*/
 
 .counter-section{
 
-padding:100px 0;
-
 position:relative;
+
+padding:90px 0;
 
 overflow:hidden;
 
@@ -18,33 +19,34 @@ content:"";
 
 position:absolute;
 
-left:-250px;
+left:50%;
 
-top:-250px;
+top:50%;
 
-width:600px;
+transform:translate(-50%,-50%);
 
-height:600px;
+width:700px;
+
+height:700px;
 
 border-radius:50%;
 
 background:linear-gradient(
 45deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899,
-#22c55e);
+#00E5FF,
+#3B82F6,
+#8B5CF6,
+#EC4899);
 
 background-size:400%;
 
-filter:blur(180px);
+filter:blur(220px);
 
-opacity:.08;
+opacity:.07;
 
-animation:counterFlow 12s linear infinite;
+animation:counterGradient 12s linear infinite;
 
-z-index:-1;
+pointer-events:none;
 
 }
 
@@ -52,33 +54,35 @@ z-index:-1;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(4,1fr);
 
 gap:28px;
 
-margin-top:50px;
+position:relative;
+
+z-index:2;
 
 }
 
 .counter-card{
 
+position:relative;
+
+padding:40px 20px;
+
+text-align:center;
+
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-border-radius:22px;
+border-radius:24px;
 
-padding:40px 25px;
-
-text-align:center;
-
-backdrop-filter:blur(16px);
-
-transition:.35s;
-
-position:relative;
+backdrop-filter:blur(18px);
 
 overflow:hidden;
+
+transition:.35s;
 
 }
 
@@ -88,19 +92,25 @@ content:"";
 
 position:absolute;
 
-left:-100%;
-
 top:0;
+
+left:-100%;
 
 width:100%;
 
 height:100%;
 
 background:linear-gradient(
+
 90deg,
+
 transparent,
-rgba(255,255,255,.08),
-transparent);
+
+rgba(255,255,255,.15),
+
+transparent
+
+);
 
 transition:.8s;
 
@@ -116,9 +126,11 @@ left:120%;
 
 transform:translateY(-10px);
 
-border-color:var(--primary);
+border-color:rgba(0,229,255,.35);
 
-box-shadow:0 20px 45px rgba(0,229,255,.20);
+box-shadow:
+
+0 25px 60px rgba(0,229,255,.18);
 
 }
 
@@ -128,14 +140,19 @@ font-size:52px;
 
 font-weight:800;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
 background:linear-gradient(
-45deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899);
+
+90deg,
+
+#00E5FF,
+
+#3B82F6,
+
+#8B5CF6
+
+);
 
 background-size:300%;
 
@@ -143,7 +160,7 @@ background-size:300%;
 
 -webkit-text-fill-color:transparent;
 
-animation:counterFlow 8s linear infinite;
+animation:counterNumber 6s linear infinite;
 
 }
 
@@ -151,49 +168,77 @@ animation:counterFlow 8s linear infinite;
 
 display:block;
 
-font-size:16px;
+font-size:17px;
 
-color:var(--gray);
+font-weight:600;
+
+color:#E5E7EB;
 
 letter-spacing:.5px;
 
 }
 
-@media(max-width:768px){
+/*================ MOBILE ================*/
+
+@media(max-width:992px){
 
 .counter-grid{
 
-grid-template-columns:1fr 1fr;
-
-gap:18px;
-
-}
-
-.counter-card{
-
-padding:28px 20px;
-
-}
-
-.counter-card h2{
-
-font-size:40px;
+grid-template-columns:repeat(2,1fr);
 
 }
 
 }
 
-@media(max-width:480px){
+@media(max-width:576px){
 
 .counter-grid{
 
 grid-template-columns:1fr;
 
-}
+gap:20px;
 
 }
 
-@keyframes counterFlow{
+.counter-card{
+
+padding:32px 20px;
+
+}
+
+.counter-card h2{
+
+font-size:42px;
+
+}
+
+.counter-card span{
+
+font-size:15px;
+
+}
+
+}
+
+/*================ ANIMATION ================*/
+
+@keyframes counterGradient{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+@keyframes counterNumber{
 
 0%{
 
