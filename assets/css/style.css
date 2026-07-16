@@ -1,17 +1,25 @@
-/*==================================================
-TechFix Software EXP
-Founder: MIAN AHMAD
-Main Stylesheet
-==================================================*/
+/*==========================================
+        IMPORT FILES
+==========================================*/
 
 @import url("base.css");
+
 @import url("header.css");
+
 @import url("hero.css");
+
 @import url("brands.css");
+
 @import url("services.css");
+
 @import url("counter.css");
+
 @import url("why-us.css");
+
 @import url("cta.css");
+
 @import url("footer.css");
-@import url("responsive.css");
+
 @import url("animations.css");
+
+@import url("responsive.css");
