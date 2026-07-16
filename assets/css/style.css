@@ -3391,6 +3391,43 @@ transition:.3s;
 transform:rotate(90deg);
 color:#00d084;
 }
+/*==============================
+        NO SOLUTION
+===============================*/
+
+.no-solution{
+
+padding:60px 20px;
+
+text-align:center;
+
+}
+
+.no-solution i{
+
+font-size:70px;
+
+color:#ff4d4f;
+
+margin-bottom:20px;
+
+}
+
+.no-solution h2{
+
+font-size:30px;
+
+margin-bottom:10px;
+
+}
+
+.no-solution p{
+
+opacity:.75;
+
+font-size:16px;
+
+}
 /*======================================================
                 END OF MASTER CSS
 ======================================================*/
