@@ -1,119 +1,146 @@
-/*======================================================
-            TECHFIX SOFTWARE EXP
-            MAIN JAVASCRIPT
+"use strict";
+
+/*=====================================================
+                TECHFIX SOFTWARE EXP
+                    MAIN SCRIPT
 ======================================================*/
 
-document.addEventListener("DOMContentLoaded",()=>{
+/*==============================
+            SELECTORS
+===============================*/
 
-/*======================================================
-                    ELEMENTS
-======================================================*/
+const body = document.body;
 
-const preloader=document.getElementById("preloader");
+const header = document.querySelector(".header");
 
-const header=document.querySelector(".header");
+const menuToggle = document.querySelector(".menu-toggle");
 
-const menuToggle=document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
 
-const navMenu=document.querySelector(".nav-menu");
+const backToTop = document.getElementById("backToTop");
 
-const backToTop=document.getElementById("backToTop");
+const preloader = document.getElementById("preloader");
 
-const year=document.getElementById("year");
+const year = document.getElementById("year");
 
-const searchBtn=document.getElementById("searchBtn");
+const searchBtn = document.getElementById("searchBtn");
 
-const searchModal=document.getElementById("searchModal");
+const searchModal = document.getElementById("searchModal");
 
-const closeSearch=document.getElementById("closeSearch");
+const closeSearch = document.getElementById("closeSearch");
 
-const liveSearch=document.getElementById("liveSearch");
+const liveSearch = document.getElementById("liveSearch");
 
-const searchResults=document.getElementById("searchResults");
+/*==============================
+        PRELOADER
+===============================*/
 
-/*======================================================
-                    PRELOADER
-======================================================*/
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
+window.addEventListener("load", () => {
 
 if(preloader){
 
 preloader.classList.add("hide");
 
-}
+setTimeout(()=>{
 
-},700);
+preloader.remove();
+
+},600);
+
+}
 
 });
 
-/*======================================================
-                    YEAR
-======================================================*/
+/*==============================
+        FOOTER YEAR
+===============================*/
 
 if(year){
 
-year.textContent=new Date().getFullYear();
+year.textContent = new Date().getFullYear();
 
 }
 
-/*======================================================
-                    HEADER
+/*==============================
+        HELPERS
+===============================*/
+
+function addClass(el,className){
+
+if(el) el.classList.add(className);
+
+}
+
+function removeClass(el,className){
+
+if(el) el.classList.remove(className);
+
+}
+
+function toggleClass(el,className){
+
+if(el) el.classList.toggle(className);
+
+}
+/*=====================================================
+                MOBILE MENU
+======================================================*/
+
+if(menuToggle && navMenu){
+
+menuToggle.addEventListener("click",()=>{
+
+toggleClass(navMenu,"active");
+toggleClass(menuToggle,"active");
+
+});
+
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+removeClass(navMenu,"active");
+removeClass(menuToggle,"active");
+
+});
+
+});
+
+}
+
+/*=====================================================
+                STICKY HEADER
 ======================================================*/
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>60){
+if(window.scrollY>80){
 
-header.classList.add("scrolled");
+addClass(header,"sticky");
 
 }else{
 
-header.classList.remove("scrolled");
+removeClass(header,"sticky");
 
 }
 
 });
 
-/*======================================================
-                    MOBILE MENU
-======================================================*/
-
-if(menuToggle){
-
-menuToggle.onclick=()=>{
-
-navMenu.classList.toggle("active");
-
-};
-
-}
-
-document.querySelectorAll(".nav-menu a").forEach(link=>{
-
-link.onclick=()=>{
-
-navMenu.classList.remove("active");
-
-};
-
-});
-
-/*======================================================
+/*=====================================================
                 BACK TO TOP
 ======================================================*/
 
 window.addEventListener("scroll",()=>{
 
+if(!backToTop) return;
+
 if(window.scrollY>400){
 
-backToTop.classList.add("show");
+addClass(backToTop,"show");
 
 }else{
 
-backToTop.classList.remove("show");
+removeClass(backToTop,"show");
 
 }
 
@@ -121,7 +148,7 @@ backToTop.classList.remove("show");
 
 if(backToTop){
 
-backToTop.onclick=()=>{
+backToTop.addEventListener("click",()=>{
 
 window.scrollTo({
 
@@ -131,241 +158,11 @@ behavior:"smooth"
 
 });
 
-};
-
-}
-
-/*======================================================
-                SEARCH MODAL
-======================================================*/
-
-if(searchBtn){
-
-searchBtn.onclick=()=>{
-
-searchModal.classList.add("active");
-
-liveSearch.focus();
-
-};
-
-}
-
-if(closeSearch){
-
-closeSearch.onclick=()=>{
-
-searchModal.classList.remove("active");
-
-liveSearch.value="";
-
-searchResults.innerHTML="";
-
-};
-
-}
-
-searchModal.addEventListener("click",(e)=>{
-
-if(e.target===searchModal){
-
-searchModal.classList.remove("active");
-
-liveSearch.value="";
-
-searchResults.innerHTML="";
-
-}
-
-});
-
-});
-/*======================================================
-                GLOBAL LIVE SEARCH
-======================================================*/
-
-const searchDatabase=[];
-
-/* Mobiles Database */
-
-if(typeof mobileDatabase!=="undefined"){
-
-Object.keys(mobileDatabase).forEach(brand=>{
-
-mobileDatabase[brand].forEach(model=>{
-
-searchDatabase.push({
-
-type:"Mobile",
-
-brand:brand,
-
-name:model.name,
-
-url:"mobiles.html"
-
-});
-
-});
-
 });
 
 }
 
-/* Solutions Database */
-
-if(typeof solutionsDatabase!=="undefined"){
-
-Object.keys(solutionsDatabase).forEach(brand=>{
-
-solutionsDatabase[brand].forEach(item=>{
-
-searchDatabase.push({
-
-type:"Solution",
-
-brand:brand,
-
-name:item.name,
-
-url:"mobiles.html"
-
-});
-
-});
-
-});
-
-}
-
-/*======================================================
-                LIVE SEARCH
-======================================================*/
-
-if(liveSearch){
-
-liveSearch.addEventListener("input",function(){
-
-const keyword=this.value.toLowerCase().trim();
-
-searchResults.innerHTML="";
-
-if(keyword==="") return;
-
-const results=searchDatabase.filter(item=>
-
-item.name.toLowerCase().includes(keyword) ||
-
-item.brand.toLowerCase().includes(keyword)
-
-).slice(0,20);
-
-if(results.length===0){
-
-searchResults.innerHTML=
-
-`<div class="search-item">
-
-<div>
-
-<h4>No Result Found</h4>
-
-<span>Try another keyword</span>
-
-</div>
-
-</div>`;
-
-return;
-
-}
-
-results.forEach(item=>{
-
-const div=document.createElement("div");
-
-div.className="search-item";
-
-div.innerHTML=`
-
-<div>
-
-<h4>${item.name}</h4>
-
-<span>${item.brand} • ${item.type}</span>
-
-</div>
-
-<i class="fa-solid fa-arrow-right"></i>
-
-`;
-
-div.onclick=()=>{
-
-window.location.href=item.url;
-
-};
-
-searchResults.appendChild(div);
-
-});
-
-});
-
-}
-/*======================================================
-                COUNTER ANIMATION
-======================================================*/
-
-const counters=document.querySelectorAll(".counter");
-
-const counterObserver=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(!entry.isIntersecting) return;
-
-const counter=entry.target;
-
-const target=parseInt(counter.dataset.target);
-
-let count=0;
-
-const speed=Math.max(10,Math.floor(target/150));
-
-const update=()=>{
-
-count+=speed;
-
-if(count>=target){
-
-counter.textContent=target.toLocaleString()+"+";
-
-}else{
-
-counter.textContent=count.toLocaleString();
-
-requestAnimationFrame(update);
-
-}
-
-};
-
-update();
-
-counterObserver.unobserve(counter);
-
-});
-
-},{threshold:.5});
-
-counters.forEach(counter=>{
-
-counterObserver.observe(counter);
-
-});
-
-/*======================================================
+/*=====================================================
                 SMOOTH SCROLL
 ======================================================*/
 
@@ -375,32 +172,126 @@ anchor.addEventListener("click",function(e){
 
 const target=document.querySelector(this.getAttribute("href"));
 
-if(target){
+if(!target) return;
 
 e.preventDefault();
 
 target.scrollIntoView({
 
-behavior:"smooth",
-
-block:"start"
+behavior:"smooth"
 
 });
+
+});
+
+});
+/*=====================================================
+                SEARCH MODAL
+======================================================*/
+
+function openSearchModal(){
+
+    if(!searchModal) return;
+
+    addClass(searchModal,"active");
+
+    body.style.overflow="hidden";
+
+    setTimeout(()=>{
+
+        if(liveSearch){
+
+            liveSearch.focus();
+
+        }
+
+    },200);
 
 }
 
-});
+function closeSearchModal(){
+
+    if(!searchModal) return;
+
+    removeClass(searchModal,"active");
+
+    body.style.overflow="";
+
+    if(liveSearch){
+
+        liveSearch.value="";
+
+    }
+
+    const results=document.getElementById("searchResults");
+
+    if(results){
+
+        results.innerHTML="";
+
+        results.style.display="none";
+
+    }
+
+}
+
+/*==============================
+        OPEN BUTTON
+===============================*/
+
+if(searchBtn){
+
+    searchBtn.addEventListener("click",openSearchModal);
+
+}
+
+/*==============================
+        CLOSE BUTTON
+===============================*/
+
+if(closeSearch){
+
+    closeSearch.addEventListener("click",closeSearchModal);
+
+}
+
+/*==============================
+        ESC KEY
+===============================*/
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        closeSearchModal();
+
+    }
 
 });
 
-/*======================================================
-            SCROLL ANIMATION
+/*==============================
+    CLICK OUTSIDE TO CLOSE
+===============================*/
+
+if(searchModal){
+
+    searchModal.addEventListener("click",(e)=>{
+
+        if(e.target===searchModal){
+
+            closeSearchModal();
+
+        }
+
+    });
+
+}
+/*=====================================================
+                SCROLL ANIMATIONS
 ======================================================*/
 
 const revealItems=document.querySelectorAll(
-
-".service-card,.stat-card,.brand-card,.update-card,.testimonial-card,.why-item,.mobile-card"
-
+".service-card,.feature-box,.counter-box,.testimonial-card,.why-item,.stat-box"
 );
 
 const revealObserver=new IntersectionObserver((entries)=>{
@@ -409,54 +300,23 @@ entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-revealObserver.unobserve(entry.target);
+entry.target.classList.add("show");
 
 }
 
 });
 
-},{threshold:.15});
+},{
+threshold:.15
+});
 
 revealItems.forEach(item=>{
-
-item.style.opacity="0";
-
-item.style.transform="translateY(40px)";
-
-item.style.transition=".8s";
 
 revealObserver.observe(item);
 
 });
 
-/*======================================================
-                ESC CLOSE SEARCH
-======================================================*/
-
-document.addEventListener("keydown",(e)=>{
-
-if(e.key==="Escape"){
-
-if(searchModal){
-
-searchModal.classList.remove("active");
-
-}
-
-}
-
-});
-
-/*======================================================
-                PAGE LOADED
-======================================================*/
-
-console.log("TechFix Software EXP Loaded Successfully");
-/*======================================================
+/*=====================================================
                 ACTIVE NAVIGATION
 ======================================================*/
 
@@ -470,11 +330,11 @@ let current="";
 
 sections.forEach(section=>{
 
-const top=section.offsetTop-150;
+const sectionTop=section.offsetTop-150;
 
-const height=section.offsetHeight;
+const sectionHeight=section.offsetHeight;
 
-if(window.scrollY>=top){
+if(window.scrollY>=sectionTop){
 
 current=section.getAttribute("id");
 
@@ -498,13 +358,31 @@ link.classList.add("active");
 
 });
 
-/*======================================================
-                BUTTON RIPPLE EFFECT
+/*=====================================================
+                HERO FLOAT EFFECT
 ======================================================*/
 
-document.querySelectorAll(".btn").forEach(btn=>{
+const robot=document.querySelector(".robot-image");
 
-btn.addEventListener("click",function(e){
+window.addEventListener("mousemove",(e)=>{
+
+if(!robot) return;
+
+const x=(window.innerWidth/2-e.clientX)/35;
+
+const y=(window.innerHeight/2-e.clientY)/35;
+
+robot.style.transform=`translate(${x}px,${y}px)`;
+
+});
+
+/*=====================================================
+                BUTTON RIPPLE
+======================================================*/
+
+document.querySelectorAll(".btn").forEach(button=>{
+
+button.addEventListener("click",function(e){
 
 const ripple=document.createElement("span");
 
@@ -513,34 +391,14 @@ const rect=this.getBoundingClientRect();
 const size=Math.max(rect.width,rect.height);
 
 ripple.style.width=size+"px";
-
 ripple.style.height=size+"px";
 
 ripple.style.left=e.clientX-rect.left-size/2+"px";
-
 ripple.style.top=e.clientY-rect.top-size/2+"px";
 
-ripple.style.position="absolute";
-
-ripple.style.borderRadius="50%";
-
-ripple.style.background="rgba(255,255,255,.35)";
-
-ripple.style.pointerEvents="none";
-
-ripple.style.transform="scale(0)";
-
-ripple.style.transition=".6s";
+ripple.className="ripple";
 
 this.appendChild(ripple);
-
-requestAnimationFrame(()=>{
-
-ripple.style.transform="scale(4)";
-
-ripple.style.opacity="0";
-
-});
 
 setTimeout(()=>{
 
@@ -552,28 +410,12 @@ ripple.remove();
 
 });
 
-/*======================================================
-                IMAGE LAZY EFFECT
+/*=====================================================
+                CONSOLE
 ======================================================*/
 
-const images=document.querySelectorAll("img");
-
-images.forEach(img=>{
-
-img.loading="lazy";
-
-img.draggable=false;
-
-});
-
-/*======================================================
-                CONSOLE MESSAGE
-======================================================*/
-
-console.log("%cTechFix Software EXP","font-size:28px;color:#00D9FF;font-weight:bold;");
-
-console.log("%cDesigned By MIAN AHMAD","font-size:16px;color:#ffffff;");
-
-/*======================================================
-                FINISHED
-======================================================*/
+console.log("================================");
+console.log("TechFix Software EXP Loaded");
+console.log("Founder : MIAN AHMAD");
+console.log("Status : OK");
+console.log("================================");
