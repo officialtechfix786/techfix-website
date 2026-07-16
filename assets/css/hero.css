@@ -1,30 +1,16 @@
-/*==================================================
-HERO
-TechFix Software EXP
-==================================================*/
+/*==================================
+ HERO SECTION
+==================================*/
 
 .hero{
 
 position:relative;
 
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-padding:150px 0 90px;
+padding:170px 0 110px;
 
 overflow:hidden;
 
-background:
-linear-gradient(135deg,#081420 0%,#0c1f32 50%,#102a43 100%);
-
 }
-
-/*==========================
-BACKGROUND GLOW
-==========================*/
 
 .hero::before{
 
@@ -32,19 +18,31 @@ content:"";
 
 position:absolute;
 
-top:-220px;
+width:700px;
 
-right:-180px;
+height:700px;
 
-width:550px;
+left:-220px;
 
-height:550px;
+top:-180px;
 
-border-radius:50%;
+background:linear-gradient(
+45deg,
+#00e5ff,
+#3b82f6,
+#8b5cf6,
+#ec4899,
+#22c55e);
 
-background:rgba(37,99,235,.18);
+background-size:400%;
 
-filter:blur(70px);
+filter:blur(130px);
+
+opacity:.18;
+
+animation:aurora 15s linear infinite;
+
+z-index:-2;
 
 }
 
@@ -54,139 +52,103 @@ content:"";
 
 position:absolute;
 
-bottom:-220px;
+right:-180px;
 
-left:-180px;
+bottom:-180px;
 
-width:500px;
+width:550px;
 
-height:500px;
+height:550px;
 
-border-radius:50%;
+background:#00e5ff;
 
-background:rgba(6,182,212,.14);
+filter:blur(160px);
 
-filter:blur(70px);
+opacity:.10;
 
-}
-
-/*==========================
-OVERLAY
-==========================*/
-
-.hero-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:linear-gradient(
-180deg,
-rgba(0,0,0,.05),
-rgba(0,0,0,.18)
-);
-
-z-index:1;
+z-index:-2;
 
 }
-
-/*==========================
-WRAPPER
-==========================*/
 
 .hero-wrapper{
 
-position:relative;
-
-z-index:2;
-
-display:grid;
-
-grid-template-columns:1.1fr .9fr;
+display:flex;
 
 align-items:center;
+
+justify-content:space-between;
 
 gap:70px;
 
 }
 
-/*==========================
-BADGE
-==========================*/
+.hero-content{
 
-.hero-badge{
-
-display:inline-flex;
-
-align-items:center;
-
-padding:12px 22px;
-
-background:rgba(6,182,212,.12);
-
-border:1px solid rgba(6,182,212,.28);
-
-border-radius:40px;
-
-color:var(--secondary);
-
-font-size:14px;
-
-font-weight:600;
-
-letter-spacing:1px;
-
-margin-bottom:28px;
+flex:1;
 
 }
 
-/*==========================
-TITLE
-==========================*/
+.hero-content span{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#00e5ff;
+
+margin-bottom:22px;
+
+font-weight:600;
+
+}
 
 .hero-content h1{
 
 font-size:64px;
 
-font-weight:800;
+line-height:1.1;
 
-line-height:1.12;
-
-margin-bottom:24px;
+margin-bottom:25px;
 
 color:#fff;
 
 }
 
-.hero-content h1 span{
+.hero-content h1 strong{
 
-display:block;
+background:linear-gradient(
+90deg,
+#00e5ff,
+#3b82f6,
+#8b5cf6,
+#ec4899,
+#22c55e);
 
-color:var(--secondary);
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:textFlow 8s linear infinite;
 
 }
 
-/*==========================
-TEXT
-==========================*/
-
 .hero-content p{
-
-max-width:620px;
 
 font-size:18px;
 
-line-height:1.9;
-
-color:var(--text);
+max-width:600px;
 
 margin-bottom:35px;
 
 }
-
-/*==========================
-BUTTONS
-==========================*/
 
 .hero-buttons{
 
@@ -196,84 +158,56 @@ gap:18px;
 
 flex-wrap:wrap;
 
-margin-bottom:35px;
-
 }
 
-.btn{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
+.hero-btn{
 
 padding:16px 34px;
 
-border-radius:50px;
+border-radius:60px;
 
-font-size:16px;
+background:linear-gradient(
+90deg,
+#00e5ff,
+#3b82f6,
+#8b5cf6,
+#ec4899);
 
-font-weight:600;
+background-size:300%;
 
-transition:var(--transition);
-
-}
-
-.btn-primary{
-
-background:var(--primary);
-
-color:#fff;
-
-}
-
-.btn-primary:hover{
-
-background:var(--secondary);
-
-transform:translateY(-4px);
-
-}
-
-.btn-outline{
-
-border:2px solid var(--secondary);
+font-weight:700;
 
 color:#fff;
 
-background:transparent;
+animation:textFlow 8s linear infinite;
+
+transition:.4s;
 
 }
 
-.btn-outline:hover{
+.hero-btn:hover{
 
-background:var(--secondary);
+transform:translateY(-6px);
 
-transform:translateY(-4px);
+box-shadow:0 0 35px rgba(0,229,255,.4);
 
 }
-/*==================================================
-HERO IMAGE + STATUS + FEATURES + SCROLL
-==================================================*/
-
-/*==========================
-HERO IMAGE
-==========================*/
 
 .hero-image{
 
-position:relative;
+flex:1;
 
 display:flex;
 
 justify-content:center;
 
-align-items:center;
+position:relative;
 
 }
 
-.robot-glow{
+.hero-image::before{
+
+content:"";
 
 position:absolute;
 
@@ -283,173 +217,23 @@ height:420px;
 
 border-radius:50%;
 
-background:radial-gradient(circle,
-rgba(6,182,212,.30),
-transparent 70%);
+border:2px solid rgba(0,229,255,.18);
 
-filter:blur(35px);
-
-animation:glowPulse 4s ease-in-out infinite;
-
-z-index:1;
+animation:spin 18s linear infinite;
 
 }
 
-.robot-image{
+.hero-image img{
 
-position:relative;
+max-width:500px;
 
-z-index:2;
+animation:float 4s ease-in-out infinite;
 
-width:100%;
-
-max-width:520px;
-
-animation:floatRobot 5s ease-in-out infinite;
+filter:drop-shadow(0 0 40px rgba(0,229,255,.35));
 
 }
 
-/*==========================
-STATUS BAR
-==========================*/
-
-.status-bar{
-
-margin:35px 0;
-
-height:48px;
-
-overflow:hidden;
-
-background:#0f1d2c;
-
-border:1px solid var(--border);
-
-border-radius:12px;
-
-}
-
-.status-track{
-
-display:flex;
-
-align-items:center;
-
-height:100%;
-
-white-space:nowrap;
-
-padding-left:100%;
-
-font-size:15px;
-
-font-weight:500;
-
-color:var(--secondary);
-
-animation:statusMove 22s linear infinite;
-
-}
-
-/*==========================
-FEATURES
-==========================*/
-
-.hero-features{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:28px;
-
-}
-
-.hero-features div{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-color:var(--text);
-
-font-size:15px;
-
-}
-
-.hero-features i{
-
-color:var(--secondary);
-
-font-size:18px;
-
-}
-
-/*==========================
-SCROLL DOWN
-==========================*/
-
-.scroll-down{
-
-position:absolute;
-
-left:50%;
-
-bottom:30px;
-
-transform:translateX(-50%);
-
-z-index:5;
-
-}
-
-.scroll-down span{
-
-display:block;
-
-width:28px;
-
-height:46px;
-
-border:2px solid var(--secondary);
-
-border-radius:30px;
-
-position:relative;
-
-}
-
-.scroll-down span::before{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:8px;
-
-width:6px;
-
-height:6px;
-
-border-radius:50%;
-
-background:var(--secondary);
-
-transform:translateX(-50%);
-
-animation:scrollDot 2s infinite;
-
-}
-
-/*==========================
-ANIMATIONS
-==========================*/
-
-@keyframes floatRobot{
+@keyframes float{
 
 0%,100%{
 
@@ -465,81 +249,47 @@ transform:translateY(-18px);
 
 }
 
-@keyframes glowPulse{
-
-0%,100%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-50%{
-
-transform:scale(1.08);
-
-opacity:.75;
-
-}
-
-}
-
-@keyframes statusMove{
-
-0%{
-
-transform:translateX(0);
-
-}
+@keyframes spin{
 
 100%{
 
-transform:translateX(-100%);
+transform:rotate(360deg);
 
 }
 
 }
 
-@keyframes scrollDot{
-
-0%{
-
-opacity:1;
-
-top:8px;
-
-}
+@keyframes textFlow{
 
 100%{
 
-opacity:0;
-
-top:24px;
+background-position:300%;
 
 }
 
 }
 
-/*==========================
-RESPONSIVE
-==========================*/
+/* Mobile */
 
-@media(max-width:992px){
+@media(max-width:991px){
+
+.hero{
+
+padding:140px 0 80px;
+
+}
 
 .hero-wrapper{
 
-grid-template-columns:1fr;
+flex-direction:column-reverse;
 
 text-align:center;
 
-gap:60px;
-
 }
 
-.hero-content p{
+.hero-content h1{
 
-margin:auto auto 35px;
+font-size:42px;
 
 }
 
@@ -549,37 +299,19 @@ justify-content:center;
 
 }
 
-.hero-features{
+.hero-image img{
 
-justify-content:center;
-
-}
-
-.hero-image{
-
-order:-1;
-
-}
-
-.robot-image{
-
-max-width:420px;
+max-width:360px;
 
 }
 
 }
 
-@media(max-width:768px){
-
-.hero{
-
-padding:130px 0 70px;
-
-}
+@media(max-width:576px){
 
 .hero-content h1{
 
-font-size:40px;
+font-size:34px;
 
 }
 
@@ -589,55 +321,17 @@ font-size:16px;
 
 }
 
-.robot-image{
-
-max-width:320px;
-
-}
-
-.hero-buttons{
-
-flex-direction:column;
-
-}
-
-.btn{
+.hero-btn{
 
 width:100%;
 
-}
-
-.hero-features{
-
-flex-direction:column;
-
-gap:15px;
-
-align-items:center;
+text-align:center;
 
 }
 
-}
+.hero-image img{
 
-@media(max-width:480px){
-
-.hero-content h1{
-
-font-size:32px;
-
-line-height:1.25;
-
-}
-
-.robot-image{
-
-max-width:260px;
-
-}
-
-.status-track{
-
-font-size:13px;
+max-width:280px;
 
 }
 
