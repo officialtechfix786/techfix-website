@@ -1,156 +1,99 @@
-/*==================================================
-ANIMATIONS
-TechFix Software EXP
-Founder: MIAN AHMAD
-==================================================*/
+/*==========================================
+            GLOBAL ANIMATIONS
+==========================================*/
 
-/*============ FADE IN ============*/
-
-@keyframes fadeUp{
+@keyframes gradientFlow{
 
 0%{
-opacity:0;
-transform:translateY(50px);
+
+background-position:0%;
+
 }
 
 100%{
-opacity:1;
-transform:translateY(0);
-}
+
+background-position:300%;
 
 }
 
-/*============ FLOAT ============*/
+}
 
-@keyframes floating{
+@keyframes float{
 
 0%,100%{
+
 transform:translateY(0);
+
 }
 
 50%{
+
 transform:translateY(-15px);
-}
 
 }
 
-/*============ GLOW ============*/
+}
 
-@keyframes glow{
+@keyframes pulseGlow{
 
-0%,100%{
-box-shadow:0 0 0 rgba(6,182,212,.2);
+0%{
+
+box-shadow:0 0 0 rgba(0,229,255,.15);
+
 }
 
 50%{
-box-shadow:0 0 35px rgba(6,182,212,.45);
+
+box-shadow:0 0 40px rgba(0,229,255,.35);
+
+}
+
+100%{
+
+box-shadow:0 0 0 rgba(0,229,255,.15);
+
 }
 
 }
 
-/*============ ROTATE ============*/
+@keyframes shine{
 
-@keyframes rotate360{
+0%{
+
+transform:translateX(-120%);
+
+}
+
+100%{
+
+transform:translateX(120%);
+
+}
+
+}
+
+@keyframes fadeUp{
 
 from{
 
-transform:rotate(0deg);
+opacity:0;
+
+transform:translateY(40px);
 
 }
 
 to{
 
-transform:rotate(360deg);
+opacity:1;
+
+transform:translateY(0);
 
 }
 
 }
 
-/*============ PULSE ============*/
+.fade-up{
 
-@keyframes pulse{
-
-0%,100%{
-
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.05);
-
-}
-
-}
-
-/*============ BUTTON ============*/
-
-.btn{
-
-animation:fadeUp .8s ease;
-
-}
-
-.btn:hover{
-
-animation:pulse .6s;
-
-}
-
-/*============ HERO ============*/
-
-.hero-content{
-
-animation:fadeUp .8s ease;
-
-}
-
-.hero-image{
-
-animation:floating 6s ease-in-out infinite;
-
-}
-
-/*============ CARDS ============*/
-
-.brand-card,
-.service-card,
-.counter-card,
-.cta-box{
-
-animation:fadeUp .8s ease;
-
-}
-
-.brand-card:hover,
-.service-card:hover,
-.counter-card:hover{
-
-animation:glow .8s;
-
-}
-
-/*============ LOGO ============*/
-
-.logo img:hover{
-
-animation:rotate360 .8s linear;
-
-}
-
-/*============ SOCIAL ============*/
-
-.social-icons a:hover{
-
-animation:pulse .5s;
-
-}
-
-/*============ SCROLL ============*/
-
-html{
-
-scroll-behavior:smooth;
+animation:fadeUp .8s ease both;
 
 }
