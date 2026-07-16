@@ -1,6 +1,9 @@
 /*==========================================
-            HEADER
+        HEADER.CSS
+        TechFix Software EXP
 ==========================================*/
+
+/*========== HEADER ==========*/
 
 .header{
 
@@ -12,19 +15,75 @@ left:0;
 
 width:100%;
 
-z-index:1000;
+z-index:9999;
 
 padding:18px 0;
 
-background:rgba(5,8,22,.75);
+background:rgba(4,8,22,.55);
 
 backdrop-filter:blur(18px);
 
-border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.06);
 
-animation:headerGradient 12s linear infinite;
+transition:.35s ease;
+
+overflow:hidden;
 
 }
+
+.header::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-50%;
+
+width:200%;
+
+height:100%;
+
+background:linear-gradient(
+
+90deg,
+
+#00E5FF,
+
+#3B82F6,
+
+#8B5CF6,
+
+#EC4899,
+
+#22C55E,
+
+#00E5FF
+
+);
+
+background-size:400%;
+
+opacity:.08;
+
+animation:headerGradient 10s linear infinite;
+
+pointer-events:none;
+
+}
+
+.header.scrolled{
+
+padding:14px 0;
+
+background:rgba(4,8,22,.92);
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/*========== NAVBAR ==========*/
 
 .navbar{
 
@@ -34,9 +93,15 @@ align-items:center;
 
 justify-content:space-between;
 
-gap:30px;
+gap:25px;
+
+position:relative;
+
+z-index:2;
 
 }
+
+/*========== LOGO ==========*/
 
 .logo{
 
@@ -46,19 +111,17 @@ align-items:center;
 
 gap:14px;
 
-text-decoration:none;
-
 }
 
 .logo img{
 
-width:58px;
+width:60px;
 
-height:58px;
+height:60px;
 
 object-fit:contain;
 
-transition:.4s;
+transition:.35s;
 
 }
 
@@ -70,25 +133,33 @@ transform:rotate(-8deg) scale(1.08);
 
 .logo-text h2{
 
-font-size:24px;
+font-size:26px;
 
-font-weight:700;
+font-weight:800;
 
 color:#fff;
 
-margin:0;
+line-height:1;
 
 }
 
 .logo-text span{
 
-font-size:13px;
+display:block;
+
+margin-top:5px;
+
+font-size:12px;
 
 letter-spacing:2px;
 
 color:var(--primary);
 
+text-transform:uppercase;
+
 }
+
+/*========== MENU ==========*/
 
 .nav-menu{
 
@@ -96,35 +167,49 @@ display:flex;
 
 align-items:center;
 
-gap:28px;
+gap:12px;
 
 list-style:none;
-
-margin:0;
-
-padding:0;
 
 }
 
 .nav-menu li{
 
-position:relative;
+list-style:none;
 
 }
 
 .nav-menu a{
 
-text-decoration:none;
+display:flex;
 
-font-size:16px;
+align-items:center;
 
-font-weight:500;
+justify-content:center;
+
+padding:12px 18px;
+
+border-radius:12px;
+
+font-size:15px;
+
+font-weight:600;
 
 color:#fff;
 
 transition:.35s;
 
 position:relative;
+
+}
+
+.nav-menu a:hover,
+
+.nav-menu a.active{
+
+background:rgba(0,229,255,.10);
+
+color:var(--primary);
 
 }
 
@@ -134,25 +219,19 @@ content:"";
 
 position:absolute;
 
-left:0;
+bottom:6px;
 
-bottom:-8px;
+left:50%;
+
+transform:translateX(-50%);
 
 width:0;
 
 height:2px;
 
-background:linear-gradient(90deg,#00e5ff,#8b5cf6,#ec4899);
+background:var(--primary);
 
-transition:.4s;
-
-}
-
-.nav-menu a:hover,
-
-.nav-menu a.active{
-
-color:var(--primary);
+transition:.35s;
 
 }
 
@@ -160,9 +239,11 @@ color:var(--primary);
 
 .nav-menu a.active::after{
 
-width:100%;
+width:60%;
 
 }
+
+/*========== WHATSAPP BUTTON ==========*/
 
 .whatsapp-btn{
 
@@ -172,29 +253,29 @@ align-items:center;
 
 gap:10px;
 
-padding:12px 24px;
+padding:14px 22px;
 
-border-radius:50px;
+border-radius:14px;
 
-text-decoration:none;
+background:linear-gradient(
 
-font-weight:600;
+135deg,
+
+#25D366,
+
+#16A34A
+
+);
 
 color:#fff;
 
-background:linear-gradient(
-90deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899,
-#22c55e);
-
-background-size:400%;
-
-animation:headerGradient 8s linear infinite;
+font-weight:700;
 
 transition:.35s;
+
+box-shadow:
+
+0 15px 35px rgba(37,211,102,.30);
 
 }
 
@@ -202,35 +283,53 @@ transition:.35s;
 
 transform:translateY(-4px);
 
-box-shadow:0 15px 35px rgba(0,229,255,.30);
+box-shadow:
+
+0 25px 45px rgba(37,211,102,.40);
 
 }
+
+.whatsapp-btn i{
+
+font-size:20px;
+
+}
+
+/*========== MENU BUTTON ==========*/
 
 .menu-toggle{
 
 display:none;
 
-width:48px;
+width:50px;
 
-height:48px;
-
-border:none;
-
-outline:none;
-
-cursor:pointer;
+height:50px;
 
 border-radius:12px;
 
-font-size:22px;
+background:rgba(255,255,255,.06);
 
-background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
 
 color:#fff;
 
+font-size:20px;
+
+transition:.35s;
+
 }
 
-@media(max-width:991px){
+.menu-toggle:hover{
+
+background:rgba(0,229,255,.12);
+
+border-color:var(--primary);
+
+}
+
+/*========== MOBILE ==========*/
+
+@media(max-width:992px){
 
 .menu-toggle{
 
@@ -242,45 +341,94 @@ justify-content:center;
 
 }
 
-.nav-menu{
-
-position:fixed;
-
-top:90px;
-
-left:-100%;
-
-width:280px;
-
-height:calc(100vh - 90px);
-
-background:#060a18;
-
-flex-direction:column;
-
-justify-content:flex-start;
-
-padding:40px 25px;
-
-transition:.4s;
-
-border-right:1px solid rgba(255,255,255,.08);
-
-}
-
-.nav-menu.active{
-
-left:0;
-
-}
-
 .whatsapp-btn{
 
 display:none;
 
 }
 
+.nav-menu{
+
+position:absolute;
+
+top:90px;
+
+left:0;
+
+width:100%;
+
+background:#0B1120;
+
+border-radius:20px;
+
+padding:25px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+border:1px solid rgba(255,255,255,.08);
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(-20px);
+
+transition:.35s;
+
 }
+
+.nav-menu.active{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+.nav-menu a{
+
+width:100%;
+
+justify-content:flex-start;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.logo img{
+
+width:50px;
+
+height:50px;
+
+}
+
+.logo-text h2{
+
+font-size:22px;
+
+}
+
+.logo-text span{
+
+font-size:10px;
+
+}
+
+}
+
+/*========== ANIMATION ==========*/
+
 @keyframes headerGradient{
 
 0%{
