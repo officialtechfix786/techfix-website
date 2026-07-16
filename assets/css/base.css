@@ -1,194 +1,298 @@
-/*=========================================
- TechFix Software EXP
- Premium Cyber Theme
- Base CSS
+/*==========================================
+            HEADER
 ==========================================*/
 
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+.header{
 
-/*===============
-ROOT VARIABLES
-================*/
+position:fixed;
 
-:root{
+top:0;
 
-    /* Theme Colors */
+left:0;
 
-    --primary:#00e5ff;
-    --blue:#3b82f6;
-    --purple:#8b5cf6;
-    --pink:#ec4899;
-    --green:#22c55e;
+width:100%;
 
-    /* Background */
+z-index:1000;
 
-    --dark:#050816;
-    --dark-light:#0b1223;
+padding:18px 0;
 
-    /* Text */
+background:rgba(5,8,22,.75);
 
-    --white:#ffffff;
-    --text:#d7e4ff;
-    --gray:#94a3b8;
+backdrop-filter:blur(18px);
 
-    /* Glass */
+border-bottom:1px solid rgba(255,255,255,.08);
 
-    --glass:rgba(255,255,255,.06);
-
-    --border:rgba(255,255,255,.12);
-
-    --radius:18px;
-
-    --transition:.35s ease;
+animation:headerGradient 12s linear infinite;
 
 }
-/*===============
-RESET
-================*/
 
-*{
+.navbar{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:30px;
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+text-decoration:none;
+
+}
+
+.logo img{
+
+width:58px;
+
+height:58px;
+
+object-fit:contain;
+
+transition:.4s;
+
+}
+
+.logo:hover img{
+
+transform:rotate(-8deg) scale(1.08);
+
+}
+
+.logo-text h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#fff;
+
+margin:0;
+
+}
+
+.logo-text span{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:var(--primary);
+
+}
+
+.nav-menu{
+
+display:flex;
+
+align-items:center;
+
+gap:28px;
+
+list-style:none;
 
 margin:0;
 
 padding:0;
 
-box-sizing:border-box;
-
 }
 
-html{
-
-scroll-behavior:smooth;
-
-}
-
-body{
-
-font-family:'Outfit',sans-serif;
-
-background:var(--dark);
-
-color:var(--text);
-
-overflow-x:hidden;
+.nav-menu li{
 
 position:relative;
 
 }
-/*=================
-LINKS
-==================*/
 
-a{
+.nav-menu a{
 
 text-decoration:none;
 
-color:inherit;
+font-size:16px;
 
-transition:var(--transition);
+font-weight:500;
 
-}
+color:#fff;
 
-ul{
-
-list-style:none;
-
-}
-
-img{
-
-max-width:100%;
-
-display:block;
-
-}
-/*==================
-CONTAINER
-===================*/
-
-.container{
-
-width:min(1200px,92%);
-
-margin:auto;
-
-}
-/*==================
-SECTION
-===================*/
-
-section{
-
-padding:100px 0;
+transition:.35s;
 
 position:relative;
 
 }
-/*==================
-HEADINGS
-===================*/
 
-h1,h2,h3,h4{
+.nav-menu a::after{
 
-color:var(--white);
+content:"";
 
-font-weight:700;
+position:absolute;
 
-}
+left:0;
 
-p{
+bottom:-8px;
 
-line-height:1.8;
+width:0;
 
-color:var(--gray);
+height:2px;
 
-}
-/*==================
-SCROLLBAR
-===================*/
+background:linear-gradient(90deg,#00e5ff,#8b5cf6,#ec4899);
 
-::-webkit-scrollbar{
-
-width:8px;
+transition:.4s;
 
 }
 
-::-webkit-scrollbar-track{
+.nav-menu a:hover,
 
-background:#08111f;
+.nav-menu a.active{
+
+color:var(--primary);
 
 }
 
-::-webkit-scrollbar-thumb{
+.nav-menu a:hover::after,
+
+.nav-menu a.active::after{
+
+width:100%;
+
+}
+
+.whatsapp-btn{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 24px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#fff;
 
 background:linear-gradient(
-
-180deg,
-
+90deg,
 #00e5ff,
-
 #3b82f6,
-
 #8b5cf6,
-
 #ec4899,
+#22c55e);
 
-#22c55e
+background-size:400%;
 
-);
+animation:headerGradient 8s linear infinite;
 
-border-radius:20px;
+transition:.35s;
 
 }
-/*==================
-TEXT SELECTION
-===================*/
 
-::selection{
+.whatsapp-btn:hover{
 
-background:#00e5ff;
+transform:translateY(-4px);
 
-color:#000;
+box-shadow:0 15px 35px rgba(0,229,255,.30);
+
+}
+
+.menu-toggle{
+
+display:none;
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+border-radius:12px;
+
+font-size:22px;
+
+background:rgba(255,255,255,.08);
+
+color:#fff;
+
+}
+
+@media(max-width:991px){
+
+.menu-toggle{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.nav-menu{
+
+position:fixed;
+
+top:90px;
+
+left:-100%;
+
+width:280px;
+
+height:calc(100vh - 90px);
+
+background:#060a18;
+
+flex-direction:column;
+
+justify-content:flex-start;
+
+padding:40px 25px;
+
+transition:.4s;
+
+border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+.nav-menu.active{
+
+left:0;
+
+}
+
+.whatsapp-btn{
+
+display:none;
+
+}
+
+}
+@keyframes headerGradient{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
 
 }
