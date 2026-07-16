@@ -1,14 +1,13 @@
 "use strict";
 
 /*=====================================================
-            TECHFIX DATABASE v8
-        Founder : MIAN AHMAD
+            TECHFIX DATABASE
+            Founder : MIAN AHMAD
 =====================================================*/
 
 const mobileDatabase = {
 
-apple: [
-
+apple:[
 "iPhone 6",
 "iPhone 6 Plus",
 "iPhone 6s",
@@ -47,11 +46,9 @@ apple: [
 "iPhone 16 Plus",
 "iPhone 16 Pro",
 "iPhone 16 Pro Max"
-
 ],
 
 samsung:[
-
 "Galaxy A01",
 "Galaxy A02",
 "Galaxy A02s",
@@ -104,10 +101,9 @@ samsung:[
 "Galaxy S23",
 "Galaxy S24",
 "Galaxy S25"
-
 ],
-        xiaomi:[
 
+xiaomi:[
 "Redmi 7",
 "Redmi 7A",
 "Redmi 8",
@@ -150,11 +146,9 @@ samsung:[
 "Xiaomi 13",
 "Xiaomi 14",
 "Xiaomi 15"
-
 ],
 
 realme:[
-
 "C11",
 "C21",
 "C25",
@@ -180,11 +174,9 @@ realme:[
 "GT Neo 3",
 "GT Neo 5",
 "GT 6"
-
 ],
 
 oneplus:[
-
 "OnePlus 7",
 "OnePlus 7 Pro",
 "OnePlus 8",
@@ -200,10 +192,9 @@ oneplus:[
 "OnePlus Nord CE 3",
 "OnePlus Nord 2",
 "OnePlus Nord 3"
-
 ],
-        google:[
 
+google:[
 "Pixel 4",
 "Pixel 4 XL",
 "Pixel 4a",
@@ -221,11 +212,9 @@ oneplus:[
 "Pixel 9",
 "Pixel 9 Pro",
 "Pixel Fold"
-
 ],
 
 motorola:[
-
 "Moto G22",
 "Moto G23",
 "Moto G24",
@@ -248,11 +237,9 @@ motorola:[
 "Edge 50 Pro",
 "Razr 40",
 "Razr 50"
-
 ],
 
 oppo:[
-
 "A15",
 "A16",
 "A17",
@@ -282,11 +269,9 @@ oppo:[
 "Find X6",
 "Find X7",
 "Find X8"
-
 ],
 
 vivo:[
-
 "Y01",
 "Y02",
 "Y03",
@@ -324,215 +309,107 @@ vivo:[
 "X90",
 "X100",
 "X200"
-
 ],
-        tecno:[
 
-"Spark 8",
-"Spark 8C",
-"Spark 9",
-"Spark 9T",
-"Spark 10",
-"Spark 10C",
-"Spark Go 2023",
-"Spark 20",
-"Spark 20C",
-"Spark 20 Pro",
-"Camon 17",
-"Camon 18",
-"Camon 19",
-"Camon 20",
-"Camon 20 Pro",
-"Camon 30",
-"Camon 30 Pro",
-"Pova 3",
-"Pova 4",
-"Pova 5",
-"Pova 6",
-"Phantom X2",
-"Phantom V Fold"
-
+tecno:[
+"Spark 8","Spark 8C","Spark 9","Spark 9T","Spark 10","Spark 10C",
+"Spark Go 2023","Spark 20","Spark 20C","Spark 20 Pro",
+"Camon 17","Camon 18","Camon 19","Camon 20","Camon 20 Pro",
+"Camon 30","Camon 30 Pro","Pova 3","Pova 4","Pova 5","Pova 6",
+"Phantom X2","Phantom V Fold"
 ],
 
 infinix:[
-
-"Hot 10",
-"Hot 11",
-"Hot 12",
-"Hot 20",
-"Hot 30",
-"Hot 40",
-"Smart 6",
-"Smart 7",
-"Smart 8",
-"Note 10",
-"Note 11",
-"Note 12",
-"Note 30",
-"Note 40",
-"Zero 20",
-"Zero 30",
-"GT 10 Pro"
-
+"Hot 10","Hot 11","Hot 12","Hot 20","Hot 30","Hot 40",
+"Smart 6","Smart 7","Smart 8",
+"Note 10","Note 11","Note 12","Note 30","Note 40",
+"Zero 20","Zero 30","GT 10 Pro"
 ],
 
 huawei:[
-
-"P30",
-"P30 Pro",
-"P40",
-"P40 Pro",
-"P50",
-"P50 Pro",
-"P60",
-"P60 Pro",
-"Mate 20",
-"Mate 30",
-"Mate 40",
-"Mate 50",
-"Mate 60",
-"Nova 7",
-"Nova 8",
-"Nova 9",
-"Nova 10",
-"Nova 11"
-
+"P30","P30 Pro","P40","P40 Pro","P50","P50 Pro",
+"P60","P60 Pro","Mate 20","Mate 30","Mate 40","Mate 50",
+"Mate 60","Nova 7","Nova 8","Nova 9","Nova 10","Nova 11"
 ],
 
 honor:[
-
-"Honor 50",
-"Honor 70",
-"Honor 90",
-"Honor 100",
-"Honor 200",
-"Magic 4",
-"Magic 5",
-"Magic 6",
-"X5",
-"X6",
-"X7",
-"X8",
-"X9",
-"X9b"
-
+"Honor 50","Honor 70","Honor 90","Honor 100","Honor 200",
+"Magic 4","Magic 5","Magic 6","X5","X6","X7","X8","X9","X9b"
 ],
-        nokia:[
 
-"C10",
-"C20",
-"C21",
-"C30",
-"G10",
-"G11",
-"G20",
-"G21",
-"G22",
-"G42",
-"G60",
-"X10",
-"X20",
-"XR20"
-
+nokia:[
+"C10","C20","C21","C30",
+"G10","G11","G20","G21","G22","G42","G60",
+"X10","X20","XR20"
 ],
 
 nothing:[
-
 "Phone (1)",
 "Phone (2)",
 "Phone (2a)",
 "Phone (3)",
 "Phone (3a)"
-
 ],
 
 sony:[
-
-"Xperia 1 III",
-"Xperia 1 IV",
-"Xperia 1 V",
-"Xperia 5 III",
-"Xperia 5 IV",
-"Xperia 5 V",
-"Xperia 10 IV",
-"Xperia 10 V"
-
+"Xperia 1 III","Xperia 1 IV","Xperia 1 V",
+"Xperia 5 III","Xperia 5 IV","Xperia 5 V",
+"Xperia 10 IV","Xperia 10 V"
 ],
 
 asus:[
-
-"ROG Phone 5",
-"ROG Phone 6",
-"ROG Phone 7",
-"ROG Phone 8",
-"Zenfone 8",
-"Zenfone 9",
-"Zenfone 10"
-
+"ROG Phone 5","ROG Phone 6","ROG Phone 7","ROG Phone 8",
+"Zenfone 8","Zenfone 9","Zenfone 10"
 ],
 
 lg:[
-
 "LG G8",
 "LG V50",
 "LG V60",
 "LG Velvet",
 "LG Wing"
-
 ],
 
 iqoo:[
-
-"iQOO 7",
-"iQOO 8",
-"iQOO 9",
-"iQOO 10",
-"iQOO 11",
-"iQOO 12",
-"Neo 6",
-"Neo 7",
-"Neo 9",
-"Z6",
-"Z7",
-"Z9"
-
+"iQOO 7","iQOO 8","iQOO 9","iQOO 10","iQOO 11","iQOO 12",
+"Neo 6","Neo 7","Neo 9",
+"Z6","Z7","Z9"
 ],
 
 zte:[
-
 "Blade A31",
 "Blade A52",
 "Blade V40",
 "Axon 30",
 "Axon 40"
-
 ],
 
 lenovo:[
-
 "Legion Phone Duel",
 "Legion Y70",
 "K13",
 "K14"
-
 ],
 
 meizu:[
-
 "Meizu 18",
 "Meizu 18 Pro",
 "Meizu 20",
 "Meizu 20 Pro",
 "Meizu 21"
 ]
+
 };
-console.log("TechFix Database Loaded");
-console.log("Brands:", Object.keys(mobileDatabase).length);
 
-let totalModels = 0;
+/*=====================================================
+                DATABASE INFO
+=====================================================*/
 
-Object.values(mobileDatabase).forEach(models => {
-    totalModels += models.length;
-});
+const totalBrands = Object.keys(mobileDatabase).length;
 
-console.log("Total Models:", totalModels);
+const totalModels = Object.values(mobileDatabase)
+.reduce((sum, models) => sum + models.length, 0);
+
+console.log("✅ TechFix Database Loaded");
+console.log("📱 Brands :", totalBrands);
+console.log("📦 Models :", totalModels);
