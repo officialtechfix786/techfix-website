@@ -1,12 +1,13 @@
 /*==========================================
-                CTA SECTION
+            CTA.CSS
+        TechFix Software EXP
 ==========================================*/
 
 .cta{
 
-padding:110px 0;
-
 position:relative;
+
+padding:110px 0;
 
 overflow:hidden;
 
@@ -18,11 +19,31 @@ content:"";
 
 position:absolute;
 
-inset:0;
+top:-250px;
 
-background:
-radial-gradient(circle at top left,rgba(0,229,255,.12),transparent 45%),
-radial-gradient(circle at bottom right,rgba(139,92,246,.12),transparent 45%);
+left:-250px;
+
+width:600px;
+
+height:600px;
+
+border-radius:50%;
+
+background:linear-gradient(
+45deg,
+#00E5FF,
+#3B82F6,
+#8B5CF6,
+#EC4899,
+#22C55E);
+
+background-size:400%;
+
+filter:blur(180px);
+
+opacity:.08;
+
+animation:ctaGradient 10s linear infinite;
 
 pointer-events:none;
 
@@ -32,19 +53,23 @@ pointer-events:none;
 
 position:relative;
 
-padding:70px 50px;
+z-index:2;
+
+padding:70px 60px;
 
 text-align:center;
-
-border-radius:30px;
 
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
+border-radius:30px;
+
 backdrop-filter:blur(18px);
 
 overflow:hidden;
+
+transition:.35s;
 
 }
 
@@ -54,51 +79,57 @@ content:"";
 
 position:absolute;
 
-top:-2px;
+top:0;
 
-left:-2px;
+left:-100%;
 
-right:-2px;
+width:100%;
 
-bottom:-2px;
-
-border-radius:32px;
-
-padding:2px;
+height:100%;
 
 background:linear-gradient(
+
 90deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899,
-#22c55e);
 
-background-size:400%;
+transparent,
 
-animation:ctaFlow 10s linear infinite;
+rgba(255,255,255,.15),
 
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
+transparent
 
--webkit-mask-composite:xor;
+);
 
-mask-composite:exclude;
+transition:.9s;
 
-pointer-events:none;
+}
+
+.cta-box:hover::before{
+
+left:120%;
+
+}
+
+.cta-box:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(0,229,255,.35);
+
+box-shadow:
+
+0 30px 70px rgba(0,229,255,.18);
 
 }
 
 .cta-box h2{
 
-font-size:44px;
+font-size:46px;
 
-margin-bottom:20px;
-
-font-weight:700;
+font-weight:800;
 
 color:#fff;
+
+margin-bottom:20px;
 
 }
 
@@ -110,7 +141,7 @@ margin:0 auto 35px;
 
 font-size:18px;
 
-line-height:1.8;
+line-height:1.9;
 
 color:var(--gray);
 
@@ -118,9 +149,31 @@ color:var(--gray);
 
 .cta .hero-buttons{
 
+display:flex;
+
 justify-content:center;
 
-margin-bottom:0;
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+/*================ MOBILE ================*/
+
+@media(max-width:992px){
+
+.cta-box{
+
+padding:55px 35px;
+
+}
+
+.cta-box h2{
+
+font-size:38px;
+
+}
 
 }
 
@@ -129,6 +182,8 @@ margin-bottom:0;
 .cta-box{
 
 padding:45px 25px;
+
+border-radius:22px;
 
 }
 
@@ -148,21 +203,47 @@ font-size:16px;
 
 flex-direction:column;
 
-align-items:center;
-
 }
 
-.cta .btn{
+.cta .hero-buttons .btn{
 
 width:100%;
 
-max-width:320px;
+}
+
+}
+
+@media(max-width:480px){
+
+.cta{
+
+padding:80px 0;
+
+}
+
+.cta-box{
+
+padding:35px 20px;
+
+}
+
+.cta-box h2{
+
+font-size:26px;
+
+}
+
+.cta-box p{
+
+font-size:15px;
 
 }
 
 }
 
-@keyframes ctaFlow{
+/*================ ANIMATION ================*/
+
+@keyframes ctaGradient{
 
 0%{
 
