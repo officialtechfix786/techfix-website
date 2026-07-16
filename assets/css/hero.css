@@ -1,23 +1,67 @@
 /*==========================================
-            HERO SECTION
+            HERO.CSS
+        TechFix Software EXP
 ==========================================*/
 
 .hero{
 
 position:relative;
 
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
+padding:170px 0 110px;
 
 overflow:hidden;
 
-padding:140px 0 90px;
+background:
+radial-gradient(circle at top left,#13203f 0%,transparent 45%),
+radial-gradient(circle at bottom right,#1d0f39 0%,transparent 45%),
+linear-gradient(135deg,#040816,#091122,#040816);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+top:-40%;
+
+left:-20%;
+
+width:700px;
+
+height:700px;
+
+border-radius:50%;
+
+background:linear-gradient(
+45deg,
+#00E5FF,
+#3B82F6,
+#8B5CF6,
+#EC4899,
+#22C55E);
+
+background-size:400%;
+
+filter:blur(170px);
+
+opacity:.12;
+
+animation:heroGradient 10s linear infinite;
+
+}
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
 
 background:
-linear-gradient(135deg,#050816,#08111f,#0b1327);
+linear-gradient(rgba(4,8,22,.25),rgba(4,8,22,.55));
+
+z-index:1;
 
 }
 
@@ -25,19 +69,23 @@ linear-gradient(135deg,#050816,#08111f,#0b1327);
 
 display:grid;
 
-grid-template-columns:1.1fr .9fr;
+grid-template-columns:1fr 520px;
 
 align-items:center;
 
 gap:70px;
 
-}
-
-.hero-content{
-
 position:relative;
 
 z-index:2;
+
+}
+
+/*================ CONTENT ================*/
+
+.hero-content{
+
+max-width:650px;
 
 }
 
@@ -51,33 +99,33 @@ padding:10px 22px;
 
 border-radius:40px;
 
-background:rgba(255,255,255,.05);
+background:rgba(0,229,255,.08);
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(0,229,255,.25);
 
 color:var(--primary);
 
-font-size:14px;
+font-size:13px;
 
-letter-spacing:1px;
+font-weight:700;
 
-margin-bottom:24px;
+letter-spacing:2px;
 
-backdrop-filter:blur(12px);
+margin-bottom:25px;
 
 }
 
 .hero h1{
 
-font-size:64px;
+font-size:68px;
 
 line-height:1.15;
 
 font-weight:800;
 
-margin-bottom:25px;
-
 color:#fff;
+
+margin-bottom:28px;
 
 }
 
@@ -85,19 +133,17 @@ color:#fff;
 
 background:linear-gradient(
 90deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899,
-#22c55e);
+#00E5FF,
+#3B82F6,
+#8B5CF6);
 
-background-size:400%;
+background-size:300%;
 
 -webkit-background-clip:text;
 
 -webkit-text-fill-color:transparent;
 
-animation:heroGradient 8s linear infinite;
+animation:heroGradient 6s linear infinite;
 
 }
 
@@ -105,13 +151,11 @@ animation:heroGradient 8s linear infinite;
 
 font-size:18px;
 
+line-height:1.9;
+
 color:var(--gray);
 
-max-width:620px;
-
 margin-bottom:35px;
-
-line-height:1.9;
 
 }
 
@@ -127,27 +171,19 @@ margin-bottom:35px;
 
 }
 
-/* STATUS BAR */
+/*================ STATUS BAR ================*/
 
 .status-bar{
 
-width:100%;
+height:46px;
 
-max-width:620px;
-
-height:50px;
+border-radius:12px;
 
 overflow:hidden;
 
-border-radius:14px;
-
-background:#08101d;
+background:#08101e;
 
 border:1px solid rgba(255,255,255,.08);
-
-display:flex;
-
-align-items:center;
 
 margin-bottom:35px;
 
@@ -155,29 +191,35 @@ margin-bottom:35px;
 
 .status-track{
 
-display:inline-block;
+display:flex;
+
+align-items:center;
+
+height:100%;
 
 white-space:nowrap;
 
 padding-left:100%;
 
-font-size:14px;
+color:#22C55E;
 
-color:#00e5ff;
+font-size:15px;
 
-animation:statusScroll 24s linear infinite;
+font-weight:600;
+
+animation:statusMove 28s linear infinite;
 
 }
 
-/* FEATURES */
+/*================ FEATURES ================*/
 
 .hero-features{
 
 display:flex;
 
-gap:25px;
-
 flex-wrap:wrap;
+
+gap:18px;
 
 }
 
@@ -191,44 +233,21 @@ gap:10px;
 
 padding:12px 18px;
 
-border-radius:50px;
+border-radius:14px;
 
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-backdrop-filter:blur(10px);
-
-transition:.35s;
-
-}
-
-.hero-features div:hover{
-
-transform:translateY(-5px);
-
-border-color:var(--primary);
-
 }
 
 .hero-features i{
 
-color:#00e5ff;
-
-font-size:18px;
+color:#22C55E;
 
 }
 
-.hero-features span{
-
-font-size:15px;
-
-color:#fff;
-
-}
-/*==========================================
-        HERO IMAGE
-==========================================*/
+/*================ IMAGE ================*/
 
 .hero-image{
 
@@ -240,37 +259,29 @@ justify-content:center;
 
 align-items:center;
 
-perspective:1200px;
-
 }
 
 .robot-glow{
 
 position:absolute;
 
-width:450px;
+width:420px;
 
-height:450px;
+height:420px;
 
 border-radius:50%;
 
 background:linear-gradient(
 45deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899,
-#22c55e);
+#00E5FF,
+#3B82F6,
+#8B5CF6);
 
-background-size:400%;
+filter:blur(120px);
 
-filter:blur(90px);
+opacity:.35;
 
-opacity:.28;
-
-animation:heroGradient 12s linear infinite;
-
-z-index:0;
+animation:robotGlow 4s ease-in-out infinite;
 
 }
 
@@ -278,27 +289,17 @@ z-index:0;
 
 position:relative;
 
-z-index:2;
+width:100%;
 
 max-width:430px;
 
-width:100%;
+z-index:2;
 
-animation:
-
-robotFloat 5s ease-in-out infinite,
-
-robotRotate 10s ease-in-out infinite;
-
-filter:
-
-drop-shadow(0 0 30px rgba(0,229,255,.25));
+animation:robotFloat 4s ease-in-out infinite;
 
 }
 
-/*==========================================
-        SCROLL DOWN
-==========================================*/
+/*================ SCROLL ================*/
 
 .scroll-down{
 
@@ -310,17 +311,19 @@ bottom:30px;
 
 transform:translateX(-50%);
 
+z-index:3;
+
 }
 
 .scroll-down span{
 
 display:block;
 
-width:28px;
+width:30px;
 
-height:46px;
+height:50px;
 
-border:2px solid rgba(255,255,255,.25);
+border:2px solid rgba(255,255,255,.35);
 
 border-radius:30px;
 
@@ -334,9 +337,9 @@ content:"";
 
 position:absolute;
 
-left:50%;
-
 top:8px;
+
+left:50%;
 
 transform:translateX(-50%);
 
@@ -344,17 +347,129 @@ width:6px;
 
 height:10px;
 
-border-radius:20px;
+border-radius:10px;
 
-background:#00e5ff;
+background:#fff;
 
-animation:scrollMouse 2s infinite;
+animation:scrollMove 2s infinite;
 
 }
 
-/*==========================================
-        ANIMATIONS
-==========================================*/
+/*================ MOBILE ================*/
+
+@media(max-width:992px){
+
+.hero{
+
+padding:150px 0 90px;
+
+}
+
+.hero-wrapper{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-content{
+
+max-width:100%;
+
+}
+
+.hero-buttons,
+
+.hero-features{
+
+justify-content:center;
+
+}
+
+.hero h1{
+
+font-size:52px;
+
+}
+
+.robot-image{
+
+max-width:340px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons .btn{
+
+width:100%;
+
+}
+
+.hero-features{
+
+flex-direction:column;
+
+}
+
+.status-bar{
+
+height:42px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero{
+
+padding-top:135px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero-badge{
+
+font-size:11px;
+
+}
+
+.robot-image{
+
+max-width:260px;
+
+}
+
+}
+
+/*================ ANIMATIONS ================*/
 
 @keyframes heroGradient{
 
@@ -366,7 +481,7 @@ background-position:0%;
 
 100%{
 
-background-position:400%;
+background-position:300%;
 
 }
 
@@ -388,23 +503,27 @@ transform:translateY(-18px);
 
 }
 
-@keyframes robotRotate{
+@keyframes robotGlow{
 
 0%,100%{
 
-transform:rotate(0deg);
+transform:scale(1);
+
+opacity:.35;
 
 }
 
 50%{
 
-transform:rotate(2deg);
+transform:scale(1.08);
+
+opacity:.55;
 
 }
 
 }
 
-@keyframes statusScroll{
+@keyframes statusMove{
 
 0%{
 
@@ -420,13 +539,19 @@ transform:translateX(-100%);
 
 }
 
-@keyframes scrollMouse{
+@keyframes scrollMove{
 
 0%{
 
-opacity:1;
+opacity:0;
 
 transform:translate(-50%,0);
+
+}
+
+50%{
+
+opacity:1;
 
 }
 
@@ -435,124 +560,6 @@ transform:translate(-50%,0);
 opacity:0;
 
 transform:translate(-50%,18px);
-
-}
-
-}
-
-/*==========================================
-        RESPONSIVE
-==========================================*/
-
-@media(max-width:991px){
-
-.hero-wrapper{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.hero-content{
-
-order:2;
-
-}
-
-.hero-image{
-
-order:1;
-
-margin-bottom:40px;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
-
-}
-
-.hero-features{
-
-justify-content:center;
-
-}
-
-.hero h1{
-
-font-size:48px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.hero{
-
-padding-top:120px;
-
-}
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-.hero p{
-
-font-size:16px;
-
-}
-
-.robot-image{
-
-max-width:300px;
-
-}
-
-.hero-buttons{
-
-flex-direction:column;
-
-}
-
-.hero-buttons .btn{
-
-width:100%;
-
-}
-
-.status-bar{
-
-height:45px;
-
-}
-
-}
-
-@media(max-width:480px){
-
-.hero h1{
-
-font-size:32px;
-
-}
-
-.hero-badge{
-
-font-size:12px;
-
-}
-
-.hero-features{
-
-flex-direction:column;
-
-align-items:center;
 
 }
 
