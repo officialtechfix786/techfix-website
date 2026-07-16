@@ -12,35 +12,19 @@ left:0;
 
 width:100%;
 
-z-index:9999;
+z-index:1000;
 
 padding:18px 0;
-
-transition:.4s ease;
-
-background:transparent;
-
-}
-
-.header.scrolled{
-
-padding:14px 0;
 
 background:rgba(5,8,22,.75);
 
 backdrop-filter:blur(18px);
 
--webkit-backdrop-filter:blur(18px);
-
 border-bottom:1px solid rgba(255,255,255,.08);
 
-box-shadow:0 15px 40px rgba(0,0,0,.25);
+animation:headerGradient 12s linear infinite;
 
 }
-
-/*======================
- NAVBAR
-=======================*/
 
 .navbar{
 
@@ -54,10 +38,6 @@ gap:30px;
 
 }
 
-/*======================
- LOGO
-=======================*/
-
 .logo{
 
 display:flex;
@@ -66,29 +46,25 @@ align-items:center;
 
 gap:14px;
 
+text-decoration:none;
+
 }
 
 .logo img{
 
 width:58px;
 
-transition:.4s ease;
+height:58px;
+
+object-fit:contain;
+
+transition:.4s;
 
 }
 
 .logo:hover img{
 
 transform:rotate(-8deg) scale(1.08);
-
-filter:drop-shadow(0 0 20px rgba(0,229,255,.45));
-
-}
-
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
 
 }
 
@@ -100,7 +76,7 @@ font-weight:700;
 
 color:#fff;
 
-line-height:1;
+margin:0;
 
 }
 
@@ -112,15 +88,7 @@ letter-spacing:2px;
 
 color:var(--primary);
 
-margin-top:4px;
-
-text-transform:uppercase;
-
 }
-
-/*======================
- MENU
-=======================*/
 
 .nav-menu{
 
@@ -128,53 +96,39 @@ display:flex;
 
 align-items:center;
 
-gap:34px;
+gap:28px;
+
+list-style:none;
+
+margin:0;
+
+padding:0;
 
 }
 
 .nav-menu li{
 
-list-style:none;
-
 position:relative;
 
 }
 
-.nav-menu li a{
+.nav-menu a{
 
-position:relative;
+text-decoration:none;
 
 font-size:16px;
 
-font-weight:600;
+font-weight:500;
 
-color:#d6e5ff;
+color:#fff;
 
-transition:.35s ease;
+transition:.35s;
 
-padding:8px 0;
-
-}
-
-/* Hover */
-
-.nav-menu li a:hover{
-
-color:var(--primary);
+position:relative;
 
 }
 
-/* Active */
-
-.nav-menu li a.active{
-
-color:var(--primary);
-
-}
-
-/* Animated Line */
-
-.nav-menu li a::after{
+.nav-menu a::after{
 
 content:"";
 
@@ -182,40 +136,33 @@ position:absolute;
 
 left:0;
 
-bottom:-6px;
+bottom:-8px;
 
 width:0;
 
 height:2px;
 
-border-radius:10px;
+background:linear-gradient(90deg,#00e5ff,#8b5cf6,#ec4899);
 
-background:
-
-linear-gradient(
-90deg,
-#00e5ff,
-#3b82f6,
-#8b5cf6,
-#ec4899);
-
-background-size:300%;
-
-transition:.35s ease;
+transition:.4s;
 
 }
 
-.nav-menu li a:hover::after,
+.nav-menu a:hover,
 
-.nav-menu li a.active::after{
+.nav-menu a.active{
+
+color:var(--primary);
+
+}
+
+.nav-menu a:hover::after,
+
+.nav-menu a.active::after{
 
 width:100%;
 
 }
-
-/*======================
- WHATSAPP BUTTON
-=======================*/
 
 .whatsapp-btn{
 
@@ -225,34 +172,29 @@ align-items:center;
 
 gap:10px;
 
-padding:14px 28px;
+padding:12px 24px;
 
 border-radius:50px;
+
+text-decoration:none;
 
 font-weight:600;
 
 color:#fff;
 
-background:
-
-linear-gradient(
+background:linear-gradient(
 90deg,
 #00e5ff,
 #3b82f6,
 #8b5cf6,
-#ec4899);
+#ec4899,
+#22c55e);
 
-background-size:300%;
+background-size:400%;
 
-animation:headerGradient 7s linear infinite;
+animation:headerGradient 8s linear infinite;
 
-transition:.4s ease;
-
-}
-
-.whatsapp-btn i{
-
-font-size:20px;
+transition:.35s;
 
 }
 
@@ -260,64 +202,45 @@ font-size:20px;
 
 transform:translateY(-4px);
 
-box-shadow:
-
-0 0 35px rgba(0,229,255,.45);
+box-shadow:0 15px 35px rgba(0,229,255,.30);
 
 }
-/*==========================================
-            MOBILE MENU BUTTON
-==========================================*/
 
 .menu-toggle{
 
 display:none;
 
-width:50px;
+width:48px;
 
-height:50px;
+height:48px;
 
-border-radius:50%;
+border:none;
 
-background:rgba(255,255,255,.06);
+outline:none;
 
-border:1px solid rgba(255,255,255,.08);
+cursor:pointer;
+
+border-radius:12px;
+
+font-size:22px;
+
+background:rgba(255,255,255,.08);
+
+color:#fff;
+
+}
+
+@media(max-width:991px){
+
+.menu-toggle{
+
+display:flex;
 
 align-items:center;
 
 justify-content:center;
 
-cursor:pointer;
-
-transition:.35s ease;
-
 }
-
-.menu-toggle i{
-
-font-size:22px;
-
-color:#fff;
-
-transition:.35s ease;
-
-}
-
-.menu-toggle:hover{
-
-border-color:var(--primary);
-
-box-shadow:0 0 25px rgba(0,229,255,.35);
-
-transform:rotate(90deg);
-
-}
-
-/*==========================================
-            MOBILE NAVIGATION
-==========================================*/
-
-@media(max-width:991px){
 
 .nav-menu{
 
@@ -325,61 +248,29 @@ position:fixed;
 
 top:90px;
 
-right:-100%;
+left:-100%;
 
-width:300px;
+width:280px;
 
 height:calc(100vh - 90px);
 
-background:rgba(5,8,22,.95);
-
-backdrop-filter:blur(18px);
-
--webkit-backdrop-filter:blur(18px);
+background:#060a18;
 
 flex-direction:column;
 
 justify-content:flex-start;
 
-align-items:flex-start;
+padding:40px 25px;
 
-padding:40px 30px;
+transition:.4s;
 
-gap:22px;
-
-transition:.4s ease;
-
-border-left:1px solid rgba(255,255,255,.08);
+border-right:1px solid rgba(255,255,255,.08);
 
 }
 
 .nav-menu.active{
 
-right:0;
-
-}
-
-.nav-menu li{
-
-width:100%;
-
-}
-
-.nav-menu li a{
-
-display:block;
-
-width:100%;
-
-padding:12px 0;
-
-font-size:17px;
-
-}
-
-.menu-toggle{
-
-display:flex;
+left:0;
 
 }
 
