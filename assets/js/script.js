@@ -1,614 +1,579 @@
-/*═══════════════════════════════════════════════════════
-                TECHFIX SOFTWARE EXP v8
-             Premium JavaScript Framework
-                Founder : MIAN AHMAD
-═══════════════════════════════════════════════════════*/
+/*======================================================
+            TECHFIX SOFTWARE EXP
+            MAIN JAVASCRIPT
+======================================================*/
 
-"use strict";
+document.addEventListener("DOMContentLoaded",()=>{
 
-/*═══════════════════════════════════════════════════════
-                    SELECTORS
-═══════════════════════════════════════════════════════*/
+/*======================================================
+                    ELEMENTS
+======================================================*/
 
-const $ = selector => document.querySelector(selector);
-const $$ = selector => document.querySelectorAll(selector);
+const preloader=document.getElementById("preloader");
 
-const header = $(".header");
-const menu = $(".nav-menu");
-const menuBtn = $(".menu-toggle");
-const backTop = $("#backToTop");
-const preloader = $("#preloader");
+const header=document.querySelector(".header");
 
-/*═══════════════════════════════════════════════════════
-                RGB THEME ENGINE
-═══════════════════════════════════════════════════════*/
+const menuToggle=document.querySelector(".menu-toggle");
 
-const themes = [
+const navMenu=document.querySelector(".nav-menu");
 
-{primary:"#ff7a00",secondary:"#ffb347"}, // Orange
+const backToTop=document.getElementById("backToTop");
 
-{primary:"#00c8ff",secondary:"#5de3ff"}, // Cyan
+const year=document.getElementById("year");
 
-{primary:"#8b5cf6",secondary:"#c4a5ff"}, // Purple
+const searchBtn=document.getElementById("searchBtn");
 
-{primary:"#00d084",secondary:"#59f2bf"}, // Green
+const searchModal=document.getElementById("searchModal");
 
-{primary:"#ff3b30",secondary:"#ff8a80"}, // Red
+const closeSearch=document.getElementById("closeSearch");
 
-{primary:"#c0c0c0",secondary:"#ffffff"}, // Silver
+const liveSearch=document.getElementById("liveSearch");
 
-{primary:"#ffd700",secondary:"#fff3a0"}  // Gold
+const searchResults=document.getElementById("searchResults");
 
-];
-
-let currentTheme = 0;
-
-function applyTheme(){
-
-document.documentElement.style.setProperty(
-"--primary",
-themes[currentTheme].primary
-);
-
-document.documentElement.style.setProperty(
-"--secondary",
-themes[currentTheme].secondary
-);
-
-currentTheme++;
-
-if(currentTheme>=themes.length){
-
-currentTheme=0;
-
-}
-
-}
-
-applyTheme();
-
-setInterval(applyTheme,10000);
-
-/*═══════════════════════════════════════════════════════
+/*======================================================
                     PRELOADER
-═══════════════════════════════════════════════════════*/
+======================================================*/
 
 window.addEventListener("load",()=>{
 
-if(!preloader) return;
-
 setTimeout(()=>{
 
-preloader.style.opacity="0";
-preloader.style.visibility="hidden";
+if(preloader){
 
-setTimeout(()=>{
+preloader.classList.add("hide");
 
-preloader.remove();
-
-},500);
+}
 
 },700);
 
 });
 
-/*═══════════════════════════════════════════════════════
-                    STICKY HEADER
-═══════════════════════════════════════════════════════*/
+/*======================================================
+                    YEAR
+======================================================*/
 
-function updateHeader(){
+if(year){
 
-if(!header) return;
+year.textContent=new Date().getFullYear();
 
-if(window.scrollY>80){
+}
 
-header.classList.add("sticky");
+/*======================================================
+                    HEADER
+======================================================*/
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>60){
+
+header.classList.add("scrolled");
 
 }else{
 
-header.classList.remove("sticky");
+header.classList.remove("scrolled");
 
 }
-
-}
-
-updateHeader();
-
-window.addEventListener("scroll",updateHeader);
-/*═══════════════════════════════════════════════════════
-                MOBILE MENU
-═══════════════════════════════════════════════════════*/
-
-if(menuBtn && menu){
-
-    menuBtn.addEventListener("click",()=>{
-
-        menu.classList.toggle("active");
-        menuBtn.classList.toggle("active");
-
-    });
-
-    $$(".nav-menu a").forEach(link=>{
-
-        link.addEventListener("click",()=>{
-
-            menu.classList.remove("active");
-            menuBtn.classList.remove("active");
-
-        });
-
-    });
-
-}
-
-/*═══════════════════════════════════════════════════════
-                BACK TO TOP
-═══════════════════════════════════════════════════════*/
-
-if(backTop){
-
-    function toggleBackTop(){
-
-        if(window.scrollY>500){
-
-            backTop.classList.add("show");
-
-        }else{
-
-            backTop.classList.remove("show");
-
-        }
-
-    }
-
-    toggleBackTop();
-
-    window.addEventListener("scroll",toggleBackTop);
-
-    backTop.addEventListener("click",()=>{
-
-        window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
-        });
-
-    });
-
-}
-
-/*═══════════════════════════════════════════════════════
-                SMOOTH SCROLL
-═══════════════════════════════════════════════════════*/
-
-$$('a[href^="#"]').forEach(link=>{
-
-    link.addEventListener("click",(e)=>{
-
-        const id=link.getAttribute("href");
-
-        if(id==="#") return;
-
-        const target=$(id);
-
-        if(!target) return;
-
-        e.preventDefault();
-
-        target.scrollIntoView({
-
-            behavior:"smooth",
-
-            block:"start"
-
-        });
-
-    });
 
 });
 
-/*═══════════════════════════════════════════════════════
-                ACTIVE MENU
-═══════════════════════════════════════════════════════*/
+/*======================================================
+                    MOBILE MENU
+======================================================*/
 
-const sections=$$("section[id]");
-const navLinks=$$(".nav-menu a");
+if(menuToggle){
 
-function updateActiveMenu(){
+menuToggle.onclick=()=>{
 
-    let current="";
+navMenu.classList.toggle("active");
 
-    sections.forEach(section=>{
-
-        const top=section.offsetTop-150;
-
-        if(window.scrollY>=top){
-
-            current=section.id;
-
-        }
-
-    });
-
-    navLinks.forEach(link=>{
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href")==="#"+current){
-
-            link.classList.add("active");
-
-        }
-
-    });
+};
 
 }
 
-window.addEventListener("scroll",updateActiveMenu);
-/*═══════════════════════════════════════════════════════
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+
+link.onclick=()=>{
+
+navMenu.classList.remove("active");
+
+};
+
+});
+
+/*======================================================
+                BACK TO TOP
+======================================================*/
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>400){
+
+backToTop.classList.add("show");
+
+}else{
+
+backToTop.classList.remove("show");
+
+}
+
+});
+
+if(backToTop){
+
+backToTop.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+}
+
+/*======================================================
                 SEARCH MODAL
-═══════════════════════════════════════════════════════*/
+======================================================*/
 
-const searchModal=$("#searchModal");
-const searchBtn=$("#searchBtn");
-const closeSearch=$("#closeSearch");
-const searchInput=$("#liveSearch");
-const searchResults=$("#searchResults");
+if(searchBtn){
 
-if(searchBtn && searchModal){
+searchBtn.onclick=()=>{
 
-    searchBtn.addEventListener("click",()=>{
+searchModal.classList.add("active");
 
-        searchModal.classList.add("active");
+liveSearch.focus();
 
-        if(searchInput){
-
-            setTimeout(()=>{
-
-                searchInput.focus();
-
-            },150);
-
-        }
-
-    });
+};
 
 }
 
 if(closeSearch){
 
-    closeSearch.addEventListener("click",closeSearchModal);
+closeSearch.onclick=()=>{
+
+searchModal.classList.remove("active");
+
+liveSearch.value="";
+
+searchResults.innerHTML="";
+
+};
 
 }
 
-function closeSearchModal(){
+searchModal.addEventListener("click",(e)=>{
 
-    if(!searchModal) return;
+if(e.target===searchModal){
 
-    searchModal.classList.remove("active");
+searchModal.classList.remove("active");
 
-    if(searchInput) searchInput.value="";
+liveSearch.value="";
 
-    if(searchResults) searchResults.innerHTML="";
+searchResults.innerHTML="";
 
 }
-
-window.addEventListener("keydown",e=>{
-
-    if(e.key==="Escape"){
-
-        closeSearchModal();
-
-    }
 
 });
 
-if(searchModal){
+});
+/*======================================================
+                GLOBAL LIVE SEARCH
+======================================================*/
 
-    searchModal.addEventListener("click",e=>{
+const searchDatabase=[];
 
-        if(e.target===searchModal){
+/* Mobiles Database */
 
-            closeSearchModal();
+if(typeof mobileDatabase!=="undefined"){
 
-        }
+Object.keys(mobileDatabase).forEach(brand=>{
 
-    });
+mobileDatabase[brand].forEach(model=>{
 
-}
+searchDatabase.push({
 
-/*═══════════════════════════════════════════════════════
-                LIVE SEARCH DATABASE
-═══════════════════════════════════════════════════════*/
+type:"Mobile",
 
-function getAllModels(){
+brand:brand,
 
-    const models=[];
+name:model.name,
 
-    if(typeof mobileDatabase==="undefined"){
+url:"mobiles.html"
 
-        return models;
+});
 
-    }
+});
 
-    Object.keys(mobileDatabase).forEach(brand=>{
-
-        mobileDatabase[brand].forEach(model=>{
-
-            models.push({
-
-                brand:brand,
-
-                model:model
-
-            });
-
-        });
-
-    });
-
-    return models;
+});
 
 }
 
-const allModels=getAllModels();
+/* Solutions Database */
 
-if(searchInput && searchResults){
+if(typeof solutionsDatabase!=="undefined"){
 
-    searchInput.addEventListener("input",function(){
+Object.keys(solutionsDatabase).forEach(brand=>{
 
-        const keyword=this.value.trim().toLowerCase();
+solutionsDatabase[brand].forEach(item=>{
 
-        searchResults.innerHTML="";
+searchDatabase.push({
 
-        if(keyword==="") return;
+type:"Solution",
 
-        const found=allModels.filter(item=>
+brand:brand,
 
-            item.brand.toLowerCase().includes(keyword) ||
+name:item.name,
 
-            item.model.toLowerCase().includes(keyword)
+url:"mobiles.html"
 
-        );
+});
 
-        if(found.length===0){
+});
 
-            searchResults.innerHTML=`
-                <div class="no-result">
-                    No Device Found
-                </div>
-            `;
-
-            return;
-
-        }
-
-        found.slice(0,50).forEach(item=>{
-
-            const card=document.createElement("div");
-
-            card.className="search-item";
-
-            card.innerHTML=`
-
-                <strong>${item.model}</strong>
-
-                <small>${item.brand.toUpperCase()}</small>
-
-            `;
-
-            card.addEventListener("click",()=>{
-
-                window.location.href=
-                `mobiles.html?brand=${item.brand}&model=${encodeURIComponent(item.model)}`;
-
-            });
-
-            searchResults.appendChild(card);
-
-        });
-
-    });
+});
 
 }
-/*═══════════════════════════════════════════════════════
+
+/*======================================================
+                LIVE SEARCH
+======================================================*/
+
+if(liveSearch){
+
+liveSearch.addEventListener("input",function(){
+
+const keyword=this.value.toLowerCase().trim();
+
+searchResults.innerHTML="";
+
+if(keyword==="") return;
+
+const results=searchDatabase.filter(item=>
+
+item.name.toLowerCase().includes(keyword) ||
+
+item.brand.toLowerCase().includes(keyword)
+
+).slice(0,20);
+
+if(results.length===0){
+
+searchResults.innerHTML=
+
+`<div class="search-item">
+
+<div>
+
+<h4>No Result Found</h4>
+
+<span>Try another keyword</span>
+
+</div>
+
+</div>`;
+
+return;
+
+}
+
+results.forEach(item=>{
+
+const div=document.createElement("div");
+
+div.className="search-item";
+
+div.innerHTML=`
+
+<div>
+
+<h4>${item.name}</h4>
+
+<span>${item.brand} • ${item.type}</span>
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+`;
+
+div.onclick=()=>{
+
+window.location.href=item.url;
+
+};
+
+searchResults.appendChild(div);
+
+});
+
+});
+
+}
+/*======================================================
                 COUNTER ANIMATION
-═══════════════════════════════════════════════════════*/
+======================================================*/
 
-const counters = $$("[data-counter]");
+const counters=document.querySelectorAll(".counter");
 
-function startCounters(){
+const counterObserver=new IntersectionObserver((entries)=>{
 
-    counters.forEach(counter=>{
+entries.forEach(entry=>{
 
-        if(counter.dataset.done==="true") return;
+if(!entry.isIntersecting) return;
 
-        counter.dataset.done="true";
+const counter=entry.target;
 
-        const target=parseInt(counter.dataset.counter)||0;
+const target=parseInt(counter.dataset.target);
 
-        let current=0;
+let count=0;
 
-        const step=Math.max(1,Math.ceil(target/100));
+const speed=Math.max(10,Math.floor(target/150));
 
-        function update(){
+const update=()=>{
 
-            current+=step;
+count+=speed;
 
-            if(current>=target){
+if(count>=target){
 
-                counter.textContent=target.toLocaleString()+"+";
+counter.textContent=target.toLocaleString()+"+";
 
-                return;
+}else{
 
-            }
+counter.textContent=count.toLocaleString();
 
-            counter.textContent=current.toLocaleString()+"+";
-
-            requestAnimationFrame(update);
-
-        }
-
-        update();
-
-    });
+requestAnimationFrame(update);
 
 }
 
-const counterSection=$(".counter-section");
+};
 
-if(counterSection){
+update();
 
-    const observer=new IntersectionObserver(entries=>{
-
-        entries.forEach(entry=>{
-
-            if(entry.isIntersecting){
-
-                startCounters();
-
-                observer.disconnect();
-
-            }
-
-        });
-
-    },{
-
-        threshold:0.3
-
-    });
-
-    observer.observe(counterSection);
-
-}
-
-/*═══════════════════════════════════════════════════════
-                REVEAL ANIMATION
-═══════════════════════════════════════════════════════*/
-
-const revealItems=$$(`
-.brand-card,
-.service-card,
-.counter-card,
-.cta-box,
-.footer-grid
-`);
-
-const revealObserver=new IntersectionObserver(entries=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("active");
-
-        }
-
-    });
-
-},{
-
-    threshold:0.15
+counterObserver.unobserve(counter);
 
 });
+
+},{threshold:.5});
+
+counters.forEach(counter=>{
+
+counterObserver.observe(counter);
+
+});
+
+/*======================================================
+                SMOOTH SCROLL
+======================================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+}
+
+});
+
+});
+
+/*======================================================
+            SCROLL ANIMATION
+======================================================*/
+
+const revealItems=document.querySelectorAll(
+
+".service-card,.stat-card,.brand-card,.update-card,.testimonial-card,.why-item,.mobile-card"
+
+);
+
+const revealObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},{threshold:.15});
 
 revealItems.forEach(item=>{
 
-    revealObserver.observe(item);
+item.style.opacity="0";
+
+item.style.transform="translateY(40px)";
+
+item.style.transition=".8s";
+
+revealObserver.observe(item);
 
 });
 
-/*═══════════════════════════════════════════════════════
-                ROBOT EFFECT
-═══════════════════════════════════════════════════════*/
+/*======================================================
+                ESC CLOSE SEARCH
+======================================================*/
 
-const robot=$(".robot-image");
+document.addEventListener("keydown",(e)=>{
 
-if(robot){
+if(e.key==="Escape"){
 
-    window.addEventListener("mousemove",e=>{
+if(searchModal){
 
-        const x=(window.innerWidth/2-e.clientX)/40;
-
-        const y=(window.innerHeight/2-e.clientY)/40;
-
-        robot.style.transform=
-        `translate(${-x}px,${-y}px)`;
-
-    });
+searchModal.classList.remove("active");
 
 }
 
-/*═══════════════════════════════════════════════════════
-                LAZY IMAGES
-═══════════════════════════════════════════════════════*/
-
-$$("img").forEach(img=>{
-
-    img.loading="lazy";
-
-    img.draggable=false;
+}
 
 });
 
-/*═══════════════════════════════════════════════════════
-                CURRENT YEAR
-═══════════════════════════════════════════════════════*/
+/*======================================================
+                PAGE LOADED
+======================================================*/
 
-const year=$("#year");
+console.log("TechFix Software EXP Loaded Successfully");
+/*======================================================
+                ACTIVE NAVIGATION
+======================================================*/
 
-if(year){
+const sections=document.querySelectorAll("section");
 
-    year.textContent=new Date().getFullYear();
+const navLinks=document.querySelectorAll(".nav-menu a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-150;
+
+const height=section.offsetHeight;
+
+if(window.scrollY>=top){
+
+current=section.getAttribute("id");
 
 }
-/*═══════════════════════════════════════════════════════
-                PAGE PERFORMANCE
-═══════════════════════════════════════════════════════*/
-
-window.addEventListener("pageshow",()=>{
-
-    document.body.classList.add("loaded");
 
 });
 
-/*═══════════════════════════════════════════════════════
-                SAFE INITIALIZATION
-═══════════════════════════════════════════════════════*/
+navLinks.forEach(link=>{
 
-window.addEventListener("error",(event)=>{
+link.classList.remove("active");
 
-    console.error(
-        "TechFix Error:",
-        event.message
-    );
+const href=link.getAttribute("href");
+
+if(href && href.includes("#"+current)){
+
+link.classList.add("active");
+
+}
 
 });
 
-/*═══════════════════════════════════════════════════════
-                CONSOLE BRANDING
-═══════════════════════════════════════════════════════*/
+});
 
-console.clear();
+/*======================================================
+                BUTTON RIPPLE EFFECT
+======================================================*/
 
-console.log(
-"%cTECHFIX SOFTWARE EXP v8",
-"font-size:22px;font-weight:bold;color:#ff7a00;"
-);
+document.querySelectorAll(".btn").forEach(btn=>{
 
-console.log(
-"%cFounder : MIAN AHMAD",
-"font-size:15px;color:#00c8ff;"
-);
+btn.addEventListener("click",function(e){
 
-console.log(
-"%cWebsite Loaded Successfully ✔",
-"font-size:14px;color:#00d084;"
-);
+const ripple=document.createElement("span");
 
-/*═══════════════════════════════════════════════════════
-                END OF FILE
-═══════════════════════════════════════════════════════*/
+const rect=this.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.style.position="absolute";
+
+ripple.style.borderRadius="50%";
+
+ripple.style.background="rgba(255,255,255,.35)";
+
+ripple.style.pointerEvents="none";
+
+ripple.style.transform="scale(0)";
+
+ripple.style.transition=".6s";
+
+this.appendChild(ripple);
+
+requestAnimationFrame(()=>{
+
+ripple.style.transform="scale(4)";
+
+ripple.style.opacity="0";
+
+});
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+
+/*======================================================
+                IMAGE LAZY EFFECT
+======================================================*/
+
+const images=document.querySelectorAll("img");
+
+images.forEach(img=>{
+
+img.loading="lazy";
+
+img.draggable=false;
+
+});
+
+/*======================================================
+                CONSOLE MESSAGE
+======================================================*/
+
+console.log("%cTechFix Software EXP","font-size:28px;color:#00D9FF;font-weight:bold;");
+
+console.log("%cDesigned By MIAN AHMAD","font-size:16px;color:#ffffff;");
+
+/*======================================================
+                FINISHED
+======================================================*/
