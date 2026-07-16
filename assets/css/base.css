@@ -1,1 +1,160 @@
+/*==================================================
+TechFix Software EXP
+Base Styles
+Founder: MIAN AHMAD
+==================================================*/
 
+/*========== GOOGLE FONT ==========*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/*========== RESET ==========*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/*========== ROOT COLORS ==========*/
+
+:root{
+
+--bg:#081420;
+--bg2:#0d1b2a;
+--card:#132233;
+
+--primary:#2563eb;
+--secondary:#06b6d4;
+
+--white:#ffffff;
+--text:#d7e4f3;
+
+--border:rgba(255,255,255,.08);
+
+--radius:18px;
+
+--transition:.35s ease;
+
+--shadow:0 12px 35px rgba(0,0,0,.28);
+
+}
+
+/*========== HTML ==========*/
+
+html{
+
+scroll-behavior:smooth;
+
+overflow-x:hidden;
+
+}
+
+/*========== BODY ==========*/
+
+body{
+
+font-family:'Outfit',sans-serif;
+
+background:var(--bg);
+
+color:var(--white);
+
+overflow-x:hidden;
+
+line-height:1.7;
+
+}
+
+/*========== CONTAINER ==========*/
+
+.container{
+
+width:min(92%,1280px);
+
+margin:auto;
+
+}
+
+/*========== LINKS ==========*/
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/*========== LIST ==========*/
+
+ul{
+
+list-style:none;
+
+}
+
+/*========== IMAGE ==========*/
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/*========== BUTTON ==========*/
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+}
+
+/*========== SECTION ==========*/
+
+section{
+
+position:relative;
+
+}
+
+/*========== SCROLLBAR ==========*/
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#07111b;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#06b6d4;
+
+}
+
+/*========== SELECTION ==========*/
+
+::selection{
+
+background:#06b6d4;
+
+color:#fff;
+
+}
