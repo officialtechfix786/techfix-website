@@ -1,588 +1,925 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<!--=====================================================
+/*====================================================
             TECHFIX SOFTWARE EXP
+            Mobiles Page CSS
             Founder : MIAN AHMAD
-======================================================-->
+====================================================*/
 
-<meta charset="UTF-8">
+/*================ PAGE =================*/
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+.mobile-page{
 
-<meta
-http-equiv="X-UA-Compatible"
-content="IE=edge">
+padding:100px 0;
 
-<title>
-Mobiles | TechFix Software EXP
-</title>
+position:relative;
 
-<meta
-name="description"
-content="Browse all supported mobile brands, firmware, FRP Unlock, Flash Files and Repair Solutions.">
+overflow:hidden;
 
-<meta
-name="keywords"
-content="TechFix, Mobile, Android, Apple, Flash Files, Firmware, FRP, Unlock">
+}
 
-<meta
-name="author"
-content="MIAN AHMAD">
+.mobile-page::before{
 
-<link
-rel="icon"
-href="assets/images/logo.png">
+content:"";
 
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com">
+position:absolute;
 
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+inset:0;
 
-<link
-href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+background:
+radial-gradient(circle at top right,
+rgba(0,255,255,.08),
+transparent 45%),
+radial-gradient(circle at bottom left,
+rgba(0,132,255,.08),
+transparent 45%);
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+pointer-events:none;
 
-<!-- Global CSS -->
+}
 
-<link
-rel="stylesheet"
-href="assets/css/style.css">
+.mobile-page .container{
 
-<!-- Mobiles Page CSS -->
+position:relative;
 
-<link
-rel="stylesheet"
-href="assets/css/mobile.css">
+z-index:2;
 
-</head>
+}
 
-<body>
+/*================ TITLE =================*/
 
-<!--================ PRELOADER ================-->
+.section-title{
 
-<div id="preloader">
+text-align:center;
 
-    <div class="loader-box">
+margin-bottom:60px;
 
-        <img
-        src="assets/images/logo.png"
-        alt="TechFix">
+}
 
-        <span>
+.section-title span{
 
-            Loading TechFix...
+display:inline-block;
 
-        </span>
+padding:8px 22px;
 
-    </div>
+border-radius:50px;
 
-</div>
+background:rgba(0,255,255,.08);
 
-<!--================ PARTICLES ================-->
+color:var(--primary);
 
-<div class="particles">
+font-weight:600;
 
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+letter-spacing:1px;
 
-</div>
-<!--================ HEADER ================-->
+margin-bottom:18px;
 
-<header class="header">
+}
 
-<div class="container">
+.section-title h2{
 
-<nav class="navbar">
+font-size:42px;
 
-<a
-href="index.html"
-class="logo">
+font-weight:800;
 
-<img
-src="assets/images/logo.png"
-alt="TechFix Logo">
+margin-bottom:18px;
 
-<div>
+color:#fff;
 
-<h2>
+}
 
-TechFix
+.section-title p{
 
-</h2>
+max-width:700px;
 
-<span>
+margin:auto;
 
-Software EXP
+font-size:17px;
 
-</span>
+line-height:1.8;
 
-</div>
+color:#bfc6d8;
 
-</a>
+}
 
-<ul class="nav-menu">
+/*================ LAYOUT =================*/
 
-<li>
+.mobile-layout{
 
-<a
-href="index.html">
+display:grid;
 
-Home
+grid-template-columns:320px 1fr;
 
-</a>
+gap:35px;
 
-</li>
+align-items:flex-start;
 
-<li>
+}
 
-<a
-href="mobiles.html"
-class="active">
+/*================ GLASS =================*/
 
-Mobiles
+.glass-card{
 
-</a>
+background:rgba(255,255,255,.05);
 
-</li>
+border:1px solid rgba(255,255,255,.08);
 
-<li>
+backdrop-filter:blur(18px);
 
-<a
-href="android.html">
+border-radius:22px;
 
-Android
+box-shadow:
 
-</a>
+0 10px 35px rgba(0,0,0,.25);
 
-</li>
+}
 
-<li>
+/*================ SIDEBAR =================*/
 
-<a
-href="apple.html">
+.brand-sidebar{
 
-Apple
+padding:30px;
 
-</a>
+position:sticky;
 
-</li>
+top:120px;
 
-<li>
+height:fit-content;
 
-<a
-href="downloads.html">
+}
 
-Downloads
+.sidebar-head{
 
-</a>
+margin-bottom:30px;
 
-</li>
+}
 
-<li>
+.sidebar-head h2{
 
-<a
-href="cyber.html">
+font-size:26px;
 
-Cyber
+display:flex;
 
-</a>
+align-items:center;
 
-</li>
+gap:12px;
 
-<li>
+color:#fff;
 
-<a
-href="contact.html">
+margin-bottom:10px;
 
-Contact
+}
 
-</a>
+.sidebar-head i{
 
-</li>
+color:var(--primary);
 
-</ul>
+}
 
-<div class="nav-actions">
+.sidebar-head p{
 
-<button
-class="search-btn"
-id="searchBtn"
-aria-label="Search">
+color:#bfc6d8;
 
-<i class="fa-solid fa-magnifying-glass"></i>
+line-height:1.7;
 
-</button>
+}
+/*================ BRAND LIST =================*/
 
-<a
-href="https://wa.me/966568152404"
-target="_blank"
-class="btn btn-primary">
+.brand-list{
 
-<i class="fa-brands fa-whatsapp"></i>
+display:flex;
 
-<span>
+flex-direction:column;
 
-WhatsApp
+gap:14px;
 
-</span>
+max-height:700px;
 
-</a>
+overflow-y:auto;
 
-<button
-class="menu-toggle"
-aria-label="Toggle Menu">
+padding-right:6px;
 
-<i class="fa-solid fa-bars"></i>
+}
 
-</button>
+/*================ SCROLLBAR =================*/
 
-</div>
+.brand-list::-webkit-scrollbar{
 
-</nav>
+width:6px;
 
-</div>
+}
 
-</header>
-<!--================ HERO ================-->
+.brand-list::-webkit-scrollbar-track{
 
-<section class="hero page-hero">
+background:transparent;
 
-<div class="hero-overlay"></div>
+}
 
-<div class="container hero-wrapper">
+.brand-list::-webkit-scrollbar-thumb{
 
-<div class="hero-content">
+background:linear-gradient(180deg,#00e5ff,#0099ff);
 
-<span class="hero-badge">
+border-radius:20px;
 
-<i class="fa-solid fa-mobile-screen-button"></i>
+}
 
-SUPPORTED DEVICES
+/*================ BRAND BUTTON =================*/
 
-</span>
+.brand-btn{
 
-<h1>
+display:flex;
 
-Professional
+align-items:center;
 
-<span>
+justify-content:space-between;
 
-Mobile Database
+gap:12px;
 
-</span>
+padding:16px 18px;
 
-</h1>
+background:rgba(255,255,255,.04);
 
-<p>
+border:1px solid rgba(255,255,255,.08);
 
-Browse thousands of supported mobile brands,
-firmware, flash files, FRP unlock,
-repair solutions and software tools.
+border-radius:14px;
 
-</p>
+cursor:pointer;
 
-<div class="hero-buttons">
+transition:.35s;
 
-<a
-href="#brands"
-class="btn btn-primary">
+color:#fff;
 
-<i class="fa-solid fa-mobile-screen"></i>
+font-size:15px;
 
-Browse Brands
+font-weight:600;
 
-</a>
+}
 
-<a
-href="downloads.html"
-class="btn btn-outline">
+.brand-btn:hover{
 
-<i class="fa-solid fa-download"></i>
+transform:translateX(8px);
 
-Download Tools
+background:rgba(0,229,255,.10);
 
-</a>
+border-color:#00e5ff;
 
-</div>
+box-shadow:0 0 25px rgba(0,229,255,.25);
 
-<div class="hero-stats">
+}
 
-<div class="stat-box">
+/*================ ACTIVE BRAND =================*/
 
-<h3>
+.brand-btn.active{
 
-500+
+background:linear-gradient(135deg,#00d9ff,#007bff);
 
-</h3>
+color:#fff;
 
-<span>
+border-color:transparent;
 
-Brands
+box-shadow:
 
-</span>
+0 0 30px rgba(0,180,255,.45);
 
-</div>
+}
 
-<div class="stat-box">
+.brand-btn span{
 
-<h3>
+display:flex;
 
-20K+
+align-items:center;
 
-</h3>
+gap:10px;
 
-<span>
+}
 
-Models
+.brand-btn i{
 
-</span>
+font-size:18px;
 
-</div>
+color:#00e5ff;
 
-<div class="stat-box">
+transition:.3s;
 
-<h3>
+}
 
-24/7
+.brand-btn.active i{
 
-</h3>
+color:#fff;
 
-<span>
+}
 
-Support
+.brand-btn small{
 
-</span>
+font-size:12px;
 
-</div>
+opacity:.75;
 
-</div>
+font-weight:500;
 
-</div>
+}
 
-<div class="hero-image">
+/*================ SIDEBAR ANIMATION =================*/
 
-<div class="robot-glow"></div>
+.brand-btn{
 
-<img
+opacity:0;
 
-src="assets/images/robot.png"
+transform:translateX(-30px);
 
-class="robot-image"
+animation:brandFade .5s forwards;
 
-alt="TechFix Robot">
+}
 
-</div>
+.brand-btn:nth-child(1){animation-delay:.05s;}
+.brand-btn:nth-child(2){animation-delay:.10s;}
+.brand-btn:nth-child(3){animation-delay:.15s;}
+.brand-btn:nth-child(4){animation-delay:.20s;}
+.brand-btn:nth-child(5){animation-delay:.25s;}
+.brand-btn:nth-child(6){animation-delay:.30s;}
+.brand-btn:nth-child(7){animation-delay:.35s;}
+.brand-btn:nth-child(8){animation-delay:.40s;}
 
-</div>
+@keyframes brandFade{
 
-</section>
-<!--================ MOBILE DATABASE ================-->
+to{
 
-<section
-class="mobile-page"
-id="brands">
+opacity:1;
 
-<div class="container">
+transform:translateX(0);
 
-<div class="section-title">
+}
 
-<span>
+}
+/*================ MOBILE CONTENT =================*/
 
-Mobile Collection
+.mobile-content{
 
-</span>
+display:flex;
 
-<h2>
+flex-direction:column;
 
-Supported Mobile Brands
+gap:30px;
 
-</h2>
+}
 
-<p>
+/*================ TOOLBAR =================*/
 
-Select your brand and search any supported mobile model instantly.
+.mobile-toolbar{
 
-</p>
+display:flex;
 
-</div>
+justify-content:space-between;
 
-<div class="mobile-layout">
+align-items:center;
 
-<!--=========== LEFT SIDEBAR ===========-->
+gap:25px;
 
-<aside class="brand-sidebar glass-card">
+padding:28px 30px;
 
-<div class="sidebar-head">
+margin-bottom:10px;
 
-<h2>
+}
 
-<i class="fa-solid fa-mobile-screen-button"></i>
+/*================ TOOLBAR TITLE =================*/
 
-Brands
+.toolbar-title h2{
 
-</h2>
+font-size:32px;
 
-<p>
+font-weight:700;
 
-Choose your mobile brand
+color:#fff;
 
-</p>
+margin-bottom:8px;
 
-</div>
+}
 
-<div
-id="brandList"
-class="brand-list">
+.toolbar-title p{
 
-<!-- Dynamic Brand List -->
+font-size:15px;
 
-</div>
+color:#bfc6d8;
 
-</aside>
+line-height:1.7;
 
-<!--=========== RIGHT CONTENT ===========-->
+}
 
-<div class="mobile-content">
+/*================ SEARCH =================*/
 
-<div class="glass-card mobile-toolbar">
+.toolbar-search{
 
-<div class="toolbar-title">
+position:relative;
 
-<h2>
+width:360px;
 
-Supported Devices
+max-width:100%;
 
-</h2>
+}
 
-<p>
+.toolbar-search i{
 
-Search any mobile model or browse by brand.
+position:absolute;
 
-</p>
+left:18px;
 
-</div>
+top:50%;
 
-<div class="toolbar-search">
+transform:translateY(-50%);
 
-<i class="fa-solid fa-magnifying-glass"></i>
+color:var(--primary);
 
-<input
+font-size:16px;
 
-type="text"
+pointer-events:none;
 
-id="brandSearch"
+}
 
-placeholder="Search mobile model...">
+.toolbar-search input{
 
-</div>
+width:100%;
 
-</div>
+height:56px;
 
-<div
+padding:0 20px 0 50px;
 
-id="mobileGrid"
+border-radius:14px;
 
-class="mobile-grid">
+border:1px solid rgba(255,255,255,.08);
 
-<!-- Dynamic Mobile Cards -->
+background:rgba(255,255,255,.05);
 
-</div>
+color:#fff;
 
-</div>
+font-size:15px;
 
-</div>
+outline:none;
 
-</div>
+transition:.35s;
 
-</section>
-<!--================ SEARCH MODAL ================-->
+backdrop-filter:blur(12px);
 
-<div
-class="search-modal"
-id="searchModal">
+}
 
-<div class="search-box glass-card">
+.toolbar-search input::placeholder{
 
-<button
-id="closeSearch">
+color:#9ca8c2;
 
-<i class="fa-solid fa-xmark"></i>
+}
 
-</button>
+.toolbar-search input:focus{
 
-<h3>
+border-color:#00d9ff;
 
-Search Mobile Model
+background:rgba(0,229,255,.08);
 
-</h3>
+box-shadow:
 
-<p>
+0 0 20px rgba(0,229,255,.25);
 
-Search any supported mobile device instantly.
+}
 
-</p>
+/*================ TOOLBAR ANIMATION =================*/
 
-<input
+.mobile-toolbar{
 
-type="text"
+animation:toolbarFade .7s ease;
 
-id="liveSearch"
+}
 
-placeholder="Type mobile model...">
+@keyframes toolbarFade{
 
-<div
+from{
 
-id="searchResults"
+opacity:0;
 
-class="search-results">
+transform:translateY(25px);
 
-</div>
+}
 
-</div>
+to{
 
-</div>
+opacity:1;
 
-<!--================ FLOATING BUTTONS ================-->
+transform:translateY(0);
 
-<a
+}
 
-href="https://wa.me/966568152404"
+}
+/*================ MOBILE GRID =================*/
 
-target="_blank"
+.mobile-grid{
 
-class="floating-whatsapp"
+display:grid;
 
-aria-label="WhatsApp">
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
 
-<i class="fa-brands fa-whatsapp"></i>
+gap:25px;
 
-</a>
+align-items:stretch;
 
-<button
+}
 
-id="backToTop"
+/*================ MOBILE CARD =================*/
 
-aria-label="Back To Top">
+.mobile-card{
 
-<i class="fa-solid fa-arrow-up"></i>
+position:relative;
 
-</button>
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+padding:28px;
+
+overflow:hidden;
+
+transition:.35s ease;
+
+backdrop-filter:blur(15px);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+min-height:280px;
+
+}
+
+/*================ CARD RGB =================*/
+
+.mobile-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-50%;
+
+width:220%;
+
+height:220%;
+
+background:linear-gradient(
+
+45deg,
+
+transparent,
+
+rgba(0,229,255,.15),
+
+transparent
+
+);
+
+transform:rotate(25deg);
+
+transition:.6s;
+
+opacity:0;
+
+}
+
+.mobile-card:hover::before{
+
+opacity:1;
+
+animation:cardGlow 2s linear infinite;
+
+}
+
+@keyframes cardGlow{
+
+0%{
+
+transform:translateX(-30%) rotate(25deg);
+
+}
+
+100%{
+
+transform:translateX(30%) rotate(25deg);
+
+}
+
+}
+
+/*================ CARD HOVER =================*/
+
+.mobile-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#00d9ff;
+
+box-shadow:
+
+0 20px 40px rgba(0,180,255,.18),
+
+0 0 25px rgba(0,229,255,.20);
+
+}
+
+/*================ BRAND IMAGE =================*/
+
+.mobile-card img{
+
+width:70px;
+
+height:70px;
+
+object-fit:contain;
+
+margin-bottom:20px;
+
+}
+
+/*================ TITLE =================*/
+
+.mobile-card h3{
+
+font-size:22px;
+
+font-weight:700;
+
+color:#fff;
+
+margin-bottom:12px;
+
+}
+
+/*================ DESCRIPTION =================*/
+
+.mobile-card p{
+
+font-size:15px;
+
+line-height:1.8;
+
+color:#bfc6d8;
+
+margin-bottom:22px;
+
+flex:1;
+
+}
+
+/*================ BUTTON =================*/
+
+.mobile-card .btn{
+
+width:100%;
+
+justify-content:center;
+
+margin-top:auto;
+
+}
+
+/*================ ENTRY ANIMATION =================*/
+
+.mobile-card{
+
+opacity:0;
+
+transform:translateY(30px);
+
+animation:cardFade .6s forwards;
+
+}
+
+.mobile-card:nth-child(1){animation-delay:.05s;}
+.mobile-card:nth-child(2){animation-delay:.10s;}
+.mobile-card:nth-child(3){animation-delay:.15s;}
+.mobile-card:nth-child(4){animation-delay:.20s;}
+.mobile-card:nth-child(5){animation-delay:.25s;}
+.mobile-card:nth-child(6){animation-delay:.30s;}
+.mobile-card:nth-child(7){animation-delay:.35s;}
+.mobile-card:nth-child(8){animation-delay:.40s;}
+
+@keyframes cardFade{
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*====================================================
+            RESPONSIVE DESIGN
+====================================================*/
+
+@media (max-width:1200px){
+
+.mobile-layout{
+
+grid-template-columns:280px 1fr;
+
+gap:25px;
+
+}
+
+}
+
+@media (max-width:992px){
+
+.mobile-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.brand-sidebar{
+
+position:relative;
+
+top:auto;
+
+}
+
+.mobile-toolbar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.toolbar-search{
+
+width:100%;
+
+}
+
+.mobile-grid{
+
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+
+}
+
+}
+
+@media (max-width:768px){
+
+.mobile-page{
+
+padding:70px 0;
+
+}
+
+.section-title h2{
+
+font-size:32px;
+
+}
+
+.section-title p{
+
+font-size:15px;
+
+}
+
+.mobile-toolbar{
+
+padding:22px;
+
+}
+
+.toolbar-title h2{
+
+font-size:26px;
+
+}
+
+.mobile-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.mobile-card{
+
+padding:22px;
+
+}
+
+}
+
+@media (max-width:576px){
+
+.brand-sidebar{
+
+padding:22px;
+
+}
+
+.mobile-toolbar{
+
+padding:20px;
+
+}
+
+.toolbar-search input{
+
+height:52px;
+
+font-size:14px;
+
+}
+
+.mobile-card h3{
+
+font-size:20px;
+
+}
+
+.mobile-card p{
+
+font-size:14px;
+
+}
+
+}
+
+/*====================================================
+                SEARCH MODAL
+====================================================*/
+
+.search-results{
+
+margin-top:20px;
+
+max-height:350px;
+
+overflow-y:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+.search-results a{
+
+display:block;
+
+padding:14px 16px;
+
+border-radius:12px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#fff;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.search-results a:hover{
+
+background:rgba(0,229,255,.12);
+
+border-color:#00d9ff;
+
+transform:translateX(5px);
+
+}
+
+/*====================================================
+            FLOATING BUTTONS
+====================================================*/
+
+.floating-whatsapp,
+
+#backToTop{
+
+box-shadow:0 0 25px rgba(0,229,255,.30);
+
+transition:.35s;
+
+}
+
+.floating-whatsapp:hover,
+
+#backToTop:hover{
+
+transform:translateY(-6px) scale(1.08);
+
+}
+
+/*====================================================
+                END
+====================================================*/
