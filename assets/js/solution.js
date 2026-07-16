@@ -1,56 +1,207 @@
 "use strict";
 
-/*=========================================
-        TECHFIX SOLUTION PAGE
-=========================================*/
+/*=====================================================
+            TECHFIX SOLUTION PAGE
+=====================================================*/
 
-const params = new URLSearchParams(window.location.search);
+const phoneTitle = document.getElementById("phoneTitle");
+const phoneImage = document.getElementById("phoneImage");
+const solutionList = document.getElementById("solutionList");
 
-const brand = params.get("brand") || "Unknown";
-const model = params.get("model") || "Unknown Device";
-const service = params.get("service") || "Service";
+/*==========================================
+        GET SELECTED MOBILE
+==========================================*/
 
-const data = solutionDetails.default;
+const selectedBrand = localStorage.getItem("techfix_brand");
+const selectedModel = localStorage.getItem("techfix_model");
 
-/* ---------- TITLE ---------- */
+/*==========================================
+        FIND MOBILE
+==========================================*/
 
-document.getElementById("solutionTitle").textContent = model;
-document.getElementById("solutionSub").textContent = service;
+let selectedPhone = null;
 
-/* ---------- DEVICE INFO ---------- */
+if (
+    selectedBrand &&
+    solutionsDatabase[selectedBrand]
+) {
 
-document.getElementById("deviceInfo").innerHTML = `
-<p><strong>Brand:</strong> ${brand}</p>
-<p><strong>Device:</strong> ${model}</p>
-<p><strong>Service:</strong> ${service}</p>
-<p><strong>Android:</strong> ${data.android}</p>
-<p><strong>Difficulty:</strong> ${data.difficulty}</p>
-<p><strong>Estimated Time:</strong> ${data.time}</p>
-<p><strong>Warning:</strong> ${data.warning}</p>
+    selectedPhone = solutionsDatabase[selectedBrand].find(item => {
+
+        return item.name === selectedModel;
+
+    });
+
+}
+
+console.log("Brand :", selectedBrand);
+console.log("Model :", selectedModel);
+console.log(selectedPhone);
+/*==========================================
+        LOAD PHONE INFORMATION
+==========================================*/
+
+if(selectedPhone){
+
+    /* Phone Name */
+
+    if(phoneTitle){
+
+        phoneTitle.textContent=selectedPhone.name;
+
+    }
+
+    /* Phone Image */
+
+    if(phoneImage){
+
+        phoneImage.src=selectedPhone.image;
+
+        phoneImage.alt=selectedPhone.name;
+
+    }
+
+}else{
+
+    if(phoneTitle){
+
+        phoneTitle.textContent="No Solution Found";
+
+    }
+
+    if(phoneImage){
+
+        phoneImage.src="assets/images/logo.png";
+
+    }
+
+    if(solutionList){
+
+        solutionList.innerHTML=`
+
+        <div class="no-solution">
+
+            <i class="fa-solid fa-circle-xmark"></i>
+
+            <h2>No Solution Available</h2>
+
+            <p>
+
+            This mobile is not available in the TechFix database.
+
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
+}
+/*==========================================
+        CREATE SOLUTION CARDS
+==========================================*/
+
+if(selectedPhone && solutionList){
+
+solutionList.innerHTML="";
+
+selectedPhone.solutions.forEach(solution=>{
+
+const card=document.createElement("div");
+
+card.className="solution-card";
+
+card.innerHTML=`
+
+<div class="solution-icon">
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+</div>
+
+<h3>${solution}</h3>
+
+<p>
+
+Professional ${solution} Solution for
+${selectedPhone.name}
+
+</p>
+
+<button
+class="solution-btn"
+data-solution="${solution}">
+
+Open Solution
+
+</button>
+
 `;
 
-/* ---------- TOOLS ---------- */
-
-const toolList = document.getElementById("toolList");
-
-data.tools.forEach(tool => {
-
-    const li = document.createElement("li");
-    li.textContent = tool;
-    toolList.appendChild(li);
+solutionList.appendChild(card);
 
 });
 
-/* ---------- STEPS ---------- */
+}
+/*==========================================
+        SOLUTION LINKS
+==========================================*/
 
-const steps = document.getElementById("steps");
+const solutionLinks={
 
-data.steps.forEach(step => {
+"Firmware":"downloads.html",
 
-    const li = document.createElement("li");
-    li.textContent = step;
-    steps.appendChild(li);
+"Flash File":"downloads.html",
+
+"Restore":"downloads.html",
+
+"DFU Mode":"downloads.html",
+
+"Recovery Mode":"downloads.html",
+
+"Hello Screen":"downloads.html",
+
+"Activation":"downloads.html",
+
+"Jailbreak":"downloads.html",
+
+"iCloud":"downloads.html",
+
+"Driver":"downloads.html",
+
+"USB Driver":"downloads.html",
+
+"FRP Unlock":"downloads.html",
+
+"KG Lock":"downloads.html",
+
+"MDM Remove":"downloads.html",
+
+"Boot Repair":"downloads.html",
+
+"Dead Boot":"downloads.html",
+
+"ADB":"downloads.html",
+
+"Fastboot":"downloads.html"
+
+};
+
+/*==========================================
+        BUTTON EVENTS
+==========================================*/
+
+document.addEventListener("click",(e)=>{
+
+const button=e.target.closest(".solution-btn");
+
+if(!button) return;
+
+const solution=button.dataset.solution;
+
+const url=solutionLinks[solution] || "downloads.html";
+
+window.location.href=url;
 
 });
-
-console.log("Solution Page Loaded");
