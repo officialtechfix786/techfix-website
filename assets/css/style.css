@@ -2198,3 +2198,24 @@ font-size:28px;
 }
 
 }
+.robot-bg{
+
+position:absolute;
+
+right:-120px;
+
+bottom:-40px;
+
+width:700px;
+
+opacity:.18;
+
+pointer-events:none;
+
+z-index:0;
+
+animation:robotFloat 6s ease-in-out infinite;
+
+filter:drop-shadow(0 0 60px rgba(6,182,212,.35));
+
+}
