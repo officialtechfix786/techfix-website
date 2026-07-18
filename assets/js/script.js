@@ -673,3 +673,76 @@ alert("Results Found : "+data.length);
 });
 
 }
+/*=========================================================
+DATABASE INTEGRATION - PART 2
+=========================================================*/
+
+/*==============================
+GET BRAND DATA
+==============================*/
+
+function getBrandSolutions(brand){
+
+    if(!techfixDB) return [];
+
+    return techfixDB[brand] || [];
+
+}
+
+/*==============================
+TOTAL SOLUTIONS
+==============================*/
+
+function getTotalSolutions(){
+
+    if(!techfixDB) return 0;
+
+    let total=0;
+
+    Object.keys(techfixDB).forEach(brand=>{
+
+        total+=techfixDB[brand].length;
+
+    });
+
+    return total;
+
+}
+
+/*==============================
+TOTAL BRANDS
+==============================*/
+
+function getTotalBrands(){
+
+    if(!techfixDB) return 0;
+
+    return Object.keys(techfixDB).length;
+
+}
+
+/*==============================
+CONSOLE INFO
+==============================*/
+
+console.log("Brands :",getTotalBrands());
+
+console.log("Solutions :",getTotalSolutions());
+
+/*==============================
+READY
+==============================*/
+
+window.TechFixDatabase={
+
+db:techfixDB,
+
+search:searchSolutions,
+
+brand:getBrandSolutions,
+
+total:getTotalSolutions
+
+};
+
+console.log("Database Connected Successfully");
