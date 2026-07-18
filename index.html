@@ -5,275 +5,331 @@
 
 <meta charset="UTF-8">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TechFix Software EXP | AI Mobile Software Platform</title>
+<title>TechFix Software EXP</title>
 
-<meta name="description"
-content="TechFix Software EXP - Professional Mobile Software, Android, Apple, Firmware, Flash Files, FRP, GSM Tools, Cyber Security and AI Learning Platform.">
-
-<meta name="keywords"
-content="TechFix, Mobile Software, Android, Apple, Firmware, Flash File, FRP, GSM, Cyber Security">
-
-<meta name="author" content="MIAN AHMAD">
-
-<meta name="theme-color" content="#050816">
+<meta name="description" content="Premium Mobile Software & Cyber Security Platform">
 
 <link rel="icon" href="assets/images/logo.png">
-
-<!-- Google Font -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<!-- Main CSS -->
-
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet"
+href="assets/css/style.css">
 
 </head>
 
 <body>
-  <!--=====================================================
-                    BACKGROUND
-======================================================-->
 
-<div class="background-blur blur-blue"></div>
+<div class="bg-grid"></div>
 
-<div class="background-blur blur-green"></div>
+<div class="bg-glow-left"></div>
 
-<div class="grid-overlay"></div>
+<div class="bg-glow-right"></div>
 
-<!--=====================================================
-                ROBOT BACKGROUND
-======================================================-->
+<div id="loader">
 
-<img
-src="assets/images/robot-bg.png"
-class="robot-bg"
-alt="Robot Background">
+<div class="loader-ring"></div>
 
-<!--=====================================================
-                    HEADER
-======================================================-->
+</div>
 
-<header class="header">
+<div class="layout">
 
-<div class="container">
+<!--=========================
+SIDEBAR
+==========================-->
 
-<nav class="navbar">
-
-<!--================ LOGO ================-->
-
-<a href="index.html" class="logo">
-
-<img
-src="assets/images/logo.png"
-alt="TechFix Logo">
+<aside class="sidebar">
 
 <div>
 
-<h2>TechFix</h2>
+<div class="logo-box">
 
-<span>SOFTWARE EXP</span>
+<img src="assets/images/logo.png" alt="logo">
+
+<h2>TECHFIX</h2>
+
+<p>Software EXP</p>
 
 </div>
+
+<nav class="sidebar-nav">
+
+<a href="index.html" class="active">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
 
 </a>
 
-<!--================ MENU ================-->
+<a href="mobiles.html">
 
-<ul class="nav-menu">
+<i class="fa-solid fa-mobile-screen-button"></i>
 
-<li><a href="index.html" class="active">Home</a></li>
-
-<li><a href="mobiles.html">Mobiles</a></li>
-
-<li><a href="android.html">Android</a></li>
-
-<li><a href="apple.html">Apple</a></li>
-
-<li><a href="downloads.html">Downloads</a></li>
-
-<li><a href="cyber.html">Cyber</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-<!--================ NAV ACTIONS ================-->
-
-<div class="nav-actions">
-
-<button id="searchBtn" aria-label="Search">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-</button>
-
-<a
-href="https://wa.me/966568152404"
-target="_blank"
-class="whatsapp-btn">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-<span>WhatsApp</span>
+<span>Mobiles</span>
 
 </a>
 
-<button class="menu-btn" aria-label="Menu">
+<a href="android.html">
 
-<i class="fa-solid fa-bars"></i>
+<i class="fa-brands fa-android"></i>
 
-</button>
+<span>Android</span>
 
-</div>
+</a>
+
+<a href="apple.html">
+
+<i class="fa-brands fa-apple"></i>
+
+<span>Apple</span>
+
+</a>
+
+<a href="downloads.html">
+
+<i class="fa-solid fa-download"></i>
+
+<span>Downloads</span>
+
+</a>
+
+<a href="cyber.html">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<span>Cyber Security</span>
+
+</a>
+
+<a href="contact.html">
+
+<i class="fa-solid fa-envelope"></i>
+
+<span>Contact</span>
+
+</a>
 
 </nav>
 
 </div>
 
+<div>
+
+<div class="sidebar-social">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+<a href="#"><i class="fab fa-tiktok"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+</div>
+
+<div class="sidebar-footer">
+
+<h4>TechFix V10</h4>
+
+<p>Premium Dashboard</p>
+
+</div>
+
+</div>
+
+</aside>
+
+<!--=========================
+MAIN
+==========================-->
+
+<main class="main-content">
+
+<header class="mobile-header">
+
+<button id="menuBtn">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+<img src="assets/images/logo.png">
+
 </header>
-<!--=====================================================
-                        HERO
-======================================================-->
+<!--==================================
+HERO SECTION
+===================================-->
 
 <section class="hero">
 
-<div class="hero-container">
-
-<!--================ LEFT SIDE ================-->
-
 <div class="hero-left">
 
-<div class="hero-tag">
+<div class="hero-badge">
 
-<i class="fa-solid fa-sparkles"></i>
+<i class="fa-solid fa-bolt"></i>
 
-<span>AI Powered Mobile Software Platform</span>
+<span>Premium Mobile Software Platform</span>
 
 </div>
 
 <h1>
 
-The Future Of
+TECHFIX
 
-<span>Mobile Software</span>
+<span>SOFTWARE</span>
 
-Starts Here
+EXP
 
 </h1>
 
 <p>
 
-Professional platform for Mobile Technicians,
-Android Developers, Apple Engineers and
-Cyber Security Learners.
+Professional Mobile Software, Apple Services,
 
-Firmware, Flash Files, FRP, Unlock,
-Tools, Drivers and AI Solutions —
-Everything in one place.
+Android Solutions, Premium Downloads,
+
+Cyber Security Tutorials and Latest Mobile
+
+Technology in one place.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="mobiles.html" class="btn btn-primary">
-
-<i class="fa-solid fa-mobile-screen-button"></i>
-
-Explore Mobiles
-
-</a>
-
-<a href="downloads.html" class="btn btn-secondary">
+<a href="downloads.html" class="btn btn-primary">
 
 <i class="fa-solid fa-download"></i>
 
-Downloads
+Download Center
+
+</a>
+
+<a href="contact.html" class="btn btn-outline">
+
+<i class="fa-solid fa-headset"></i>
+
+Contact Us
 
 </a>
 
 </div>
 
-<div class="hero-stats">
+<div class="hero-search">
 
-<div class="stat-card">
+<input
 
-<h2>5000+</h2>
+type="text"
 
-<span>Devices</span>
+id="searchBox"
 
-</div>
+placeholder="Search Device...">
 
-<div class="stat-card">
+<button id="searchBtn">
 
-<h2>15000+</h2>
+<i class="fa-solid fa-magnifying-glass"></i>
 
-<span>Solutions</span>
-
-</div>
-
-<div class="stat-card">
-
-<h2>24/7</h2>
-
-<span>Support</span>
+</button>
 
 </div>
 
 </div>
-
-</div>
-<!--================ RIGHT SIDE ================-->
 
 <div class="hero-right">
 
-<div class="hero-glow"></div>
+<div class="hero-image-card">
 
 <img
+
 src="assets/images/hero-home.png"
-class="hero-image"
-alt="TechFix AI">
+
+alt="Hero">
 
 </div>
 
 </div>
 
 </section>
-<!--=====================================================
-                    FEATURES
-======================================================-->
 
-<section class="features">
+<!--==================================
+STATS
+===================================-->
 
-<div class="container">
+<section class="quick-stats">
 
-<div class="section-header">
+<div class="stat-box">
 
-<span>WHY TECHFIX</span>
+<i class="fa-solid fa-mobile-screen-button"></i>
 
-<h2>Everything You Need In One Platform</h2>
+<h2>500+</h2>
+
+<p>Supported Devices</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-download"></i>
+
+<h2>150+</h2>
+
+<p>Software Tools</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h2>99%</h2>
+
+<p>Success Rate</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fa-solid fa-users"></i>
+
+<h2>24/7</h2>
+
+<p>Support</p>
+
+</div>
+
+</section>
+<!--==================================
+SERVICES
+===================================-->
+
+<section class="services">
+
+<div class="section-heading">
+
+<span>OUR SERVICES</span>
+
+<h2>Professional Mobile Solutions</h2>
 
 <p>
 
-Professional GSM Software, Android, Apple,
-Cyber Security and AI Learning Platform.
+Latest software, premium tools, mobile repair
+guides, firmware downloads and cyber security
+resources.
 
 </p>
 
 </div>
 
-<div class="services-grid">
+<div class="service-grid">
 
 <div class="service-card">
 
@@ -283,31 +339,22 @@ Cyber Security and AI Learning Platform.
 
 </div>
 
-<h3>Mobile Database</h3>
+<h3>Mobile Software</h3>
 
 <p>
 
-Thousands of supported devices with complete repair solutions.
+Latest flashing tools, unlock solutions,
+firmware and repair software.
 
 </p>
 
-</div>
+<a href="mobiles.html" class="card-btn">
 
-<div class="service-card">
+Explore
 
-<div class="service-icon">
+<i class="fa-solid fa-arrow-right"></i>
 
-<i class="fa-brands fa-android"></i>
-
-</div>
-
-<h3>Android Tools</h3>
-
-<p>
-
-ADB, Fastboot, Drivers, Flash Tools and Utilities.
-
-</p>
+</a>
 
 </div>
 
@@ -323,9 +370,45 @@ ADB, Fastboot, Drivers, Flash Tools and Utilities.
 
 <p>
 
-Restore, DFU, Jailbreak, Activation and Repair.
+Restore, update, activation, iOS guides,
+device support and latest Apple news.
 
 </p>
+
+<a href="apple.html" class="card-btn">
+
+Explore
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<i class="fa-brands fa-android"></i>
+
+</div>
+
+<h3>Android Center</h3>
+
+<p>
+
+FRP, Unlock, Firmware, Drivers,
+ADB & Fastboot tutorials.
+
+</p>
+
+<a href="android.html" class="card-btn">
+
+Explore
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
 
 </div>
 
@@ -341,9 +424,18 @@ Restore, DFU, Jailbreak, Activation and Repair.
 
 <p>
 
-Official GSM Software, Drivers and Firmware.
+Latest software collection,
+drivers, firmware and premium tools.
 
 </p>
+
+<a href="downloads.html" class="card-btn">
+
+Explore
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
 
 </div>
 
@@ -359,9 +451,19 @@ Official GSM Software, Drivers and Firmware.
 
 <p>
 
-Ethical Hacking, Kali Linux and Programming.
+Kali Linux, Ubuntu,
+Networking, Ethical Hacking,
+Cyber Learning Hub.
 
 </p>
+
+<a href="cyber.html" class="card-btn">
+
+Explore
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
 
 </div>
 
@@ -377,92 +479,154 @@ Ethical Hacking, Kali Linux and Programming.
 
 <p>
 
-24/7 Professional Technical Support.
+Need help?
+
+Contact TechFix Software EXP
+for professional assistance.
+
+</p>
+
+<a href="contact.html" class="card-btn">
+
+Contact
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+SUPPORTED BRANDS
+===================================-->
+
+<section class="brands">
+
+<div class="section-heading">
+
+<span>SUPPORTED BRANDS</span>
+
+<h2>Professional Mobile Brands</h2>
+
+<p>
+
+Latest supported devices for software,
+unlocking, flashing and repair services.
 
 </p>
 
 </div>
 
+<div class="brand-grid">
+
+<div class="brand-card">
+<img src="assets/images/brands/apple.png" alt="Apple">
+<h4>Apple</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/samsung.png" alt="Samsung">
+<h4>Samsung</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/google-pixel.png" alt="Google">
+<h4>Google Pixel</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/xiaomi.png" alt="Xiaomi">
+<h4>Xiaomi</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/poco.png" alt="POCO">
+<h4>POCO</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/oneplus.png" alt="OnePlus">
+<h4>OnePlus</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/vivo.png" alt="Vivo">
+<h4>Vivo</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/oppo.png" alt="Oppo">
+<h4>Oppo</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/realme.png" alt="Realme">
+<h4>Realme</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/tecno.png" alt="Tecno">
+<h4>Tecno</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/infinix.png" alt="Infinix">
+<h4>Infinix</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/huawei.png" alt="Huawei">
+<h4>Huawei</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/honor.png" alt="Honor">
+<h4>Honor</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/motorola.png" alt="Motorola">
+<h4>Motorola</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/nothing.png" alt="Nothing">
+<h4>Nothing</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/nokia.png" alt="Nokia">
+<h4>Nokia</h4>
+</div>
+
+<div class="brand-card">
+<img src="assets/images/brands/lg.png" alt="LG">
+<h4>LG</h4>
 </div>
 
 </div>
 
 </section>
-<!--=====================================================
-                    PLATFORM STATS
-======================================================-->
 
-<section class="platform-stats">
+<!--==================================
+WHY CHOOSE US
+===================================-->
 
-<div class="container">
+<section class="why">
 
-<div class="stats-grid">
+<div class="section-heading">
 
-<div class="counter-card">
+<span>WHY TECHFIX</span>
 
-<h2>5000+</h2>
-
-<span>Supported Devices</span>
-
-</div>
-
-<div class="counter-card">
-
-<h2>15000+</h2>
-
-<span>Repair Solutions</span>
-
-</div>
-
-<div class="counter-card">
-
-<h2>500+</h2>
-
-<span>Software Downloads</span>
-
-</div>
-
-<div class="counter-card">
-
-<h2>24/7</h2>
-
-<span>Technical Support</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!--=====================================================
-                    WHY TECHFIX
-======================================================-->
-
-<section class="why-techfix">
-
-<div class="container">
-
-<div class="why-wrapper">
-
-<div class="why-left">
-
-<div class="section-header" style="text-align:left;margin:0 0 40px;">
-
-<span>WHY CHOOSE US</span>
-
-<h2>
-
-One Platform For Every Mobile Engineer
-
-</h2>
+<h2>Why Choose TechFix Software EXP</h2>
 
 <p>
 
-From Firmware to Flash Files, Android Tools,
-Apple Repair, FRP Unlock and Cyber Security,
-TechFix brings everything together.
+Professional experience with modern
+software solutions and premium support.
 
 </p>
 
@@ -474,19 +638,29 @@ TechFix brings everything together.
 
 <i class="fa-solid fa-bolt"></i>
 
-<h4>Fast Access</h4>
+<h3>Fast Solutions</h3>
 
-<p>Instant navigation to tools and solutions.</p>
+<p>
+
+Quick mobile software support,
+unlocking, flashing and troubleshooting.
+
+</p>
 
 </div>
 
 <div class="why-card">
 
-<i class="fa-solid fa-lock"></i>
+<i class="fa-solid fa-shield-halved"></i>
 
-<h4>Trusted Files</h4>
+<h3>Trusted Platform</h3>
 
-<p>Organized software with secure downloads.</p>
+<p>
+
+Safe downloads, verified files,
+latest updates and professional guides.
+
+</p>
 
 </div>
 
@@ -494,87 +668,62 @@ TechFix brings everything together.
 
 <i class="fa-solid fa-graduation-cap"></i>
 
-<h4>Learning</h4>
+<h3>Learning Hub</h3>
 
-<p>Cyber Security and Programming resources.</p>
+<p>
 
-</div>
+Cyber Security,
+Linux,
+Networking,
+Android,
+Apple tutorials.
 
-<div class="why-card">
-
-<i class="fa-solid fa-cloud-arrow-down"></i>
-
-<h4>Daily Updates</h4>
-
-<p>New firmware, drivers and GSM tools.</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="glass-box">
-
-<h3>
-
-Platform Highlights
-
-</h3>
-
-<ul>
-
-<li><i class="fa-solid fa-check"></i> Samsung, Xiaomi, Vivo, Oppo, Realme</li>
-
-<li><i class="fa-solid fa-check"></i> Android Flash & FRP Solutions</li>
-
-<li><i class="fa-solid fa-check"></i> Apple Restore & DFU Guides</li>
-
-<li><i class="fa-solid fa-check"></i> GSM Software Downloads</li>
-
-<li><i class="fa-solid fa-check"></i> AI Powered Search System</li>
-
-<li><i class="fa-solid fa-check"></i> Cyber Security Learning</li>
-
-</ul>
-
-</div>
+</p>
 
 </div>
 
 </div>
 
 </section>
-<!--=====================================================
-                    CTA
-======================================================-->
+<!--==================================
+CONTACT CTA
+===================================-->
 
-<section class="cta">
+<section class="contact-cta">
 
-<div class="container">
+<div class="cta-card">
 
-<div class="cta-box">
+<span class="cta-badge">
 
-<h2>Ready To Explore TechFix?</h2>
+READY TO START?
+
+</span>
+
+<h2>
+
+Need Professional Mobile Software Support?
+
+</h2>
 
 <p>
 
-Start browsing mobile solutions, firmware, flash files,
-Android tools, Apple repair resources and Cyber Security content.
+Get premium Android solutions, Apple support,
+latest software downloads and Cyber Security
+guides from TechFix Software EXP.
 
 </p>
 
-<div class="cta-buttons">
+<div class="hero-buttons">
 
-<a href="mobiles.html" class="btn btn-primary">
+<a href="contact.html" class="btn btn-primary">
 
-<i class="fa-solid fa-mobile-screen-button"></i>
+<i class="fa-solid fa-paper-plane"></i>
 
-Browse Mobiles
+Contact Now
 
 </a>
 
-<a href="downloads.html" class="btn btn-secondary">
+<a href="downloads.html" class="btn btn-outline">
 
 <i class="fa-solid fa-download"></i>
 
@@ -586,86 +735,77 @@ Downloads
 
 </div>
 
-</div>
-
 </section>
 
-<!--=====================================================
-                    FOOTER
-======================================================-->
+<!--==================================
+FOOTER
+===================================-->
 
-<footer class="footer">
+<footer>
 
-<div class="container">
+<div class="footer-top">
 
-<div class="footer-grid">
+<div class="footer-logo">
 
-<div>
+<img
+src="assets/images/logo.png"
+alt="Logo">
 
-<img src="assets/images/logo.png" class="footer-logo" alt="Logo">
+<h2>
 
-<h3>TechFix Software EXP</h3>
+TECHFIX SOFTWARE EXP
+
+</h2>
 
 <p>
 
-Professional Mobile Software, Firmware,
-Android, Apple and Cyber Security Platform.
+Professional Mobile Software Platform
 
 </p>
 
 </div>
 
-<div>
+<div class="footer-links">
 
-<h4>Quick Links</h4>
+<a href="index.html">Home</a>
 
-<ul>
+<a href="mobiles.html">Mobiles</a>
 
-<li><a href="index.html">Home</a></li>
+<a href="android.html">Android</a>
 
-<li><a href="mobiles.html">Mobiles</a></li>
+<a href="apple.html">Apple</a>
 
-<li><a href="android.html">Android</a></li>
+<a href="downloads.html">Downloads</a>
 
-<li><a href="apple.html">Apple</a></li>
+<a href="cyber.html">Cyber Security</a>
 
-<li><a href="downloads.html">Downloads</a></li>
-
-<li><a href="cyber.html">Cyber</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
+<a href="contact.html">Contact</a>
 
 </div>
 
-<div>
+<div class="footer-social">
 
-<h4>Connect</h4>
-
-<div class="social-links">
-
-<a href="https://youtube.com/@techfixsoftwareexp" target="_blank">
-
-<i class="fab fa-youtube"></i>
-
-</a>
-
-<a href="https://facebook.com/" target="_blank">
+<a href="#">
 
 <i class="fab fa-facebook-f"></i>
 
 </a>
 
-<a href="https://tiktok.com/@techfixsoftwareexp" target="_blank">
+<a href="#">
+
+<i class="fab fa-youtube"></i>
+
+</a>
+
+<a href="#">
 
 <i class="fab fa-tiktok"></i>
 
 </a>
 
-<a href="https://wa.me/966568152404" target="_blank">
+<a href="#">
 
-<i class="fab fa-whatsapp"></i>
+<i class="fab fa-github"></i>
 
 </a>
 
@@ -673,60 +813,36 @@ Android, Apple and Cyber Security Platform.
 
 </div>
 
-</div>
-
-<div class="copyright">
+<div class="footer-bottom">
 
 <p>
 
-© 2026 TechFix Software EXP
+© 2026 TechFix Software EXP.
+All Rights Reserved.
 
 </p>
-
-<p>
-
-Founder & CEO <strong>MIAN AHMAD</strong>
-
-</p>
-
-</div>
 
 </div>
 
 </footer>
 
-<!--=====================================================
-                SEARCH MODAL
-======================================================-->
+<!--==================================
+BACK TO TOP
+===================================-->
 
-<div class="search-modal" id="searchModal">
+<button id="topButton">
 
-<div class="search-box">
-
-<button id="closeSearch">
-
-<i class="fa-solid fa-xmark"></i>
+<i class="fa-solid fa-arrow-up"></i>
 
 </button>
 
-<h2>Search</h2>
-
-<input
-type="text"
-id="liveSearch"
-placeholder="Search mobile, tool, firmware...">
-
-<div id="searchResults"></div>
+</main>
 
 </div>
 
-</div>
+<script src="assets/database/database.js"></script>
 
-<!--=====================================================
-                JAVASCRIPT
-======================================================-->
-
-<script src="assets/js/app.js"></script>
+<script src="assets/js/script.js"></script>
 
 </body>
 
