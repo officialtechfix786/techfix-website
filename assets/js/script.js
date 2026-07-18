@@ -1,58 +1,59 @@
-/*=========================================================
-TECHFIX SOFTWARE EXP V10
-SCRIPT.JS
-PART 1
-=========================================================*/
-
 "use strict";
 
-/*==============================
-LOADER
-==============================*/
+/*=====================================================
+        TECHFIX SOFTWARE EXP
+        FINAL SCRIPT V11
+        Founder : MIAN AHMAD
+=====================================================*/
 
-window.addEventListener("load", () => {
+const $ = (e) => document.querySelector(e);
+const $$ = (e) => document.querySelectorAll(e);
 
-const loader = document.getElementById("loader");
+document.addEventListener("DOMContentLoaded", initTechFix);
 
-setTimeout(() => {
+function initTechFix() {
 
-loader.style.opacity = "0";
+    initNavigation();
 
-loader.style.visibility = "hidden";
+    initBackToTop();
 
-},700);
+    initAnimations();
 
-});
+    initSearchSystem();
 
-/*==============================
-MOBILE SIDEBAR
-==============================*/
+    initMobilePages();
 
-const menuBtn = document.getElementById("menuBtn");
+    initApplePage();
 
-const sidebar = document.querySelector(".sidebar");
+    initAndroidPage();
 
-if(menuBtn){
+    initIcloudPage();
 
-menuBtn.addEventListener("click",()=>{
+    initDownloads();
 
-sidebar.classList.toggle("show");
+    initCyber();
 
-});
+    initContact();
+
+    initAbout();
+
+    initDataRecovery();
 
 }
 
 /*==============================
-ACTIVE MENU
+NAVIGATION
 ==============================*/
 
-const navLinks=document.querySelectorAll(".sidebar-nav a");
+function initNavigation(){
 
-navLinks.forEach(link=>{
+const links=$$(".top-nav a");
+
+links.forEach(link=>{
 
 link.addEventListener("click",()=>{
 
-navLinks.forEach(item=>item.classList.remove("active"));
+links.forEach(x=>x.classList.remove("active"));
 
 link.classList.add("active");
 
@@ -60,33 +61,33 @@ link.classList.add("active");
 
 });
 
+}
+
 /*==============================
 BACK TO TOP
 ==============================*/
 
-const topButton=document.getElementById("topButton");
+function initBackToTop(){
+
+const btn=$("#topButton");
+
+if(!btn)return;
 
 window.addEventListener("scroll",()=>{
 
 if(window.scrollY>500){
 
-topButton.style.opacity="1";
+btn.classList.add("show");
 
-topButton.style.pointerEvents="auto";
+}else{
 
-}
-
-else{
-
-topButton.style.opacity="0";
-
-topButton.style.pointerEvents="none";
+btn.classList.remove("show");
 
 }
 
 });
 
-topButton.addEventListener("click",()=>{
+btn.onclick=()=>{
 
 window.scrollTo({
 
@@ -96,63 +97,52 @@ behavior:"smooth"
 
 });
 
-});
+};
 
+}
 /*==============================
-SMOOTH BUTTON EFFECT
+GLOBAL SEARCH
 ==============================*/
 
-document.querySelectorAll(".btn").forEach(btn=>{
+function initSearchSystem(){
 
-btn.addEventListener("mouseenter",()=>{
+const search=document.querySelector("#globalSearch");
 
-btn.style.transform="translateY(-5px)";
+if(!search)return;
 
-});
+search.addEventListener("keyup",()=>{
 
-btn.addEventListener("mouseleave",()=>{
+const key=search.value.trim().toLowerCase();
 
-btn.style.transform="translateY(0px)";
-
-});
-
-});
-/*=========================================================
-TECHFIX SOFTWARE EXP V10
-SCRIPT.JS
-PART 2
-SEARCH + SCROLL + COUNTER
-=========================================================*/
-
-/*==============================
-SEARCH
-==============================*/
-
-const searchInput=document.querySelector(".hero-search input");
-
-const searchButton=document.querySelector(".hero-search button");
-
-if(searchButton){
-
-searchButton.addEventListener("click",()=>{
-
-const value=searchInput.value.toLowerCase().trim();
-
-if(value==="") return;
-
-window.location.href="mobiles.html?search="+encodeURIComponent(value);
+filterDatabase(key);
 
 });
 
 }
 
-if(searchInput){
+function filterDatabase(keyword){
 
-searchInput.addEventListener("keypress",(e)=>{
+if(typeof solutionsDatabase==="undefined") return;
 
-if(e.key==="Enter"){
+let results=[];
 
-searchButton.click();
+Object.keys(solutionsDatabase).forEach(brand=>{
+
+const data=solutionsDatabase[brand];
+
+if(Array.isArray(data)){
+
+data.forEach(item=>{
+
+if(
+
+item.name.toLowerCase().includes(keyword) ||
+
+item.brand.toLowerCase().includes(keyword)
+
+){
+
+results.push(item);
 
 }
 
@@ -160,9 +150,527 @@ searchButton.click();
 
 }
 
+});
+
+renderSearchResults(results);
+
+}
+
+function renderSearchResults(data){
+
+const container=$("#searchResults");
+
+if(!container)return;
+
+container.innerHTML="";
+
+if(data.length===0){
+
+container.innerHTML="<p class='no-results'>No Results Found</p>";
+
+return;
+
+}
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>${item.brand}</p>
+
+<span>${item.solutions.length} Solutions</span>
+
+</div>
+
+`;
+
+});
+
+}
 /*==============================
-SCROLL ANIMATION
+MOBILES PAGE
 ==============================*/
+
+function initMobilePages(){
+
+const container=$("#mobileContainer");
+
+if(!container)return;
+
+let phones=[];
+
+Object.keys(solutionsDatabase).forEach(brand=>{
+
+const data=solutionsDatabase[brand];
+
+if(Array.isArray(data)){
+
+phones=phones.concat(data);
+
+}
+
+});
+
+renderMobiles(phones);
+
+const search=$("#mobileSearch");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const key=search.value.toLowerCase();
+
+renderMobiles(
+
+phones.filter(item=>
+
+item.name.toLowerCase().includes(key) ||
+
+item.brand.toLowerCase().includes(key)
+
+)
+
+);
+
+});
+
+}
+
+}
+
+function renderMobiles(data){
+
+const container=$("#mobileContainer");
+
+if(!container)return;
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>${item.brand}</p>
+
+<div class="badge">
+
+${item.solutions.length} Solutions
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+/*==============================
+APPLE PAGE
+==============================*/
+
+function initApplePage(){
+
+const container=$("#appleContainer");
+
+if(!container)return;
+
+const apple=solutionsDatabase.apple||[];
+
+renderApple(apple);
+
+const search=$("#appleSearch");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const key=search.value.toLowerCase();
+
+renderApple(
+
+apple.filter(item=>
+
+item.name.toLowerCase().includes(key)
+
+)
+
+);
+
+});
+
+}
+
+}
+
+function renderApple(data){
+
+const container=$("#appleContainer");
+
+if(!container)return;
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>Apple</p>
+
+<div class="badge">
+
+${item.solutions.length} Solutions
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+/*==============================
+ANDROID PAGE
+==============================*/
+
+function initAndroidPage(){
+
+const container=$("#androidContainer");
+
+if(!container)return;
+
+let android=[];
+
+Object.keys(solutionsDatabase).forEach(brand=>{
+
+if(brand.toLowerCase()!=="apple"){
+
+const data=solutionsDatabase[brand];
+
+if(Array.isArray(data)){
+
+android=android.concat(data);
+
+}
+
+}
+
+});
+
+renderAndroid(android);
+
+const search=$("#androidSearch");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const key=search.value.toLowerCase();
+
+renderAndroid(
+
+android.filter(item=>
+
+item.name.toLowerCase().includes(key) ||
+
+item.brand.toLowerCase().includes(key)
+
+)
+
+);
+
+});
+
+}
+
+}
+
+function renderAndroid(data){
+
+const container=$("#androidContainer");
+
+if(!container)return;
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>${item.brand}</p>
+
+<div class="badge">
+
+${item.solutions.length} Solutions
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+/*==============================
+ICLOUD PAGE
+==============================*/
+
+function initIcloudPage(){
+
+const container=$("#icloudContainer");
+
+if(!container)return;
+
+const apple=solutionsDatabase.apple||[];
+
+renderIcloud(apple);
+
+const search=$("#icloudSearch");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const key=search.value.toLowerCase();
+
+renderIcloud(
+
+apple.filter(item=>
+
+item.name.toLowerCase().includes(key)
+
+)
+
+);
+
+});
+
+}
+
+}
+
+function renderIcloud(data){
+
+const container=$("#icloudContainer");
+
+if(!container)return;
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>Apple iCloud</p>
+
+<div class="badge">
+
+${item.solutions.length} Services
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+/*==============================
+DOWNLOADS PAGE
+==============================*/
+
+function initDownloads(){
+
+const cards=$$(".download-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.classList.add("active");
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.classList.remove("active");
+
+});
+
+});
+
+}
+/*==============================
+CYBER PAGE
+==============================*/
+
+function initCyber(){
+
+const cards=$$(".service-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-10px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0px)";
+
+});
+
+});
+
+}
+
+/*==============================
+ABOUT PAGE
+==============================*/
+
+function initAbout(){
+
+const stats=$$(".counter");
+
+if(!stats.length)return;
+
+stats.forEach(counter=>{
+
+const target=parseInt(counter.dataset.target)||0;
+
+let value=0;
+
+const timer=setInterval(()=>{
+
+value+=Math.ceil(target/100);
+
+if(value>=target){
+
+value=target;
+
+clearInterval(timer);
+
+}
+
+counter.textContent=value;
+
+},20);
+
+});
+
+}
+
+/*==============================
+DATA RECOVERY
+==============================*/
+
+function initDataRecovery(){
+
+const cards=$$(".recovery-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+card.classList.toggle("active");
+
+});
+
+});
+
+}
+/*==============================
+CONTACT PAGE
+==============================*/
+
+function initContact(){
+
+const form=document.querySelector(".contact-form");
+
+if(!form)return;
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const inputs=form.querySelectorAll("input,textarea");
+
+let valid=true;
+
+inputs.forEach(input=>{
+
+if(input.hasAttribute("required") && input.value.trim()===""){
+
+valid=false;
+
+input.classList.add("input-error");
+
+}else{
+
+input.classList.remove("input-error");
+
+}
+
+});
+
+if(!valid){
+
+alert("Please fill all required fields.");
+
+return;
+
+}
+
+alert("Thank you! Your message has been submitted.");
+
+form.reset();
+
+});
+
+}
+
+/*==============================
+SCROLL ANIMATIONS
+==============================*/
+
+function initAnimations(){
 
 const observer=new IntersectionObserver((entries)=>{
 
@@ -170,143 +678,54 @@ entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
+entry.target.classList.add("show");
 
 }
 
 });
 
-},
+},{
 
-{
-
-threshold:.15
+threshold:0.15
 
 });
 
-document.querySelectorAll(
+document.querySelectorAll(".service-card,.page-hero,.brands-page,.footer-top").forEach(el=>{
 
-".service-card,.brand-card,.why-card,.stat-box,.cta-card"
-
-).forEach(item=>{
-
-item.style.opacity="0";
-
-item.style.transform="translateY(50px)";
-
-item.style.transition=".8s";
-
-observer.observe(item);
+observer.observe(el);
 
 });
 
+}
 /*==============================
-COUNTER
+SOCIAL LINKS
 ==============================*/
 
-const counters=document.querySelectorAll(".stat-box h2");
+function initSocialLinks(){
 
-let started=false;
+const socials={
 
-window.addEventListener("scroll",()=>{
+youtube:"https://youtube.com/",
 
-const section=document.querySelector(".quick-stats");
+facebook:"https://facebook.com/",
 
-if(!section) return;
+telegram:"https://t.me/",
 
-if(window.scrollY>
+github:"https://github.com/",
 
-section.offsetTop-500
+whatsapp:"https://wa.me/"
 
-&& !started){
+};
 
-started=true;
+document.querySelectorAll("[data-social]").forEach(btn=>{
 
-counters.forEach(counter=>{
+btn.addEventListener("click",()=>{
 
-let target=parseInt(counter.innerText);
+const key=btn.dataset.social;
 
-let current=0;
+if(socials[key]){
 
-let speed=Math.ceil(target/80);
-
-let timer=setInterval(()=>{
-
-current+=speed;
-
-if(current>=target){
-
-counter.innerText=target;
-
-clearInterval(timer);
-
-}
-
-else{
-
-counter.innerText=current;
-
-}
-
-},25);
-
-});
-
-}
-
-});
-
-/*==============================
-BRAND EFFECT
-==============================*/
-
-document.querySelectorAll(".brand-card").forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-const x=e.offsetX;
-
-const y=e.offsetY;
-
-card.style.background=
-
-`radial-gradient(circle at ${x}px ${y}px,
-
-rgba(139,92,246,.28),
-
-#141C33)`;
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.background="#141C33";
-
-});
-
-});
-/*=========================================================
-TECHFIX SOFTWARE EXP V10
-SCRIPT.JS
-PART 3
-PREMIUM FUNCTIONS
-=========================================================*/
-
-/*==============================
-AUTO CLOSE SIDEBAR
-==============================*/
-
-const sidebarLinks=document.querySelectorAll(".sidebar a");
-
-sidebarLinks.forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-if(window.innerWidth<=992){
-
-sidebar.classList.remove("show");
+window.open(socials[key],"_blank");
 
 }
 
@@ -314,528 +733,36 @@ sidebar.classList.remove("show");
 
 });
 
-/*==============================
-ACTIVE PAGE
-==============================*/
-
-const currentPage=window.location.pathname.split("/").pop();
-
-document.querySelectorAll(".sidebar-nav a").forEach(link=>{
-
-const file=link.getAttribute("href");
-
-if(file===currentPage){
-
-document.querySelectorAll(".sidebar-nav a").forEach(x=>{
-
-x.classList.remove("active");
-
-});
-
-link.classList.add("active");
-
 }
 
-});
-
 /*==============================
-BUTTON RIPPLE
-==============================*/
-
-document.querySelectorAll(".btn").forEach(btn=>{
-
-btn.addEventListener("click",function(e){
-
-const ripple=document.createElement("span");
-
-const rect=this.getBoundingClientRect();
-
-const size=Math.max(rect.width,rect.height);
-
-ripple.style.width=size+"px";
-
-ripple.style.height=size+"px";
-
-ripple.style.left=e.clientX-rect.left-size/2+"px";
-
-ripple.style.top=e.clientY-rect.top-size/2+"px";
-
-ripple.className="ripple";
-
-this.appendChild(ripple);
-
-setTimeout(()=>{
-
-ripple.remove();
-
-},600);
-
-});
-
-});
-
-/*==============================
-PARALLAX HERO
-==============================*/
-
-const heroImage=document.querySelector(".hero-image-card img");
-
-window.addEventListener("mousemove",(e)=>{
-
-if(!heroImage) return;
-
-const x=(window.innerWidth/2-e.pageX)/45;
-
-const y=(window.innerHeight/2-e.pageY)/45;
-
-heroImage.style.transform=
-
-`translate(${x}px,${y}px)`;
-
-});
-
-/*==============================
-CARD GLOW
-==============================*/
-
-document.querySelectorAll(
-
-".service-card,.why-card,.stat-box"
-
-).forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-const rect=card.getBoundingClientRect();
-
-const x=e.clientX-rect.left;
-
-const y=e.clientY-rect.top;
-
-card.style.background=
-
-`radial-gradient(circle at ${x}px ${y}px,
-
-rgba(139,92,246,.18),
-
-#141C33 70%)`;
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.background="#141C33";
-
-});
-
-});
-
-/*==============================
-PRELOAD IMAGES
-==============================*/
-
-const preloadImages=[
-
-"assets/images/logo.png",
-
-"assets/images/hero-home.png",
-
-"assets/images/robot-bg.png"
-
-];
-
-preloadImages.forEach(src=>{
-
-const img=new Image();
-
-img.src=src;
-
-});
-
-/*==============================
-CONSOLE
-==============================*/
-
-console.log(
-
-"TechFix Software EXP V10 Loaded Successfully"
-
-);
-/*=========================================================
-TECHFIX SOFTWARE EXP V10
-SCRIPT.JS
-PART 4 FINAL
-=========================================================*/
-
-/*==============================
-REMOVE LOADER SAFELY
+PRELOADER
 ==============================*/
 
 window.addEventListener("load",()=>{
 
-const loader=document.getElementById("loader");
+const loader=document.querySelector(".preloader");
 
 if(loader){
 
-setTimeout(()=>{
+loader.classList.add("hide");
 
-loader.style.opacity="0";
-
-loader.style.visibility="hidden";
-
-loader.style.pointerEvents="none";
-
-},700);
+setTimeout(()=>loader.remove(),600);
 
 }
 
 });
 
 /*==============================
-TOP BUTTON START HIDDEN
-==============================*/
-
-if(topButton){
-
-topButton.style.opacity="0";
-
-topButton.style.pointerEvents="none";
-
-}
-
-/*==============================
-HEADER SHADOW
-==============================*/
-
-window.addEventListener("scroll",()=>{
-
-const mobileHeader=document.querySelector(".mobile-header");
-
-if(!mobileHeader) return;
-
-if(window.scrollY>20){
-
-mobileHeader.style.boxShadow="0 15px 40px rgba(0,0,0,.25)";
-
-mobileHeader.style.backdropFilter="blur(20px)";
-
-}
-
-else{
-
-mobileHeader.style.boxShadow="none";
-
-}
-
-});
-
-/*==============================
-SEARCH FOCUS
-==============================*/
-
-if(searchInput){
-
-searchInput.addEventListener("focus",()=>{
-
-document.querySelector(".hero-search").style.borderColor="#8B5CF6";
-
-});
-
-searchInput.addEventListener("blur",()=>{
-
-document.querySelector(".hero-search").style.borderColor="rgba(255,255,255,.08)";
-
-});
-
-}
-
-/*==============================
-DISABLE RIGHT CLICK
-(REMOVE IF NOT NEEDED)
-==============================*/
-
-// document.addEventListener("contextmenu",e=>{
-
-// e.preventDefault();
-
-// });
-
-/*==============================
-WINDOW RESIZE
-==============================*/
-
-window.addEventListener("resize",()=>{
-
-if(window.innerWidth>992){
-
-sidebar.classList.remove("show");
-
-}
-
-});
-
-/*==============================
-DATABASE READY
-==============================*/
-
-window.TechFix={
-
-version:"10",
-
-databaseLoaded:false,
-
-loadedTime:new Date(),
-
-platform:"Website"
-
-};
-
-/*==============================
-READY
+INITIALIZE EVERYTHING
 ==============================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-console.log("Everything Ready ✔");
-
-});
-/*=========================================================
-DATABASE INTEGRATION - PART 1
-=========================================================*/
-
-function getDatabase() {
-
-    if (typeof solutionsDatabase !== "undefined") {
-        return solutionsDatabase;
-    }
-
-    console.error("Solutions Database Not Loaded");
-    return null;
-
-}
-
-const techfixDB = getDatabase();
-
-/*=================================
-SEARCH DATABASE
-=================================*/
-
-function searchSolutions(keyword) {
-
-    if (!techfixDB) return [];
-
-    keyword = keyword.toLowerCase();
-
-    const results = [];
-
-    Object.keys(techfixDB).forEach(brand => {
-
-        techfixDB[brand].forEach(item => {
-
-            const text = JSON.stringify(item).toLowerCase();
-
-            if (text.includes(keyword)) {
-
-                results.push(item);
-
-            }
-
-        });
-
-    });
-
-    return results;
-
-}
-
-/*=================================
-SEARCH BUTTON
-=================================*/
-
-const heroSearchBtn = document.querySelector(".hero-search button");
-
-const heroSearchInput = document.querySelector(".hero-search input");
-
-if(heroSearchBtn){
-
-heroSearchBtn.addEventListener("click",()=>{
-
-const value=heroSearchInput.value.trim();
-
-if(value==="") return;
-
-const data=searchSolutions(value);
-
-console.log(data);
-
-alert("Results Found : "+data.length);
+initSocialLinks();
 
 });
 
-}
-/*=========================================================
-DATABASE INTEGRATION - PART 2
-=========================================================*/
-
 /*==============================
-GET BRAND DATA
+END OF SCRIPT V11
 ==============================*/
-
-function getBrandSolutions(brand){
-
-    if(!techfixDB) return [];
-
-    return techfixDB[brand] || [];
-
-}
-
-/*==============================
-TOTAL SOLUTIONS
-==============================*/
-
-function getTotalSolutions(){
-
-    if(!techfixDB) return 0;
-
-    let total=0;
-
-    Object.keys(techfixDB).forEach(brand=>{
-
-        total+=techfixDB[brand].length;
-
-    });
-
-    return total;
-
-}
-
-/*==============================
-TOTAL BRANDS
-==============================*/
-
-function getTotalBrands(){
-
-    if(!techfixDB) return 0;
-
-    return Object.keys(techfixDB).length;
-
-}
-
-/*==============================
-CONSOLE INFO
-==============================*/
-
-console.log("Brands :",getTotalBrands());
-
-console.log("Solutions :",getTotalSolutions());
-
-/*==============================
-READY
-==============================*/
-
-window.TechFixDatabase={
-
-db:techfixDB,
-
-search:searchSolutions,
-
-brand:getBrandSolutions,
-
-total:getTotalSolutions
-
-};
-
-console.log("Database Connected Successfully");
-/*=========================================================
-MOBILES PAGE DATABASE RENDER
-=========================================================*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const container = document.getElementById("brandsContainer");
-
-    if (!container) return;
-
-    if (typeof solutionsDatabase === "undefined") {
-
-        container.innerHTML = `
-            <div class="service-card">
-                <h3>Database Error</h3>
-                <p>Solutions Database Not Loaded.</p>
-            </div>
-        `;
-        return;
-
-    }
-
-    let html = "";
-
-    Object.keys(solutionsDatabase).forEach((brand) => {
-
-        const total = solutionsDatabase[brand].length;
-
-        const image = `assets/images/brands/${brand.toLowerCase()}.png`;
-
-        html += `
-
-        <div class="brand-card">
-
-            <img src="${image}"
-                 onerror="this.src='assets/images/logo.png'">
-
-            <h3>${brand}</h3>
-
-            <p>${total} Solutions Available</p>
-
-            <a href="${brand.toLowerCase()}.html"
-               class="btn btn-primary">
-
-                View Solutions
-
-            </a>
-
-        </div>
-
-        `;
-
-    });
-
-    container.innerHTML = html;
-
-});
-/*=========================================================
-LIVE SEARCH - MOBILES PAGE
-=========================================================*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const searchInput = document.getElementById("mobileSearch");
-    const container = document.getElementById("brandsContainer");
-
-    if (!searchInput || !container) return;
-
-    searchInput.addEventListener("keyup", () => {
-
-        const keyword = searchInput.value.toLowerCase();
-
-        const cards = container.querySelectorAll(".brand-card");
-
-        cards.forEach(card => {
-
-            const text = card.innerText.toLowerCase();
-
-            if (text.includes(keyword)) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-});
