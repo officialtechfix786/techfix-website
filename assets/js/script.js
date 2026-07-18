@@ -746,3 +746,96 @@ total:getTotalSolutions
 };
 
 console.log("Database Connected Successfully");
+/*=========================================================
+MOBILES PAGE DATABASE RENDER
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const container = document.getElementById("brandsContainer");
+
+    if (!container) return;
+
+    if (typeof solutionsDatabase === "undefined") {
+
+        container.innerHTML = `
+            <div class="service-card">
+                <h3>Database Error</h3>
+                <p>Solutions Database Not Loaded.</p>
+            </div>
+        `;
+        return;
+
+    }
+
+    let html = "";
+
+    Object.keys(solutionsDatabase).forEach((brand) => {
+
+        const total = solutionsDatabase[brand].length;
+
+        const image = `assets/images/brands/${brand.toLowerCase()}.png`;
+
+        html += `
+
+        <div class="brand-card">
+
+            <img src="${image}"
+                 onerror="this.src='assets/images/logo.png'">
+
+            <h3>${brand}</h3>
+
+            <p>${total} Solutions Available</p>
+
+            <a href="${brand.toLowerCase()}.html"
+               class="btn btn-primary">
+
+                View Solutions
+
+            </a>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+
+});
+/*=========================================================
+LIVE SEARCH - MOBILES PAGE
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const searchInput = document.getElementById("mobileSearch");
+    const container = document.getElementById("brandsContainer");
+
+    if (!searchInput || !container) return;
+
+    searchInput.addEventListener("keyup", () => {
+
+        const keyword = searchInput.value.toLowerCase();
+
+        const cards = container.querySelectorAll(".brand-card");
+
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            if (text.includes(keyword)) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
