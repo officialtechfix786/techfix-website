@@ -599,3 +599,77 @@ document.addEventListener("DOMContentLoaded",()=>{
 console.log("Everything Ready ✔");
 
 });
+/*=========================================================
+DATABASE INTEGRATION - PART 1
+=========================================================*/
+
+function getDatabase() {
+
+    if (typeof solutionsDatabase !== "undefined") {
+        return solutionsDatabase;
+    }
+
+    console.error("Solutions Database Not Loaded");
+    return null;
+
+}
+
+const techfixDB = getDatabase();
+
+/*=================================
+SEARCH DATABASE
+=================================*/
+
+function searchSolutions(keyword) {
+
+    if (!techfixDB) return [];
+
+    keyword = keyword.toLowerCase();
+
+    const results = [];
+
+    Object.keys(techfixDB).forEach(brand => {
+
+        techfixDB[brand].forEach(item => {
+
+            const text = JSON.stringify(item).toLowerCase();
+
+            if (text.includes(keyword)) {
+
+                results.push(item);
+
+            }
+
+        });
+
+    });
+
+    return results;
+
+}
+
+/*=================================
+SEARCH BUTTON
+=================================*/
+
+const heroSearchBtn = document.querySelector(".hero-search button");
+
+const heroSearchInput = document.querySelector(".hero-search input");
+
+if(heroSearchBtn){
+
+heroSearchBtn.addEventListener("click",()=>{
+
+const value=heroSearchInput.value.trim();
+
+if(value==="") return;
+
+const data=searchSolutions(value);
+
+console.log(data);
+
+alert("Results Found : "+data.length);
+
+});
+
+}
