@@ -2,779 +2,47 @@
 
 /*=====================================================
         TECHFIX SOFTWARE EXP
-        FINAL SCRIPT V11
+        FINAL SCRIPT V10
         Founder : MIAN AHMAD
 =====================================================*/
 
-const $ = (e) => document.querySelector(e);
-const $$ = (e) => document.querySelectorAll(e);
-
-document.addEventListener("DOMContentLoaded", initTechFix);
-
-function initTechFix() {
-
-    initNavigation();
-
-    initBackToTop();
-
-    initAnimations();
-
-    initSearchSystem();
-
-    initMobilePages();
-
-    initApplePage();
-
-    initAndroidPage();
-
-    initIcloudPage();
-
-    initDownloads();
-
-    initCyber();
-
-    initContact();
-
-    initAbout();
-
-    initDataRecovery();
-
-}
-
-/*==============================
-NAVIGATION
-==============================*/
-
-function initNavigation(){
-
-const links=$$(".top-nav a");
-
-links.forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-links.forEach(x=>x.classList.remove("active"));
-
-link.classList.add("active");
-
-});
-
-});
-
-}
-
-/*==============================
-BACK TO TOP
-==============================*/
-
-function initBackToTop(){
-
-const btn=$("#topButton");
-
-if(!btn)return;
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>500){
-
-btn.classList.add("show");
-
-}else{
-
-btn.classList.remove("show");
-
-}
-
-});
-
-btn.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-
-}
-/*==============================
-GLOBAL SEARCH
-==============================*/
-
-function initSearchSystem(){
-
-const search=document.querySelector("#globalSearch");
-
-if(!search)return;
-
-search.addEventListener("keyup",()=>{
-
-const key=search.value.trim().toLowerCase();
-
-filterDatabase(key);
-
-});
-
-}
-
-function filterDatabase(keyword){
-
-if(typeof solutionsDatabase==="undefined") return;
-
-let results=[];
-
-Object.keys(solutionsDatabase).forEach(brand=>{
-
-const data=solutionsDatabase[brand];
-
-if(Array.isArray(data)){
-
-data.forEach(item=>{
-
-if(
-
-item.name.toLowerCase().includes(keyword) ||
-
-item.brand.toLowerCase().includes(keyword)
-
-){
-
-results.push(item);
-
-}
-
-});
-
-}
-
-});
-
-renderSearchResults(results);
-
-}
-
-function renderSearchResults(data){
-
-const container=$("#searchResults");
-
-if(!container)return;
-
-container.innerHTML="";
-
-if(data.length===0){
-
-container.innerHTML="<p class='no-results'>No Results Found</p>";
-
-return;
-
-}
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="service-card">
-
-<img src="${item.image}" alt="${item.name}">
-
-<h3>${item.name}</h3>
-
-<p>${item.brand}</p>
-
-<span>${item.solutions.length} Solutions</span>
-
-</div>
-
-`;
-
-});
-
-}
-/*==============================
-MOBILES PAGE
-==============================*/
-
-function initMobilePages(){
-
-const container=$("#mobileContainer");
-
-if(!container)return;
-
-let phones=[];
-
-Object.keys(solutionsDatabase).forEach(brand=>{
-
-const data=solutionsDatabase[brand];
-
-if(Array.isArray(data)){
-
-phones=phones.concat(data);
-
-}
-
-});
-
-renderMobiles(phones);
-
-const search=$("#mobileSearch");
-
-if(search){
-
-search.addEventListener("keyup",()=>{
-
-const key=search.value.toLowerCase();
-
-renderMobiles(
-
-phones.filter(item=>
-
-item.name.toLowerCase().includes(key) ||
-
-item.brand.toLowerCase().includes(key)
-
-)
-
-);
-
-});
-
-}
-
-}
-
-function renderMobiles(data){
-
-const container=$("#mobileContainer");
-
-if(!container)return;
-
-container.innerHTML="";
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="service-card">
-
-<img src="${item.image}" alt="${item.name}">
-
-<h3>${item.name}</h3>
-
-<p>${item.brand}</p>
-
-<div class="badge">
-
-${item.solutions.length} Solutions
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-/*==============================
-APPLE PAGE
-==============================*/
-
-function initApplePage(){
-
-const container=$("#appleContainer");
-
-if(!container)return;
-
-const apple=solutionsDatabase.apple||[];
-
-renderApple(apple);
-
-const search=$("#appleSearch");
-
-if(search){
-
-search.addEventListener("keyup",()=>{
-
-const key=search.value.toLowerCase();
-
-renderApple(
-
-apple.filter(item=>
-
-item.name.toLowerCase().includes(key)
-
-)
-
-);
-
-});
-
-}
-
-}
-
-function renderApple(data){
-
-const container=$("#appleContainer");
-
-if(!container)return;
-
-container.innerHTML="";
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="service-card">
-
-<img src="${item.image}" alt="${item.name}">
-
-<h3>${item.name}</h3>
-
-<p>Apple</p>
-
-<div class="badge">
-
-${item.solutions.length} Solutions
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-/*==============================
-ANDROID PAGE
-==============================*/
-
-function initAndroidPage(){
-
-const container=$("#androidContainer");
-
-if(!container)return;
-
-let android=[];
-
-Object.keys(solutionsDatabase).forEach(brand=>{
-
-if(brand.toLowerCase()!=="apple"){
-
-const data=solutionsDatabase[brand];
-
-if(Array.isArray(data)){
-
-android=android.concat(data);
-
-}
-
-}
-
-});
-
-renderAndroid(android);
-
-const search=$("#androidSearch");
-
-if(search){
-
-search.addEventListener("keyup",()=>{
-
-const key=search.value.toLowerCase();
-
-renderAndroid(
-
-android.filter(item=>
-
-item.name.toLowerCase().includes(key) ||
-
-item.brand.toLowerCase().includes(key)
-
-)
-
-);
-
-});
-
-}
-
-}
-
-function renderAndroid(data){
-
-const container=$("#androidContainer");
-
-if(!container)return;
-
-container.innerHTML="";
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="service-card">
-
-<img src="${item.image}" alt="${item.name}">
-
-<h3>${item.name}</h3>
-
-<p>${item.brand}</p>
-
-<div class="badge">
-
-${item.solutions.length} Solutions
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-/*==============================
-ICLOUD PAGE
-==============================*/
-
-function initIcloudPage(){
-
-const container=$("#icloudContainer");
-
-if(!container)return;
-
-const apple=solutionsDatabase.apple||[];
-
-renderIcloud(apple);
-
-const search=$("#icloudSearch");
-
-if(search){
-
-search.addEventListener("keyup",()=>{
-
-const key=search.value.toLowerCase();
-
-renderIcloud(
-
-apple.filter(item=>
-
-item.name.toLowerCase().includes(key)
-
-)
-
-);
-
-});
-
-}
-
-}
-
-function renderIcloud(data){
-
-const container=$("#icloudContainer");
-
-if(!container)return;
-
-container.innerHTML="";
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="service-card">
-
-<img src="${item.image}" alt="${item.name}">
-
-<h3>${item.name}</h3>
-
-<p>Apple iCloud</p>
-
-<div class="badge">
-
-${item.solutions.length} Services
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-/*==============================
-DOWNLOADS PAGE
-==============================*/
-
-function initDownloads(){
-
-const cards=$$(".download-card");
-
-cards.forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-
-card.classList.add("active");
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.classList.remove("active");
-
-});
-
-});
-
-}
-/*==============================
-CYBER PAGE
-==============================*/
-
-function initCyber(){
-
-const cards=$$(".service-card");
-
-cards.forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-
-card.style.transform="translateY(-10px)";
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform="translateY(0px)";
-
-});
-
-});
-
-}
-
-/*==============================
-ABOUT PAGE
-==============================*/
-
-function initAbout(){
-
-const stats=$$(".counter");
-
-if(!stats.length)return;
-
-stats.forEach(counter=>{
-
-const target=parseInt(counter.dataset.target)||0;
-
-let value=0;
-
-const timer=setInterval(()=>{
-
-value+=Math.ceil(target/100);
-
-if(value>=target){
-
-value=target;
-
-clearInterval(timer);
-
-}
-
-counter.textContent=value;
-
-},20);
-
-});
-
-}
-
-/*==============================
-DATA RECOVERY
-==============================*/
-
-function initDataRecovery(){
-
-const cards=$$(".recovery-card");
-
-cards.forEach(card=>{
-
-card.addEventListener("click",()=>{
-
-card.classList.toggle("active");
-
-});
-
-});
-
-}
-/*==============================
-CONTACT PAGE
-==============================*/
-
-function initContact(){
-
-const form=document.querySelector(".contact-form");
-
-if(!form)return;
-
-form.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-const inputs=form.querySelectorAll("input,textarea");
-
-let valid=true;
-
-inputs.forEach(input=>{
-
-if(input.hasAttribute("required") && input.value.trim()===""){
-
-valid=false;
-
-input.classList.add("input-error");
-
-}else{
-
-input.classList.remove("input-error");
-
-}
-
-});
-
-if(!valid){
-
-alert("Please fill all required fields.");
-
-return;
-
-}
-
-alert("Thank you! Your message has been submitted.");
-
-form.reset();
-
-});
-
-}
-
-/*==============================
-SCROLL ANIMATIONS
-==============================*/
-
-function initAnimations(){
-
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-
-threshold:0.15
-
-});
-
-document.querySelectorAll(".service-card,.page-hero,.brands-page,.footer-top").forEach(el=>{
-
-observer.observe(el);
-
-});
-
-}
-/*==============================
-SOCIAL LINKS
-==============================*/
-
-function initSocialLinks(){
-
-const socials={
-
-youtube:"https://youtube.com/",
-
-facebook:"https://facebook.com/",
-
-telegram:"https://t.me/",
-
-github:"https://github.com/",
-
-whatsapp:"https://wa.me/"
-
-};
-
-document.querySelectorAll("[data-social]").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const key=btn.dataset.social;
-
-if(socials[key]){
-
-window.open(socials[key],"_blank");
-
-}
-
-});
-
-});
-
-}
-
-/*==============================
-PRELOADER
-==============================*/
-
-window.addEventListener("load",()=>{
-
-const loader=document.querySelector(".preloader");
-
-if(loader){
-
-loader.classList.add("hide");
-
-setTimeout(()=>loader.remove(),600);
-
-}
-
-});
-
-/*==============================
-INITIALIZE EVERYTHING
-==============================*/
+const $=(e)=>document.querySelector(e);
+const $$=(e)=>document.querySelectorAll(e);
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-initSocialLinks();
+initApp();
 
 });
 
-/*==============================
-GLOBAL PAGE INITIALIZER
-==============================*/
+function initApp(){
 
-(function(){
+initNavbar();
+
+initBackToTop();
+
+initAnimations();
+
+initContact();
+
+initSearch();
+
+loadCurrentPage();
+
+}
+
+/*=====================================================
+CURRENT PAGE
+=====================================================*/
+
+function loadCurrentPage(){
 
 const page=document.body.dataset.page||"";
 
 switch(page){
 
 case "home":
-renderFeaturedModels();
+renderFeatured();
 break;
 
 case "mobiles":
@@ -807,125 +75,51 @@ break;
 
 }
 
-initSearch();
+}
 
-initNavbar();
-
-initBackToTop();
-
-initAnimations();
-
-initContact();
-
-initSocialLinks();
-
-})();
-
-/*==============================
-SAFE ERROR HANDLER
-==============================*/
-
-window.addEventListener("error",function(e){
-
-console.warn("TechFix:",e.message);
-
-});
-
-/*==============================
-END OF CORE
-==============================*/
 /*=====================================================
-        ADVANCED GLOBAL SEARCH
+DATABASE
 =====================================================*/
 
-function initSearch(){
+function getAllModels(){
 
-const input=document.querySelector("#searchInput");
-
-const results=document.querySelector("#searchResults");
-
-if(!input||!results)return;
-
-input.addEventListener("input",()=>{
-
-const value=input.value.trim().toLowerCase();
-
-results.innerHTML="";
-
-if(value==="")return;
-
-let found=[];
+let models=[];
 
 Object.values(solutionsDatabase).forEach(group=>{
 
-group.forEach(model=>{
+models.push(...group);
 
-const modelName=model.name.toLowerCase();
+});
 
-const brand=model.brand.toLowerCase();
+return models;
 
-const matchSolution=(model.solutions||[]).some(item=>
-item.toLowerCase().includes(value)
-);
+}
 
-if(
-modelName.includes(value)||
-brand.includes(value)||
-matchSolution
-){
+function getAndroidModels(){
 
-found.push(model);
+let models=[];
+
+Object.keys(solutionsDatabase).forEach(key=>{
+
+if(key.toLowerCase()!=="apple"){
+
+models.push(...solutionsDatabase[key]);
 
 }
 
 });
 
-});
-
-if(found.length===0){
-
-results.innerHTML=`
-<div class="no-results">
-No Results Found
-</div>
-`;
-
-return;
+return models;
 
 }
 
-found.forEach(model=>{
+function getAppleModels(){
 
-const card=document.createElement("div");
-
-card.className="search-card";
-
-card.innerHTML=`
-
-<img src="${model.image}" alt="${model.name}">
-
-<h3>${model.name}</h3>
-
-<p>${model.brand}</p>
-
-`;
-
-card.onclick=()=>{
-
-window.location.href=
-`mobiles.html?id=${model.id}`;
-
-};
-
-results.appendChild(card);
-
-});
-
-});
+return solutionsDatabase.apple||[];
 
 }
 /*=====================================================
-        UNIVERSAL RENDER ENGINE
+UNIVERSAL CARD ENGINE
 =====================================================*/
 
 function renderModels(list,targetId){
@@ -935,6 +129,19 @@ const container=document.getElementById(targetId);
 if(!container)return;
 
 container.innerHTML="";
+
+if(!list.length){
+
+container.innerHTML=`
+<div class="service-card">
+<h3>No Results Found</h3>
+<p>No supported models available.</p>
+</div>
+`;
+
+return;
+
+}
 
 list.forEach(model=>{
 
@@ -948,11 +155,11 @@ card.innerHTML=`
 
 <h3>${model.name}</h3>
 
-<div class="badge">${model.brand}</div>
+<div class="brand-badge">${model.brand}</div>
 
 <div class="solutions">
 
-${model.solutions.map(item=>`
+${(model.solutions||[]).map(item=>`
 <span>${item}</span>
 `).join("")}
 
@@ -967,168 +174,99 @@ container.appendChild(card);
 }
 
 /*=====================================================
-        PAGE RENDERERS
+PAGE RENDER
 =====================================================*/
 
 function renderApple(){
 
-renderModels(solutionsDatabase.apple||[],"appleContainer");
+renderModels(
+
+getAppleModels(),
+
+"appleContainer"
+
+);
 
 }
 
 function renderAndroid(){
 
-let all=[];
+renderModels(
 
-Object.keys(solutionsDatabase).forEach(key=>{
+getAndroidModels(),
 
-if(key!=="apple"){
+"androidContainer"
 
-all.push(...solutionsDatabase[key]);
-
-}
-
-});
-
-renderModels(all,"androidContainer");
+);
 
 }
 
 function renderMobiles(){
 
-let all=[];
+renderModels(
 
-Object.values(solutionsDatabase).forEach(group=>{
+getAllModels(),
 
-all.push(...group);
+"mobilesContainer"
 
-});
-
-renderModels(all,"mobilesContainer");
+);
 
 }
 /*=====================================================
-        ICLOUD / CYBER / DOWNLOADS / RECOVERY
+FEATURED HOME
+=====================================================*/
+
+function renderFeatured(){
+
+const container=document.getElementById("featuredContainer");
+
+if(!container)return;
+
+const featured=getAllModels().slice(0,12);
+
+renderModels(featured,"featuredContainer");
+
+}
+
+/*=====================================================
+ICLOUD
 =====================================================*/
 
 function renderiCloud(){
 
 const data=[
+
 {
 title:"iCloud Services",
 icon:"fa-solid fa-cloud",
-description:"Professional iCloud solutions, activation support and account related services."
+description:"Professional iCloud support and activation services."
 },
+
 {
 title:"Hello Screen",
 icon:"fa-solid fa-lock-open",
-description:"Supported devices and available service information."
+description:"Supported Hello Screen solutions."
 },
+
 {
 title:"Activation",
 icon:"fa-solid fa-mobile-screen",
-description:"Activation related supported solutions."
+description:"Activation related supported services."
 }
+
 ];
 
 renderServiceCards(data,"icloudContainer");
 
 }
 
-function renderCyber(){
-
-const data=[
-{
-title:"FRP",
-icon:"fa-solid fa-shield-halved",
-description:"Factory Reset Protection solutions."
-},
-{
-title:"Boot Repair",
-icon:"fa-solid fa-screwdriver-wrench",
-description:"Bootloop and software repair."
-},
-{
-title:"IMEI Repair",
-icon:"fa-solid fa-microchip",
-description:"Supported repair information."
-},
-{
-title:"Unlock",
-icon:"fa-solid fa-lock-open",
-description:"Supported unlock services."
-}
-];
-
-renderServiceCards(data,"cyberContainer");
-
-}
-
-function renderDownloads(){
-
-const data=[
-{
-title:"Flash Files",
-icon:"fa-solid fa-download",
-description:"Latest firmware collection."
-},
-{
-title:"USB Drivers",
-icon:"fa-solid fa-hard-drive",
-description:"Official USB drivers."
-},
-{
-title:"ADB & Fastboot",
-icon:"fa-solid fa-terminal",
-description:"Platform tools."
-},
-{
-title:"Software Tools",
-icon:"fa-solid fa-toolbox",
-description:"Latest servicing utilities."
-}
-];
-
-renderServiceCards(data,"downloadsContainer");
-
-}
-
-function renderRecovery(){
-
-const data=[
-{
-title:"Data Recovery",
-icon:"fa-solid fa-database",
-description:"Professional recovery services."
-},
-{
-title:"Photos Recovery",
-icon:"fa-solid fa-image",
-description:"Recover deleted photos."
-},
-{
-title:"Contacts Recovery",
-icon:"fa-solid fa-address-book",
-description:"Recover deleted contacts."
-},
-{
-title:"WhatsApp Recovery",
-icon:"fa-brands fa-whatsapp",
-description:"Recover supported WhatsApp data."
-}
-];
-
-renderServiceCards(data,"recoveryContainer");
-
-}
-
 /*=====================================================
-        SERVICE CARD ENGINE
+SERVICE CARD ENGINE
 =====================================================*/
 
-function renderServiceCards(data,targetId){
+function renderServiceCards(data,target){
 
-const container=document.getElementById(targetId);
+const container=document.getElementById(target);
 
 if(!container)return;
 
@@ -1154,14 +292,252 @@ container.innerHTML+=`
 
 }
 /*=====================================================
-        NAVBAR ACTIVE LINK
+CYBER PAGE
+=====================================================*/
+
+function renderCyber(){
+
+const data=[
+
+{
+title:"FRP Removal",
+icon:"fa-solid fa-shield-halved",
+description:"Supported FRP solutions."
+},
+
+{
+title:"Boot Repair",
+icon:"fa-solid fa-screwdriver-wrench",
+description:"Professional boot repair services."
+},
+
+{
+title:"IMEI Repair",
+icon:"fa-solid fa-microchip",
+description:"Supported IMEI repair information."
+},
+
+{
+title:"Unlock Services",
+icon:"fa-solid fa-lock-open",
+description:"Professional unlock support."
+}
+
+];
+
+renderServiceCards(data,"cyberContainer");
+
+}
+
+/*=====================================================
+DOWNLOADS PAGE
+=====================================================*/
+
+function renderDownloads(){
+
+const data=[
+
+{
+title:"Flash Files",
+icon:"fa-solid fa-download",
+description:"Latest firmware collection."
+},
+
+{
+title:"USB Drivers",
+icon:"fa-solid fa-hard-drive",
+description:"Official USB drivers."
+},
+
+{
+title:"ADB & Fastboot",
+icon:"fa-solid fa-terminal",
+description:"Android platform tools."
+},
+
+{
+title:"Software Tools",
+icon:"fa-solid fa-toolbox",
+description:"Latest servicing software."
+}
+
+];
+
+renderServiceCards(data,"downloadsContainer");
+
+}
+/*=====================================================
+DATA RECOVERY
+=====================================================*/
+
+function renderRecovery(){
+
+const data=[
+
+{
+title:"Data Recovery",
+icon:"fa-solid fa-database",
+description:"Recover deleted mobile data."
+},
+
+{
+title:"Photos Recovery",
+icon:"fa-solid fa-image",
+description:"Recover deleted photos."
+},
+
+{
+title:"Contacts Recovery",
+icon:"fa-solid fa-address-book",
+description:"Recover deleted contacts."
+},
+
+{
+title:"WhatsApp Recovery",
+icon:"fa-brands fa-whatsapp",
+description:"Supported WhatsApp recovery."
+}
+
+];
+
+renderServiceCards(data,"recoveryContainer");
+
+}
+
+/*=====================================================
+ABOUT PAGE
+=====================================================*/
+
+function renderAbout(){
+
+const container=document.getElementById("aboutContainer");
+
+if(!container)return;
+
+container.innerHTML=`
+
+<div class="service-card">
+<i class="fa-solid fa-user"></i>
+<h3>Founder</h3>
+<p>MIAN AHMAD</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-mobile-screen"></i>
+<h3>Professional Mobile Solutions</h3>
+<p>Android • Apple • iCloud • Flashing • Unlocking • Data Recovery</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Trusted Platform</h3>
+<p>Fast, secure and professional technical services.</p>
+</div>
+
+`;
+
+}
+/*=====================================================
+GLOBAL SEARCH
+=====================================================*/
+
+function initSearch(){
+
+const input=$("#searchInput")||$("#globalSearch");
+
+const results=$("#searchResults");
+
+if(!input)return;
+
+input.addEventListener("input",()=>{
+
+const key=input.value.trim().toLowerCase();
+
+if(results)results.innerHTML="";
+
+if(key==="")return;
+
+const data=getAllModels().filter(model=>{
+
+const name=(model.name||"").toLowerCase();
+
+const brand=(model.brand||"").toLowerCase();
+
+const solution=(model.solutions||[]).join(" ").toLowerCase();
+
+return(
+name.includes(key)||
+brand.includes(key)||
+solution.includes(key)
+);
+
+});
+
+if(results){
+
+renderSearchResults(data);
+
+}
+
+});
+
+}
+
+function renderSearchResults(list){
+
+const results=$("#searchResults");
+
+if(!results)return;
+
+results.innerHTML="";
+
+if(!list.length){
+
+results.innerHTML=`
+<div class="service-card">
+<h3>No Results Found</h3>
+<p>Try another keyword.</p>
+</div>
+`;
+
+return;
+
+}
+
+list.forEach(model=>{
+
+results.innerHTML+=`
+
+<div class="search-card">
+
+<img src="${model.image}" alt="${model.name}">
+
+<div class="search-info">
+
+<h3>${model.name}</h3>
+
+<p>${model.brand}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+/*=====================================================
+NAVBAR
 =====================================================*/
 
 function initNavbar(){
 
 const current=location.pathname.split("/").pop();
 
-document.querySelectorAll(".top-nav a").forEach(link=>{
+$$(".top-nav a").forEach(link=>{
+
+link.classList.remove("active");
 
 const href=link.getAttribute("href");
 
@@ -1176,18 +552,18 @@ link.classList.add("active");
 }
 
 /*=====================================================
-        BACK TO TOP
+BACK TO TOP
 =====================================================*/
 
 function initBackToTop(){
 
-const btn=document.getElementById("topButton");
+const btn=$("#topButton");
 
 if(!btn)return;
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>350){
+if(window.scrollY>300){
 
 btn.classList.add("show");
 
@@ -1199,7 +575,7 @@ btn.classList.remove("show");
 
 });
 
-btn.onclick=()=>{
+btn.addEventListener("click",()=>{
 
 window.scrollTo({
 
@@ -1209,21 +585,15 @@ behavior:"smooth"
 
 });
 
-};
+});
 
 }
 
 /*=====================================================
-        SCROLL ANIMATION
+SCROLL ANIMATION
 =====================================================*/
 
 function initAnimations(){
-
-const items=document.querySelectorAll(
-
-".service-card,.page-hero,.footer-top"
-
-);
 
 const observer=new IntersectionObserver(entries=>{
 
@@ -1239,29 +609,31 @@ entry.target.classList.add("show");
 
 },{
 
-threshold:.15
+threshold:0.15
 
 });
 
-items.forEach(item=>observer.observe(item));
+$$(".service-card,.page-hero,.footer-top").forEach(el=>{
 
-}
+observer.observe(el);
 
-/*=====================================================
-        CONTACT FORM
+});
+
+}/*=====================================================
+CONTACT FORM
 =====================================================*/
 
 function initContact(){
 
-const form=document.querySelector("#contactForm");
+const form=$("#contactForm");
 
 if(!form)return;
 
-form.addEventListener("submit",e=>{
+form.addEventListener("submit",function(e){
 
 e.preventDefault();
 
-alert("Message Sent Successfully.");
+alert("Thank you! Your message has been received.");
 
 form.reset();
 
@@ -1270,22 +642,16 @@ form.reset();
 }
 
 /*=====================================================
-        SOCIAL LINKS
+SOCIAL LINKS
 =====================================================*/
 
 function initSocialLinks(){
 
-document.querySelectorAll("[data-link]").forEach(btn=>{
+$$("[data-link]").forEach(btn=>{
 
 btn.addEventListener("click",()=>{
 
-window.open(
-
-btn.dataset.link,
-
-"_blank"
-
-);
+window.open(btn.dataset.link,"_blank");
 
 });
 
@@ -1294,12 +660,103 @@ btn.dataset.link,
 }
 
 /*=====================================================
-        TECHFIX SOFTWARE EXP
-        SCRIPT LOADED
+ERROR HANDLER
 =====================================================*/
 
-console.log("====================================");
-console.log("TechFix Software EXP Loaded");
-console.log("Database Brands:",Object.keys(solutionsDatabase).length);
-console.log("Ready.");
-console.log("====================================");
+window.addEventListener("error",function(e){
+
+console.warn("TechFix:",e.message);
+
+});
+/*=====================================================
+FINAL INITIALIZATION
+=====================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+initSocialLinks();
+
+});
+
+/*=====================================================
+CONSOLE INFO
+=====================================================*/
+
+console.log("========================================");
+
+console.log("TechFix Software EXP");
+
+console.log("Final Script Loaded Successfully");
+
+console.log("Database Brands :",Object.keys(solutionsDatabase).length);
+
+console.log("Total Models :",getAllModels().length);
+
+console.log("========================================");
+
+/*=====================================================
+END OF FILE
+=====================================================*/
+/*=====================================================
+FINAL PAGE CHECK
+=====================================================*/
+
+(function(){
+
+const page=document.body.dataset.page||"";
+
+switch(page){
+
+case "home":
+renderFeatured();
+break;
+
+case "mobiles":
+renderMobiles();
+break;
+
+case "apple":
+renderApple();
+break;
+
+case "android":
+renderAndroid();
+break;
+
+case "icloud":
+renderiCloud();
+break;
+
+case "cyber":
+renderCyber();
+break;
+
+case "downloads":
+renderDownloads();
+break;
+
+case "recovery":
+renderRecovery();
+break;
+
+case "about":
+renderAbout();
+break;
+
+default:
+break;
+
+}
+
+})();
+
+/*=====================================================
+TECHFIX SOFTWARE EXP
+VERSION 10.0
+FOUNDER : MIAN AHMAD
+==========================================
+ALL RIGHTS RESERVED
+=====================================================*/
+
+console.log("%cTechFix Software EXP Ready",
+"color:#00ffe7;font-size:18px;font-weight:bold;");
