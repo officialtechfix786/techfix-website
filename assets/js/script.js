@@ -764,5 +764,542 @@ initSocialLinks();
 });
 
 /*==============================
-END OF SCRIPT V11
+GLOBAL PAGE INITIALIZER
 ==============================*/
+
+(function(){
+
+const page=document.body.dataset.page||"";
+
+switch(page){
+
+case "home":
+renderFeaturedModels();
+break;
+
+case "mobiles":
+renderMobiles();
+break;
+
+case "apple":
+renderApple();
+break;
+
+case "android":
+renderAndroid();
+break;
+
+case "icloud":
+renderiCloud();
+break;
+
+case "cyber":
+renderCyber();
+break;
+
+case "downloads":
+renderDownloads();
+break;
+
+case "recovery":
+renderRecovery();
+break;
+
+}
+
+initSearch();
+
+initNavbar();
+
+initBackToTop();
+
+initAnimations();
+
+initContact();
+
+initSocialLinks();
+
+})();
+
+/*==============================
+SAFE ERROR HANDLER
+==============================*/
+
+window.addEventListener("error",function(e){
+
+console.warn("TechFix:",e.message);
+
+});
+
+/*==============================
+END OF CORE
+==============================*/
+/*=====================================================
+        ADVANCED GLOBAL SEARCH
+=====================================================*/
+
+function initSearch(){
+
+const input=document.querySelector("#searchInput");
+
+const results=document.querySelector("#searchResults");
+
+if(!input||!results)return;
+
+input.addEventListener("input",()=>{
+
+const value=input.value.trim().toLowerCase();
+
+results.innerHTML="";
+
+if(value==="")return;
+
+let found=[];
+
+Object.values(solutionsDatabase).forEach(group=>{
+
+group.forEach(model=>{
+
+const modelName=model.name.toLowerCase();
+
+const brand=model.brand.toLowerCase();
+
+const matchSolution=(model.solutions||[]).some(item=>
+item.toLowerCase().includes(value)
+);
+
+if(
+modelName.includes(value)||
+brand.includes(value)||
+matchSolution
+){
+
+found.push(model);
+
+}
+
+});
+
+});
+
+if(found.length===0){
+
+results.innerHTML=`
+<div class="no-results">
+No Results Found
+</div>
+`;
+
+return;
+
+}
+
+found.forEach(model=>{
+
+const card=document.createElement("div");
+
+card.className="search-card";
+
+card.innerHTML=`
+
+<img src="${model.image}" alt="${model.name}">
+
+<h3>${model.name}</h3>
+
+<p>${model.brand}</p>
+
+`;
+
+card.onclick=()=>{
+
+window.location.href=
+`mobiles.html?id=${model.id}`;
+
+};
+
+results.appendChild(card);
+
+});
+
+});
+
+}
+/*=====================================================
+        UNIVERSAL RENDER ENGINE
+=====================================================*/
+
+function renderModels(list,targetId){
+
+const container=document.getElementById(targetId);
+
+if(!container)return;
+
+container.innerHTML="";
+
+list.forEach(model=>{
+
+const card=document.createElement("div");
+
+card.className="service-card";
+
+card.innerHTML=`
+
+<img src="${model.image}" alt="${model.name}">
+
+<h3>${model.name}</h3>
+
+<div class="badge">${model.brand}</div>
+
+<div class="solutions">
+
+${model.solutions.map(item=>`
+<span>${item}</span>
+`).join("")}
+
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+/*=====================================================
+        PAGE RENDERERS
+=====================================================*/
+
+function renderApple(){
+
+renderModels(solutionsDatabase.apple||[],"appleContainer");
+
+}
+
+function renderAndroid(){
+
+let all=[];
+
+Object.keys(solutionsDatabase).forEach(key=>{
+
+if(key!=="apple"){
+
+all.push(...solutionsDatabase[key]);
+
+}
+
+});
+
+renderModels(all,"androidContainer");
+
+}
+
+function renderMobiles(){
+
+let all=[];
+
+Object.values(solutionsDatabase).forEach(group=>{
+
+all.push(...group);
+
+});
+
+renderModels(all,"mobilesContainer");
+
+}
+/*=====================================================
+        ICLOUD / CYBER / DOWNLOADS / RECOVERY
+=====================================================*/
+
+function renderiCloud(){
+
+const data=[
+{
+title:"iCloud Services",
+icon:"fa-solid fa-cloud",
+description:"Professional iCloud solutions, activation support and account related services."
+},
+{
+title:"Hello Screen",
+icon:"fa-solid fa-lock-open",
+description:"Supported devices and available service information."
+},
+{
+title:"Activation",
+icon:"fa-solid fa-mobile-screen",
+description:"Activation related supported solutions."
+}
+];
+
+renderServiceCards(data,"icloudContainer");
+
+}
+
+function renderCyber(){
+
+const data=[
+{
+title:"FRP",
+icon:"fa-solid fa-shield-halved",
+description:"Factory Reset Protection solutions."
+},
+{
+title:"Boot Repair",
+icon:"fa-solid fa-screwdriver-wrench",
+description:"Bootloop and software repair."
+},
+{
+title:"IMEI Repair",
+icon:"fa-solid fa-microchip",
+description:"Supported repair information."
+},
+{
+title:"Unlock",
+icon:"fa-solid fa-lock-open",
+description:"Supported unlock services."
+}
+];
+
+renderServiceCards(data,"cyberContainer");
+
+}
+
+function renderDownloads(){
+
+const data=[
+{
+title:"Flash Files",
+icon:"fa-solid fa-download",
+description:"Latest firmware collection."
+},
+{
+title:"USB Drivers",
+icon:"fa-solid fa-hard-drive",
+description:"Official USB drivers."
+},
+{
+title:"ADB & Fastboot",
+icon:"fa-solid fa-terminal",
+description:"Platform tools."
+},
+{
+title:"Software Tools",
+icon:"fa-solid fa-toolbox",
+description:"Latest servicing utilities."
+}
+];
+
+renderServiceCards(data,"downloadsContainer");
+
+}
+
+function renderRecovery(){
+
+const data=[
+{
+title:"Data Recovery",
+icon:"fa-solid fa-database",
+description:"Professional recovery services."
+},
+{
+title:"Photos Recovery",
+icon:"fa-solid fa-image",
+description:"Recover deleted photos."
+},
+{
+title:"Contacts Recovery",
+icon:"fa-solid fa-address-book",
+description:"Recover deleted contacts."
+},
+{
+title:"WhatsApp Recovery",
+icon:"fa-brands fa-whatsapp",
+description:"Recover supported WhatsApp data."
+}
+];
+
+renderServiceCards(data,"recoveryContainer");
+
+}
+
+/*=====================================================
+        SERVICE CARD ENGINE
+=====================================================*/
+
+function renderServiceCards(data,targetId){
+
+const container=document.getElementById(targetId);
+
+if(!container)return;
+
+container.innerHTML="";
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="service-card">
+
+<i class="${item.icon}"></i>
+
+<h3>${item.title}</h3>
+
+<p>${item.description}</p>
+
+</div>
+
+`;
+
+});
+
+}
+/*=====================================================
+        NAVBAR ACTIVE LINK
+=====================================================*/
+
+function initNavbar(){
+
+const current=location.pathname.split("/").pop();
+
+document.querySelectorAll(".top-nav a").forEach(link=>{
+
+const href=link.getAttribute("href");
+
+if(href===current){
+
+link.classList.add("active");
+
+}
+
+});
+
+}
+
+/*=====================================================
+        BACK TO TOP
+=====================================================*/
+
+function initBackToTop(){
+
+const btn=document.getElementById("topButton");
+
+if(!btn)return;
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>350){
+
+btn.classList.add("show");
+
+}else{
+
+btn.classList.remove("show");
+
+}
+
+});
+
+btn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+}
+
+/*=====================================================
+        SCROLL ANIMATION
+=====================================================*/
+
+function initAnimations(){
+
+const items=document.querySelectorAll(
+
+".service-card,.page-hero,.footer-top"
+
+);
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{
+
+threshold:.15
+
+});
+
+items.forEach(item=>observer.observe(item));
+
+}
+
+/*=====================================================
+        CONTACT FORM
+=====================================================*/
+
+function initContact(){
+
+const form=document.querySelector("#contactForm");
+
+if(!form)return;
+
+form.addEventListener("submit",e=>{
+
+e.preventDefault();
+
+alert("Message Sent Successfully.");
+
+form.reset();
+
+});
+
+}
+
+/*=====================================================
+        SOCIAL LINKS
+=====================================================*/
+
+function initSocialLinks(){
+
+document.querySelectorAll("[data-link]").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+window.open(
+
+btn.dataset.link,
+
+"_blank"
+
+);
+
+});
+
+});
+
+}
+
+/*=====================================================
+        TECHFIX SOFTWARE EXP
+        SCRIPT LOADED
+=====================================================*/
+
+console.log("====================================");
+console.log("TechFix Software EXP Loaded");
+console.log("Database Brands:",Object.keys(solutionsDatabase).length);
+console.log("Ready.");
+console.log("====================================");
