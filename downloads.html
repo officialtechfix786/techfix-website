@@ -4,118 +4,272 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Downloads | TechFix Software EXP</title>
+<title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+Downloads | TechFix Software EXP
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<meta
+name="description"
+content="Download firmware, USB drivers, flash tools and software resources.">
+
+<link rel="icon" href="favicon.ico">
 
 <link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="page-wrapper">
+<div id="app">
 
-<header class="page-header">
+<!-- Copy Header From index.html -->
 
-<a href="index.html" class="logo-box">
-<img src="assets/images/logo.png" alt="Logo">
+<section class="downloads-hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="section-tag">
+
+DOWNLOAD CENTER
+
+</span>
+
+<h1>
+
+Downloads Library
+
+</h1>
+
+<p>
+
+Search and download firmware, USB drivers, flash tools and useful software resources.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="downloads-search">
+
+<div class="container">
+
+<div class="search-box">
+
+<i class="fas fa-search"></i>
+
+<input
+
+type="search"
+
+id="downloadSearch"
+
+placeholder="Search firmware, tool, driver...">
+
+</div>
+
+</div>
+
+</section>
+<section class="download-filters">
+
+<div class="container">
+
+<div class="filter-grid">
+
+<select id="categoryFilter">
+
+<option value="all">All Categories</option>
+
+<option value="firmware">Firmware</option>
+
+<option value="tool">Software Tools</option>
+
+<option value="driver">USB Drivers</option>
+
+<option value="manual">Manuals</option>
+
+</select>
+
+<select id="brandFilter">
+
+<option value="all">All Brands</option>
+
+</select>
+
+<select id="sortDownloads">
+
+<option value="latest">Latest</option>
+
+<option value="name">Name</option>
+
+</select>
+
+</div>
+
+</div>
+
+</section>
+<section class="downloads-library">
+
+<div class="container">
+
+<div
+
+id="downloadsContainer"
+
+class="downloads-grid">
+
+<!-- Dynamic -->
+
+</div>
+
+</div>
+
+</section>
+<section class="popular-downloads">
+
+<div class="container">
+
+<div class="section-title">
+
+<span class="section-tag">
+
+POPULAR
+
+</span>
+
+<h2>
+
+Most Downloaded Files
+
+</h2>
+
+</div>
+
+<div
+
+id="popularDownloads"
+
+class="downloads-grid">
+
+</div>
+
+</div>
+
+</section>
+<section class="download-categories">
+
+<div class="container">
+
+<div class="categories-grid">
+
+<div class="category-card glass-card">
+
+Firmware
+
+</div>
+
+<div class="category-card glass-card">
+
+Flash Tools
+
+</div>
+
+<div class="category-card glass-card">
+
+USB Drivers
+
+</div>
+
+<div class="category-card glass-card">
+
+Utilities
+
+</div>
+
+<div class="category-card glass-card">
+
+Manuals
+
+</div>
+
+<div class="category-card glass-card">
+
+Resources
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="downloads-cta">
+
+<div class="container">
+
+<div class="cta-box glass-card">
+
+<h2>
+
+Can't Find Your File?
+
+</h2>
+
+<p>
+
+Contact TechFix Software EXP and we'll help you locate the correct resource.
+
+</p>
+
+<a
+
+href="contact.html"
+
+class="btn btn-primary">
+
+Contact Support
+
 </a>
 
-<nav class="top-nav">
+</div>
 
-<a href="index.html">Home</a>
-<a href="mobiles.html">Mobiles</a>
-<a href="apple.html">Apple</a>
-<a href="android.html">Android</a>
-<a href="icloud.html">iCloud</a>
-<a href="cyber.html">Cyber</a>
-<a class="active" href="downloads.html">Downloads</a>
-<a href="contact.html">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="page-hero">
-
-<h1>Downloads Center</h1>
-
-<p>Official firmware, drivers and useful tools.</p>
+</div>
 
 </section>
 
-<section class="service-grid">
+<!-- Copy Footer From index.html -->
 
-<div class="service-card">
-<i class="fa-solid fa-download"></i>
-<h3>Firmware</h3>
-<p>Official firmware collection.</p>
-</div>
+<script src="assets/js/database.js"></script>
 
-<div class="service-card">
-<i class="fa-solid fa-microchip"></i>
-<h3>USB Drivers</h3>
-<p>Latest mobile USB drivers.</p>
-</div>
+<script src="assets/js/utils.js"></script>
 
-<div class="service-card">
-<i class="fa-solid fa-toolbox"></i>
-<h3>Software Tools</h3>
-<p>Professional repair software.</p>
-</div>
+<script src="assets/js/search.js"></script>
 
-<div class="service-card">
-<i class="fa-solid fa-file-arrow-down"></i>
-<h3>Flash Files</h3>
-<p>Fast & secure flash packages.</p>
-</div>
+<script src="assets/js/downloads.js"></script>
 
-</section>
-<footer>
+<script src="assets/js/animations.js"></script>
 
-<div class="footer-top">
-
-<div class="footer-logo">
-<img src="assets/images/logo.png" alt="Logo">
-<h2>TechFix Software EXP</h2>
-<p>Professional Download Center</p>
-</div>
-
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="mobiles.html">Mobiles</a>
-<a href="apple.html">Apple</a>
-<a href="android.html">Android</a>
-<a href="icloud.html">iCloud</a>
-<a href="cyber.html">Cyber</a>
-<a href="downloads.html">Downloads</a>
-<a href="contact.html">Contact</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-© 2026 TechFix Software EXP | All Rights Reserved
-
-</div>
-
-</footer>
-
-<button id="topButton">
-<i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<script src="assets/database/database.js"></script>
 <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>
