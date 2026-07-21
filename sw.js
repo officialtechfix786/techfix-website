@@ -1,0 +1,1 @@
+const CACHE='techfix-v1';const FILES=['./','./index.html','./assets/css/site.css','./assets/js/site.js','./assets/images/hero-home.png','./assets/images/robot-bg.png'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
