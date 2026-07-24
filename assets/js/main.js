@@ -1,240 +1,97 @@
-/*
-==========================================================
- TechFix Software EXP v11
- File      : assets/js/main.js
- Founder   : MIAN AHMAD
- Version   : 11.0
-==========================================================
-*/
+/*==================================================
+TECHFIX SOFTWARE EXP
+MAIN.JS
+==================================================*/
 
 "use strict";
 
-/*==========================================================
-  APPLICATION
-==========================================================*/
+/*====================================
+SELECTORS
+====================================*/
 
-const TechFix = {
+const body = document.body;
 
-    version: "11.0",
+const header = document.querySelector(".header");
 
-    founder: "MIAN AHMAD",
+const loader = document.getElementById("pageLoader");
 
-    initialized: false
+const backToTop = document.getElementById("backToTop");
 
-};
+const mobileMenu = document.getElementById("mobileMenu");
 
-/*==========================================================
-  GLOBAL SELECTORS
-==========================================================*/
+const mobileOverlay = document.getElementById("mobileOverlay");
 
-const $ = (selector, parent = document) =>
-    parent.querySelector(selector);
+const openMenuBtn = document.getElementById("openMenu");
 
-const $$ = (selector, parent = document) =>
-    [...parent.querySelectorAll(selector)];
+const closeMenuBtn = document.getElementById("closeMenu");
 
-/*==========================================================
-  DOM CACHE
-==========================================================*/
+/*====================================
+PAGE LOADER
+====================================*/
 
-const DOM = {
+window.addEventListener("load", () => {
 
-    body: document.body,
+    if (loader) {
 
-    html: document.documentElement,
+        setTimeout(() => {
 
-    header: $("#header"),
+            loader.classList.add("hide");
 
-    menuToggle: $(".menu-toggle"),
-
-    mobileDrawer: $("#mobileDrawer"),
-
-    drawerOverlay: $("#drawerOverlay"),
-
-    drawerClose: $("#drawerClose"),
-
-    backToTop: $("#backToTop"),
-
-    scrollProgress: $("#scroll-progress"),
-
-    navLinks: $$(".nav-menu a"),
-
-    drawerLinks: $$(".drawer-navigation a")
-
-};
-
-/*==========================================================
-  UTILITIES
-==========================================================*/
-
-const Utils = {
-
-    isMobile() {
-
-        return window.innerWidth <= 1024;
-
-    },
-
-    scrollTop() {
-
-        return window.pageYOffset ||
-               document.documentElement.scrollTop;
-
-    },
-
-    addClass(element, className) {
-
-        if (element) {
-
-            element.classList.add(className);
-
-        }
-
-    },
-
-    removeClass(element, className) {
-
-        if (element) {
-
-            element.classList.remove(className);
-
-        }
-
-    },
-
-    toggleClass(element, className) {
-
-        if (element) {
-
-            element.classList.toggle(className);
-
-        }
+        }, 500);
 
     }
 
-};
-
-/*==========================================================
-  APPLICATION INIT
-==========================================================*/
-
-function initializeWebsite() {
-
-    if (TechFix.initialized) return;
-
-    TechFix.initialized = true;
-
-    console.log(
-        "%cTechFix Software EXP v11",
-        "color:#ff7a00;font-size:18px;font-weight:bold;"
-    );
-
-    console.log(
-        "%cFounder: MIAN AHMAD",
-        "color:#ffffff;font-size:13px;"
-    );
-
-    initializeHeader();
-
-    initializeBackToTop();
-
-    initializeScrollProgress();
-
-}
-
-/*==========================================================
-  DOM READY
-==========================================================*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    initializeWebsite();
-
 });
-/*==========================================================
-  STICKY HEADER
-==========================================================*/
 
-function initializeHeader() {
-
-    if (!DOM.header) return;
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-}
+/*====================================
+STICKY HEADER
+====================================*/
 
 function updateHeader() {
 
-    if (Utils.scrollTop() > 80) {
+    if (!header) return;
 
-        Utils.addClass(DOM.header, "scrolled");
+    if (window.scrollY > 50) {
+
+        header.style.background = "rgba(6,10,20,.95)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
 
     } else {
 
-        Utils.removeClass(DOM.header, "scrolled");
+        header.style.background = "rgba(6,10,20,.78)";
+        header.style.boxShadow = "none";
 
     }
 
 }
 
-/*==========================================================
-  SCROLL PROGRESS BAR
-==========================================================*/
+window.addEventListener("scroll", updateHeader);
 
-function initializeScrollProgress() {
+/*====================================
+BACK TO TOP
+====================================*/
 
-    if (!DOM.scrollProgress) return;
+function updateBackToTop() {
 
-    updateScrollProgress();
+    if (!backToTop) return;
 
-    window.addEventListener(
-        "scroll",
-        updateScrollProgress,
-        { passive: true }
-    );
+    if (window.scrollY > 500) {
 
-}
+        backToTop.classList.add("show");
 
-function updateScrollProgress() {
+    } else {
 
-    const scrollTop = Utils.scrollTop();
+        backToTop.classList.remove("show");
 
-    const pageHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        pageHeight > 0
-            ? (scrollTop / pageHeight) * 100
-            : 0;
-
-    DOM.scrollProgress.style.width = `${progress}%`;
+    }
 
 }
 
-/*==========================================================
-  BACK TO TOP
-==========================================================*/
+window.addEventListener("scroll", updateBackToTop);
 
-function initializeBackToTop() {
+if (backToTop) {
 
-    if (!DOM.backToTop) return;
-
-    updateBackToTop();
-
-    window.addEventListener(
-        "scroll",
-        updateBackToTop,
-        { passive: true }
-    );
-
-    DOM.backToTop.addEventListener("click", () => {
+    backToTop.addEventListener("click", () => {
 
         window.scrollTo({
 
@@ -248,156 +105,134 @@ function initializeBackToTop() {
 
 }
 
-function updateBackToTop() {
+/*====================================
+MOBILE MENU
+====================================*/
 
-    if (Utils.scrollTop() > 500) {
+function openMenu() {
 
-        Utils.addClass(DOM.backToTop, "show");
+    if (!mobileMenu || !mobileOverlay) return;
 
-    } else {
+    mobileMenu.classList.add("active");
 
-        Utils.removeClass(DOM.backToTop, "show");
+    mobileOverlay.classList.add("active");
 
-    }
+    body.style.overflow = "hidden";
 
 }
 
-/*==========================================================
-  WINDOW EVENTS
-==========================================================*/
+function closeMenu() {
 
-window.addEventListener("resize", () => {
+    if (!mobileMenu || !mobileOverlay) return;
 
-    if (!Utils.isMobile()) {
+    mobileMenu.classList.remove("active");
 
-        Utils.removeClass(DOM.mobileDrawer, "active");
+    mobileOverlay.classList.remove("active");
 
-        Utils.removeClass(DOM.drawerOverlay, "active");
+    body.style.overflow = "";
 
-        Utils.removeClass(DOM.menuToggle, "active");
+}
 
-        DOM.body.style.overflow = "";
+if (openMenuBtn) {
+
+    openMenuBtn.addEventListener("click", openMenu);
+
+}
+
+if (closeMenuBtn) {
+
+    closeMenuBtn.addEventListener("click", closeMenu);
+
+}
+
+if (mobileOverlay) {
+
+    mobileOverlay.addEventListener("click", closeMenu);
+
+}
+
+/*====================================
+ESC KEY CLOSE MENU
+====================================*/
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+
+        closeMenu();
 
     }
 
 });
 
-window.addEventListener("load", () => {
+/*====================================
+INITIALIZE
+====================================*/
 
-    console.log("TechFix Software EXP v11 Loaded Successfully.");
+updateHeader();
 
-});
-/*==========================================================
-  MOBILE DRAWER
-==========================================================*/
+updateBackToTop();
+/*====================================
+SEARCH MODAL
+====================================*/
 
-function initializeMobileDrawer() {
+const searchModal = document.getElementById("searchModal");
 
-    if (
-        !DOM.menuToggle ||
-        !DOM.mobileDrawer ||
-        !DOM.drawerOverlay
-    ) return;
+const searchInput = document.getElementById("searchInput");
 
-    DOM.menuToggle.addEventListener("click", toggleDrawer);
+const openSearchBtn = document.getElementById("openSearch");
 
-    if (DOM.drawerClose) {
+const closeSearchBtn = document.getElementById("closeSearch");
 
-        DOM.drawerClose.addEventListener(
-            "click",
-            closeDrawer
-        );
+function openSearch() {
 
-    }
+    if (!searchModal) return;
 
-    DOM.drawerOverlay.addEventListener(
-        "click",
-        closeDrawer
-    );
+    searchModal.classList.add("active");
 
-    DOM.drawerLinks.forEach(link => {
+    body.style.overflow = "hidden";
 
-        link.addEventListener(
-            "click",
-            closeDrawer
-        );
+    setTimeout(() => {
 
-    });
+        if (searchInput) {
+
+            searchInput.focus();
+
+        }
+
+    }, 200);
 
 }
 
-function toggleDrawer() {
+function closeSearch() {
 
-    Utils.toggleClass(
-        DOM.menuToggle,
-        "active"
-    );
+    if (!searchModal) return;
 
-    Utils.toggleClass(
-        DOM.mobileDrawer,
-        "active"
-    );
+    searchModal.classList.remove("active");
 
-    Utils.toggleClass(
-        DOM.drawerOverlay,
-        "active"
-    );
-
-    document.body.style.overflow =
-        DOM.mobileDrawer.classList.contains("active")
-            ? "hidden"
-            : "";
+    body.style.overflow = "";
 
 }
 
-function closeDrawer() {
+if (openSearchBtn) {
 
-    Utils.removeClass(
-        DOM.menuToggle,
-        "active"
-    );
-
-    Utils.removeClass(
-        DOM.mobileDrawer,
-        "active"
-    );
-
-    Utils.removeClass(
-        DOM.drawerOverlay,
-        "active"
-    );
-
-    document.body.style.overflow = "";
+    openSearchBtn.addEventListener("click", openSearch);
 
 }
 
-/*==========================================================
-  ACTIVE NAVIGATION
-==========================================================*/
+if (closeSearchBtn) {
 
-function initializeActiveNavigation() {
+    closeSearchBtn.addEventListener("click", closeSearch);
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop() || "index.html";
+}
 
-    [...DOM.navLinks, ...DOM.drawerLinks]
-        .forEach(link => {
+if (searchModal) {
 
-        const href = link.getAttribute("href");
+    searchModal.addEventListener("click", function(e){
 
-        if (!href) return;
+        if(e.target === searchModal){
 
-        link.classList.remove("active");
-
-        if (
-            href === currentPage ||
-            (currentPage === "index.html" &&
-             (href === "./" || href === "index.html"))
-        ) {
-
-            link.classList.add("active");
+            closeSearch();
 
         }
 
@@ -405,245 +240,193 @@ function initializeActiveNavigation() {
 
 }
 
-/*==========================================================
-  UPDATE INITIALIZER
-==========================================================*/
+/*====================================
+ESC CLOSE SEARCH
+====================================*/
 
-function initializeWebsite() {
+document.addEventListener("keydown",(e)=>{
 
-    if (TechFix.initialized) return;
+    if(e.key==="Escape"){
 
-    TechFix.initialized = true;
+        closeSearch();
 
-    console.log(
-        "%cTechFix Software EXP v11",
-        "color:#ff7a00;font-size:18px;font-weight:bold;"
-    );
+    }
 
-    initializeHeader();
+});
 
-    initializeBackToTop();
+/*====================================
+ACTIVE NAVIGATION
+====================================*/
 
-    initializeScrollProgress();
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-    initializeMobileDrawer();
+document.querySelectorAll(".nav-menu a").forEach(link=>{
 
-    initializeActiveNavigation();
+    const href = link.getAttribute("href");
 
-}
-/*==========================================================
-  KEYBOARD SHORTCUTS
-==========================================================*/
+    if(href===currentPage){
 
-function initializeKeyboardShortcuts() {
+        link.classList.add("active");
 
-    document.addEventListener("keydown", (event) => {
+    }
 
-        /* ESC closes mobile drawer */
+});
 
-        if (event.key === "Escape") {
+/*====================================
+SMOOTH SCROLL
+====================================*/
 
-            closeDrawer();
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-        }
+    anchor.addEventListener("click",function(e){
 
-    });
+        const target=document.querySelector(this.getAttribute("href"));
 
-}
+        if(!target) return;
 
-/*==========================================================
-  SMOOTH SCROLL
-==========================================================*/
-
-function initializeSmoothScroll() {
-
-    document.addEventListener("click", (event) => {
-
-        const link = event.target.closest('a[href^="#"]');
-
-        if (!link) return;
-
-        const target = document.querySelector(
-            link.getAttribute("href")
-        );
-
-        if (!target) return;
-
-        event.preventDefault();
+        e.preventDefault();
 
         target.scrollIntoView({
 
-            behavior: "smooth",
+            behavior:"smooth",
 
-            block: "start"
+            block:"start"
 
         });
 
     });
 
-}
+});
 
-/*==========================================================
-  SAFE EVENT BINDER
-==========================================================*/
+/*====================================
+CONSOLE
+====================================*/
 
-function bindEvent(element, eventName, callback, options = {}) {
+console.log("TechFix Software EXP Loaded Successfully");
+/*====================================
+SCROLL REVEAL ANIMATION
+====================================*/
 
-    if (!element) return;
+const revealElements = document.querySelectorAll(
+    ".feature-card, .service-card, .solution-card, .brand-card, .android-card, .apple-card, .recovery-card, .cyber-card, .download-item, .tool-card, .faq-item, .testimonial-card, .social-card, .stat-box"
+);
 
-    element.addEventListener(
+const observer = new IntersectionObserver((entries) => {
 
-        eventName,
+    entries.forEach(entry => {
 
-        callback,
+        if (entry.isIntersecting) {
 
-        options
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
 
-    );
-
-}
-
-/*==========================================================
-  PERFORMANCE
-==========================================================*/
-
-let resizeTimer = null;
-
-window.addEventListener("resize", () => {
-
-    clearTimeout(resizeTimer);
-
-    resizeTimer = setTimeout(() => {
-
-        if (!Utils.isMobile()) {
-
-            closeDrawer();
+            observer.unobserve(entry.target);
 
         }
 
-    }, 150);
+    });
+
+}, {
+
+    threshold: 0.15
 
 });
 
-/*==========================================================
-  UPDATE INITIALIZER
-==========================================================*/
+revealElements.forEach(item => {
 
-function initializeWebsite() {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(40px)";
+    item.style.transition = ".7s ease";
 
-    if (TechFix.initialized) return;
+    observer.observe(item);
 
-    TechFix.initialized = true;
+});
 
-    console.log(
+/*====================================
+COUNTER ANIMATION
+====================================*/
 
-        "%cTechFix Software EXP v11",
+const counters = document.querySelectorAll(
+    ".hero-stats h3, .stat-box h2"
+);
 
-        "color:#ff7a00;font-size:18px;font-weight:bold;"
+const counterObserver = new IntersectionObserver((entries)=>{
 
-    );
+    entries.forEach(entry=>{
 
-    console.log(
+        if(!entry.isIntersecting) return;
 
-        "%cFounder: MIAN AHMAD",
+        const el = entry.target;
 
-        "color:#ffffff;"
+        const text = el.innerText;
 
-    );
+        const number = parseInt(text.replace(/\D/g,""));
 
-    initializeHeader();
+        if(isNaN(number)) return;
 
-    initializeBackToTop();
+        let current = 0;
 
-    initializeScrollProgress();
+        const speed = Math.max(10, number / 80);
 
-    initializeMobileDrawer();
+        const timer = setInterval(()=>{
 
-    initializeActiveNavigation();
+            current += speed;
 
-    initializeKeyboardShortcuts();
+            if(current >= number){
 
-    initializeSmoothScroll();
+                current = number;
 
-}
-/*==========================================================
-  FINAL INITIALIZER
-==========================================================*/
+                clearInterval(timer);
+            }
 
-/*
- NOTE:
- Remove/comment the older initializeWebsite()
- functions from previous parts and keep ONLY
- this final version.
-*/
+            const suffix = text.replace(/[0-9]/g,"");
 
-function initializeWebsite() {
+            el.innerText = Math.floor(current) + suffix;
 
-    if (TechFix.initialized) {
+        },20);
 
-        return;
+        counterObserver.unobserve(el);
 
-    }
+    });
 
-    TechFix.initialized = true;
+});
 
-    console.log(
-        "%cTechFix Software EXP v11 v11.0",
-        "color:#ff7a00;font-size:18px;font-weight:bold;"
-    );
+counters.forEach(counter=>{
 
-    console.log(
-        "%cFounder : MIAN AHMAD",
-        "color:#ffffff;font-size:13px;"
-    );
+    counterObserver.observe(counter);
 
-    /* Core */
+});
 
-    initializeHeader();
+/*====================================
+CURRENT YEAR
+====================================*/
 
-    initializeScrollProgress();
+const year = document.getElementById("currentYear");
 
-    initializeBackToTop();
+if(year){
 
-    /* Navigation */
-
-    initializeMobileDrawer();
-
-    initializeActiveNavigation();
-
-    /* UX */
-
-    initializeKeyboardShortcuts();
-
-    initializeSmoothScroll();
-
-    console.log("Main module initialized.");
+    year.textContent = new Date().getFullYear();
 
 }
 
-/*==========================================================
-  DOM READY
-==========================================================*/
+/*====================================
+CARD HOVER EFFECT
+====================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.querySelectorAll(
+    ".feature-card,.service-card,.solution-card,.brand-card,.android-card,.apple-card,.recovery-card,.cyber-card,.download-item,.tool-card"
+).forEach(card=>{
 
-    initializeWebsite();
+    card.addEventListener("mouseenter",()=>{
 
-});
+        card.style.transition=".25s";
 
-/*==========================================================
-  WINDOW LOAD
-==========================================================*/
-
-window.addEventListener("load", () => {
-
-    console.log("Website Loaded.");
+    });
 
 });
 
-/*==========================================================
-  EXPORT
-==========================================================*/
+/*====================================
+READY
+====================================*/
 
-window.TechFix = TechFix;
-window.Utils = Utils;
+console.log("Animations Loaded Successfully");
