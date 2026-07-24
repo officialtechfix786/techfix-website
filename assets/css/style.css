@@ -4287,3 +4287,321 @@ canvas{
     }
 
 }
+/*==========================================================
+  TECHFIX SOFTWARE EXP v11
+  CYBER RGB THEME
+==========================================================*/
+
+:root{
+
+    --primary:#29B6FF;
+    --secondary:#8B5CF6;
+    --accent:#00E5C3;
+
+    --danger:#FF3D57;
+
+    --success:#00D084;
+
+    --white:#F4F7FB;
+
+    --silver:#AEB7C2;
+
+    --black:#05070D;
+
+    --dark:#0B1018;
+
+    --card:#111826;
+
+    --glass:rgba(255,255,255,.06);
+
+    --border:rgba(255,255,255,.08);
+
+    --shadow-blue:0 0 30px rgba(41,182,255,.35);
+
+    --shadow-purple:0 0 30px rgba(139,92,246,.30);
+
+    --shadow-cyan:0 0 30px rgba(0,229,195,.28);
+
+}
+
+/*==========================================================
+  BODY
+==========================================================*/
+
+body{
+
+    background:
+    radial-gradient(circle at top left,#0c1830 0%,transparent 45%),
+    radial-gradient(circle at bottom right,#220f3d 0%,transparent 45%),
+    linear-gradient(135deg,#05070d,#0b1018);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+  CYBER BUTTONS
+==========================================================*/
+
+.btn,
+.primary-btn{
+
+    background:linear-gradient(
+    135deg,
+    #29B6FF,
+    #8B5CF6,
+    #00E5C3);
+
+    color:#fff;
+
+    border:none;
+
+    box-shadow:var(--shadow-blue);
+
+}
+
+.btn:hover,
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    var(--shadow-blue),
+    var(--shadow-purple);
+
+}
+
+/*==========================================================
+  CARDS
+==========================================================*/
+
+.card{
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.card:hover{
+
+    border-color:#29B6FF;
+
+    box-shadow:
+    var(--shadow-blue),
+    var(--shadow-purple);
+
+}
+
+/*==========================================================
+  LINKS
+==========================================================*/
+
+a:hover{
+
+    color:#29B6FF;
+
+}
+/*==========================================================
+  CYBER RGB EFFECTS
+==========================================================*/
+
+/* Founder Name */
+
+.founder-name{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-weight:700;
+
+    animation:rgbFlow 10s linear infinite;
+
+    text-shadow:
+        0 0 8px currentColor,
+        0 0 18px currentColor,
+        0 0 30px currentColor;
+
+}
+
+/* Hero Heading */
+
+.hero-title,
+.hero-title span,
+.gradient-text{
+
+    animation:rgbFlow 8s linear infinite;
+
+    text-shadow:
+        0 0 12px currentColor,
+        0 0 28px currentColor;
+
+}
+
+/* Navigation */
+
+.nav-menu a{
+
+    transition:.35s ease;
+
+}
+
+.nav-menu a:hover,
+.nav-menu a.active{
+
+    color:#29B6FF;
+
+    text-shadow:
+        0 0 10px #29B6FF,
+        0 0 20px #8B5CF6;
+
+}
+
+/* Search Button */
+
+.search-btn{
+
+    transition:.35s ease;
+
+}
+
+.search-btn:hover{
+
+    background:linear-gradient(
+        135deg,
+        #29B6FF,
+        #8B5CF6,
+        #00E5C3);
+
+    box-shadow:
+        0 0 18px #29B6FF,
+        0 0 36px #8B5CF6;
+
+}
+
+/* WhatsApp Button */
+
+.whatsapp-btn{
+
+    transition:.35s ease;
+
+}
+
+.whatsapp-btn:hover{
+
+    box-shadow:
+        0 0 20px #00D084,
+        0 0 40px rgba(0,208,132,.45);
+
+}
+
+/* Glass Cards */
+
+.card,
+.brand-card,
+.mobile-card,
+.software-card{
+
+    transition:.35s ease;
+
+}
+
+.card:hover,
+.brand-card:hover,
+.mobile-card:hover,
+.software-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#29B6FF;
+
+    box-shadow:
+
+        0 0 22px rgba(41,182,255,.35),
+
+        0 0 42px rgba(139,92,246,.25);
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090d15;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:linear-gradient(
+
+        #29B6FF,
+
+        #8B5CF6,
+
+        #00E5C3
+
+    );
+
+}
+
+/* Text Selection */
+
+::selection{
+
+    background:#29B6FF;
+
+    color:#ffffff;
+
+}
+
+/* RGB Animation */
+
+@keyframes rgbFlow{
+
+    0%{
+
+        color:#29B6FF;
+
+    }
+
+    20%{
+
+        color:#8B5CF6;
+
+    }
+
+    40%{
+
+        color:#00E5C3;
+
+    }
+
+    60%{
+
+        color:#FF3D57;
+
+    }
+
+    80%{
+
+        color:#F4F7FB;
+
+    }
+
+    100%{
+
+        color:#29B6FF;
+
+    }
+
+}
