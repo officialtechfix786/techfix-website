@@ -3823,3 +3823,467 @@ canvas{
     }
 
 }
+/*==========================================================
+  HEADER FIX PATCH - PART 1
+==========================================================*/
+
+.top-bar{
+
+    position:relative;
+
+    z-index:1100;
+
+    width:100%;
+
+    background:#090d15;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.top-bar .container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:46px;
+
+    gap:20px;
+
+}
+
+.top-left,
+.top-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.founder-label{
+
+    color:#bfc7d5;
+
+    font-size:.9rem;
+
+}
+
+.founder-name{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-weight:700;
+
+    color:#33c8ff;
+
+    animation:founderGlow 8s linear infinite;
+
+}
+
+.top-right a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+}
+
+.top-right a:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+  MAIN HEADER
+==========================================================*/
+
+#header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    width:100%;
+
+    backdrop-filter:blur(16px);
+
+    background:rgba(10,12,18,.72);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.header-main{
+
+    min-height:82px;
+
+}
+
+.header-main .container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+}
+
+/*==========================================================
+  LOGO
+==========================================================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+
+}
+
+.logo img{
+
+    width:56px;
+
+    height:56px;
+
+    object-fit:contain;
+
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1.2;
+
+}
+
+.logo-text h1{
+
+    font-size:1.45rem;
+
+    color:#fff;
+
+    margin:0;
+
+}
+
+.logo-text span{
+
+    color:#9aa7ba;
+
+    font-size:.82rem;
+
+}
+/*==========================================================
+  HEADER FIX PATCH - PART 2
+==========================================================*/
+
+/* Navigation */
+
+.navbar,
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.navbar{
+
+    flex:1;
+
+    justify-content:center;
+
+}
+
+.nav-menu{
+
+    gap:34px;
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.nav-menu li{
+
+    list-style:none;
+
+}
+
+.nav-menu a{
+
+    position:relative;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    font-size:.97rem;
+
+    transition:.3s;
+
+    padding:8px 0;
+
+}
+
+.nav-menu a:hover,
+.nav-menu a.active{
+
+    color:var(--primary);
+
+}
+
+.nav-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.3s;
+
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after{
+
+    width:100%;
+
+}
+
+/*==========================================================
+  HEADER ACTIONS
+==========================================================*/
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    flex-shrink:0;
+
+}
+
+.search-btn{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.06);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.search-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+.whatsapp-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:52px;
+
+    padding:0 24px;
+
+    border-radius:50px;
+
+    background:#16c75a;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+}
+
+/*==========================================================
+  MOBILE TOGGLE
+==========================================================*/
+
+.menu-toggle{
+
+    display:none;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.menu-toggle span{
+
+    display:block;
+
+    width:24px;
+
+    height:2px;
+
+    background:#fff;
+
+    margin:5px 0;
+
+    transition:.3s;
+
+}
+
+/*==========================================================
+  RESPONSIVE HEADER
+==========================================================*/
+
+@media (max-width:1024px){
+
+    .navbar{
+
+        display:none;
+
+    }
+
+    .menu-toggle{
+
+        display:flex;
+
+        flex-direction:column;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .top-bar{
+
+        display:none;
+
+    }
+
+    .header-main{
+
+        min-height:74px;
+
+    }
+
+    .logo-text span{
+
+        display:none;
+
+    }
+
+    .whatsapp-btn span{
+
+        display:none;
+
+    }
+
+    .whatsapp-btn{
+
+        width:52px;
+
+        padding:0;
+
+        border-radius:50%;
+
+    }
+
+}
