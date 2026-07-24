@@ -3595,3 +3595,231 @@ canvas{
   END OF FILE
   TechFix Software EXP v11
 ==========================================================*/
+/*==========================================================
+  45. WEBSITE WRAPPER
+==========================================================*/
+
+#website{
+    position:relative;
+    z-index:2;
+}
+
+/*==========================================================
+  46. TOP BAR
+==========================================================*/
+
+.top-bar{
+    position:relative;
+    z-index:1200;
+    background:rgba(8,11,16,.92);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+.top-bar .container{
+    min-height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:10px 0;
+}
+
+.top-left,
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.founder-label{
+    color:var(--muted);
+    font-size:.88rem;
+    font-family:var(--font-ui);
+}
+
+.founder-name{
+    font-size:.92rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    font-family:var(--font-heading);
+    animation:founderGlow 6s linear infinite;
+}
+
+.top-right a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--white);
+    font-size:.88rem;
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.top-right a:hover{
+    color:var(--primary);
+}
+
+.top-right i{
+    color:var(--primary);
+}
+
+/*==========================================================
+  47. GLOBAL SEARCH OVERLAY
+==========================================================*/
+
+#searchOverlay{
+    position:fixed;
+    inset:0;
+    z-index:2500;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:var(--transition);
+}
+
+#searchOverlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.search-box{
+    width:min(100%,820px);
+    padding:34px;
+    border-radius:28px;
+    background:rgba(12,16,24,.96);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:
+        0 24px 80px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,122,0,.08);
+    position:relative;
+}
+
+.search-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.search-close:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+    transform:rotate(90deg);
+}
+
+.search-box h2{
+    margin-bottom:18px;
+    padding-right:56px;
+    font-size:2rem;
+    line-height:1.2;
+    color:var(--white);
+}
+
+#globalSearch{
+    width:100%;
+    height:64px;
+    padding:0 22px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.05);
+    color:var(--white);
+    font-size:1rem;
+    font-family:var(--font-ui);
+    transition:var(--transition);
+}
+
+#globalSearch::placeholder{
+    color:rgba(255,255,255,.55);
+}
+
+#globalSearch:focus{
+    border-color:rgba(255,122,0,.45);
+    box-shadow:0 0 0 4px rgba(255,122,0,.12);
+    background:rgba(255,255,255,.07);
+}
+
+#liveSearchResults{
+    margin-top:18px;
+    max-height:420px;
+    overflow-y:auto;
+    padding-right:6px;
+}
+
+#liveSearchResults::-webkit-scrollbar{
+    width:8px;
+}
+
+#liveSearchResults::-webkit-scrollbar-thumb{
+    background:rgba(255,122,0,.45);
+    border-radius:999px;
+}
+
+/*==========================================================
+  48. MOBILE FIXES
+==========================================================*/
+
+@media (max-width:768px){
+
+    .top-bar .container{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .top-right{
+        gap:12px;
+    }
+
+    .search-box{
+        padding:26px 18px;
+        border-radius:22px;
+    }
+
+    .search-box h2{
+        font-size:1.55rem;
+        padding-right:48px;
+    }
+
+    #globalSearch{
+        height:58px;
+        font-size:.95rem;
+    }
+
+}
+
+@media (max-width:425px){
+
+    #searchOverlay{
+        padding:14px;
+    }
+
+    .search-box{
+        padding:22px 14px;
+    }
+
+    .search-box h2{
+        font-size:1.28rem;
+    }
+
+}
