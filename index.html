@@ -1,73 +1,33 @@
 <!DOCTYPE html>
-<!--
-==========================================================
- TechFix Software EXP v11
- Founder : MIAN AHMAD
- Version : 11.0
- Author  : MIAN AHMAD
-==========================================================
--->
-
 <html lang="en">
 
 <head>
 
-    <!-- =========================
-         BASIC META
-    ========================== -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   maximum-scale=1.0,
-                   user-scalable=no">
+          content="width=device-width, initial-scale=1.0">
 
-    <title>TechFix Software EXP v11 | Professional Mobile Software Solutions</title>
+    <title>
+        TechFix Software EXP | Professional Mobile Software Solutions
+    </title>
 
     <meta name="description"
-          content="TechFix Software EXP v11 provides professional Android, Apple, Firmware, Flash Files, FRP Unlock, Mobile Repair, Cyber Security, Drivers, Software Tools and Repair Solutions.">
+          content="Professional Android, Apple, Firmware, Flash Files, FRP Unlock, Mobile Repair, Data Recovery and Cyber Security Solutions.">
 
     <meta name="keywords"
-          content="TechFix, TechFix Software EXP, Android, Apple, FRP, Firmware, Flash File, Unlock, Mobile Repair, GSM, Cyber Security">
+          content="TechFix, Android, Apple, Firmware, Flash Files, FRP, Mobile Repair, Data Recovery, Cyber Security">
 
     <meta name="author"
           content="MIAN AHMAD">
 
     <meta name="theme-color"
-          content="#ff7a00">
-
-    <meta name="robots"
-          content="index, follow">
-
-    <!-- =========================
-         OPEN GRAPH
-    ========================== -->
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:title"
-          content="TechFix Software EXP v11">
-
-    <meta property="og:description"
-          content="Professional Mobile Software & Cyber Security Platform.">
-
-    <meta property="og:image"
-          content="assets/images/logo.png">
-
-    <!-- =========================
-         FAVICON
-    ========================== -->
+          content="#29B6FF">
 
     <link rel="icon"
-          href="assets/images/logo.png"
-          type="image/png">
+          href="assets/images/logo.png">
 
-    <!-- =========================
-         GOOGLE FONTS
-    ========================== -->
+    <!-- Google Fonts -->
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -76,19 +36,15 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <!-- =========================
-         ICONS
-    ========================== -->
+    <!-- Font Awesome -->
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- =========================
-         CSS
-    ========================== -->
+    <!-- Main CSS -->
 
     <link rel="stylesheet"
           href="assets/css/style.css">
@@ -97,2113 +53,2886 @@
 
 <body>
 
-<!-- ==========================================
-     PRELOADER
-=========================================== -->
+<!--==============================
+HEADER START
+===============================-->
 
-<div id="preloader">
+<header class="header">
 
-    <div class="loader-wrapper">
+    <div class="container">
 
-        <img src="assets/images/logo.png"
-             alt="TechFix Logo"
-             class="loader-logo">
+        <a href="index.html"
+           class="logo">
 
-        <div class="loader-ring"></div>
+            <img src="assets/images/logo.png"
+                 alt="TechFix Logo">
 
-        <h2 class="loader-title">
-            TECHFIX SOFTWARE EXP
-        </h2>
+            <div>
 
-        <p class="loader-text">
-            Initializing Professional Repair Environment...
-        </p>
+                <h2>
 
-    </div>
+                    TechFix Software EXP
 
-</div>
+                </h2>
 
-<!-- ==========================================
-     BACKGROUND EFFECTS
-=========================================== -->
+                <span>
 
-<div class="bg-grid"></div>
-
-<div class="bg-glow bg-glow-1"></div>
-
-<div class="bg-glow bg-glow-2"></div>
-
-<div class="bg-glow bg-glow-3"></div>
-
-<div class="noise-overlay"></div>
-
-<!-- ==========================================
-     SCROLL PROGRESS
-=========================================== -->
-
-<div id="scroll-progress"></div>
-
-<!-- ==========================================
-     BACK TO TOP
-=========================================== -->
-
-<button id="backToTop"
-        aria-label="Back To Top">
-
-    <i class="fas fa-arrow-up"></i>
-
-</button>
-
-<!-- ==========================================
-     GLOBAL SEARCH OVERLAY
-=========================================== -->
-
-<div id="searchOverlay">
-
-    <div class="search-box">
-
-        <button class="search-close"
-                aria-label="Close Search">
-
-            <i class="fas fa-times"></i>
-
-        </button>
-
-        <h2>Search TechFix Database</h2>
-
-        <input
-            type="text"
-            id="globalSearch"
-            placeholder="Search mobiles, tools, firmware, software...">
-
-        <div id="liveSearchResults"></div>
-
-    </div>
-
-</div>
-
-<!-- ==========================================
-     WEBSITE START
-=========================================== -->
-
-<div id="website">
-
-    <!-- ======================================
-         TOP BAR
-    ======================================= -->
-
-    <div class="top-bar">
-
-        <div class="container">
-
-            <div class="top-left">
-
-                <span class="founder-label">
-
-                    Founder :
-
-                </span>
-
-                <span class="founder-name">
-
-                    MIAN AHMAD
+                    Professional Mobile Solutions
 
                 </span>
 
             </div>
 
-            <div class="top-right">
+        </a>
 
-                <a href="mailto:officialtechfix786@gmail.com">
+        <nav class="navbar">
 
-                    <i class="fas fa-envelope"></i>
+            <ul class="nav-menu">
 
-                    officialtechfix786@gmail.com
+                <li>
 
-                </a>
+                    <a href="index.html"
+                       class="active">
 
-                <a href="https://wa.me/966568152404"
-                   target="_blank"
-                   rel="noopener">
-
-                    <i class="fab fa-whatsapp"></i>
-
-                    +966568152404
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- ======================================
-         HEADER START
-    ======================================= -->
-
-    <header id="header">
-
-        <div class="container">
-
-            <nav class="navbar">
-
-                <!-- Logo -->
-
-                <a href="index.html"
-                   class="logo">
-
-                    <img src="assets/images/logo.png"
-                         alt="TechFix Logo">
-
-                    <div class="logo-text">
-
-                        <h1>TechFix</h1>
-
-                        <span>Software EXP v11</span>
-
-                    </div>
-
-                </a>
-                <!-- ==========================
-                     DESKTOP NAVIGATION
-                =========================== -->
-
-                <ul class="nav-menu">
-
-                    <li>
-                        <a href="index.html"
-                           class="active">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/mobiles.html">
-                            Mobiles
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/android.html">
-                            Android
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/apple.html">
-                            Apple
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/downloads.html">
-                            Downloads
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/cyber-security.html">
-                            Cyber Security
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/contact.html">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-                <!-- ==========================
-                     NAVIGATION ACTIONS
-                =========================== -->
-
-                <div class="nav-actions">
-
-                    <!-- Search -->
-
-                    <button id="searchBtn"
-                            class="icon-btn"
-                            aria-label="Search">
-
-                        <i class="fas fa-search"></i>
-
-                    </button>
-
-                    <!-- WhatsApp -->
-
-                    <a href="https://wa.me/966568152404"
-                       target="_blank"
-                       rel="noopener"
-                       class="whatsapp-btn">
-
-                        <i class="fab fa-whatsapp"></i>
-
-                        <span>WhatsApp</span>
+                        Home
 
                     </a>
 
-                    <!-- Mobile Toggle -->
+                </li>
 
-                    <button id="menuToggle"
-                            class="menu-toggle"
-                            aria-label="Open Menu">
+                <li>
 
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <a href="mobiles.html">
 
-                    </button>
+                        Mobiles
 
-                </div>
+                    </a>
 
-            </nav>
+                </li>
 
-        </div>
+                <li>
 
-    </header>
+                    <a href="android.html">
 
-    <!-- ======================================
-         MOBILE DRAWER
-    ======================================= -->
+                        Android
 
-    <aside id="mobileDrawer">
+                    </a>
 
-        <div class="drawer-header">
+                </li>
 
-            <a href="index.html"
-               class="drawer-logo">
+                <li>
 
-                <img src="assets/images/logo.png"
-                     alt="TechFix Logo">
+                    <a href="apple.html">
 
-                <div>
+                        Apple
 
-                    <h2>TechFix</h2>
+                    </a>
 
-                    <span>Software EXP v11</span>
+                </li>
 
-                </div>
+                <li>
 
-            </a>
+                    <a href="downloads.html">
 
-            <button id="drawerClose"
-                    aria-label="Close Menu">
+                        Downloads
 
-                <i class="fas fa-times"></i>
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="cyber-security.html">
+
+                        Cyber Security
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button id="searchToggle"
+                    class="icon-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+            <button id="menuToggle"
+                    class="icon-btn mobile-menu-btn">
+
+                <i class="fa-solid fa-bars"></i>
 
             </button>
 
         </div>
 
-        <nav class="drawer-navigation">
+    </div>
 
-            <a href="index.html">
+</header>
 
-                <i class="fas fa-house"></i>
+<!--==============================
+GLOBAL SEARCH
+===============================-->
 
-                Home
+<section class="global-search">
+
+    <div class="container">
+
+        <div class="search-box">
+
+            <input type="text"
+                   id="globalSearch"
+                   placeholder="Search Mobiles, Firmware, FRP, Apple, Android...">
+
+            <button>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HERO SECTION STARTS HERE -->
+ <!--==============================
+HERO SECTION
+===============================-->
+
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Trusted Mobile Software Platform
+
+            </span>
+
+            <h1>
+
+                Professional
+
+                <span class="gradient-text">
+
+                    Android
+
+                </span>
+
+                &
+
+                <span class="gradient-text">
+
+                    Apple
+
+                </span>
+
+                Software Solutions
+
+            </h1>
+
+            <p>
+
+                Flash Files, Firmware, FRP Unlock, IMEI Repair,
+                Data Recovery, iPhone Solutions, Android Tools,
+                Mobile Repair and Cyber Security Resources
+                in one professional platform.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="mobiles.html"
+                   class="btn">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                    Browse Mobiles
+
+                </a>
+
+                <a href="downloads.html"
+                   class="btn btn-outline">
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Downloads
+
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+
+                    <h3>18+</h3>
+
+                    <span>Brands</span>
+
+                </div>
+
+                <div>
+
+                    <h3>500+</h3>
+
+                    <span>Devices</span>
+
+                </div>
+
+                <div>
+
+                    <h3>1500+</h3>
+
+                    <span>Solutions</span>
+
+                </div>
+
+                <div>
+
+                    <h3>24/7</h3>
+
+                    <span>Support</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="assets/images/robot.png"
+                 alt="TechFix Robot">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==============================
+FEATURE CARDS
+===============================-->
+
+<section class="hero-features">
+
+    <div class="container">
+
+        <div class="features-grid">
+
+            <article class="feature-card">
+
+                <i class="fa-solid fa-unlock-keyhole"></i>
+
+                <h3>FRP Unlock</h3>
+
+                <p>
+
+                    Samsung, Xiaomi, Vivo,
+                    Oppo, Huawei and more.
+
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>Firmware</h3>
+
+                <p>
+
+                    Official firmware,
+                    flashing files and tools.
+
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+                <i class="fa-solid fa-hard-drive"></i>
+
+                <h3>Data Recovery</h3>
+
+                <p>
+
+                    Android and iPhone
+                    recovery solutions.
+
+                </p>
+
+            </article>
+
+            <article class="feature-card">
+
+                <i class="fa-solid fa-user-secret"></i>
+
+                <h3>Cyber Security</h3>
+
+                <p>
+
+                    Security tools,
+                    penetration testing
+                    and learning resources.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT: SERVICES SECTION -->
+ <!--==============================
+SERVICES
+===============================-->
+
+<section class="services">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                OUR PROFESSIONAL SERVICES
+
+            </span>
+
+            <h2>
+
+                Everything You Need For Mobile Repair
+
+            </h2>
+
+            <p>
+
+                Professional Android, Apple, Firmware, Flash Files,
+                Data Recovery and Cyber Security services from one platform.
+
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                </div>
+
+                <h3>
+
+                    Android Solutions
+
+                </h3>
+
+                <p>
+
+                    Samsung, Xiaomi, Vivo, Oppo,
+                    Realme, Tecno, Infinix,
+                    Huawei and Honor solutions.
+
+                </p>
+
+                <a href="android.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-brands fa-apple"></i>
+
+                </div>
+
+                <h3>
+
+                    Apple Solutions
+
+                </h3>
+
+                <p>
+
+                    iPhone, iPad,
+                    iCloud, Recovery Mode,
+                    Restore and DFU solutions.
+
+                </p>
+
+                <a href="apple.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-download"></i>
+
+                </div>
+
+                <h3>
+
+                    Firmware Downloads
+
+                </h3>
+
+                <p>
+
+                    Official firmware,
+                    drivers, flashing tools,
+                    ADB and Fastboot.
+
+                </p>
+
+                <a href="downloads.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-hard-drive"></i>
+
+                </div>
+
+                <h3>
+
+                    Data Recovery
+
+                </h3>
+
+                <p>
+
+                    Recover deleted files,
+                    contacts, messages,
+                    photos and videos.
+
+                </p>
+
+                <a href="contact.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-user-secret"></i>
+
+                </div>
+
+                <h3>
+
+                    Cyber Security
+
+                </h3>
+
+                <p>
+
+                    Kali Linux,
+                    Nmap, Burp Suite,
+                    Wireshark and more.
+
+                </p>
+
+                <a href="cyber-security.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                </div>
+
+                <h3>
+
+                    Mobile Repair
+
+                </h3>
+
+                <p>
+
+                    IMEI Repair,
+                    Boot Repair,
+                    Network Repair,
+                    Unlock Solutions.
+
+                </p>
+
+                <a href="mobiles.html">
+
+                    Learn More
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT: POPULAR BRANDS SECTION -->
+ <!--==============================
+POPULAR BRANDS
+===============================-->
+
+<section class="brands">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                SUPPORTED BRANDS
+
+            </span>
+
+            <h2>
+
+                Professional Mobile Brands
+
+            </h2>
+
+            <p>
+
+                We provide professional firmware, FRP, flashing,
+                unlocking and repair solutions for leading
+                smartphone manufacturers.
+
+            </p>
+
+        </div>
+
+        <div class="brands-grid">
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/samsung.png"
+                     alt="Samsung">
+
+                <h3>Samsung</h3>
 
             </a>
 
-            <a href="pages/mobiles.html">
+            <a href="mobiles.html" class="brand-card">
 
-                <i class="fas fa-mobile-screen"></i>
+                <img src="assets/images/brands/apple.png"
+                     alt="Apple">
 
-                Mobiles
-
-            </a>
-
-            <a href="pages/android.html">
-
-                <i class="fab fa-android"></i>
-
-                Android
+                <h3>Apple</h3>
 
             </a>
 
-            <a href="pages/apple.html">
+            <a href="mobiles.html" class="brand-card">
 
-                <i class="fab fa-apple"></i>
+                <img src="assets/images/brands/xiaomi.png"
+                     alt="Xiaomi">
 
-                Apple
-
-            </a>
-
-            <a href="pages/downloads.html">
-
-                <i class="fas fa-download"></i>
-
-                Downloads
+                <h3>Xiaomi</h3>
 
             </a>
 
-            <a href="pages/cyber-security.html">
+            <a href="mobiles.html" class="brand-card">
 
-                <i class="fas fa-shield-halved"></i>
+                <img src="assets/images/brands/oppo.png"
+                     alt="OPPO">
 
-                Cyber Security
-
-            </a>
-
-            <a href="pages/contact.html">
-
-                <i class="fas fa-envelope-open-text"></i>
-
-                Contact
+                <h3>OPPO</h3>
 
             </a>
 
-        </nav>
+            <a href="mobiles.html" class="brand-card">
 
-        <div class="drawer-footer">
+                <img src="assets/images/brands/vivo.png"
+                     alt="Vivo">
 
-            <a href="https://wa.me/966568152404"
-               target="_blank"
-               rel="noopener">
-
-                <i class="fab fa-whatsapp"></i>
-
-                WhatsApp
+                <h3>Vivo</h3>
 
             </a>
 
-            <a href="mailto:officialtechfix786@gmail.com">
+            <a href="mobiles.html" class="brand-card">
 
-                <i class="fas fa-envelope"></i>
+                <img src="assets/images/brands/realme.png"
+                     alt="Realme">
 
-                Email
+                <h3>Realme</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/infinix.png"
+                     alt="Infinix">
+
+                <h3>Infinix</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/tecno.png"
+                     alt="Tecno">
+
+                <h3>Tecno</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/honor.png"
+                     alt="Honor">
+
+                <h3>Honor</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/huawei.png"
+                     alt="Huawei">
+
+                <h3>Huawei</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/google.png"
+                     alt="Google Pixel">
+
+                <h3>Google</h3>
+
+            </a>
+
+            <a href="mobiles.html" class="brand-card">
+
+                <img src="assets/images/brands/oneplus.png"
+                     alt="OnePlus">
+
+                <h3>OnePlus</h3>
 
             </a>
 
         </div>
 
-    </aside>
+    </div>
 
-    <!-- ======================================
-         MOBILE OVERLAY
-    ======================================= -->
+</section>
 
-    <div id="drawerOverlay"></div>
+<!--==============================
+WHY CHOOSE TECHFIX
+===============================-->
 
-    <!-- ======================================
-         MAIN CONTENT START
-    ======================================= -->
+<section class="why-techfix">
 
-    <main>
+    <div class="container">
 
-        <!-- ==================================
-             HERO SECTION START
-        =================================== -->
+        <div class="section-title">
 
-        <section id="hero">
+            <span>
 
-            <div class="container">
+                WHY CHOOSE US
 
-                <div class="hero-wrapper">
-                    <!-- ==========================
-                         HERO CONTENT
-                    =========================== -->
+            </span>
 
-                    <div class="hero-content">
+            <h2>
 
-                        <span class="hero-badge">
+                Why Professionals Trust TechFix
 
-                            <i class="fas fa-shield-halved"></i>
+            </h2>
 
-                            Professional Mobile Software Solutions
+        </div>
 
-                        </span>
+        <div class="features-grid">
 
-                        <h2 class="hero-title">
+            <div class="feature-card">
 
-                            Professional
+                <i class="fa-solid fa-database"></i>
 
-                            <span>Android</span>
+                <h3>Huge Database</h3>
 
-                            &
+                <p>
 
-                            <span>Apple</span>
+                    Thousands of firmware, repair
+                    solutions and supported devices.
 
-                            Software Platform
-
-                        </h2>
-
-                        <p class="hero-description">
-
-                            TechFix Software EXP v11 provides professional
-                            firmware, FRP solutions, flash files, mobile repair,
-                            drivers, official software, cyber security learning,
-                            and complete repair information for technicians
-                            around the world.
-
-                        </p>
-
-                        <!-- ==========================
-                             HERO BUTTONS
-                        =========================== -->
-
-                        <div class="hero-buttons">
-
-                            <a href="pages/downloads.html"
-                               class="btn btn-primary">
-
-                                <i class="fas fa-download"></i>
-
-                                Download Center
-
-                            </a>
-
-                            <a href="pages/contact.html"
-                               class="btn btn-secondary">
-
-                                <i class="fas fa-headset"></i>
-
-                                Contact TechFix
-
-                            </a>
-
-                        </div>
-
-                        <!-- ==========================
-                             LIVE STATUS
-                        =========================== -->
-
-                        <div class="system-status">
-
-                            <div class="status-card">
-
-                                <span class="status-dot"></span>
-
-                                <div>
-
-                                    <h4>
-
-                                        System Status
-
-                                    </h4>
-
-                                    <p>
-
-                                        Online & Operational
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="status-card">
-
-                                <span class="status-dot"></span>
-
-                                <div>
-
-                                    <h4>
-
-                                        Database
-
-                                    </h4>
-
-                                    <p>
-
-                                        Live Search Enabled
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="status-card">
-
-                                <span class="status-dot"></span>
-
-                                <div>
-
-                                    <h4>
-
-                                        Support
-
-                                    </h4>
-
-                                    <p>
-
-                                        Available Worldwide
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- ==========================
-                         HERO IMAGE
-                    =========================== -->
-
-                    <div class="hero-image">
-
-                        <div class="hero-image-wrapper">
-
-                            <img src="assets/images/robot-bg.png"
-                                 alt=""
-                                 class="robot-bg"
-                                 aria-hidden="true">
-
-                            <img src="assets/images/hero-home.png"
-                                 alt="TechFix Professional Robot"
-                                 class="hero-robot"
-                                 loading="eager">
-
-                            <div class="floating-circle circle-1"></div>
-
-                            <div class="floating-circle circle-2"></div>
-
-                            <div class="floating-circle circle-3"></div>
-
-                            <div class="floating-circle circle-4"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+            <div class="feature-card">
 
-        <!-- ==================================
-             HERO SECTION END
-        =================================== -->
+                <i class="fa-solid fa-bolt"></i>
 
-        <!-- ==================================
-             QUICK STATS START
-        =================================== -->
+                <h3>Fast Search</h3>
 
-        <section id="quick-stats">
+                <p>
 
-            <div class="container">
+                    Quickly find your device,
+                    firmware or repair solution.
 
-                <div class="stats-grid">
-
-                    <!-- ==========================
-                         STAT CARD 01
-                    =========================== -->
-
-                    <article class="stat-card">
-
-                        <div class="stat-icon">
-
-                            <i class="fas fa-mobile-screen-button"></i>
-
-                        </div>
-
-                        <div class="stat-content">
-
-                            <h3 class="counter"
-                                data-target="5000">
-
-                                0
-
-                            </h3>
-
-                            <p>
-
-                                Mobile Solutions
-
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         STAT CARD 02
-                    =========================== -->
-
-                    <article class="stat-card">
-
-                        <div class="stat-icon">
-
-                            <i class="fas fa-download"></i>
-
-                        </div>
-
-                        <div class="stat-content">
-
-                            <h3 class="counter"
-                                data-target="1200">
-
-                                0
-
-                            </h3>
-
-                            <p>
-
-                                Official Downloads
-
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         STAT CARD 03
-                    =========================== -->
-
-                    <article class="stat-card">
-
-                        <div class="stat-icon">
-
-                            <i class="fas fa-screwdriver-wrench"></i>
-
-                        </div>
-
-                        <div class="stat-content">
-
-                            <h3 class="counter"
-                                data-target="3500">
-
-                                0
-
-                            </h3>
-
-                            <p>
-
-                                Repair Guides
-
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         STAT CARD 04
-                    =========================== -->
-
-                    <article class="stat-card">
-
-                        <div class="stat-icon">
-
-                            <i class="fas fa-star"></i>
-
-                        </div>
-
-                        <div class="stat-content">
-
-                            <h3>
-
-                                4.9
-
-                                <small>/5</small>
-
-                            </h3>
-
-                            <p>
-
-                                User Rating
-
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+            <div class="feature-card">
 
-        <!-- ==================================
-             QUICK STATS END
-        =================================== -->
+                <i class="fa-solid fa-shield"></i>
 
-        <!-- ==================================
-             FEATURES START
-        =================================== -->
+                <h3>Trusted Resources</h3>
 
-        <section id="features">
+                <p>
 
-            <div class="container">
+                    Professional tools,
+                    verified files and reliable guides.
 
-                <div class="section-heading">
-
-                    <span class="section-tag">
-
-                        Why Choose TechFix
-
-                    </span>
-
-                    <h2>
-
-                        Premium Mobile Software
-                        <span>Platform</span>
-
-                    </h2>
-
-                    <p>
-
-                        A complete ecosystem for mobile technicians,
-                        software engineers and cyber security learners.
-
-                    </p>
-
-                </div>
-
-                <div class="features-grid">
-
-                    <!-- Feature 01 -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">
-
-                            <i class="fas fa-microchip"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Android Solutions
-
-                        </h3>
-
-                        <p>
-
-                            Professional FRP, Flash, Firmware,
-                            Unlock, Boot Repair, IMEI and
-                            Network Repair solutions.
-
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 02 -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">
-
-                            <i class="fab fa-apple"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Apple Support
-
-                        </h3>
-
-                        <p>
-
-                            Restore, Recovery Mode,
-                            DFU, Activation,
-                            iCloud guidance,
-                            Backup and Flash.
-
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 03 -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">
-
-                            <i class="fas fa-shield-halved"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Cyber Security
-
-                        </h3>
-
-                        <p>
-
-                            Learn professional cyber security
-                            tools with educational information
-                            and official resources.
-
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 04 -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">
-
-                            <i class="fas fa-database"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Huge Database
-
-                        </h3>
-
-                        <p>
-
-                            Thousands of devices,
-                            software tools,
-                            firmware resources,
-                            drivers and repair notes.
-
-                        </p>
-
-                    </article>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+            <div class="feature-card">
 
-        <!-- ==================================
-             FEATURES END
-        =================================== -->
+                <i class="fa-solid fa-headset"></i>
 
-        <!-- ==================================
-             BRANDS SECTION START
-        =================================== -->
+                <h3>Support</h3>
 
-        <section id="brands">
+                <p>
 
-            <div class="container">
+                    Contact TechFix anytime
+                    for professional assistance.
 
-                <div class="section-heading">
-
-                    <span class="section-tag">
-
-                        Supported Brands
-
-                    </span>
-
-                    <h2>
-
-                        All Major Smartphone
-                        <span>Manufacturers</span>
-
-                    </h2>
-
-                    <p>
-
-                        Find software solutions, firmware,
-                        repair guides and downloads
-                        for your favorite brand.
-
-                    </p>
-
-                </div>
-
-                <div class="brands-grid">
-                    <!-- ==========================
-                         BRAND 01
-                    =========================== -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/samsung.png"
-                             alt="Samsung"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Samsung</h3>
-
-                    </a>
-
-                    <!-- BRAND 02 -->
-
-                    <a href="pages/apple.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/apple.png"
-                             alt="Apple"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Apple</h3>
-
-                    </a>
-
-                    <!-- BRAND 03 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/xiaomi.png"
-                             alt="Xiaomi"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Xiaomi</h3>
-
-                    </a>
-
-                    <!-- BRAND 04 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/oppo.png"
-                             alt="Oppo"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Oppo</h3>
-
-                    </a>
-
-                    <!-- BRAND 05 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/vivo.png"
-                             alt="Vivo"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Vivo</h3>
-
-                    </a>
-
-                    <!-- BRAND 06 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/realme.png"
-                             alt="Realme"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Realme</h3>
-
-                    </a>
-
-                    <!-- BRAND 07 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/tecno.png"
-                             alt="Tecno"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Tecno</h3>
-
-                    </a>
-
-                    <!-- BRAND 08 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/infinix.png"
-                             alt="Infinix"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Infinix</h3>
-
-                    </a>
-
-                    <!-- BRAND 09 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/google.png"
-                             alt="Google"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Google</h3>
-
-                    </a>
-
-                    <!-- BRAND 10 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/huawei.png"
-                             alt="Huawei"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Huawei</h3>
-
-                    </a>
-
-                    <!-- BRAND 11 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/honor.png"
-                             alt="Honor"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Honor</h3>
-
-                    </a>
-
-                    <!-- BRAND 12 -->
-
-                    <a href="pages/android.html"
-                       class="brand-card">
-
-                        <img src="assets/brands/oneplus.png"
-                             alt="OnePlus"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>OnePlus</h3>
-
-                    </a>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- ==================================
-             BRANDS SECTION END
-        =================================== -->
+    </div>
 
-        <!-- ==================================
-             POPULAR SERVICES START
-        =================================== -->
+</section>
 
-        <section id="services">
+<!-- NEXT: DOWNLOADS + CTA -->
+ <!--==============================
+DOWNLOAD CATEGORIES
+===============================-->
 
-            <div class="container">
+<section class="downloads-preview">
 
-                <div class="section-heading">
+    <div class="container">
 
-                    <span class="section-tag">
+        <div class="section-title">
 
-                        Our Services
+            <span>
 
-                    </span>
+                DOWNLOAD CENTER
 
-                    <h2>
+            </span>
 
-                        Professional Software
-                        <span>Solutions</span>
+            <h2>
 
-                    </h2>
+                Popular Downloads
 
-                    <p>
+            </h2>
 
-                        Trusted repair services for Android and Apple devices.
+            <p>
 
-                    </p>
+                Download professional tools, drivers and firmware
+                for Android and Apple devices.
 
-                </div>
+            </p>
 
-                <div class="services-grid">
+        </div>
 
-                    <!-- ==========================
-                         SERVICE 01
-                    =========================== -->
+        <div class="downloads-grid">
 
-                    <article class="service-card">
+            <a href="downloads.html" class="download-card">
 
-                        <div class="service-icon">
+                <i class="fa-solid fa-mobile-screen-button"></i>
 
-                            <i class="fas fa-lock-open"></i>
+                <h3>Flash Tools</h3>
 
-                        </div>
+            </a>
 
-                        <h3>
+            <a href="downloads.html" class="download-card">
 
-                            FRP Unlock
+                <i class="fa-solid fa-file-arrow-down"></i>
 
-                        </h3>
+                <h3>Firmware</h3>
 
-                        <p>
+            </a>
 
-                            Professional FRP bypass solutions for supported
-                            Android devices with detailed guidance and required
-                            software.
+            <a href="downloads.html" class="download-card">
 
-                        </p>
+                <i class="fa-solid fa-microchip"></i>
 
-                        <div class="service-price">
+                <h3>USB Drivers</h3>
 
-                            PKR 1,000 – 1,500
+            </a>
 
-                        </div>
+            <a href="downloads.html" class="download-card">
 
-                        <div class="service-rating">
+                <i class="fa-solid fa-terminal"></i>
 
-                            ★★★★★
+                <h3>ADB & Fastboot</h3>
 
-                            <span>4.9/5</span>
+            </a>
 
-                        </div>
+            <a href="downloads.html" class="download-card">
 
-                    </article>
+                <i class="fa-brands fa-android"></i>
 
-                    <!-- ==========================
-                         SERVICE 02
-                    =========================== -->
+                <h3>Android Tools</h3>
 
-                    <article class="service-card">
+            </a>
 
-                        <div class="service-icon">
+            <a href="downloads.html" class="download-card">
 
-                            <i class="fas fa-bolt"></i>
+                <i class="fa-brands fa-apple"></i>
 
-                        </div>
+                <h3>Apple Tools</h3>
 
-                        <h3>
+            </a>
 
-                            Flash & Firmware
+        </div>
 
-                        </h3>
+    </div>
 
-                        <p>
+</section>
 
-                            Official firmware resources, flashing procedures,
-                            boot repair and software restoration for supported
-                            smartphones.
+<!--==============================
+CALL TO ACTION
+===============================-->
 
-                        </p>
+<section class="cta-section">
 
-                        <div class="service-price">
+    <div class="container">
 
-                            PKR 1,000 – 2,000
+        <div class="cta-box">
 
-                        </div>
+            <h2>
 
-                        <div class="service-rating">
+                Need Professional Mobile Software Support?
 
-                            ★★★★★
+            </h2>
 
-                            <span>4.9/5</span>
+            <p>
 
-                        </div>
+                Get expert help for FRP Unlock, Flashing,
+                Firmware, Data Recovery, IMEI Repair,
+                Network Repair and Apple Solutions.
 
-                    </article>
+            </p>
 
-                    <!-- ==========================
-                         SERVICE 03
-                    =========================== -->
+            <div class="cta-buttons">
 
-                    <article class="service-card">
+                <a href="contact.html" class="btn">
 
-                        <div class="service-icon">
+                    Contact Us
 
-                            <i class="fas fa-sim-card"></i>
+                </a>
 
-                        </div>
+                <a href="https://wa.me/966568152404"
+                   target="_blank"
+                   class="btn btn-outline">
 
-                        <h3>
+                    WhatsApp
 
-                            IMEI Repair
-
-                        </h3>
-
-                        <p>
-
-                            Professional IMEI repair guidance for supported
-                            devices where legally permitted, with compatible
-                            tools and technical notes.
-
-                        </p>
-
-                        <div class="service-price">
-
-                            PKR 2,500 – 4,000
-
-                        </div>
-
-                        <div class="service-rating">
-
-                            ★★★★★
-
-                            <span>4.9/5</span>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         SERVICE 04
-                    =========================== -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-
-                            <i class="fas fa-wifi"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Network Repair
-
-                        </h3>
-
-                        <p>
-
-                            Diagnose and resolve supported network issues with
-                            professional repair information and solution
-                            references.
-
-                        </p>
-
-                        <div class="service-price">
-
-                            PKR 2,500 – 3,500
-
-                        </div>
-
-                        <div class="service-rating">
-
-                            ★★★★★
-
-                            <span>4.9/5</span>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         SERVICE 05
-                    =========================== -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-
-                            <i class="fab fa-apple"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Apple Restore
-
-                        </h3>
-
-                        <p>
-
-                            DFU Mode, Recovery Mode, Restore, Activation,
-                            Backup, Firmware and software troubleshooting for
-                            Apple devices.
-
-                        </p>
-
-                        <div class="service-price">
-
-                            From PKR 1,500
-
-                        </div>
-
-                        <div class="service-rating">
-
-                            ★★★★★
-
-                            <span>4.9/5</span>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ==========================
-                         SERVICE 06
-                    =========================== -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-
-                            <i class="fas fa-shield-virus"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Cyber Security
-
-                        </h3>
-
-                        <p>
-
-                            Learn professional cyber security tools,
-                            methodologies and ethical security practices through
-                            TechFix Software EXP.
-
-                        </p>
-
-                        <div class="service-price">
-
-                            Contact TechFix
-
-                        </div>
-
-                        <div class="service-rating">
-
-                            ★★★★★
-
-                            <span>4.9/5</span>
-
-                        </div>
-
-                    </article>
-
-                </div>
+                </a>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- ==================================
-             SERVICES END
-        =================================== -->
+    </div>
 
-        <!-- ==================================
-             SOFTWARE SECTION START
-        =================================== -->
+</section>
 
-        <section id="software">
+<!--==============================
+FOOTER
+===============================-->
 
-            <div class="container">
+<footer class="footer">
 
-                <div class="section-heading">
+    <div class="container">
 
-                    <span class="section-tag">
+        <div class="footer-grid">
 
-                        Featured Software
+            <div>
 
-                    </span>
+                <img src="assets/images/logo.png"
+                     alt="TechFix Logo"
+                     class="footer-logo">
 
-                    <h2>
+                <h3>
 
-                        Official Mobile
-                        <span>Software Tools</span>
+                    TechFix Software EXP
 
-                    </h2>
+                </h3>
 
-                    <p>
+                <p>
 
-                        Popular software trusted by technicians around the
-                        world.
+                    Professional Mobile Software,
+                    Apple Solutions, Android Repair,
+                    Data Recovery and Cyber Security.
 
-                    </p>
-
-                </div>
-
-                <div class="software-grid">
-
-                    <!-- ==========================
-                         SOFTWARE CARD 01
-                    =========================== -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/3utools.png"
-                             alt="3uTools"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>3uTools</h3>
-
-                        <p>
-
-                            Professional iPhone management,
-                            flashing, backup and restore utility.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>Apple Tool</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="https://www.3u.com"
-                           target="_blank"
-                           rel="noopener"
-                           class="software-btn">
-
-                            Official Website
-
-                        </a>
-
-                    </article>
-
-                    <!-- SOFTWARE CARD 02 -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/itunes.png"
-                             alt="iTunes"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>iTunes</h3>
-
-                        <p>
-
-                            Official Apple software for restore,
-                            update, backup and device management.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>Apple</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="https://support.apple.com/itunes"
-                           target="_blank"
-                           rel="noopener"
-                           class="software-btn">
-
-                            Official Website
-
-                        </a>
-
-                    </article>
-
-                    <!-- SOFTWARE CARD 03 -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/imazing.png"
-                             alt="iMazing"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>iMazing</h3>
-
-                        <p>
-
-                            Advanced iOS management,
-                            backup and transfer software.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>iOS Utility</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="https://imazing.com"
-                           target="_blank"
-                           rel="noopener"
-                           class="software-btn">
-
-                            Official Website
-
-                        </a>
-
-                    </article>
-
-                    <!-- SOFTWARE CARD 04 -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/odin.png"
-                             alt="Odin"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>Odin Flash Tool</h3>
-
-                        <p>
-
-                            Samsung firmware flashing tool
-                            for supported Galaxy devices.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>Samsung</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="pages/downloads.html"
-                           class="software-btn">
-
-                            View Details
-
-                        </a>
-
-                    </article>
-
-                    <!-- SOFTWARE CARD 05 -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/spflashtool.png"
-                             alt="SP Flash Tool"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>SP Flash Tool</h3>
-
-                        <p>
-
-                            Official MediaTek flashing
-                            utility for compatible devices.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>MediaTek</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="pages/downloads.html"
-                           class="software-btn">
-
-                            View Details
-
-                        </a>
-
-                    </article>
-
-                    <!-- SOFTWARE CARD 06 -->
-
-                    <article class="software-card">
-
-                        <img src="assets/software/adb.png"
-                             alt="ADB Platform Tools"
-                             loading="lazy"
-                             onerror="this.src='assets/images/logo.png'">
-
-                        <h3>ADB Platform Tools</h3>
-
-                        <p>
-
-                            Official Android debugging,
-                            Fastboot and device management tools.
-
-                        </p>
-
-                        <div class="software-meta">
-
-                            <span>Android</span>
-
-                            <span>★★★★★ 4.9/5</span>
-
-                        </div>
-
-                        <a href="pages/downloads.html"
-                           class="software-btn">
-
-                            View Details
-
-                        </a>
-
-                    </article>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+            <div>
 
-        <!-- ==================================
-             SOFTWARE SECTION END
-        =================================== -->
+                <h4>
 
-        <!-- ==================================
-             CALL TO ACTION START
-        =================================== -->
+                    Quick Links
 
-        <section id="cta">
+                </h4>
 
-            <div class="container">
+                <ul>
 
-                <div class="cta-wrapper">
-                    <div class="cta-content">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mobiles.html">Mobiles</a></li>
+                    <li><a href="android.html">Android</a></li>
+                    <li><a href="apple.html">Apple</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="cyber-security.html">Cyber Security</a></li>
+                    <li><a href="contact.html">Contact</a></li>
 
-                        <span class="section-tag">
-
-                            Need Professional Help?
-
-                        </span>
-
-                        <h2>
-
-                            Get Professional Mobile
-                            Software Solutions
-                            From
-
-                            <span>
-
-                                TechFix Software EXP
-
-                            </span>
-
-                        </h2>
-
-                        <p>
-
-                            We provide professional Android and Apple
-                            software guidance, firmware resources,
-                            repair solutions, official software links,
-                            cyber security learning information and
-                            technical support.
-
-                        </p>
-
-                        <div class="cta-buttons">
-
-                            <a href="https://wa.me/966568152404"
-                               target="_blank"
-                               rel="noopener"
-                               class="btn btn-primary">
-
-                                <i class="fab fa-whatsapp"></i>
-
-                                Chat on WhatsApp
-
-                            </a>
-
-                            <a href="pages/contact.html"
-                               class="btn btn-secondary">
-
-                                <i class="fas fa-envelope"></i>
-
-                                Contact Us
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cta-image">
-
-                        <img src="assets/images/logo.png"
-                             alt="TechFix Logo"
-                             loading="lazy">
-
-                    </div>
-
-                </div>
+                </ul>
 
             </div>
 
-        </section>
+            <div>
 
-        <!-- ==================================
-             CTA END
-        =================================== -->
+                <h4>
 
-        <!-- ==================================
-             SOCIAL SECTION START
-        =================================== -->
+                    Contact
 
-        <section id="social">
+                </h4>
 
-            <div class="container">
+                <p>
 
-                <div class="section-heading">
+                    WhatsApp<br>
+                    +966568152404
 
-                    <span class="section-tag">
+                </p>
 
-                        Follow TechFix
+                <p>
 
-                    </span>
+                    Founder<br>
+                    MIAN AHMAD
 
-                    <h2>
-
-                        Connect With
-                        <span>Our Community</span>
-
-                    </h2>
-
-                    <p>
-
-                        Stay connected for the latest software,
-                        firmware, repair solutions and educational
-                        content.
-
-                    </p>
-
-                </div>
-
-                <div class="social-grid">
-
-                    <a href="https://www.youtube.com/@TechfixSoftwareEXP"
-                       target="_blank"
-                       rel="noopener"
-                       class="social-card">
-
-                        <i class="fab fa-youtube"></i>
-
-                        <h3>YouTube</h3>
-
-                        <span>@TechfixSoftwareEXP</span>
-
-                    </a>
-
-                    <a href="https://www.facebook.com/share/1cNqqiHZ4X/"
-                       target="_blank"
-                       rel="noopener"
-                       class="social-card">
-
-                        <i class="fab fa-facebook-f"></i>
-
-                        <h3>Facebook</h3>
-
-                        <span>Official Page</span>
-
-                    </a>
-
-                    <a href="https://www.tiktok.com/@techfixexp?_r=1&_t=ZP-98BFhHxqpXb"
-                       target="_blank"
-                       rel="noopener"
-                       class="social-card">
-
-                        <i class="fab fa-tiktok"></i>
-
-                        <h3>TikTok</h3>
-
-                        <span>@techfixexp</span>
-
-                    </a>
-
-                    <a href="https://github.com/officialtechfix786"
-                       target="_blank"
-                       rel="noopener"
-                       class="social-card">
-
-                        <i class="fab fa-github"></i>
-
-                        <h3>GitHub</h3>
-
-                        <span>officialtechfix786</span>
-
-                    </a>
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- ==================================
-             SOCIAL SECTION END
-        =================================== -->
+        <div class="footer-bottom">
 
-        <!-- ==================================
-             FOOTER START
-        =================================== -->
+            <p>
 
-        <footer id="footer">
+                © 2026 TechFix Software EXP.
+                All Rights Reserved.
 
-            <div class="container">
+            </p>
 
-                <div class="footer-grid">
+        </div>
 
-                    <!-- ==========================
-                         FOOTER COLUMN 01
-                    =========================== -->
+    </div>
 
-                    <div class="footer-column">
+</footer>
 
-                        <a href="index.html"
-                           class="footer-logo">
+<!--==============================
+JAVASCRIPT
+===============================-->
 
-                            <img src="assets/images/logo.png"
-                                 alt="TechFix Logo">
+<script src="assets/js/database/brands.js"></script>
+<script src="assets/js/database/mobiles.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/main.js"></script>
 
-                            <div>
+</body>
+</html>
+<!--====================================
+PROFESSIONAL SOLUTIONS
+=====================================-->
 
-                                <h2>TechFix</h2>
+<section class="solutions">
 
-                                <span>Software EXP v11</span>
+    <div class="container">
 
-                            </div>
+        <div class="section-title">
 
-                        </a>
+            <span>
 
-                        <p>
+                PROFESSIONAL SOLUTIONS
 
-                            TechFix Software EXP is a professional mobile
-                            software platform providing Android & Apple
-                            solutions, firmware resources, official software,
-                            repair information and cyber security learning.
+            </span>
 
-                        </p>
+            <h2>
 
-                    </div>
+                Complete Mobile Software Platform
 
-                    <!-- ==========================
-                         FOOTER COLUMN 02
-                    =========================== -->
+            </h2>
 
-                    <div class="footer-column">
+            <p>
 
-                        <h3>
+                Everything required for professional mobile repairing,
+                software servicing and advanced troubleshooting.
 
-                            Quick Links
+            </p>
 
-                        </h3>
+        </div>
 
-                        <ul>
+        <div class="solutions-grid">
 
-                            <li><a href="index.html">Home</a></li>
+            <!-- Card -->
 
-                            <li><a href="pages/mobiles.html">Mobiles</a></li>
+            <article class="solution-card">
 
-                            <li><a href="pages/android.html">Android</a></li>
+                <div class="solution-icon">
 
-                            <li><a href="pages/apple.html">Apple</a></li>
-
-                            <li><a href="pages/downloads.html">Downloads</a></li>
-
-                            <li><a href="pages/cyber-security.html">Cyber Security</a></li>
-
-                            <li><a href="pages/contact.html">Contact</a></li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- ==========================
-                         FOOTER COLUMN 03
-                    =========================== -->
-
-                    <div class="footer-column">
-
-                        <h3>
-
-                            Contact
-
-                        </h3>
-
-                        <ul>
-
-                            <li>
-
-                                <a href="mailto:officialtechfix786@gmail.com">
-
-                                    <i class="fas fa-envelope"></i>
-
-                                    officialtechfix786@gmail.com
-
-                                </a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="https://wa.me/966568152404"
-                                   target="_blank"
-                                   rel="noopener">
-
-                                    <i class="fab fa-whatsapp"></i>
-
-                                    +966568152404
-
-                                </a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="https://t.me/MIAN361"
-                                   target="_blank"
-                                   rel="noopener">
-
-                                    <i class="fab fa-telegram"></i>
-
-                                    @MIAN361
-
-                                </a>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- ==========================
-                         FOOTER COLUMN 04
-                    =========================== -->
-
-                    <div class="footer-column">
-
-                        <h3>
-
-                            Follow Us
-
-                        </h3>
-
-                        <div class="footer-social">
-
-                            <a href="https://www.youtube.com/@TechfixSoftwareEXP"
-                               target="_blank"
-                               rel="noopener">
-
-                                <i class="fab fa-youtube"></i>
-
-                            </a>
-
-                            <a href="https://www.facebook.com/share/1cNqqiHZ4X/"
-                               target="_blank"
-                               rel="noopener">
-
-                                <i class="fab fa-facebook-f"></i>
-
-                            </a>
-
-                            <a href="https://www.tiktok.com/@techfixexp?_r=1&_t=ZP-98BFhHxqpXb"
-                               target="_blank"
-                               rel="noopener">
-
-                                <i class="fab fa-tiktok"></i>
-
-                            </a>
-
-                            <a href="https://github.com/officialtechfix786"
-                               target="_blank"
-                               rel="noopener">
-
-                                <i class="fab fa-github"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
+                    <i class="fa-solid fa-lock-open"></i>
 
                 </div>
 
-                <!-- ==========================
-                     COPYRIGHT
-                =========================== -->
+                <h3>
 
-                <div class="footer-bottom">
+                    FRP Unlock
 
-                    <p>
+                </h3>
 
-                        © 2026 TechFix Software EXP v11.
-                        All Rights Reserved.
+                <p>
 
-                    </p>
+                    Samsung, Xiaomi, Vivo,
+                    Oppo, Realme, Tecno,
+                    Infinix, Motorola,
+                    Nokia and Huawei.
 
-                    <p>
+                </p>
 
-                        Designed & Developed by
+            </article>
 
-                        <strong>
+            <!-- Card -->
 
-                            MIAN AHMAD
+            <article class="solution-card">
 
-                        </strong>
+                <div class="solution-icon">
 
-                    </p>
+                    <i class="fa-solid fa-microchip"></i>
 
                 </div>
+
+                <h3>
+
+                    Firmware Flashing
+
+                </h3>
+
+                <p>
+
+                    Official Firmware,
+                    Scatter Files,
+                    OFP,
+                    XML,
+                    PAC,
+                    CPB,
+                    KDZ
+                    and more.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                </div>
+
+                <h3>
+
+                    Boot Repair
+
+                </h3>
+
+                <p>
+
+                    Bootloop,
+                    Logo Fix,
+                    Dead Boot,
+                    Fastboot,
+                    Recovery
+                    and EDL solutions.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-solid fa-sim-card"></i>
+
+                </div>
+
+                <h3>
+
+                    IMEI Repair
+
+                </h3>
+
+                <p>
+
+                    Qualcomm,
+                    MTK,
+                    SPD,
+                    Exynos
+                    and Kirin
+                    supported methods.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-solid fa-wifi"></i>
+
+                </div>
+
+                <h3>
+
+                    Network Repair
+
+                </h3>
+
+                <p>
+
+                    Unknown Baseband,
+                    Null IMEI,
+                    No Signal,
+                    Emergency Calls Only,
+                    Carrier Unlock.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-solid fa-hard-drive"></i>
+
+                </div>
+
+                <h3>
+
+                    Data Recovery
+
+                </h3>
+
+                <p>
+
+                    Photos,
+                    Videos,
+                    Contacts,
+                    WhatsApp,
+                    Internal Storage
+                    Recovery.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-brands fa-android"></i>
+
+                </div>
+
+                <h3>
+
+                    Android Software
+
+                </h3>
+
+                <p>
+
+                    ADB,
+                    Fastboot,
+                    Recovery,
+                    Odin,
+                    Mi Flash,
+                    QFIL,
+                    SP Flash Tool.
+
+                </p>
+
+            </article>
+
+            <!-- Card -->
+
+            <article class="solution-card">
+
+                <div class="solution-icon">
+
+                    <i class="fa-brands fa-apple"></i>
+
+                </div>
+
+                <h3>
+
+                    Apple Repair
+
+                </h3>
+
+                <p>
+
+                    DFU,
+                    Restore,
+                    Recovery Mode,
+                    iCloud,
+                    Activation,
+                    Face ID,
+                    Touch ID.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT : ANDROID DEVICES -->
+<!--====================================
+ANDROID SOLUTIONS
+=====================================-->
+
+<section class="android-showcase">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                ANDROID DEVICES
+
+            </span>
+
+            <h2>
+
+                Supported Android Brands
+
+            </h2>
+
+            <p>
+
+                Select your smartphone brand to view firmware,
+                FRP, flashing, unlocking and repair solutions.
+
+            </p>
+
+        </div>
+
+        <div class="android-grid">
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/samsung.png" alt="Samsung">
+
+                <h3>Samsung</h3>
+
+                <span>Galaxy Series</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/xiaomi.png" alt="Xiaomi">
+
+                <h3>Xiaomi</h3>
+
+                <span>Mi • Redmi • Poco</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/vivo.png" alt="Vivo">
+
+                <h3>Vivo</h3>
+
+                <span>Y • V • X Series</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/oppo.png" alt="Oppo">
+
+                <h3>OPPO</h3>
+
+                <span>A • Reno • Find</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/realme.png" alt="Realme">
+
+                <h3>Realme</h3>
+
+                <span>C • Narzo • GT</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/infinix.png" alt="Infinix">
+
+                <h3>Infinix</h3>
+
+                <span>Hot • Note • Zero</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/tecno.png" alt="Tecno">
+
+                <h3>Tecno</h3>
+
+                <span>Spark • Camon • Pova</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/huawei.png" alt="Huawei">
+
+                <h3>Huawei</h3>
+
+                <span>P • Mate • Nova</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/honor.png" alt="Honor">
+
+                <h3>Honor</h3>
+
+                <span>X • Magic • Play</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/oneplus.png" alt="OnePlus">
+
+                <h3>OnePlus</h3>
+
+                <span>Nord • Number Series</span>
+
+            </a>
+
+            <a href="mobiles.html" class="android-card">
+
+                <img src="assets/images/brands/google.png" alt="Google">
+
+                <h3>Google Pixel</h3>
+
+                <span>Pixel Devices</span>
+
+            </a>
+
+            <a href="android.html" class="android-card view-all-card">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+                <h3>View All</h3>
+
+                <span>All Android Devices</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+LIVE PLATFORM STATS
+=====================================-->
+
+<section class="platform-stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+
+                <h2>500+</h2>
+
+                <p>Supported Devices</p>
 
             </div>
 
-        </footer>
+            <div class="stat-box">
 
-    </main>
+                <h2>1500+</h2>
 
-    <!-- ==========================================
-         FLOATING WHATSAPP BUTTON
-    =========================================== -->
+                <p>Software Solutions</p>
 
-    <a href="https://wa.me/966568152404"
-       class="floating-whatsapp"
-       target="_blank"
-       rel="noopener"
-       aria-label="Chat on WhatsApp">
+            </div>
 
-        <i class="fab fa-whatsapp"></i>
+            <div class="stat-box">
 
-    </a>
+                <h2>18+</h2>
 
-    <!-- ==========================================
-         FLOATING EMAIL BUTTON
-    =========================================== -->
+                <p>Mobile Brands</p>
 
-    <a href="mailto:officialtechfix786@gmail.com"
-       class="floating-email"
-       aria-label="Send Email">
+            </div>
 
-        <i class="fas fa-envelope"></i>
+            <div class="stat-box">
 
-    </a>
+                <h2>24/7</h2>
 
-    <!-- ==========================================
-         JAVASCRIPT FILES
-    =========================================== -->
+                <p>Technical Support</p>
 
-    <script src="assets/database/mobiles.js"></script>
+            </div>
 
-    <script src="assets/database/software.js"></script>
+        </div>
 
-    <script src="assets/database/solutions.js"></script>
+    </div>
 
-    <script src="assets/database/prices.js"></script>
+</section>
 
-    <script src="assets/database/search.js"></script>
+<!-- NEXT : APPLE SOLUTIONS -->
+<!--====================================
+APPLE SOLUTIONS
+=====================================-->
 
-    <script src="assets/js/main.js"></script>
+<section class="apple-solutions">
 
-    <script src="assets/js/navigation.js"></script>
+    <div class="container">
 
-    <script src="assets/js/search.js"></script>
+        <div class="section-title">
 
-    <script src="assets/js/counters.js"></script>
+            <span>
 
-    <script src="assets/js/animations.js"></script>
+                APPLE ECOSYSTEM
 
-    <script src="assets/js/backtotop.js"></script>
+            </span>
 
-    <script src="assets/js/preloader.js"></script>
+            <h2>
 
-    <script src="assets/js/theme-effects.js"></script>
+                Professional Apple Repair Solutions
+
+            </h2>
+
+            <p>
+
+                Complete software support for iPhone, iPad, Apple Watch
+                and macOS devices.
+
+            </p>
+
+        </div>
+
+        <div class="apple-grid">
+
+            <article class="apple-card">
+
+                <i class="fa-brands fa-apple"></i>
+
+                <h3>
+
+                    iPhone
+
+                </h3>
+
+                <p>
+
+                    Restore, Update,
+                    Recovery Mode,
+                    DFU Mode,
+                    Activation.
+
+                </p>
+
+            </article>
+
+            <article class="apple-card">
+
+                <i class="fa-solid fa-tablet-screen-button"></i>
+
+                <h3>
+
+                    iPad
+
+                </h3>
+
+                <p>
+
+                    Restore,
+                    Firmware,
+                    Recovery,
+                    Unlock
+                    and Diagnostics.
+
+                </p>
+
+            </article>
+
+            <article class="apple-card">
+
+                <i class="fa-solid fa-cloud"></i>
+
+                <h3>
+
+                    iCloud
+
+                </h3>
+
+                <p>
+
+                    Activation,
+                    Backup,
+                    Sync,
+                    Apple ID
+                    Guidance.
+
+                </p>
+
+            </article>
+
+            <article class="apple-card">
+
+                <i class="fa-solid fa-face-smile"></i>
+
+                <h3>
+
+                    Face ID
+
+                </h3>
+
+                <p>
+
+                    Diagnostics,
+                    Calibration
+                    and Repair
+                    Information.
+
+                </p>
+
+            </article>
+
+            <article class="apple-card">
+
+                <i class="fa-solid fa-fingerprint"></i>
+
+                <h3>
+
+                    Touch ID
+
+                </h3>
+
+                <p>
+
+                    Home Button,
+                    Fingerprint,
+                    Security
+                    Solutions.
+
+                </p>
+
+            </article>
+
+            <article class="apple-card">
+
+                <i class="fa-solid fa-laptop"></i>
+
+                <h3>
+
+                    macOS
+
+                </h3>
+
+                <p>
+
+                    Recovery,
+                    Installation,
+                    Utilities,
+                    Boot Support.
+
+                </p>
+
+            </article>
+
+        </div>
+
+        <div class="center-btn">
+
+            <a href="apple.html"
+               class="btn">
+
+                Explore Apple Solutions
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+FEATURED SERVICES
+=====================================-->
+
+<section class="featured-services">
+
+    <div class="container">
+
+        <div class="service-banner">
+
+            <div>
+
+                <h2>
+
+                    Professional Mobile Software Services
+
+                </h2>
+
+                <p>
+
+                    FRP Unlock • Flash Files • Firmware • IMEI Repair •
+                    Network Repair • Data Recovery • Apple Repair
+
+                </p>
+
+            </div>
+
+            <a href="contact.html"
+               class="btn">
+
+                Contact Expert
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT : DATA RECOVERY -->
+<!--====================================
+DATA RECOVERY
+=====================================-->
+
+<section class="data-recovery">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                DATA RECOVERY
+
+            </span>
+
+            <h2>
+
+                Recover Your Important Data
+
+            </h2>
+
+            <p>
+
+                Professional recovery solutions for Android,
+                iPhone, memory cards and damaged devices.
+
+            </p>
+
+        </div>
+
+        <div class="recovery-grid">
+
+            <article class="recovery-card">
+
+                <i class="fa-solid fa-image"></i>
+
+                <h3>
+
+                    Photos Recovery
+
+                </h3>
+
+                <p>
+
+                    Deleted images,
+                    screenshots,
+                    camera photos.
+
+                </p>
+
+            </article>
+
+            <article class="recovery-card">
+
+                <i class="fa-solid fa-video"></i>
+
+                <h3>
+
+                    Videos Recovery
+
+                </h3>
+
+                <p>
+
+                    Deleted videos,
+                    recordings
+                    and media files.
+
+                </p>
+
+            </article>
+
+            <article class="recovery-card">
+
+                <i class="fa-solid fa-address-book"></i>
+
+                <h3>
+
+                    Contacts Recovery
+
+                </h3>
+
+                <p>
+
+                    Restore contacts,
+                    phonebook
+                    and call history.
+
+                </p>
+
+            </article>
+
+            <article class="recovery-card">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <h3>
+
+                    WhatsApp Data
+
+                </h3>
+
+                <p>
+
+                    Chats,
+                    media,
+                    backups
+                    and documents.
+
+                </p>
+
+            </article>
+
+            <article class="recovery-card">
+
+                <i class="fa-solid fa-file"></i>
+
+                <h3>
+
+                    Documents
+
+                </h3>
+
+                <p>
+
+                    PDF,
+                    Word,
+                    Excel,
+                    ZIP and more.
+
+                </p>
+
+            </article>
+
+            <article class="recovery-card">
+
+                <i class="fa-solid fa-database"></i>
+
+                <h3>
+
+                    Internal Storage
+
+                </h3>
+
+                <p>
+
+                    Memory recovery,
+                    damaged storage
+                    solutions.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+CYBER SECURITY
+=====================================-->
+
+<section class="cyber-security-home">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                CYBER SECURITY
+
+            </span>
+
+            <h2>
+
+                Learn Ethical Hacking & Security
+
+            </h2>
+
+            <p>
+
+                Professional learning resources,
+                security tools and penetration testing.
+
+            </p>
+
+        </div>
+
+        <div class="cyber-grid">
+
+            <div class="cyber-card">
+
+                <i class="fa-brands fa-linux"></i>
+
+                <h3>
+
+                    Kali Linux
+
+                </h3>
+
+            </div>
+
+            <div class="cyber-card">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                <h3>
+
+                    Nmap
+
+                </h3>
+
+            </div>
+
+            <div class="cyber-card">
+
+                <i class="fa-solid fa-bug"></i>
+
+                <h3>
+
+                    Burp Suite
+
+                </h3>
+
+            </div>
+
+            <div class="cyber-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>
+
+                    Wireshark
+
+                </h3>
+
+            </div>
+
+            <div class="cyber-card">
+
+                <i class="fa-solid fa-terminal"></i>
+
+                <h3>
+
+                    Metasploit
+
+                </h3>
+
+            </div>
+
+            <div class="cyber-card">
+
+                <i class="fa-solid fa-user-secret"></i>
+
+                <h3>
+
+                    Security Labs
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="center-btn">
+
+            <a href="cyber-security.html"
+               class="btn">
+
+                Explore Cyber Security
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT : FEATURED DOWNLOADS -->
+<!--====================================
+FEATURED DOWNLOADS
+=====================================-->
+
+<section class="featured-downloads">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                DOWNLOAD CENTER
+
+            </span>
+
+            <h2>
+
+                Most Popular Downloads
+
+            </h2>
+
+            <p>
+
+                Download the latest firmware,
+                flash tools, USB drivers,
+                unlock utilities and repair software.
+
+            </p>
+
+        </div>
+
+        <div class="download-grid">
+
+            <article class="download-item">
+
+                <i class="fa-solid fa-download"></i>
+
+                <h3>
+
+                    Samsung Firmware
+
+                </h3>
+
+                <p>
+
+                    Official ROMs and flashing files.
+
+                </p>
+
+                <a href="downloads.html">
+
+                    Download
+
+                </a>
+
+            </article>
+
+            <article class="download-item">
+
+                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                <h3>
+
+                    SP Flash Tool
+
+                </h3>
+
+                <p>
+
+                    MediaTek flashing utility.
+
+                </p>
+
+                <a href="downloads.html">
+
+                    Download
+
+                </a>
+
+            </article>
+
+            <article class="download-item">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>
+
+                    Qualcomm Tools
+
+                </h3>
+
+                <p>
+
+                    QFIL, QPST and drivers.
+
+                </p>
+
+                <a href="downloads.html">
+
+                    Download
+
+                </a>
+
+            </article>
+
+            <article class="download-item">
+
+                <i class="fa-solid fa-terminal"></i>
+
+                <h3>
+
+                    ADB & Fastboot
+
+                </h3>
+
+                <p>
+
+                    Latest platform tools.
+
+                </p>
+
+                <a href="downloads.html">
+
+                    Download
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+LATEST PROFESSIONAL TOOLS
+=====================================-->
+
+<section class="latest-tools">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                PROFESSIONAL TOOLS
+
+            </span>
+
+            <h2>
+
+                Mobile Repair Toolbox
+
+            </h2>
+
+        </div>
+
+        <div class="tools-grid">
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <h3>Unlock Tool</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-wrench"></i>
+
+                <h3>UMT Pro</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>CM2 Dongle</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>Hydra Tool</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-unlock-keyhole"></i>
+
+                <h3>Android Utility</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-gears"></i>
+
+                <h3>Fastboot Tools</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+                <h3>ADB Toolkit</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>Security Tools</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT : FAQ + TESTIMONIALS -->
+<!--====================================
+FREQUENTLY ASKED QUESTIONS
+=====================================-->
+
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                FAQ
+
+            </span>
+
+            <h2>
+
+                Frequently Asked Questions
+
+            </h2>
+
+            <p>
+
+                Common questions about firmware,
+                flashing, FRP and mobile software.
+
+            </p>
+
+        </div>
+
+        <div class="faq-grid">
+
+            <div class="faq-item">
+
+                <h3>
+
+                    What is FRP Unlock?
+
+                </h3>
+
+                <p>
+
+                    Factory Reset Protection removal
+                    after Google account verification.
+
+                </p>
+
+            </div>
+
+            <div class="faq-item">
+
+                <h3>
+
+                    Is flashing safe?
+
+                </h3>
+
+                <p>
+
+                    Yes, when official firmware
+                    and correct procedures are used.
+
+                </p>
+
+            </div>
+
+            <div class="faq-item">
+
+                <h3>
+
+                    Can bootloop be repaired?
+
+                </h3>
+
+                <p>
+
+                    Most software bootloop problems
+                    can be repaired by reflashing.
+
+                </p>
+
+            </div>
+
+            <div class="faq-item">
+
+                <h3>
+
+                    Do you support Apple devices?
+
+                </h3>
+
+                <p>
+
+                    Yes, iPhone, iPad,
+                    DFU, Restore and Recovery.
+
+                </p>
+
+            </div>
+
+            <div class="faq-item">
+
+                <h3>
+
+                    Are downloads free?
+
+                </h3>
+
+                <p>
+
+                    Many tools and resources
+                    are available free.
+
+                </p>
+
+            </div>
+
+            <div class="faq-item">
+
+                <h3>
+
+                    Can deleted photos be recovered?
+
+                </h3>
+
+                <p>
+
+                    Recovery depends on
+                    storage condition and overwrite.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+TESTIMONIALS
+=====================================-->
+
+<section class="testimonials">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                COMMUNITY
+
+            </span>
+
+            <h2>
+
+                Trusted By Mobile Technicians
+
+            </h2>
+
+        </div>
+
+        <div class="testimonial-grid">
+
+            <article class="testimonial-card">
+
+                <div class="stars">
+
+                    ★★★★★
+
+                </div>
+
+                <p>
+
+                    Excellent firmware collection
+                    and very clean interface.
+
+                </p>
+
+                <h4>
+
+                    Mobile Technician
+
+                </h4>
+
+            </article>
+
+            <article class="testimonial-card">
+
+                <div class="stars">
+
+                    ★★★★★
+
+                </div>
+
+                <p>
+
+                    FRP and flashing guides
+                    are easy to follow.
+
+                </p>
+
+                <h4>
+
+                    Android Engineer
+
+                </h4>
+
+            </article>
+
+            <article class="testimonial-card">
+
+                <div class="stars">
+
+                    ★★★★★
+
+                </div>
+
+                <p>
+
+                    One platform for Android,
+                    Apple and repair resources.
+
+                </p>
+
+                <h4>
+
+                    Service Center
+
+                </h4>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEXT : NEWSLETTER -->
+<!--====================================
+NEWSLETTER
+=====================================-->
+
+<section class="newsletter">
+
+    <div class="container">
+
+        <div class="newsletter-box">
+
+            <div class="newsletter-content">
+
+                <span>
+
+                    STAY UPDATED
+
+                </span>
+
+                <h2>
+
+                    Subscribe For Latest Mobile Updates
+
+                </h2>
+
+                <p>
+
+                    Receive notifications about new firmware,
+                    flash tools, repair solutions,
+                    Apple updates and Android software.
+
+                </p>
+
+            </div>
+
+            <form class="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    required>
+
+                <button
+                    type="submit"
+                    class="btn">
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+FOLLOW TECHFIX
+=====================================-->
+
+<section class="social-media">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+
+                FOLLOW US
+
+            </span>
+
+            <h2>
+
+                Join TechFix Community
+
+            </h2>
+
+            <p>
+
+                Follow TechFix Software EXP for
+                latest firmware,
+                mobile repair tips
+                and software updates.
+
+            </p>
+
+        </div>
+
+        <div class="social-grid">
+
+            <a href="https://youtube.com/@techfixsoftwareexp?si=5WDDCAeIeMO1RYxZ"
+               target="_blank"
+               class="social-card youtube">
+
+                <i class="fa-brands fa-youtube"></i>
+
+                <h3>
+
+                    YouTube
+
+                </h3>
+
+                <span>
+
+                    Tutorials & Guides
+
+                </span>
+
+            </a>
+
+            <a href="https://www.facebook.com/share/1BPnTyc7Gm/"
+               target="_blank"
+               class="social-card facebook">
+
+                <i class="fa-brands fa-facebook-f"></i>
+
+                <h3>
+
+                    Facebook
+
+                </h3>
+
+                <span>
+
+                    Latest Updates
+
+                </span>
+
+            </a>
+
+            <a href="https://www.tiktok.com/@techfixexp?_r=1&_t=ZP-983oUpkYdEl"
+               target="_blank"
+               class="social-card tiktok">
+
+                <i class="fa-brands fa-tiktok"></i>
+
+                <h3>
+
+                    TikTok
+
+                </h3>
+
+                <span>
+
+                    Quick Tips
+
+                </span>
+
+            </a>
+
+            <a href="contact.html"
+               class="social-card whatsapp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <h3>
+
+                    WhatsApp
+
+                </h3>
+
+                <span>
+
+                    Direct Support
+
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================
+BACK TO TOP
+=====================================-->
+
+<button
+    id="backToTop"
+    class="back-to-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- NEXT : MOBILE MENU + SEARCH MODAL -->
+<!--====================================
+MOBILE MENU
+=====================================-->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-header">
+
+        <img src="assets/images/logo.png"
+             alt="TechFix">
+
+        <button id="closeMenu">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="mobiles.html">
+                Mobiles
+            </a>
+        </li>
+
+        <li>
+            <a href="android.html">
+                Android
+            </a>
+        </li>
+
+        <li>
+            <a href="apple.html">
+                Apple
+            </a>
+        </li>
+
+        <li>
+            <a href="downloads.html">
+                Downloads
+            </a>
+        </li>
+
+        <li>
+            <a href="cyber-security.html">
+                Cyber Security
+            </a>
+        </li>
+
+        <li>
+            <a href="contact.html">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<div id="mobileOverlay"
+     class="mobile-overlay">
+
+</div>
+
+<!--====================================
+SEARCH MODAL
+=====================================-->
+
+<div class="search-modal"
+     id="searchModal">
+
+    <div class="search-modal-box">
+
+        <button id="closeSearch">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h2>
+
+            Search TechFix
+
+        </h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search mobiles, firmware, FRP, Apple, Android...">
+
+        <div id="searchResults">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--====================================
+PAGE LOADER
+=====================================-->
+
+<div id="pageLoader"
+     class="page-loader">
+
+    <div class="loader-box">
+
+        <img src="assets/images/logo.png"
+             alt="TechFix">
+
+        <h2>
+
+            TechFix Software EXP
+
+        </h2>
+
+        <div class="loader-line">
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--====================================
+BACKGROUND EFFECTS
+=====================================-->
+
+<div class="bg-grid"></div>
+
+<div class="bg-glow glow-one"></div>
+
+<div class="bg-glow glow-two"></div>
+
+<div class="bg-glow glow-three"></div>
+
+<!--====================================
+END OF PAGE
+=====================================-->
+
+<script src="assets/js/database/brands.js"></script>
+
+<script src="assets/js/database/mobiles.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/main.js"></script>
 
 </body>
 
